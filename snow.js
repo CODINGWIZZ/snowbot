@@ -58,20 +58,14 @@ bot.on("ready", async () => {
     
     let snowrandom = Math.floor((Math.random()) * snowmessages.length);
 
-//     bot.user.setActivity("SNOW ❆");
+    bot.user.setActivity("SNOW ❆");
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
     // bot.user.setActivity("EUROVISION FINAL!", { type: "WATCHING"});
     
     //bot.user.setGame("WIZZ | SNOW ❆", "https://twitch.tv/WIZZ_SNOW");
-    
-    setInterval(function() {
-        
-          bot.user.setActivity(snowmessages[snowrandom]);
-        
-    }, 20000);
-    
+  
 });
 
 bot.on("message", async message => {
