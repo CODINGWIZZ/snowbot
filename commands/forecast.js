@@ -26,15 +26,17 @@ module.exports.run = async (bot, message, args) => {
                 Sunday: "SUNDAY"
 
             };
+
+            let makeURL1 = (city) => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(city)}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
+            const res = await got(makeURL1(args.join(" ")), { json: true });
             
+                        
             const weatherInfo = res.body.query.results.channel;
             const forecast = weatherInfo.item.forecast[0];
 
             weather.find({search: args.join(" "), degreeType: "F"}, function(err, result) {
                 //if (err) message.channel.send(err);
 
-            let makeURL1 = (city) => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(city)}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
-            const res = await got(makeURL1(args.join(" ")), { json: true });
             
             message.channel.send("THE FORECAST IS BEING REQUESTED **...**").then((snow) => {
 
