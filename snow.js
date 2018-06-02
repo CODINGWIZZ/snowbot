@@ -320,39 +320,55 @@ bot.on("message", async message => {
     }
 
     // SEARCH / GOOGLE
-    if(cmd === `${prefix}search`) {
+   // if(cmd === `${prefix}search`) {
 
-        let googleMessage = args.join(" ");
-        if(!googleMessage) return message.channel.send("PLEASE ENTER A MESSSAGE YOU WAN TO SEARCH FOR**!**");
+       // let googleMessage = args.join(" ");
+     //   if(!googleMessage) return message.channel.send("PLEASE ENTER A MESSSAGE YOU WAN TO SEARCH FOR**!**");
 
-        message.channel.send("SEARCHING **...**").then(searchMessage => {
+        //message.channel.send("SEARCHING **...**").then(searchMessage => {
 
-        let searchUrl = `https://www.google.com/search?q=${encodeURIComponent(googleMessage)}`;
-        return snekfetch.get(searchUrl).then((result) => {
+        //let searchUrl = `https://www.google.com/search?q=${encodeURIComponent(googleMessage)}`;
+        //return snekfetch.get(searchUrl).then((result) => {
 
-            let $ = cheerio.load(result.text);
+          //  let $ = cheerio.load(result.text);
 
-            let googleData = $('.r').first().find('a').first().attr('href');
+            //let googleData = $('.r').first().find('a').first().attr('href');
 
-            googleData = querystring.parse(googleData.replace('/url?', ''));
-            return searchMessage.edit(`RESULT FOUND**!**\n${googleData.q}`).then(msg => msg.delete(20000));
+           // googleData = querystring.parse(googleData.replace('/url?', ''));
+          //  return searchMessage.edit(`RESULT FOUND**!**\n${googleData.q}`).then(msg => msg.delete(20000));
 
-        }).catch((err) => {
-            return message.channel.send("NO RESULTS FOUND**!**");
-        });
-        });
-        }
+        // }).catch((err) => {
+           // return message.channel.send("NO RESULTS FOUND**!**");
+        // });
+        // });
+        // }
 
         // FLIP A COIN
-        if(cmd === `${prefix}flipcoin` || cmd === `${prefix}coin`) {
+        // if(cmd === `${prefix}flipcoin` || cmd === `${prefix}coin`) {
 
-            let coin = ["HEADS", "TAILS"];
+           // let coin = ["HEADS", "TAILS"];
 
-            let coinrandom = Math.floor((Math.random()) * coin.length);
+            // let coinrandom = Math.floor((Math.random()) * coin.length);
 
-            return message.channel.send("**" + message.author.username + ",** I CHOOSE **" + coin[coinrandom] + "!**");
+            // return message.channel.send("**" + message.author.username + ",** I CHOOSE **" + coin[coinrandom] + "!**");
 
-        }
+        //}
+    
+    if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
+        
+        let google = encode(args.join(" "));
+        
+        message.channel.send("SEARCHING **...**").then(googleMessage => {
+       
+        if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
+        
+        let googleLink = `https://google.com/search?q=${google}`;
+            
+        return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)
+            
+        });
+        
+    }
 
     // CHECK A CITY'S FLAG
     // if(cmd === `${prefix}flag`) {
