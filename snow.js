@@ -486,7 +486,7 @@ if(cmd === `${prefix}rps`) {
     .setAuthor(avatar.username + "  /  AVATAR ❆")
     .setTitle("[DOWNLOAD]")
     .setURL(avatar.avatarURL)
-    .setImage(`https://cdn.discordapp.com/avatars/${avatar.id}/${encodeURIComponent}.png?size=512`)
+    .setImage(avatar.avatarURL)
     .setFooter("AVATAR | SNOW ❆", bot.user.displayAvatarURL);
 
     return message.channel.send(avatarEmbed);
