@@ -40,18 +40,17 @@ module.exports.run = async (bot, message, args) => {
         //     28: ":white_sun_cloud:"
     
         // };
+        
+        const weatherInfo = res.bod.query.results.channel;
+        const forecast = weatherInfo.item.forecast[0];
+    
+        weather.find({search: args.join(" "), degreeType: "F"}, function(err, result) {
     
         message.channel.send("THE WEATHER IS BEING REQUESTED **...**").then((snow) => {
     
         if (!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
         return snow.edit("COULDN'T CHECK WEATHER**!**");
         }
-    
-        const weatherInfo = res.bod.query.results.channel;
-        const forecast = weatherInfo.item.forecast[0];
-    
-        weather.find({search: args.join(" "), degreeType: "F"}, function(err, result) {
-    
     
         // if(!city) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK WEATHER FOR**!**");
     
