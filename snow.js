@@ -1059,6 +1059,8 @@ if(cmd === `${prefix}rps`) {
     
     if(cmd === `${prefix}fancy`) {
      
+       if(!args.join(" ")) return message.channel.send("PLEASE ENTER A FANCY MESSAGE**!**");
+        
        const splitting = {
          
            " " : "  "
