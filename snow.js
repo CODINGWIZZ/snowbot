@@ -53,10 +53,6 @@ bot.on("ready", async () => {
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} SERVERS!`);
   
     bot.user.setStatus("ONLINE");
-    
-    let snowmessages = ["SNOW ❆", "24/7 UPTIME", "SELFHOSTED!", "MADAE BY WIZZ"];
-    
-    let snowrandom = Math.floor((Math.random()) * snowmessages.length);
 
     bot.user.setActivity("SNOW ❆");
 
