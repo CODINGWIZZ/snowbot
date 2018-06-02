@@ -1056,6 +1056,20 @@ if(cmd === `${prefix}rps`) {
         });
 
     }
+    
+    if(cmd === `${prefix}fancy`) {
+     
+       const splitting = {
+         
+           " " : "  "
+           
+       };
+        
+        message.channel.send (
+            "**" + message.author.username + "** DID A FANCY MESSAGE THROUGH THE BOT**:**\n\n" + args.join(" ").split("").map(c => mapping[c] || c).join(" ");
+            )
+       
+    }
 
 });
 
