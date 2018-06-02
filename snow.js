@@ -1067,10 +1067,8 @@ if(cmd === `${prefix}rps`) {
            
        };
         
-        message.channel.send (
-            "**" + message.author.username + "** DID A FANCY MESSAGE THROUGH THE BOT**:**\n\n" + args.join(" ").split("").map(c => mapping[c] || c).join(" ");
-            )
-       
+        message.channel.send ("**" + message.author.username + "** DID A FANCY MESSAGE THROUGH THE BOT**:**\n\n" + args.join(" ").split("").map(c => mapping[c] || c).join(" "));
+      
     }
 
 });
