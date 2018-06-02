@@ -470,7 +470,7 @@ if(cmd === `${prefix}rps`) {
     .setAuthor(avatar.username + "  /  AVATAR ❆")
     .setTitle("[DOWNLOAD]")
     .setURL(avatar.avatarURL)
-    .setImage(avatar.avatarURL)
+    .setImage(`https://cdn.discordapp.com/avatars/`${avatar.id}`/e92fbe2ca5d88d655316fe5a7a2ec21a.png?size=512`)
     .setFooter("AVATAR | SNOW ❆", bot.user.displayAvatarURL);
 
     return message.channel.send(avatarEmbed);
