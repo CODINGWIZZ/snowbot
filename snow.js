@@ -137,7 +137,7 @@ bot.on("message", async message => {
         await(tmUser.addRole(muterole));        
         message.channel.send(`${tmUser} HAS BEEN **MUTED!**`);
 
-        let tempmutEmbed = new Discord.RichEmbed()
+        let tempmuteEmbed = new Discord.RichEmbed()
         .setTitle("TEMPMUTE ❆")
         .setTimestamp()
         .setColor(botconfig.blue)
