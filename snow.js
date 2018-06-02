@@ -214,7 +214,7 @@ bot.on("message", async message => {
             }
         }
 
-        if(tdUser.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
+        if(tdUser.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
 
                 
         await(tdUser.addRole(deafenrole.id));
@@ -858,82 +858,7 @@ if(cmd === `${prefix}rps`) {
     });
 
     }
-
-    // DEAFEN USER FOR A SPECIFIC TIME
-    if(cmd === `${prefix}deafen`) {
-
-    let toMute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-    // if(!permissions.has("MANAGE_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
-    if (!toMute) return message.channel.send("CAN'T FIND USER**!**");
-    if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T DEAFEN YOURSELF**!**");
-    if(toMute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE DEAFENED**!**");
-    if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT MUTE A MEMBER WHO IS IN A HIGHER OR HAS THE SAE ROLE AS YOU**!**");
-    let deafenrole = message.guild.roles.find(`name`, `DEAFENED / ❆`);
-    if(!deafenrole){
-        try{
-            deafenrole = await message.guild.createRole({
-                name: "DEAFENED / ❆",
-                color: "#65798d",
-                permissions: []
-            })
-            message.guild.channels.forEach(async (channel, id) => {
-                await channel.overwritePermissions(deafenrole, {
-                    SPEAK: false
-                });
-            });
-        }catch(e){
-            console.log(e.stack);
-        }
-    } 
-
-    let mutetime = args[1];
-    if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
-
-    if(toMute.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
-
-    await(toMute.addRole(deafenrole));
-    message.channel.send(`<@${toMute.id}> HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
-
-    if(toMute.deafenrole.has(role.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
-
-    let deafenembed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setTitle("DEAFEN ❆")
-    .setTimestamp()
-    .addField("USER", toMute)
-    .addField("MODERATOR", message.author)
-    .addField("CHANNEL", message.channel)
-    .addField("TIME", `${ms(ms(mutetime))}`)
-    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-    let snowlog = message.guild.channels.find(`name`, "snow-log");
-    if(!snow) return;
-
-    deafenchannel.send(deafenembed);
-
-    let autoundeafenEmbed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setTitle("UNDEAFEN ❆")
-    .setTimestamp()
-    .addField("USER", toMute)
-    .addField("MODERATOR", "<@417210018576990208>")
-    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-    let snowlog2 = message.guild.channels.find(`name`, "snow-log");
-    if(!snowlog2) return;
-
-    if(!toMute.roles.has(deafenrole)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
-
-    setTimeout(function() {
-        toMute.removeRole(deafenrole.id);
-        if(!toMute.roles.has(deafenrole.id)) return;
-        message.channel.send(`<@${toMute.id}> HAS BEEN **UNDEAFENED!**`)
-        snowlog2.send(autoundeafenEmbed);
-    }, ms(mutetime));
     
-    }
-
     // DOG COMMAND
     if(cmd === `${prefix}dog`) {
     
@@ -1022,81 +947,7 @@ if(cmd === `${prefix}rps`) {
     kickchannel.send(kickembed);
 
     }
-
-    // MUTE USER FOR A SPECIFIC TIME
-    if(cmd === `${prefix}mute`) {
-
-    let toMute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-    if (!toMute) return message.channel.send("CAN'T FIND USER**!**");
-    if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
-    if(toMute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
-    if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT MUTE A MEMBER WHO IS IN A HIGHER OR HAS THE SAME ROLE AS YOU**!**");
-    let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);
-    if(!muterole){
-        try{
-            muterole = await message.guild.createRole({
-                name: "MUTED / ❆",
-                color: "#65798d",
-                permissions: []
-            })
-            message.guild.channels.forEach(async (channel, id) => {
-                await channel.overwritePermissions(muterole, {
-                    SEND_MESSAGES: false,
-                    ADD_RECTIONS: false,
-                    SPEAK: false
-                });
-            });
-        }catch(e){
-            console.log(e.stack);
-        }
-    } 
-
-    let mutetime = args[1];
-    if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
-
-    if(toMute.roles.has(muterole)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
-
-    await(toMute.addRole(muterole));
-    message.channel.send(`<@${toMute.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}!**`);
-
-    let muteembed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setTitle("MUTE ❆")
-    .setTimestamp()
-    .addField("USER", toMute)
-    .addField("MODERATOR", message.author)
-    .addField("CHANNEL", message.channel)
-    .addField("TIME", `${ms(ms(mutetime))}`)
-    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-    let snowlog = message.guild.channels.find(`name`, "snow-log");
-    if(!snowlog) return;
-
-    mutechannel.send(muteembed);
-
-    let automuteembed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setTitle("UNMUTE ❆")
-    .setTimestamp()
-    .addField("USER", toMute)
-    .addField("MODERATOR", "<@417210018576990208>")
-    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-    let snowlog1 = message.guild.channels.find(`name`, "snow-log");
-    if(!snowlog1) return;
-
-    if(!toMute.roles.has(muterole)) return message.channel.send("THIS USER IS NOT MUTED**!**");
     
-    setTimeout(function() {
-        toMute.removeRole(muterole);
-        if(!toMute.roles.has(muterole)) return;
-        message.channel.send(`<@${toMute.id}> HAS BEEN **UNMUTED!**`)
-        snowlog1.send(automutechannel);
-    }, ms(mutetime));
-    
-    }
-
     // RANK - LEVEL COMMAND
     if (cmd === `${prefix}rank` || cmd === `${prefix}level`) {
 
