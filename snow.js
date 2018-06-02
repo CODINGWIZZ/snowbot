@@ -25,7 +25,29 @@ let xp = require("./xp.json");
 bot.commands = new Discord.Collection();
 let cooldown = new Set;
 let cdseconds = 5;
-const API_KEY = "dc6zaTOxFJmzC";
+
+// COMMAND HANDER
+fs.readdir("./commands/", (err, files) => {
+
+    if(err) console.log(err);
+
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0) {
+
+        console.log("NO COMMANDS!");
+        return;
+
+    }
+
+    jsfile.forEach((f, i) => {
+
+        let props = require(`./commands/${f}`);
+        console.log(`${f} loaded!`);
+        bot.commands.set(props.help.name, props);
+
+    });
+
+});
 
 bot.on("ready", async () => {
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} SERVERS!`);
@@ -498,66 +520,6 @@ bot.on("message", async message => {
             return message.channel.send("**" + message.author.username + ",** I CHOOSE **" + coin[coinrandom] + "!**");
 
         }
-
-        // CHECK FORECAST
-        if(cmd === `${prefix}forecast`) {   
-            
-            const forecastday = {
-
-                Monday: "MONDAY",
-                Tuesday: "TUESDAY",
-                Wednesday: "WEDNESDAY",
-                Thursday: "THURSDAY",
-                Friday: "FRIDAY",
-                Saturday: "SATURDAY",
-                Sunday: "SUNDAY"
-
-            };
-
-            let makeURL1 = (city) => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(city)}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
-
-            if(!args[0]) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK FORECAST FOR**!**");
-
-            const res = got(makeURL1(args.join(" ")), { json: true });
-
-            message.channel.send("THE FORECAST IS BEING REQUESTED **...**").then((snow) => {
-
-            if (!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
-                return message.channel.send("COULDN'T CHECK FORECAST**!**");
-              }
-
-            const weatherInfo = res.body.query.results.channel;
-            const forecast = weatherInfo.item.forecast[0];
-
-            weather.find({search: args.join(" "), degreeType: "F"}, function(err, result) {
-                //if (err) message.channel.send(err);
-
-            const city = args.join(" ");
-            if(!city) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK FORECAST FOR**!**");
-
-            const countryInfo = countries.find(country => country.name === weatherInfo.location.country);
-            const countryEmoji = countryInfo ? countryInfo.emoji : " ";
-
-            const celsius = (fahrenheit) => Math.round(((fahrenheit - 32) * 5) / 9);
-
-            var current = result[0].current;
-            var location = result[0].location;
-
-            let forecastEmbed = new Discord.RichEmbed()
-            .setColor(botconfig.blue)
-            .setAuthor("FORECAST   ☁")
-            .setTitle(`${countryEmoji}\n/\n${result[0].location.name}`)
-            .setTimestamp()
-            .setDescription("**" + forecastday[result[0].forecast[1].day] + "**\nLOW: " + celsius(result[0].forecast[1].low) + "**°C / ** "+ result[0].forecast[1].low + "**°F**\nHIGH: " + celsius(result[0].forecast[1].high) + "**°C / **" + result[0].forecast[1].high + "**°F**\n`" + result[0].forecast[1].skytextday + "`\n\n" + "**" + forecastday[result[0].forecast[2].day] + "**\nLOW: " + celsius(result[0].forecast[2].low) + "**°C / **" + result[0].forecast[2].low + "**°F**\nHIGH: " + celsius(result[0].forecast[2].high) + "**°C / **" + result[0].forecast[2].high + "**°F**\n`" + result[0].forecast[2].skytextday + "`\n\n**" + forecastday[result[0].forecast[3].day] + "**\nLOW: " + celsius(result[0].forecast[3].low) + "**°C / **" + result[0].forecast[3].low + "**°F**\nHIGH: " + celsius(result[0].forecast[3].high) + "**°C / **" + result[0].forecast[3].high + "**°F**\n`" + result[0].forecast[3].skytextday + "`\n\n**" + forecastday[result[0].forecast[4].day] + "**\nLOW: " + celsius(result[0].forecast[4].low) + "**°C / **" + result[0].forecast[4].low +"**°F**\nHIGH: " + celsius(result[0].forecast[4].high) + "**°C / **" + result[0].forecast[4].high + "**°F**\n`" + result[0].forecast[4].skytextday + "`")
-            .setFooter("FORECAST | SNOW ❆", bot.user.displayAvatarURL);
-
-            snow.edit(forecastEmbed);
-
-         });
-            
-     });
-
-    }
 
     // CHECK A CITY'S FLAG
     // if(cmd === `${prefix}flag`) {
@@ -1251,34 +1213,6 @@ if(cmd === `${prefix}rps`) {
 
     }
 
-    // URBAN DICTIONARY COMMAND
-    if(cmd === `${prefix}urban`) {
-
-    if(!args[0]) return message.channel.send("PLEASE ENTER AN ARGUMENT TO SEARCH FOR IN THE URBAN DICTIONARY**!**");
-
-    let res = urban(args.join(" ")).catch(e => {
-        return message.channel.send("COULDN'T FIND THAT WORD IN THE URBAN DICTIONARY DATABASE**!**");
-        return;
-    });
-
-    message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then(urbanmessage => {
-
-    let urbanEmbed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setTitle("URBAN DICTIONARY ❆")
-    .setDescription("**" + res.word + `**\n\n**DEFINITION:**\n${res.definition}`)
-    .addField("EXAMPLE", res.example)
-    .addField("UPVOTES ⇑", res.thumbsUp)
-    .addField("DOWNVOTES ⇓", res.thumbsDown)
-    .addField("WRITTEN BY", res.author)
-    .setFooter("URBAN DICTIONARY | SNOW ❆", bot.user.displayAvatarURL);
-
-    if (!res.catch) return urbanmessage.edit(urbanEmbed);
-
-});
-
-    } 
-
     // VOTE COMMMAND
     if(cmd === `${prefix}vote`) {
 
@@ -1347,80 +1281,6 @@ if(cmd === `${prefix}rps`) {
 
     }
 
-    // WEATHER COMMAND
-    if(cmd === `${prefix}weather`) {
-
-    const makeURL = (city) => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(city)}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
-    const celsius = (fahrenheit) => Math.round(((fahrenheit - 32) * 5) / 9);
-
-    // const weatherEmojiText = {
-
-    //     32: "SUNNY",
-    //     31: "CLEAR",
-    //     34: "MOSTLY SUNNY",
-    //     26: "CLOUDY",
-    //     28: "MOSTLY CLOUDY"
-
-    // };
-
-    // const weatherEmoji = {
-
-    //     32: ":sunny:",
-    //     31: ":sun_with_face:",
-    //     34: ":white_sun_small_cloud:",
-    //     26: ":cloud:",
-    //     28: ":white_sun_cloud:"
-
-    // };
-
-    if(!args[0]) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK WEATHER FOR**!**");
-
-    message.channel.send("THE WEATHER IS BEING REQUESTED **...**").then((snow) => {
-
-    const city = args.join(" ");
-    const res = got(makeURL(args.join(" ")), { json: true });
-
-    if (!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
-    return snow.edit("COULDN'T CHECK WEATHER**!**");
-    }
-
-    const weatherInfo = res.body.query.results.channel;
-    const forecast = weatherInfo.item.forecast[0];
-
-    weather.find({search: args.join(" "), degreeType: "F"}, function(err, result) {
-
-
-    // if(!city) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK WEATHER FOR**!**");
-
-    const countryInfo = countries.find(country => country.name === weatherInfo.location.country);
-    const countryEmoji = countryInfo ? countryInfo.emoji : "** **";
-
-    //if (err) message.channel.send(err);
-
-    var current = result[0].current;
-    var location = result[0].location;
-
-    let weatherEmbed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setAuthor("WEATHER  ☁")
-    .setTimestamp()
-    .setDescription(`${countryEmoji} **>** ` + "\`" + current.skytext + "\`")
-    .addField("TEMPERATURE", `${celsius(current.temperature)}**°C** **/** ${weatherInfo.item.condition.temp}**°F**`, true)
-    .addField("FEELS LIKE", `${celsius(current.feelslike)}**°C** **/** ${current.feelslike}**°F**`, true)
-    .addField("WINDS", `*${current.winddisplay}*` +  "  **>**  " + `*${weatherInfo.wind.direction}* ` + "**°**", true)
-    .addField("HUMIDITY", `${current.humidity}**%**`, true)
-    .addField("SUNRISE", `*${weatherInfo.astronomy.sunrise}*`, true)
-    .addField("SUNSET", `*${weatherInfo.astronomy.sunset}*`, true)
-    .setFooter(`${current.observationpoint} | SNOW ❆`, bot.user.displayAvatarURL);
-
-    snow.edit(weatherEmbed);
-
-});
-
-});
-
-    }
-
     // SLOT COMMAND
     if(cmd === `${prefix}slot` || cmd === `${prefix}spin`) {
 
@@ -1482,28 +1342,6 @@ if(cmd === `${prefix}rps`) {
 
     }
 
-    // GIF COMMAND
-    if(cmd === `${prefix}gif`) {
-
-    if(!args[0]) return message.channel.send("PLEASE ENTER A GIF SEARCH MESSAGE**!**");
-
-    message.channel.send("LOADING GIF **...**").then(snowgifmessage => {
-
-    const res = got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encodeURIComponent(args.join(" "))}`, { json: true });
-
-    if(!res || !res.body || !res.body.data) return snowgifmessage.edit("FAILED TO LOAD GIF**!**");
-
-    let gifEmbed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setDescription("GIF **❆**")
-    .setImage(res.body.data.image_url);
-
-    if (res.body.data.image_url = snowgifmessage.edit(gifEmbed));
-
-});
-
-    }
-
     // LMGTYFY COMMAND
     if(cmd === `${prefix}lmgtfy`) {
 
@@ -1537,4 +1375,4 @@ if(cmd === `${prefix}rps`) {
 
 });
 
-bot.login(process.env.token);
+bot.login(botconfig.token);
