@@ -13,6 +13,8 @@ module.exports.run = async (bot, message, args) => {
         // CHECK FORECAST
         if(cmd === `${prefix}forecast`) { 
             
+             if(!args[0]) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK FORECAST FOR**!**");
+            
             const forecastday = {
 
                 Monday: "MONDAY",
@@ -27,9 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
             let makeURL1 = (city) => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(city)}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
             const res = await got(makeURL1(args.join(" ")), { json: true });
-
-            if(!args[0]) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK FORECAST FOR**!**");
-
+            
             message.channel.send("THE FORECAST IS BEING REQUESTED **...**").then((snow) => {
 
             if (!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
