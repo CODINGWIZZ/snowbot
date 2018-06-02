@@ -1375,4 +1375,4 @@ if(cmd === `${prefix}rps`) {
 
 });
 
-bot.login(botconfig.token);
+bot.login(process.env.token);
