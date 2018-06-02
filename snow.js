@@ -153,7 +153,7 @@ bot.on("message", async message => {
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
         .addField("JOINED THIS SERVER", user)
-        .addField("CREATED", user.guild.joinedAt.toDateString())
+        .addField("CREATED", message.guild.joinedAt.toDateString())
         .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
 
         return message.channel.send(userinfoEmbed);
