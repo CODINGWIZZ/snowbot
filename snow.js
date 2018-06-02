@@ -145,7 +145,6 @@ bot.on("message", async message => {
     if(cmd === `${prefix}userinfo`) {
 
         let user = message.mentions.users.first() || message.guild.members.get(args [0]) || message.author;
-        if(!user) return message.channel.send("CAN'T FIND USER**!**");
 
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
