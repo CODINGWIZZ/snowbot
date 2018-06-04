@@ -78,39 +78,8 @@ module.exports.run = async (bot, message, args) => {
             snowlog1.send(automutechannel);
         }, ms(mutetime));
         
-    }
-    
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-
-        let toMute = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
-        if(!toMute) return message.channel.send("CAN'T FIND USER**!**");
-
-        let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);
-
-        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
-
-        await(toMute.removeRole(muterole.id));
-        message.channel.send(`${toMute} HAS BEEN **UNMUTED!**`);
-
-        let unmuteembed = new Discord.RichEmbed()
-        .setColor(botconfig.blue)
-        .setTimestamp()
-        .setTitle("UNMUTE ❆")
-        .addField("USER", toMute)
-        .addField("MODERATOR", message.author)
-        .addField("CHANNEL", message.channel)
-        .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-        let snowlog = message.guild.channels.find(`name`, "snow-log");
-        if(!snowlog) return;
-
-        snowlog.send(unmuteembed);
-
-        return;
-    
-}
- 
-
+   }
+  
 }
 
 module.exports.help {
