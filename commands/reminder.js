@@ -35,6 +35,6 @@
     
     }
    
-   module.export.help = {
+   module.exports.help = {
       name: "reminder"  
    }
