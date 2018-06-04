@@ -828,32 +828,7 @@ if(cmd === `${prefix}rps`) {
     return message.channel.send(lvlEmbed);
 
     }
-
-    // REMINDER COMMAND
-    if(cmd === `${prefix}reminder`) {
-
-    let remindertime = args[0];
-    if(!remindertime) return message.channel.send("SPECIFY A TIME AND A NOTE**!**");
-
-    let notemessage = args.join(" ");
-    if(!args[1]) return message.channel.send("PLEASE ENTER A REMINDER NOTE AS WELL**!**");
-
-    message.channel.send(`A REMINDER HAS BEEN SET FOR **${ms(ms(remindertime))}!**`);
-
-    setTimeout(function() {
-
-        let reminderEmbed = new Discord.RichEmbed()
-        .setColor(botconfig.blue)
-        .setDescription(`THE **${ms(ms(remindertime))}** HAS BEEN FINISHED IN **${message.guild.name}!**`)
-        .addField("REMINDER NOTE", `${notemessage}`)
-        .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-        message.author.send(reminderEmbed);
-
-    }, ms(remindertime));
-
-    }
-
+    
     // REMOVE ROLE COMMAND
     if(cmd === `${prefix}removerole`) {
 
