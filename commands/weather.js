@@ -17,9 +17,9 @@ module.exports.run = async (bot, message, args) => {
         if(!city) return message.channel.send("PLEASE ENTER A CITY YOU WANT TO CHECK WEATHER FOR**!**");   
 
         const makeURL = (city) => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${encodeURIComponent(city)}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
+        const res = await got(makeURL(args.join(" ")), { json: true });
         const celsius = (fahrenheit) => Math.round(((fahrenheit - 32) * 5) / 9); 
             
-        const res = await got(makeURL(args.join(" ")), { json: true });
     
         // const weatherEmojiText = {
     
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
     
         // };
         
-        const weatherInfo = res.bod.query.results.channel;
+        const weatherInfo = res.body.query.results.channel;
         const forecast = weatherInfo.item.forecast[0];
     
         weather.find({search: args.join(" "), degreeType: "F"}, function(err, result) {
