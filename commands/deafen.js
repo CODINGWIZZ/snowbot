@@ -36,12 +36,12 @@ module.exports.run = async (bot, message, args) => {
         let mutetime = args[1];
         if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
 
-        if(toMute.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
+        if(toMute.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
 
         await(toMute.addRole(deafenrole));
         message.channel.send(`<@${toMute.id}> HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
 
-        if(toMute.deafenrole.has(role.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
+        if(toMute.deafenrole.has(role.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
 
         let deafenembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
@@ -53,10 +53,10 @@ module.exports.run = async (bot, message, args) => {
         .addField("TIME", `${ms(ms(mutetime))}`)
         .setFooter("SNOW ❆", "https://cdn.discordapp.com/avatars/417210018576990208/28a49ed4c98902f605d633bf261d9050.png?size=2048");
 
-        let deafenchannel = message.guild.channels.find(`name`, "snow-log");
-        if(!deafenchannel) message.guild.createChannel("snow-log"); 
-
-        deafenchannel.send(deafenembed);
+        let snowlog = message.guild.channels.find(`name`, "snow-log");
+        if(!snowlog) return;
+  
+        snowlog.send(deafenembed);
 
         let autoundeafenEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
@@ -66,8 +66,8 @@ module.exports.run = async (bot, message, args) => {
         .addField("MODERATOR", "AUTO")
         .setFooter("SNOW ❆", "https://cdn.discordapp.com/avatars/417210018576990208/28a49ed4c98902f605d633bf261d9050.png?size=2048");
 
-        let snowlog = message.guild.channels.find(`name`, "snow-log");
-        if(!snowlog) return;
+        let snowlog1 = message.guild.channels.find(`name`, "snow-log");
+        if(!snowlog1) return;
 
         if(!toMute.roles.has(deafenrole)) return message.channel.send("THIS USER IS NOT MUTED**!**");
 
@@ -75,39 +75,13 @@ module.exports.run = async (bot, message, args) => {
             toMute.removeRole(deafenrole.id);
             if(!toMute.roles.has(muterole.id)) return;
             message.channel.send(`<@${toMute.id}> HAS BEEN **UNDEAFENED!**`)
-            snowlog.send(autoundeafenEmbed);
+            snowlog1.send(autoundeafenEmbed);
         }, ms(mutetime));
         
     }
     
-            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-
-        let toMute = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
-        if(!toMute) return message.channel.send("CAN'T FIND USER**!**");
-
-        let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);
-
-        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
-
-        await(toMute.removeRole(muterole.id));
-        message.channel.send(`${toMute} HAS BEEN **UNMUTED!**`);
-
-        let unmuteembed = new Discord.RichEmbed()
-        .setColor(botconfig.blue)
-        .setTimestamp()
-        .setTitle("UNMUTE ❆")
-        .addField("USER", toMute)
-        .addField("MODERATOR", message.author)
-        .addField("CHANNEL", message.channel)
-        .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-        let snowlog1 = message.guild.channels.find(`name`, "snow-log");
-        if(!snowlog1) return;
-
-        snowlog1.send(unmuteembed);
-
-        return;
-    
 }
 
+module.exports.help {
+ name: "deafen"
 }
