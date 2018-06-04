@@ -72,8 +72,8 @@ module.exports.run = async (bot, message, args) => {
         if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
         
         setTimeout(function() {
-            toMute.removeRole(muterole);
             if(!toMute.roles.has(muterole.id)) return;
+            toMute.removeRole(muterole);
             message.channel.send(`<@${toMute.id}> HAS BEEN **UNMUTED!**`)
             snowlog1.send(automutechannel);
         }, ms(mutetime));
