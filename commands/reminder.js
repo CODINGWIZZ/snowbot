@@ -34,3 +34,7 @@
     }
     
     }
+   
+   module.export.help = {
+      name: "reminder"  
+   }
