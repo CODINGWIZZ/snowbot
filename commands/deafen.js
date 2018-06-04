@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
         .addField("TIME", `${ms(ms(mutetime))}`)
-        .setFooter("SNOW ❆", "https://cdn.discordapp.com/avatars/417210018576990208/28a49ed4c98902f605d633bf261d9050.png?size=2048");
+        .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
         let snowlog = message.guild.channels.find(`name`, "snow-log");
         if(!snowlog) return;
@@ -64,8 +64,7 @@ module.exports.run = async (bot, message, args) => {
         .setTimestamp()
         .addField("USER", toMute)
         .addField("MODERATOR", "AUTO")
-        .setFooter("SNOW ❆", "https://cdn.discordapp.com/avatars/417210018576990208/28a49ed4c98902f605d633bf261d9050.png?size=2048");
-
+        .setFooter("SNOW ❆", bot.user.displayAvatarURL)
         let snowlog1 = message.guild.channels.find(`name`, "snow-log");
         if(!snowlog1) return;
 
