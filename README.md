@@ -1,3 +1,3 @@
 WIZZ | SNOW BOT
 
-(C)opyright WIZZ 2018
+(C)opyright WIZZ 2018 | ALL RIGHTS RESERVED
