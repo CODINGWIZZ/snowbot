@@ -25,6 +25,7 @@
         .setColor(botconfig.blue)
         .setDescription(`THE **${ms(ms(remindertime))}** HAS BEEN FINISHED IN **${message.guild.name}!**`)
         .addField("REMINDER NOTE", `${notemessage}`)
+        .setTimestamp()
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
         message.author.send(reminderEmbed);
