@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
         let toMute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
         if (!toMute) return message.channel.send("CAN'T FIND USER**!**");
-        if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
-        if(toMute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
+        if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T DEAFEN YOURSELF**!**");
+        if(toMute.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE DEAFENED**!**");
         let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);
         if(!muterole){
             try{
@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
         let mutetime = args[1];
         if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
 
-        if(toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
+        if(toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
 
         await(toMute.addRole(muterole));
         message.channel.send(`<@${toMute.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}!**`);
@@ -69,7 +69,7 @@ module.exports.run = async (bot, message, args) => {
         let snowlog1 = message.guild.channels.find(`name`, "snow-log");
         if(!snowlog1) return;
 
-        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
+        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
         
         setTimeout(function() {
             toMute.removeRole(muterole);
@@ -87,7 +87,7 @@ module.exports.run = async (bot, message, args) => {
 
         let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);
 
-        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
+        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
 
         await(toMute.removeRole(muterole.id));
         message.channel.send(`${toMute} HAS BEEN **UNMUTED!**`);
