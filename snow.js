@@ -112,7 +112,6 @@ bot.on("message", async message => {
     }
 
     // SERVER INFO
-
     if(cmd === `${prefix}serverinfo`) {
 
         const vertification = {
@@ -301,7 +300,7 @@ bot.on("message", async message => {
         .addField("VERSION", "**SNOW** ❆ | **1.9.0**")
         .addField("WEBSITE", "https://discordsnowbot.weebly.com/")
         .addField("STATS", `**${bot.guilds.size} SERVERS\n\n${bot.channels.size} CHANNELS\n\n${bot.users.size} USERS**`)
-        .addField("UPTIME", dateString)
+     // .addField("UPTIME", dateString)
         .setFooter("BOT INFORMATION | SNOW ❆", bot.user.displayAvatarURL);
         
         return message.channel.send(snowinfoembed);
@@ -1225,7 +1224,7 @@ if(cmd === `${prefix}rps`) {
       
     }
     
-    if(cmd === `${prefix}randompicture`) {<
+    if(cmd === `${prefix}randompicture`) {
      
         let images = ["1036", "1042", "0", "255", "873", "811", "523"];
                                           
@@ -1233,7 +1232,7 @@ if(cmd === `${prefix}rps`) {
         
         let imageEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription("RANDOM IMAGE")
+        .setDescription("RANDOM IMAGE **❆**")
         .setImage(`https://picsum.photos/1920/1080/?image=` + images[randomimages]);
         
         return message.channel.send(imageEmbed);
