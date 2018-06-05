@@ -1224,6 +1224,21 @@ if(cmd === `${prefix}rps`) {
         message.channel.send ("**" + message.author.username + "** DID A FANCY MESSAGE THROUGH THE BOT**:**\n\n" + args.join(" ").split("").map(c => splitting[c] || c).join(" "));
       
     }
+    
+    if(cmd === `${prefix}randompicture`) {
+     
+        let { body } = await superagent
+        .get("https://unsplash.it/1920/1080/?random");
+        
+        let imageEmbed = new Discord.RichEmbed()
+        .setColor(botconfig.blue)
+        .setDescription("RANDOM IMAGE")
+        .setImage(body.url);
+        
+        return message.channel.send(imageEmbed);
+        
+        
+    }
 
 });
 
