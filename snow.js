@@ -1226,14 +1226,14 @@ if(cmd === `${prefix}rps`) {
     
     if(cmd === `${prefix}randompicture`) {
      
-        let images = ["1036", "1042", "0", "255", "873", "811", "523"];
+        let images = ["1036", "1042", "0", "255", "873", "811", "523", "47", "76", "936", "791", "314", "80", "977", "560", "798", "594", "990"];
                                           
         const randomimages = Math.floor((Math.random()) * images.length);
         
         let imageEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setDescription("RANDOM IMAGE **❆**")
-        .setImage(`https://picsum.photos/1920/1080/?image=` + images[randomimages]);
+        .setImage(`https://picsum.photos/1920/1080/?image=${images[randomimages]}`);
         
         return message.channel.send(imageEmbed);
         
