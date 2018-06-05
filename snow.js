@@ -1235,7 +1235,7 @@ if(cmd === `${prefix}rps`) {
      
         // let images = ["1036", "1042", "0", "255", "873", "811", "523", "47", "76", "936", "791", "314", "80", "977", "560", "798", "594", "990", "455", "519", "439", "837", "836", "387", "779", "622", "233", "243", "459", "1041", "606", "66", "980", "884", "471", "155", "168", "354", "1072", "1071", "293", "291", "292", "300"];
                                           
-        const randomimages = Math.floor((Math.random()) * 900);
+        const randomimages = Math.floor((Math.random()) * 1050);
         
         let imageEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
