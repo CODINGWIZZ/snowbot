@@ -353,6 +353,7 @@ bot.on("message", async message => {
 
         //}
     
+    // GOOGLE | SEARCH COMMAND
     if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
         
         let google = encode(args.join(" "));
@@ -1031,7 +1032,8 @@ if(cmd === `${prefix}rps`) {
     });
 
     }
-
+    
+    // YOUTUBE SEARCH COMMAND
     if(cmd === `${prefix}youtube`) {
 
         let search = encode(args.join(" "));
@@ -1047,7 +1049,8 @@ if(cmd === `${prefix}rps`) {
 
     }
     
-        if(cmd === `${prefix}tempmute`) {
+    // TEMPMUTE COMMAND
+    if(cmd === `${prefix}tempmute`) {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
             
         let toMute = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
@@ -1098,6 +1101,7 @@ if(cmd === `${prefix}rps`) {
         return;
     }
 
+    // UNMUTE COMMAND
     if(cmd === `${prefix}unmute`) {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
@@ -1127,7 +1131,8 @@ if(cmd === `${prefix}rps`) {
 
         return;
     }
-
+    
+    // TEMPDEAFEN COMMAND
     if(cmd === `${prefix}tempdeafen`) {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!*");
 
@@ -1180,6 +1185,7 @@ if(cmd === `${prefix}rps`) {
 
     }
 
+    // UNDEAFEN COMMAND
     if(cmd === `${prefix}undeafen`) {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**")
 
@@ -1209,7 +1215,7 @@ if(cmd === `${prefix}rps`) {
         return;
     }
 
-    
+    // FANCY MESSAGE (;
     if(cmd === `${prefix}fancy`) {
      
        if(!args.join(" ")) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT ME TO FANCY**!**");
@@ -1224,16 +1230,17 @@ if(cmd === `${prefix}rps`) {
       
     }
     
-    if(cmd === `${prefix}randompicture`) {
+    // RANDOM IMAGE
+    if(cmd === `${prefix}randompicture` || cmd === `${prefix}randomimage`) {
      
-        let images = ["1036", "1042", "0", "255", "873", "811", "523", "47", "76", "936", "791", "314", "80", "977", "560", "798", "594", "990"];
+        // let images = ["1036", "1042", "0", "255", "873", "811", "523", "47", "76", "936", "791", "314", "80", "977", "560", "798", "594", "990", "455", "519", "439", "837", "836", "387", "779", "622", "233", "243", "459", "1041", "606", "66", "980", "884", "471", "155", "168", "354", "1072", "1071", "293", "291", "292", "300"];
                                           
-        const randomimages = Math.floor((Math.random()) * images.length);
+        const randomimages = Math.floor((Math.random()) * 900);
         
         let imageEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setDescription("RANDOM IMAGE **❆**")
-        .setImage(`https://picsum.photos/1920/1080/?image=${images[randomimages]}`);
+        .setImage(`https://picsum.photos/1920/1080/?image=${randomimages}`);
         
         return message.channel.send(imageEmbed);
         
