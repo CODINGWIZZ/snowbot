@@ -26,7 +26,7 @@ bot.commands = new Discord.Collection();
 let cooldown = new Set;
 let cdseconds = 5;
 
-// COMMAND HANDER
+// COMMAND HANDLER
 fs.readdir("./commands/", (err, files) => {
 
     if(err) console.log(err);
