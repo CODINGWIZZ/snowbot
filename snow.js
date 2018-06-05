@@ -1225,15 +1225,16 @@ if(cmd === `${prefix}rps`) {
       
     }
     
-    if(cmd === `${prefix}randompicture`) {
+    if(cmd === `${prefix}randompicture`) {<
      
-        let { body } = await superagent
-        .get("https://unsplash.it/1920/1080/?random");
+        let images = ["1036", "1042", "0", "255", "873", "811", "523"];
+                                          
+        const randomimages = Math.floor((Math.random()) * images.length);
         
         let imageEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setDescription("RANDOM IMAGE")
-        .setImage(body.url);
+        .setImage(`https://picsum.photos/1920/1080/?image=` + images[randomimages]);
         
         return message.channel.send(imageEmbed);
         
