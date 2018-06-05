@@ -21,7 +21,6 @@ const weather = require("weather-js");
 const encode = require("strict-uri-encode");
 
 const bot = new Discord.Client();
-let xp = require("./xp.json");
 bot.commands = new Discord.Collection();
 let cooldown = new Set;
 let cdseconds = 5;
@@ -187,44 +186,6 @@ bot.on("message", async message => {
         return message.channel.send(inforoleEmbed);
 
     }
-
-    // THE XP SYSTEM
-    let xpAdd = Math.floor(Math.random() * 7) + 8;
-
-    //console.log(xpAdd);
-
-    // if (!xp[message.author.id + message.guild.id]) xp[message.author.id + message.guild.id] = {}
-    if(!xp[message.author.id + message.guild.id]){
-        xp[message.author.id + message.guild.id] = {
-            xp: 0,
-            level: 1
-        };
-    }
-
-    let curxp = xp[message.author.id + message.guild.id].xp;
-    let curlvl = xp[message.author.id + message.guild.id].level;
-    let nxtlvl = curlvl * 600;
-    xp[message.author.id + message.guild.id].xp = curxp + xpAdd;
-    if(nxtlvl <= xp[message.author.id + message.guild.id].xp){
-        xp[message.author.id + message.guild.id].level = curlvl + 1;
-
-    let lvlupEmbed = new Discord.RichEmbed()
-    .setTitle("LEVEL UP! ❆")
-    .setColor(botconfig.blue)
-    .addField("New Level", curlvl + 1)
-    .setDescription("**" + message.author.username + "**")
-
-    message.channel.send(lvlupEmbed)
-
-        // message.channel.send("**" + message.author.username + ",** YOU HAVE LEVELED UP TO THE LEVEL **" + curlvl + 1 + "!**");
-    
-    }
-
-    fs.writeFile("./xp.json", JSON.stringify(xp), (err) =>{
-
-        if(err) console.log(err);
-
-    });
 
     //console.log(`level is ${xp[message.author.id].level}`);
 
@@ -794,38 +755,6 @@ if(cmd === `${prefix}rps`) {
     if(!snow) return;
 
     kickchannel.send(kickembed);
-
-    }
-    
-    // RANK - LEVEL COMMAND
-    if (cmd === `${prefix}rank` || cmd === `${prefix}level`) {
-
-    let rUser = message.mentions.users.first() || message.guild.members.get(args [0]) || message.author;
-    let sender = rUser;
-    if(!rUser) return message.channel.send("CAN'T FIND USER**!**");
-    
-    // if (!xp[sender.id + message.guild.id]) xp[sender.id + message.guild.id] = {}
-
-    if(!xp[rUser.id + message.guild.id]){
-        xp[rUser.id + message.guild.id] = {
-            xp: 0,
-            level: 1
-        };
-    }
-
-    let curxp = xp[rUser.id + message.guild.id].xp;
-    let curlvl = xp[rUser.id + message.guild.id].level;
-    let nxtlvlxp = curlvl * 600;
-    let difference = nxtlvlxp - curxp;
-    
-    let lvlEmbed = new Discord.RichEmbed()
-    .setAuthor(rUser.username)
-    .setColor(botconfig.blue)
-    .addField("LEVEL", curlvl, true)
-    .addField("TOTAL XP", curxp, true)
-    .setFooter(difference + "XP UNTIL LEVEL UP! | ❆", rUser.displayAvatarURL);
-
-    return message.channel.send(lvlEmbed);
 
     }
     
