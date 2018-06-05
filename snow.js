@@ -160,16 +160,15 @@ bot.on("message", async message => {
     // ROLE INFO
 
     if(cmd === `${prefix}roleinfo`) {
-        
-        let role = args.join(" ");//.replace(`<@&role.id>`, "role.name");
-
+       
         let truefalse = {
             true: "TRUE",
             false: "FALSE"
         }
 
+        let role = args.join(" ");
         if(!role) return message.channel.send("SPECIFY A ROLE**!**");
-        let infoRole = message.guild.roles.find(`name`, "<@&" + role + ">" || role);
+        let infoRole = message.guild.roles.find(`name`, role);
         if(!infoRole) return message.channel.send("CAN'T FIND ROLE**!**");
 
         let inforoleEmbed = new Discord.RichEmbed()
