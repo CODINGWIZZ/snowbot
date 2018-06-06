@@ -19,6 +19,7 @@ const cheerio = require("cheerio");
     querystring = require("querystring");
 const weather = require("weather-js");
 const encode = require("strict-uri-encode");
+const googl = require("node-googl");
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
@@ -808,7 +809,7 @@ if(cmd === `${prefix}rps`) {
 
     if(!args[0]) return message.channel.send("CAN'T FIND LINK**!**");
 
-    snowgenerating = message.channel.send("GENERATING LINK **...**").then((message) => {
+    message.channel.send("GENERATING LINK **...**").then((message) => {
 
     if(!args[1]) {
 
