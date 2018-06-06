@@ -7,7 +7,6 @@ const urban = require("relevant-urban");
 const got = require("got");
 const convert = require("color-convert");
 const moment = require("moment");
-const { setKey, googlShort, expand } = require("react-native-google-shortener");
 const superagent = require("superagent");
 const math = require("math-expression-evaluator"); 
 const stripIndents = require("common-tags").stripIndent;
@@ -25,7 +24,6 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 let cooldown = new Set;
 let cdseconds = 5;
-setKey("AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs");
 
 // COMMAND HANDLER
 fs.readdir("./commands/", (err, files) => {
@@ -1207,25 +1205,6 @@ if(cmd === `${prefix}rps`) {
         
         return message.channel.send(imageEmbed);
         
-        
-    }
-    
-    if(cmd === `${prefix}snowtest`) {
-     
-        let googlLink = args[0];
-        if(!googlLink) return message.channel.send("PLEASE ENTER A LINK TO SHORTEN**!**");
-        
-        message.channel.send("GENERATING **...**").then((googlMessage) => {
-          
-        if(googleLink) {
-        
-        googlShort(googlLink).then(response => {
-         
-            return googlMessage.edit(`**FINISHED!**\n${response.id}`);
-            
-        });
-        
-        }
         
     }
 
