@@ -317,10 +317,9 @@ bot.on("message", async message => {
     if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
         
         let google = encode(args.join(" "));
+        if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
         
         let googleMessage = message.channel.send("SEARCHING **...**");
-       
-        if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
         
         let googleLink = `https://google.com/search?q=${google}`;
             
