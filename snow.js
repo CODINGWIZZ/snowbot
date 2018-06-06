@@ -1224,8 +1224,6 @@ if(cmd === `${prefix}rps`) {
             return googlMessage.edit(`**FINISHED!**\n${response.id}`);
             
         });
-            
-        });
         
         }
         
