@@ -19,7 +19,6 @@ const cheerio = require("cheerio");
     querystring = require("querystring");
 const weather = require("weather-js");
 const encode = require("strict-uri-encode");
-const googl = require("node-googl");
 
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
