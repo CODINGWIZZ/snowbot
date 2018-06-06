@@ -7,7 +7,7 @@ const urban = require("relevant-urban");
 const got = require("got");
 const convert = require("color-convert");
 const moment = require("moment");
-const googlshort = require("react-native-google-shortener");
+const { setKey, googlShort, expand } = require("react-native-google-shortener");
 const superagent = require("superagent");
 const math = require("math-expression-evaluator"); 
 const stripIndents = require("common-tags").stripIndent;
@@ -25,6 +25,7 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 let cooldown = new Set;
 let cdseconds = 5;
+let setKey = "AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs";
 
 // COMMAND HANDLER
 fs.readdir("./commands/", (err, files) => {
@@ -1211,16 +1212,14 @@ if(cmd === `${prefix}rps`) {
     
     if(cmd === `${prefix}snowtest`) {
      
-        let googlShort = args[0];
-        if(!googlShort) return message.channel.send("PLEASE ENTER A LINK TO SHORTEN**!**");
+        let googlLink = args[0];
+        if(!googlLink) return message.channel.send("PLEASE ENTER A LINK TO SHORTEN**!**");
         
         message.channel.send("GENERATING **...**").then((googlMessage) => {
            
-        googl.shorten(googlShort, "AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs", function(snowdone) {
-            
-            googlMessage.edit(`**FINISHED!**\n<${snowdone}>`);
-            
-            console.log(snowdone);
+        googlShort(googlLink).then(response => {
+         
+            return googlMessage.edit(`**FINISHED!**\n${response.id}`);
             
         });
             
