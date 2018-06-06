@@ -1218,7 +1218,9 @@ if(cmd === `${prefix}rps`) {
            
         googl.shorten(googlShort, "AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs", function(snowdone) {
             
-            googlMessage.edit(`**FINISHED!**\n<${snowdone}>`)
+            googlMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+            
+            console.log(snowdone);
             
         });
             
