@@ -1216,7 +1216,9 @@ if(cmd === `${prefix}rps`) {
         if(!googlLink) return message.channel.send("PLEASE ENTER A LINK TO SHORTEN**!**");
         
         message.channel.send("GENERATING **...**").then((googlMessage) => {
-           
+          
+        if(googleLink) {
+        
         googlShort(googlLink).then(response => {
          
             return googlMessage.edit(`**FINISHED!**\n${response.id}`);
@@ -1224,6 +1226,8 @@ if(cmd === `${prefix}rps`) {
         });
             
         });
+        
+        }
         
     }
 
