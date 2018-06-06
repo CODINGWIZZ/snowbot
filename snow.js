@@ -53,13 +53,13 @@ bot.on("ready", async () => {
   
     bot.user.setStatus("ONLINE");
 
-//     bot.user.setActivity("SNOW ❆");
+    // bot.user.setActivity("SNOW ❆");
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
     // bot.user.setActivity("EUROVISION FINAL!", { type: "WATCHING"});
     
-    bot.user.setGame("SNOW ❆", "https://twitch.tv/WIZZ_SNOW");
+    // bot.user.setGame("SNOW ❆", "https://twitch.tv/WIZZ_SNOW");
   
 });
 
@@ -85,7 +85,7 @@ bot.on("message", async message => {
 
         let roll = Math.floor((Math.random() * 6 + 1))
 
-        return message.channel.send("**" + message.author.username + ",** YOU ROLLED ** " + roll + "!**");
+        return message.channel.send("**" + message.author.username + ",** YOU ROLLED **" + roll + "!**");
     }
 
     // PING COMMAND
@@ -128,7 +128,6 @@ bot.on("message", async message => {
         .setThumbnail(message.guild.iconURL)
         .addField("OWNER", message.guild.owner + " **(** " + message.guild.owner.id + " **)**")
         .addField("CREATED", message.guild.createdAt.toDateString())
-        .addField("YOU JOINED", message.guild.joinedAt.toDateString())
         .addField("VERIFICATION LEVEL", vertification[message.guild.verificationLevel])
         .addField("REGION", message.guild.region, true)
         .addField("CHANNELS", message.guild.channels.size, true)
