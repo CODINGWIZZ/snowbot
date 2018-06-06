@@ -319,8 +319,8 @@ bot.on("message", async message => {
         let google = encode(args.join(" "));
         if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
         
-        let googleMessage = message.channel.send("SEARCHING **...**");
-        
+        message.channel.send("SEARCHING **...**").then("googleMessage" => {
+               
         let googleLink = `https://google.com/search?q=${google}`;
             
         
@@ -334,6 +334,8 @@ bot.on("message", async message => {
         });
             
         }
+            
+        });
             
         //return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)      
         
@@ -960,11 +962,10 @@ if(cmd === `${prefix}rps`) {
         let question = encode(args.join(" "));
         if(!question) return message.channel.send("PLEASE ENTER A QUESITON YOU WANT TO MAKE WITH LMGTFY**!**");
 
-        let loadingMessage = message.channel.send("GENERATING **...**");
+        message.channel.send("GENERATING **...**").then("loadingMessage" => {
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
-        
         if(!args[1]) {
 
         shorten.shorten(link, function(snowdone) {
@@ -975,6 +976,8 @@ if(cmd === `${prefix}rps`) {
         });
             
         }
+            
+        });
 
         // return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
 
@@ -986,7 +989,7 @@ if(cmd === `${prefix}rps`) {
         let search = encode(args.join(" "));
         if(!search) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH MESSAGE**!**");
 
-        let youtubeMessage = message.channel.send("SEARCHING **...**");
+        message.channel.send("SEARCHING **...**").then("youtubeMessage" => {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
             
@@ -1000,6 +1003,8 @@ if(cmd === `${prefix}rps`) {
         });
             
         }
+            
+        });
 
         // return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
 
