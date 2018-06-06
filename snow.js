@@ -324,7 +324,7 @@ bot.on("message", async message => {
         let googleLink = `https://google.com/search?q=${google}`;
             
         
-        if(!args[1]) {
+        if(google) {
 
         shorten.shorten(googleLink, function(snowdone) {
         if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
@@ -966,7 +966,7 @@ if(cmd === `${prefix}rps`) {
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
-        if(!args[1]) {
+        if(question) {
 
         shorten.shorten(link, function(snowdone) {
         if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
@@ -993,7 +993,7 @@ if(cmd === `${prefix}rps`) {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
             
-        if(!args[1]) {
+        if(search) {
 
         shorten.shorten(youtubeLink, function(snowdone) {
         if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
