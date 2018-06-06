@@ -318,7 +318,7 @@ bot.on("message", async message => {
         
         let google = encode(args.join(" "));
         
-        message.channel.send("SEARCHING **...**").then(googleMessage => {
+        let googleMessaghe = message.channel.send("SEARCHING **...**");
        
         if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
         
@@ -334,9 +334,7 @@ bot.on("message", async message => {
 
         });
             
-        //return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)
-            
-        });
+        //return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)      
         
     }
 
@@ -961,7 +959,7 @@ if(cmd === `${prefix}rps`) {
         let question = encode(args.join(" "));
         if(!question) return message.channel.send("PLEASE ENTER A QUESITON YOU WANT TO MAKE WITH LMGTFY**!**");
 
-        message.channel.send("GENERATING **...**").then(loadingMessage => {
+        let loadingMessage = message.channel.send("GENERATING **...**");
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
@@ -977,8 +975,6 @@ if(cmd === `${prefix}rps`) {
 
         // return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
 
-    });
-
     }
     
     // YOUTUBE SEARCH COMMAND
@@ -987,10 +983,9 @@ if(cmd === `${prefix}rps`) {
         let search = encode(args.join(" "));
         if(!search) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH MESSAGE**!**");
 
-        message.channel.send("SEARCHING **...**").then(youtubeMessage => {
+        let youtubeMessage = message.channel.send("SEARCHING **...**");
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
-            
             
         if(!args[1]) {
 
@@ -1002,8 +997,6 @@ if(cmd === `${prefix}rps`) {
         });
 
         // return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
-
-        });
 
     }
     
