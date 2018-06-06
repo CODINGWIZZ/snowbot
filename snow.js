@@ -25,7 +25,7 @@ const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 let cooldown = new Set;
 let cdseconds = 5;
-let setKey = "AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs";
+setKey = "AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs";
 
 // COMMAND HANDLER
 fs.readdir("./commands/", (err, files) => {
