@@ -319,7 +319,7 @@ bot.on("message", async message => {
         let google = encode(args.join(" "));
         if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
         
-        message.channel.send("SEARCHING **...**").then("googleMessage" => {
+        message.channel.send("SEARCHING **...**").then((googleMessage) => {
                
         let googleLink = `https://google.com/search?q=${google}`;
             
@@ -962,7 +962,7 @@ if(cmd === `${prefix}rps`) {
         let question = encode(args.join(" "));
         if(!question) return message.channel.send("PLEASE ENTER A QUESITON YOU WANT TO MAKE WITH LMGTFY**!**");
 
-        message.channel.send("GENERATING **...**").then("loadingMessage" => {
+        message.channel.send("GENERATING **...**").then((loadingMessage) => {
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
@@ -989,7 +989,7 @@ if(cmd === `${prefix}rps`) {
         let search = encode(args.join(" "));
         if(!search) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH MESSAGE**!**");
 
-        message.channel.send("SEARCHING **...**").then("youtubeMessage" => {
+        message.channel.send("SEARCHING **...**").then((youtubeMessage) => {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
             
