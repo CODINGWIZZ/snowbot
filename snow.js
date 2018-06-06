@@ -322,18 +322,8 @@ bot.on("message", async message => {
         message.channel.send("SEARCHING **...**").then((googleMessage) => {
                
         let googleLink = `https://google.com/search?q=${google}`;
-            
-        
-        if(google) {
-
-        shorten.shorten(googleLink, function(snowdone) {
-        if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
 
         googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
-
-        });
-            
-        }
             
         });
             
@@ -966,17 +956,8 @@ if(cmd === `${prefix}rps`) {
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
-        if(question) {
-
-        shorten.shorten(link, function(snowdone) {
-        if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
-
         loadingMessage.edit(`**FINISHED!**\n<${snowdone}>`);
-
-        });
-            
-        }
-            
+     
         });
 
         // return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
@@ -992,17 +973,8 @@ if(cmd === `${prefix}rps`) {
         message.channel.send("SEARCHING **...**").then((youtubeMessage) => {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
-            
-        if(search) {
-
-        shorten.shorten(youtubeLink, function(snowdone) {
-        if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
 
         youtubeMessage.edit(`**FINISHED!**\n<${snowdone}>`);
-
-        });
-            
-        }
             
         });
 
