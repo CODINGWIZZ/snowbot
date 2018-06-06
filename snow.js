@@ -324,7 +324,17 @@ bot.on("message", async message => {
         
         let googleLink = `https://google.com/search?q=${google}`;
             
-        return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)
+        
+        if(!args[1]) {
+
+        shorten.shorten(googleLink, function(snowdone) {
+        if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
+
+        googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+
+        });
+            
+        //return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)
             
         });
         
@@ -954,8 +964,18 @@ if(cmd === `${prefix}rps`) {
         message.channel.send("GENERATING **...**").then(loadingMessage => {
 
         let link = `https://lmgtfy.com/?q=${question}`;
+            
+        
+        if(!args[1]) {
 
-        return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
+        shorten.shorten(link, function(snowdone) {
+        if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
+
+        loadingMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+
+        });
+
+        // return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
 
     });
 
@@ -970,8 +990,18 @@ if(cmd === `${prefix}rps`) {
         message.channel.send("SEARCHING **...**").then(youtubeMessage => {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
+            
+            
+        if(!args[1]) {
 
-        return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
+        shorten.shorten(youtubeLink, function(snowdone) {
+        if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
+
+        youtubeMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+
+        });
+
+        // return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
 
         });
 
