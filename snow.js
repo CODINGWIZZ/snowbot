@@ -53,7 +53,7 @@ bot.on("ready", async () => {
   
     bot.user.setStatus("ONLINE");
 
-    // bot.user.setActivity("SNOW ❆");
+    bot.user.setActivity("SNOW ❆");
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
