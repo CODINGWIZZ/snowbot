@@ -7,6 +7,7 @@ const urban = require("relevant-urban");
 const got = require("got");
 const convert = require("color-convert");
 const moment = require("moment");
+const googl = require("node-googl");
 const superagent = require("superagent");
 const math = require("math-expression-evaluator"); 
 const stripIndents = require("common-tags").stripIndent;
@@ -1205,6 +1206,23 @@ if(cmd === `${prefix}rps`) {
         
         return message.channel.send(imageEmbed);
         
+        
+    }
+    
+    if(cmd === `${prefix}snowtest`) {
+     
+        let googlShort = args[0];
+        if(!googlShort) return message.channel.send("PLEASE ENTER A LINK TO SHORTEN**!**");
+        
+        message.channel.send("GENERATING **...**").then((googlMessage) => {
+           
+        googl.shorten(googlShort, "AIzaSyAUpRHEjApiJ8iRYEw8BqkUBAF1WK4_hFs", function(snowdone) {
+            
+            googlMessage.edit(`**FINISHED!**\n<${snowdone}>`)
+            
+        });
+            
+       )};
         
     }
 
