@@ -319,7 +319,7 @@ bot.on("message", async message => {
         
         let google = encode(args.join(" "));
         
-        let googleMessaghe = message.channel.send("SEARCHING **...**");
+        let googleMessage = message.channel.send("SEARCHING **...**");
        
         if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
         
@@ -334,6 +334,8 @@ bot.on("message", async message => {
         googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
 
         });
+            
+        }
             
         //return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)      
         
@@ -973,6 +975,8 @@ if(cmd === `${prefix}rps`) {
         loadingMessage.edit(`**FINISHED!**\n<${snowdone}>`);
 
         });
+            
+        }
 
         // return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
 
@@ -996,6 +1000,8 @@ if(cmd === `${prefix}rps`) {
         youtubeMessage.edit(`**FINISHED!**\n<${snowdone}>`);
 
         });
+            
+        }
 
         // return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
 
