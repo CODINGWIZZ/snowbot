@@ -280,7 +280,7 @@ bot.on("message", async message => {
         return message.channel.send(inviteembed);
     }
 
-    // SEARCH / GOOGLE
+    // SEARCH
    // if(cmd === `${prefix}search`) {
 
        // let googleMessage = args.join(" ");
@@ -327,8 +327,7 @@ bot.on("message", async message => {
 
         return googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
             
-        });
-           
+        }); 
         
     }
 
@@ -974,6 +973,8 @@ if(cmd === `${prefix}rps`) {
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
 
         return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
+            
+        });
 
     }
     
