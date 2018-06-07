@@ -97,6 +97,8 @@ bot.on("message", async message => {
             pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
 
     }
+                                                     
+    }
 
     // SAY A MESSAGE THROUGH THE BOT
     if(cmd === `${prefix}say`) {
