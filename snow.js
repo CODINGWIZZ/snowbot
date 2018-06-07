@@ -93,7 +93,8 @@ bot.on("message", async message => {
 
         const ping = bot.pings[0];
         
-        message.channel.send('PINGING **...**').then(pingMessage => {
+        message.channel.send('PINGING **...**').then((pingMessage) => {
+            
             pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
 
         });
