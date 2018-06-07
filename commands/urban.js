@@ -12,13 +12,13 @@ module.exports.run = async (bot, message, args) => {
      if(cmd === `${prefix}urban`) {
 
         if(!args[0]) return message.channel.send("PLEASE ENTER AN ARGUMENT TO SEARCH FOR IN THE URBAN DICTIONARY**!**");
+         
+        message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then(urbanmessage => {
     
         let res = await urban(args.join(" ")).catch(e => {
-            return message.channel.send("COULDN'T FIND THAT WORD IN THE URBAN DICTIONARY DATABASE**!**");
+            return urbanmessage.edit("COULDN'T FIND THAT WORD IN THE URBAN DICTIONARY DATABASE**!**");
             return;
         });
-    
-        message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then(urbanmessage => {
     
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
