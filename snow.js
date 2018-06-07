@@ -96,7 +96,7 @@ bot.on("message", async message => {
         message.channel.send('PINGING **...**').then(pingMessage => {
             pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
 
-    }
+    )};
                                                      
     }
 
