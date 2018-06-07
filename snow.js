@@ -95,7 +95,6 @@ bot.on("message", async message => {
         
         message.channel.send('PINGING **...**').then(pingMessage => {
             pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
-        });
 
     }
 
@@ -323,11 +322,10 @@ bot.on("message", async message => {
                
         let googleLink = `https://google.com/search?q=${google}`;
 
-        googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+        return googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
             
         });
-            
-        //return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`)      
+           
         
     }
 
@@ -956,11 +954,9 @@ if(cmd === `${prefix}rps`) {
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
-        loadingMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+        return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
      
         });
-
-        // return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
 
     }
     
@@ -974,11 +970,7 @@ if(cmd === `${prefix}rps`) {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
 
-        youtubeMessage.edit(`**FINISHED!**\n<${snowdone}>`);
-            
-        });
-
-        // return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
+        return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
 
     }
     
