@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
      // URBAN DICTIONARY COMMAND
      if(cmd === `${prefix}urban`) {
-
+      
         if(!args[0]) return message.channel.send("PLEASE ENTER AN ARGUMENT TO SEARCH FOR IN THE URBAN DICTIONARY**!**");
     
         let res = await urban(args.join(" ")).catch(e => {
@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
             return;
         });
          
+        if res includes("max") return;
+          
         message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then(urbanmessage => {
     
         let urbanEmbed = new Discord.RichEmbed()
