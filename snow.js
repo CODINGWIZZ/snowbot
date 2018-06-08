@@ -1180,7 +1180,7 @@ if(cmd === `${prefix}rps`) {
         let cowsayMessage = args.join(" ");
         if(!cowsayMessage) return message.channel.send("PLASE ENTER A MESSAGE YOU WANT TO COWSAY:IFY**!**");
         
-        message.channel.send("```" + cowsayMessage + "``` ```"
+        message.channel.send("```" + cowsayMessage + "```" + "```
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
