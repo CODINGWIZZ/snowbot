@@ -18,7 +18,10 @@ module.exports.run = async (bot, message, args) => {
             return;
         });
          
-        if(res.includes("max" || "maximilian")) return message.channel.send("YOU ARE NOT ALLOWED TO USE **MAX!**");
+        if(res.includes("max" || "maximilian")) {
+            return message.channel.send("YOU ARE NOT ALLOWED TO USE **MAX!**")
+        
+        }
           
         message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then(urbanmessage => {
     
