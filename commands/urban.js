@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
             return;
         });
          
-        if(res.includes("max" || "maximilian")) {
+        if(args.join(" ").includes("max" || "maximilian")) {
             return message.channel.send("YOU ARE NOT ALLOWED TO USE **MAX!**")
         
         }
