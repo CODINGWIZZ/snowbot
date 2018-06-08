@@ -10,7 +10,6 @@ const moment = require("moment");
 const superagent = require("superagent");
 const math = require("math-expression-evaluator"); 
 const stripIndents = require("common-tags").stripIndent;
-const fetch = require("node-fetch");
 const shorten = require("isgd");
 const fortnite = require("fortnite");
 const ft = new fortnite("5e9103e1-e035-4fe5-b4e6-35ae1c386402");
@@ -721,7 +720,7 @@ if(cmd === `${prefix}rps`) {
         });
 
     }).catch(e => {
-        message.channel.send("CAN'T FIND USERNAME**!**").then(msg => msg.delete(10000))
+        return message.channel.send("CAN'T FIND USERNAME**!**").then(msg => msg.delete(10000));
     });
 
     }
