@@ -594,6 +594,7 @@ if(cmd === `${prefix}rps`) {
     if(!gRole) return message.channel.send("CAN'T FIND ROLE**!**");
     // if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT GIVE A ROLE THAT'S HIGHER UP THAN YOURSELF**!**");
 
+    if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH THE SAME OR A HIGHER ROLE AS YOU**!**");    
     if(rMember.roles.has(gRole.id)) return message.channel.send("THAT USER ALREADY HAVE THAT ROLE**!**");
     await(rMember.addRole(gRole.id)).then(() => {
         message.channel.send(`<@${rMember.id}> WAS ADDED TO THE **${gRole}** ROLE**!**`)
@@ -772,7 +773,8 @@ if(cmd === `${prefix}rps`) {
     if(!gRole) message.channel.send("CAN'T FIND ROLE**!**");
     // if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT GIVE A ROLE THAT'S HIGHER UP THAN YOURSELF**!**");
 
-    if(!rMember.roles.has(gRole.id)) return message.channel.send("THAT THEY ALREADY HAVE THAT ROLE**!**");
+    if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT REMOVE A ROLE FROM A MEMBER WITH THE SAME OR A HIGHER ROLE AS YOU**!**");        
+    if(!rMember.roles.has(gRole.id)) return message.channel.send("THEY ALREADY HAVE THAT ROLE**!**");
     await(rMember.removeRole(gRole.id)).then(() => {
         message.channel.send(`<@${rMember.id}> WAS REMOVED FROM THE **${gRole}** ROLE**!**`);
 
