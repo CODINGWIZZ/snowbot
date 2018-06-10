@@ -585,7 +585,7 @@ if(cmd === `${prefix}rps`) {
 
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
     // if(!permissions.has("MANAGE_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGH PERMISSIONS**!**");
-    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [1]);
+    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [0]);
     // if (rMember == "417210018576990208") return;
     if(!rMember) return message.channel.send("CAN'T FIND USER**!**");
     let role = args.join(" ").slice(22);
@@ -597,7 +597,7 @@ if(cmd === `${prefix}rps`) {
     if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH THE SAME OR A HIGHER ROLE AS YOU**!**");    
     if(rMember.roles.has(gRole.id)) return message.channel.send("THAT USER ALREADY HAVE THAT ROLE**!**");
     await(rMember.addRole(gRole.id)).then(() => {
-        message.channel.send(`<@${rMember.id}> WAS ADDED TO THE **${gRole}** ROLE**!**`)
+        message.channel.send(`<@${rMember.id}> WAS ADDED TO THE **${gRole}** ROLE**!**`);
 
         let addroleEmbed = new Discord.RichEmbed()
         .setTitle("ADD ROLE ❆")
@@ -610,7 +610,7 @@ if(cmd === `${prefix}rps`) {
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
         let addrolechannel = message.guild.channels.find(`name`, "snow-log");
-        if(!addrolechannel) message.guild.createChannel("snow-log"); 
+        if(!addrolechannel) return; 
 
         return addrolechannel.send(addroleEmbed);
 
@@ -763,7 +763,7 @@ if(cmd === `${prefix}rps`) {
 
     if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
     // if(!permissions.has("MANAGE_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGH PERMISSIONS**!**");
-    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [1]);
+    let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [0]);
     // if (rMember === "417210018576990208") return;
     if(!rMember) return message.channel.send("CAN'T FIND USER**!**");
     let role = args.join(" ").slice(22);
@@ -789,7 +789,7 @@ if(cmd === `${prefix}rps`) {
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
         let removerolechannel = message.guild.channels.find(`name`, "snow-log");
-        if(!removerolechannel) message.guild.createChannel("snow-log"); 
+        if(!removerolechannel) return;
 
         removerolechannel.send(removeroleEmbed);
         
