@@ -273,7 +273,7 @@ bot.on("message", async message => {
 
         let inviteembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription("`INVITE SNOW:`\nhttps://bit.do/snowbot\n`TWITTER:`\nhttps://bit.do/snowtwitter\n`WIZZ TWITTER:\nhttps://bit.do/codingwizz`")
+        .setDescription("`INVITE SNOW:`\nhttps://bit.do/snowbot\n`TWITTER:`\nhttps://bit.do/snowtwitter\n`WIZZ TWITTER:`\nhttps://bit.do/codingwizz")
         .setFooter("INVITE BOT | SNOW ❆", bot.user.displayAvatarURL);
 
         return message.channel.send(inviteembed);
