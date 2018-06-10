@@ -324,7 +324,7 @@ bot.on("message", async message => {
                
         let googleLink = `https://google.com/search?q=${google}`;
 
-        return googleMessage.edit(`**FINISHED!**\n<${snowdone}>`);
+        return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`);
             
         }); 
         
