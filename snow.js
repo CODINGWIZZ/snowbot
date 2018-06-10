@@ -1175,14 +1175,6 @@ if(cmd === `${prefix}rps`) {
         
         
     }
-    
-    if(cmd === `${prefix}serverconfig`) {
-        
-        if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("YOU DO NO HAVE PERMISSIONS TO DO THAT**!**");
-        
-        message.guild.createChannel(`MEMBERS: ${message.guild.memberCount}`);
-
-    }
 
 });
 
