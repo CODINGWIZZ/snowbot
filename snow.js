@@ -767,7 +767,6 @@ if(cmd === `${prefix}rps`) {
     // if (rMember === "417210018576990208") return;
     if(!rMember) return message.channel.send("CAN'T FIND USER**!**");
     let role = args.join(" ").slice(22);
-    if(bUser == bot.user.id) return;
     if(!role) return message.channel.send("SPECIFY A ROLE**!**");
     let gRole = message.guild.roles.find(`name`, role);
     if(!gRole) message.channel.send("CAN'T FIND ROLE**!**");
