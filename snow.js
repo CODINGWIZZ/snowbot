@@ -1166,6 +1166,14 @@ if(cmd === `${prefix}rps`) {
         
     }
     
+    if(cmd === `${prefix}changelog` || cmd === `${prefix}updates`) {
+        
+        let changelog = "https://discordsnowbot.weebly.com/updateschangelog";
+     
+        message.channel.send("UPDATES **//** CHANGELOG **❆**\n" + `<${changelog}>`);
+        
+    }
+    
 });
 
 bot.login(process.env.token);
