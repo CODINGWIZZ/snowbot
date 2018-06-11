@@ -1177,10 +1177,12 @@ if(cmd === `${prefix}rps`) {
     }
     
     if(cmd === `${prefix}help`) {
-     
-        return message.channel.send("HELP **❆**\nhttps://discordsnowbot.weebly.com/snow.html")
         
-    }
+        let helpLink = "https://discordsnowbot.weebly.com/snow.html";
+     
+        return message.channel.send("HELP **❆**\n" + `$<{helpLink}<`)
+        
+    
 
 });
 
