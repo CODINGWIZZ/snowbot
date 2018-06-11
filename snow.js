@@ -107,7 +107,7 @@ bot.on("message", async message => {
         const sayMessage = args.join(" ");
         if(!args[0]) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO SAY THROUGH THE BOT**!**");
 
-        message.delete().catch(O_o=>{});
+        message.delete().'ch(O_o=>{});
         message.channel.send("**" + message.author.username + "** SAID THROUGH THE BOT**:**" + "\n\n" + sayMessage);
     }
 
@@ -568,6 +568,8 @@ if(cmd === `${prefix}rps`) {
 
     // CAT COMMAND
     if(cmd === `${prefix}cat`) {
+        
+    message.channel.send("GENERATING CAT IMAGE **...**").then((catImage) => {
 
     const { body, header } = await superagent
     .get(`http://aws.random.cat//meow`);
@@ -576,7 +578,9 @@ if(cmd === `${prefix}rps`) {
     .setDescription("**CAT ❆**")
     .setImage(body.file);
 
-    message.channel.send(catEmbed);
+    catImage.edit(catEmbed);
+        
+    });
 
     }
 
@@ -671,6 +675,8 @@ if(cmd === `${prefix}rps`) {
     
     // DOG COMMAND
     if(cmd === `${prefix}dog`) {
+        
+    message.channel.send("GENERATING DOG IMAGAE **...**").then((dogImage) => {
     
     let { body } = await superagent
     .get("https://random.dog/woof.json");
@@ -680,7 +686,9 @@ if(cmd === `${prefix}rps`) {
     .setColor(botconfig.blue)
     .setImage(body.url);
 
-    message.channel.send(dogEmbed);
+    dogImage.edit(dogEmbed);
+        
+    });
 
     }
 
