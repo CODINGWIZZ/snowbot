@@ -566,24 +566,6 @@ if(cmd === `${prefix}rps`) {
 
     }
 
-    // CAT COMMAND
-    if(cmd === `${prefix}cat`) {
-        
-    message.channel.send("GENERATING CAT IMAGE **...**").then((catImage) => {
-
-    const { body, header } = await superagent
-    .get(`http://aws.random.cat//meow`);
-    const catEmbed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setDescription("**CAT ❆**")
-    .setImage(body.file);
-
-    catImage.edit(catEmbed);
-        
-    });
-
-    }
-
     // COMMANDS | COMMAND HANDLER
     if(cmd === `${prefix}addrole`) {
 
@@ -669,25 +651,6 @@ if(cmd === `${prefix}rps`) {
     if(!args[0]) return message.channel.send("PLEASE ENTER A CERTAIN NUMBER YOU WANT TO DELETE**!**");
     message.channel.bulkDelete(args[0]).then(() => {
         message.channel.send(`CLEARED **${args[0]}** MESSAGES**!**`).then(msg => msg.delete(5000));
-    });
-
-    }
-    
-    // DOG COMMAND
-    if(cmd === `${prefix}dog`) {
-        
-    message.channel.send("GENERATING DOG IMAGAE **...**").then((dogImage) => {
-    
-    let { body } = await superagent
-    .get("https://random.dog/woof.json");
-
-    let dogEmbed = new Discord.RichEmbed()
-    .setDescription("**:dog:  /  ** DOG **❆**")
-    .setColor(botconfig.blue)
-    .setImage(body.url);
-
-    dogImage.edit(dogEmbed);
-        
     });
 
     }
