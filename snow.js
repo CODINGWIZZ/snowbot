@@ -871,9 +871,11 @@ if(cmd === `${prefix}rps`) {
     let slotRandom8 = Math.floor((Math.random()) * slotItems.length);
     let slotRandom9 = Math.floor((Math.random()) * slotItems.length);
 
+    message.channel.send("**" + message.author.username + "**")
+        
     let slotEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
-    .setDescription("**" + message.author.username + "**\n" + slotItems[slotRandom1] + " **|** " + slotItems[slotRandom2] + " **|** " + slotItems[slotRandom3] + "\n" + slotItems[slotRandom4] + " **|** " + slotItems[slotRandom5] + " **|** " + slotItems[slotRandom6] + "\n" + slotItems[slotRandom7] + " **|** " + slotItems[slotRandom8] + " **|** " + slotItems[slotRandom9])
+    .setDescription(slotItems[slotRandom1] + " **|** " + slotItems[slotRandom2] + " **|** " + slotItems[slotRandom3] + "\n" + slotItems[slotRandom4] + " **|** " + slotItems[slotRandom5] + " **|** " + slotItems[slotRandom6] + "\n" + slotItems[slotRandom7] + " **|** " + slotItems[slotRandom8] + " **|** " + slotItems[slotRandom9])
     .setFooter("SLOT | SNOW ❆", bot.user.displayAvatarURL);
 
     return message.channel.send(slotEmbed);
