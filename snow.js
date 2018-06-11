@@ -1189,7 +1189,7 @@ if(cmd === `${prefix}rps`) {
         let frankEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setImage("https://i.imgur.com/e615DSC.png")
-        .setTitle("FRANK ❆");
+        .setDescription("FRANK **❆**");
         
         return message.channel.send(frankEmbed);
         
