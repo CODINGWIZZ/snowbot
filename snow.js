@@ -52,7 +52,7 @@ bot.on("ready", async () => {
   
     bot.user.setStatus("ONLINE");
 
-    bot.user.setActivity("SNOW ❆");
+    bot.user.setActivity("SNOW ❆ | s!");
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
@@ -252,7 +252,7 @@ bot.on("message", async message => {
     dateString += dateStrings[dateStrings.length - 1];
 
     // INFO ABOUT SNOW
-    if(cmd === `${prefix}snowinfo`) {
+    if(cmd === `${prefix}snow`) {
         let snowinfoembed = new Discord.RichEmbed()
         .setDescription("**BOT INFORMATION ❆**")
         .setColor(botconfig.blue)
@@ -269,7 +269,7 @@ bot.on("message", async message => {
     }
 
     // INVITE SNOW
-    if(cmd === `${prefix}snowinvite`) {
+    if(cmd === `${prefix}invite`) {
 
         let inviteembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
@@ -1173,6 +1173,12 @@ if(cmd === `${prefix}rps`) {
         
         return message.channel.send(imageEmbed);
         
+        
+    }
+    
+    if(cmd === `${prefix}help`) {
+     
+        return message.channel.send("**HELP **❆**\nbttps://discordsnowbot.weebly.com/snow.html")
         
     }
 
