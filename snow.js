@@ -107,7 +107,7 @@ bot.on("message", async message => {
         const sayMessage = args.join(" ");
         if(!args[0]) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO SAY THROUGH THE BOT**!**");
 
-        message.delete().'ch(O_o=>{});
+        message.delete().ch(O_o=>{});
         message.channel.send("**" + message.author.username + "** SAID THROUGH THE BOT**:**" + "\n\n" + sayMessage);
     }
 
