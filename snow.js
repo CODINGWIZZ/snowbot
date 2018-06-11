@@ -1184,6 +1184,17 @@ if(cmd === `${prefix}rps`) {
     
     }
     
+    if(cmd === `${prefix}frank`) {
+     
+        let frankEmbed = new Discord.RichEmbed()
+        .setColor(botconfig.blue)
+        .setImage("https://i.imgur.com/e615DSC.png")
+        .setTitle("FRANK ❆");
+        
+        return message.channel.send(frankEmbed);
+        
+    }
+    
 });
 
 bot.login(process.env.token);
