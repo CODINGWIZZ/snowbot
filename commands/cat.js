@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
   
   // CAT COMMAND
   if(cmd === `${prefix}cat`) {
-        
-  message.channel.send("GENERATING CAT IMAGE **...**").then((catImage) => {
-
+    
   const { body, header } = await superagent
   .get(`http://aws.random.cat//meow`);
+        
+  message.channel.send("GENERATING CAT IMAGE **...**").then((catImage) => {
     
   const catEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
