@@ -10,11 +10,11 @@ module.exports.run = async (bot, message, args) => {
  
  // DOG COMMAND
  if(cmd === `${prefix}dog`) {
+  
+  let { body } = await superagent
+ .get("https://random.dog/woof.json");
         
  message.channel.send("GENERATING DOG IMAGAE **...**").then((dogImage) => {
-    
- let { body } = await superagent
- .get("https://random.dog/woof.json");
 
  let dogEmbed = new Discord.RichEmbed()
  .setDescription("**:dog:  /  ** DOG **❆**")
