@@ -1181,9 +1181,9 @@ if(cmd === `${prefix}rps`) {
         let helpLink = "https://discordsnowbot.weebly.com/snow.html";
      
         return message.channel.send("HELP **❆**\n" + `$<{helpLink}<`)
-        
     
-
+    }
+    
 });
 
 bot.login(process.env.token);
