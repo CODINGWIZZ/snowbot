@@ -1149,7 +1149,6 @@ if(cmd === `${prefix}rps`) {
         
         return message.channel.send(imageEmbed);
         
-        
     }
     
     if(cmd === `${prefix}help`) {
