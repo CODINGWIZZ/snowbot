@@ -1183,7 +1183,7 @@ if(cmd === `${prefix}rps`) {
         
         let gayRandom = Math.floor((Math.random) * 100);
         
-        message.channel.send("**" + message.authour.username + "** ARE **" + gayRandom + "%!**");
+        message.channel.send("**" + message.author.username + "** ARE **" + gayRandom + "%!**");
         
     }
     
