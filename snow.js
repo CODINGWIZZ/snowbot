@@ -1151,7 +1151,7 @@ if(cmd === `${prefix}rps`) {
         
       //  return message.channel.send(imageEmbed);
         
-        message.channel.send("**RANDOM IMAGE ❆**\n" + randomimagelink);
+        message.channel.send(`**RANDOM IMAGE ❆**\n${randomimagelink}`);
         
     }
     
