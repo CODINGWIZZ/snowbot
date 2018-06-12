@@ -638,6 +638,39 @@ if(cmd === `${prefix}rps`) {
     snowlog.send(banstaffembed);
 
     }
+    
+    
+    // UNBAN COMMAND
+    if(cmd === `${prefix}unban`) {
+    let ubUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+    // if(!permissions.has("BAN_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
+    if(ubUser == message.author.id) return message.channel.send("YOU CAN NOT BAN YOURSELF**!**");
+    if(!ubUser) return message.channel.send("CAN'T FIND USER**!**");
+    let ubReason = args.join(" ").slice(22);
+    if(ubUser == bot.user.id) return;
+    if(ubUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE BANNED**!**");
+    if(!ubReason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE BAN**!**");
+
+    message.guild.member(ubUser).ban(ubReason);
+        message.channel.send(`${ubUser} HAS BEEN **UNBANNED** BY ${message.author} BECAUSE: **${ubReason}**`);        
+        
+    let banstaffembed = new Discord.RichEmbed()
+    .setColor(botconfig.blue)
+    .setTimestamp()
+    .setTitle("UNBAN ❆")
+    .addField("USER", ubUser)
+    .addField("MODERATOR", message.author)
+    .addField("CHANNEL", message.channel)
+    .addField("REASON", ubReason)
+    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
+
+    let snowlog = message.guild.channels.find(`name`, "snow-log");
+    if(!snowlog) return;
+    
+    snowlog.send(banstaffembed);
+
+    }
 
     // CLEAR - PURGE COMMAND
     if(cmd === `${prefix}clear`) {
