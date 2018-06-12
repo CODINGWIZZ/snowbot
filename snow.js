@@ -525,7 +525,7 @@ if(cmd === `${prefix}rps`) {
     bot.destroy();
     
     setTimeout(function () {
-        bot.login(tokenfile.token);
+        bot.login(process.env.token);
         message.channel.send("RESTARTED **...**");
         console.log("RESTARTED ...")
     }, 3000)
