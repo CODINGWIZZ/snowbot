@@ -1179,6 +1179,14 @@ if(cmd === `${prefix}rps`) {
         
     }
     
+    if(cmd === `${prefix}gay`) {
+        
+        let gayRandom = Math.floor((Math.random) * 100);
+        
+        message.channel.send("**" + message.authour.username + "** ARE **" + gayRandom + "%!**");
+        
+    }
+    
 });
 
 bot.login(process.env.token);
