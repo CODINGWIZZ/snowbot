@@ -164,7 +164,7 @@ bot.on("message", async message => {
         let truefalse = {
             true: "TRUE",
             false: "FALSE"
-        }
+        };
 
         let role = args.join(" ");
         if(!role) return message.channel.send("SPECIFY A ROLE**!**");
@@ -773,7 +773,7 @@ if(cmd === `${prefix}rps`) {
     // SHORTEN COMMAND
     if(cmd === `${prefix}shorten`) {
 
-    if(!args[0]) return message.channel.send("CAN'T FIND LINK**!**");
+    if(!args[0]) return message.channel.send("PLEASE ENTER A LINK TO SHORTEN**!**");
 
     message.channel.send("GENERATING LINK **...**").then((message) => {
 
