@@ -1142,16 +1142,16 @@ if(cmd === `${prefix}rps`) {
                                           
         const randomimages = Math.floor((Math.random()) * 1050);
         
-      //  let imageEmbed = new Discord.RichEmbed()
-      //  .setColor(botconfig.blue)
-      //  .setDescription("RANDOM IMAGE **❆**")
-      //  .setImage(`https://picsum.photos/1920/1080/?image=${randomimages}`);
+        let imageEmbed = new Discord.RichEmbed()
+        .setColor(botconfig.blue)
+        .setDescription("RANDOM IMAGE **❆**")
+        .setImage(`https://picsum.photos/1920/1080/?image=${randomimages}`);
         
         let randomimagelink = `https://picsum.photos/1920/1080/?image=${randomimages}`;
         
-      //  return message.channel.send(imageEmbed);
+        return message.channel.send(imageEmbed);
         
-        message.channel.send(`**RANDOM IMAGE ❆**\n${randomimagelink}`);
+        // message.channel.send(`**RANDOM IMAGE ❆**\n${randomimagelink}`);
         
     }
     
