@@ -68,8 +68,9 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("UNMUTE ❆")
     .setTimestamp()
     .addField("USER", mUser)
-    .addField("MUTED FOR", ms(ms(mutetime)))
-    .addField("MODERATOR", "<@417210018576990208>");
+    .addField("MODERATOR", "<@417210018576990208>")
+    .addField("WAS MUTED FOR", ms(ms(mutetime)))
+    .setFooter("SNOW ❆", bot.user.displayAvatarURL)
 
     let snowlog1 = message.guild.channels.find(`name`, "snow-log");
     if(!snowlog) return;
