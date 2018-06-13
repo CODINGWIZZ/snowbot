@@ -6,7 +6,6 @@ const fs = require("fs");
 const urban = require("relevant-urban");
 const got = require("got");
 const convert = require("color-convert");
-const moment = require("moment");
 const superagent = require("superagent");
 const math = require("math-expression-evaluator"); 
 const stripIndents = require("common-tags").stripIndent;
