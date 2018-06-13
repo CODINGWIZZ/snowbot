@@ -691,8 +691,6 @@ if(cmd === `${prefix}rps`) {
 
         msg.edit(fortniteEmbed).then(msgg => msgg.delete(40000));
 
-        });
-
     }).catch(e => {
         
         return msg.edit("CAN'T FIND USERNAME**!**").then(msggg => msggg.delete(10000));
@@ -700,6 +698,7 @@ if(cmd === `${prefix}rps`) {
     });
         
     });
+        
 
     }
 
