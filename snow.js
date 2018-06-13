@@ -56,9 +56,9 @@ bot.on("ready", async () => {
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
-    bot.user.setActivity("SNOW ❆ | s!", { type: "STREAMING"});
+    // bot.user.setActivity("SNOW ❆ | s!", { type: "STREAMING"});
     
-    // bot.user.setGame("SNOW ❆", "https://twitch.tv/WIZZ_SNOW");
+    bot.user.setGame("SNOW ❆  |  s!", "https://twitch.tv/WIZZ_SNOW");
   
 });
 
