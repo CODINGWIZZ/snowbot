@@ -52,11 +52,11 @@ bot.on("ready", async () => {
   
     bot.user.setStatus("ONLINE");
 
-    bot.user.setActivity("SNOW ❆ // s!");
+    // bot.user.setActivity("SNOW ❆ // s!");
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
-    // bot.user.setActivity("EUROVISION FINAL!", { type: "WATCHING"});
+    bot.user.setActivity("SNOW ❆ | s!", { type: "STREAMING"});
     
     // bot.user.setGame("SNOW ❆", "https://twitch.tv/WIZZ_SNOW");
   
