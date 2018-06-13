@@ -693,7 +693,7 @@ if(cmd === `${prefix}rps`) {
 
     }).catch(e => {
         
-        return msg.edit("CAN'T FIND USERNAME**!**").then(msggg => msggg.delete(10000));
+        return msg.edit("COULDN'T FIND THAT USERNAME**!**").then(msggg => msggg.delete(10000));
         
     });
         
