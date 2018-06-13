@@ -60,7 +60,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("USER", mUser)
     .addField("MODERATOR", message.author)
     .addField("CHANNEL", message.channel)
-    .addField("TIME", ms(ms(mutetime)))
+    .addField("DURATION", ms(ms(mutetime)))
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
     let snowlog = message.guild.channels.find(`name`, "snow-log");
@@ -74,7 +74,7 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .addField("USER", mUser)
     .addField("MODERATOR", "<@417210018576990208>")
-    .addField("WAS MUTED FOR", ms(ms(mutetime)))
+    .addField("DURATION", ms(ms(mutetime)))
     .setFooter("SNOW ❆", bot.user.displayAvatarURL)
 
     let snowlog1 = message.guild.channels.find(`name`, "snow-log");
