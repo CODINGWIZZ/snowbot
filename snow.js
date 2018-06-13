@@ -664,9 +664,9 @@ if(cmd === `${prefix}rps`) {
     let username = args[0];
     let platform = args[1] || "pc";
 
-    if(!args[0]) return message.channel.send("PLEASE ENTER A FORTNITE USERNAME AND A PLATFORM TO SEE FORTNITE STATS**!**");
+    if(!args[0]) return message.channel.send("PLEASE ENTER A FORTNITE USERNAME AND A PLATFORM TO CHECK FORTNITE STATS**!**");
 
-    message.channel.send("YOUR FORTNITE STAT IS BEING REQUESTED **...**").then((message) => {
+    message.channel.send("YOUR FORTNITE STAT IS BEING REQUESTED **...**").then((msg) => {
 
     let data = ft.getInfo(username, platform).then(data => {
 
@@ -689,12 +689,15 @@ if(cmd === `${prefix}rps`) {
         .addField("MATCHES PLAYED", mPlayed.value)
         .setFooter("FORTNITE STATS | SNOW ❆", bot.user.displayAvatarURL);
 
-        message.edit(fortniteEmbed).then(msg => msg.delete(40000));
+        msg.edit(fortniteEmbed).then(msgg => msgg.delete(40000));
 
         });
 
-    }).catch(e => {
-        return message.channel.send("CAN'T FIND USERNAME**!**").then(msg => msg.delete(10000));
+    }) catch (e) {
+        return message.channel.send("CAN'T FIND USERNAME**!**").then(msggg => msggg.delete(10000));
+        
+    }
+        
     });
 
     }
