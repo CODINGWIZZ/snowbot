@@ -1185,16 +1185,17 @@ if(cmd === `${prefix}rps`) {
         
         let gayRandom = Math.floor((Math.random()) * 100);
         
-        message.channel.send("**" + message.author.username + "** ARE **" + gayRandom + "%** GAY**!**");
+        if(gayRandom > 50) {
+         
+            result = ":gay_pride_flag:";
+            
+        } else {
+         
+            result = ":yum:";
+            
+        }
         
-    }
-    
-    if(cmd === `${prefix}snowlog`) {
-        
-        if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-        
-        if(message.guild.channel("snow-log")) return message.channel.send("YOU ALREADY HAVE A CHANNEL CALLED SNOWLOG**!**");
-        message.guild.createChannel("snow-log");
+        message.channel.send("**" + message.author.username + "** ARE **" + gayRandom + "%** GAY**!** " + result);
         
     }
     
