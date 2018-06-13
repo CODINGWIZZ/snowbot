@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
   if(mUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
   
   await(mUser.addrole(muterole));
-  message.channel.send(`<${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime)}**`);
+  message.channel.send(`<${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}**`);
   
   let muteEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
