@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     })
     message.guild.channels.forEach(async (channel, id) => {
     
-        await channel.overwritePermissios(muterole, {
+        await channel.overwritePermissions(muterole, {
              SEND_MESSAGES: false,
              ADD_REACTIOS: false,
              SPEAK: false
