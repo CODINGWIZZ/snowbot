@@ -77,7 +77,7 @@ module.exports.run = async (bot, message, args) => {
   
   if(!mUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
   
-  setTimeout(function () {
+  setTimeout(function() {
   
     mUser.removerole(muterole);
     if(!mUser.roles.has(muterole.id)) return;
