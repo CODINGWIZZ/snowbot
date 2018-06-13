@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
   
   if(mUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
   
-  await(mUser.addRole(muterole));
+  await(mUser.addRole(muterole.id));
   message.channel.send(`<@${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}**`);
   
   let muteEmbed = new Discord.RichEmbed()
@@ -79,8 +79,8 @@ module.exports.run = async (bot, message, args) => {
   
   setTimeout(function() {
   
-    if(!mUser.roles.has(muterole)) return;
-    mUser.removerole(muterole.id);
+    // if(!mUser.roles.has(muterole)) return;
+    mUser.removeRole(muterole.id);
     snowlog1.send(automuteEmbed);
   
   }, ms(mutetime));
