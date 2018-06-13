@@ -1194,7 +1194,7 @@ if(cmd === `${prefix}rps`) {
         if(!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
         
         if(message.guild.channel("snow-log")) return message.channel.send("YOU ALREADY HAVE A CHANNEL CALLED SNOWLOG**!**");
-        message.guild.createChanel("snow-log");
+        message.guild.createChannel("snow-log");
         
     }
     
