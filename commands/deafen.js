@@ -86,6 +86,8 @@ module.exports.run = async (bot, message, args) => {
   }, ms(ms(deafentime)));
 
 }
+  
+}
 
 module.exports.help = {
   name: "deafen"
