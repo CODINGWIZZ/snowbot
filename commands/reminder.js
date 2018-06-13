@@ -23,7 +23,7 @@
 
         let reminderEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription(`THE **${ms(ms(remindertime))}** HAS BEEN FINISHED IN **${message.guild.name}!**`)
+        .setDescription(`THE **${ms(ms(remindertime))}** YOU MADE IN **${message.guild.name} HAS BEEN FINISHED!**`)
         .addField("REMINDER NOTE", `${notemessage}`)
         .setTimestamp()
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
