@@ -963,11 +963,11 @@ if(cmd === `${prefix}rps`) {
         if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
         if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO IS A HIGHER OR HAS THE SAE ROLE AS YOU**!**");
     
-        let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);    
+        let muterole = message.guild.roles.find(`name`, `MUTED // ❆`);    
         if(!muterole) {
             try {
                 role = await message.guild.createRole({
-                    name: "MUTED / ❆",
+                    name: "MUTED // ❆",
                     color: "#65798d",
                     permissions: []
                 });
@@ -1012,7 +1012,7 @@ if(cmd === `${prefix}rps`) {
         let toMute = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
         if(!toMute) return message.channel.send("CAN'T FIND USER**!**");
 
-        let muterole = message.guild.roles.find(`name`, `MUTED / ❆`);
+        let muterole = message.guild.roles.find(`name`, `MUTED // ❆`);
 
         if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
 
