@@ -75,7 +75,7 @@ module.exports.run = async (bot, message, args) => {
 
     setTimeout(function() {
         // if(!mUser.roles.has(muterole)) return;
-        mUser.removerole(muterole.id);
+        mUser.removeRole(muterole.id);
         snowlog1.send(autounmuteEmbed);
     }, ms(mutetime));
 
