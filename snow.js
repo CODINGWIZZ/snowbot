@@ -1159,13 +1159,17 @@ if(cmd === `${prefix}rps`) {
         let helpLink = "https://discordsnowbot.weebly.com/snow.html";
      
         // return message.channel.send("**HELP ❆**\n" + `<${helpLink}>`)
-        
-        let heretext = ("HERE", "https://discordsnowbot.weebly.com/snow.html");
+       
         
         let helpEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setTitle("HELP ❆")
-        .setDescription("YOU CAN SEE ALL MY COMMANDS " + heretext);
+        .setDescription("YOU CAN SEE ALL MY COMMANDS HERE**:**\n**https://discordsnowbot.weebly.com/snow.html**)
+        .addField("GENERAL", "`ping` `roll` `say` `snow` `invite` `changelog` `help`")
+        .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `tempmute` `unmute` `tempdeafen` `undeafen` `annouce`")
+        .addField("FUN", "`google` `calculate` `rps` `avatar` `8ball` `fortnite` `shorten` `vote` `slot` `randomcolor` `color` `lmgtfy` `youtube` `fancy` `randomimage` `weather` `urban` `forecast` `gif` `dog` `cat` `reminder`")
+        .addField("INFO", "`serverinfo` `roleinfo` `userinfo`")
+        .setFooter("HELP | SNOW ❆", bot.user.displayAvatarURL);
         
         return message.channel.send(helpEmbed);
     
