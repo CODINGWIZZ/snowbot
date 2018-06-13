@@ -1014,7 +1014,7 @@ if(cmd === `${prefix}rps`) {
 
         let muterole = message.guild.roles.find(`name`, `MUTED // ❆`);
 
-        if(!toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
+        if(!muterole || !toMute.roles.has(muterole)) return message.channel.send("THIS USER IS NOT MUTED**!**");
 
         await(toMute.removeRole(muterole.id));
         message.channel.send(`${toMute} HAS BEEN **UNMUTED!**`);
