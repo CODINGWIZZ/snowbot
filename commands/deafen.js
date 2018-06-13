@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   if(!dUser) return message.channel.send("CAN'T FIND USER**!**");
   if(dUser.id === message.author.id) return message.channel.send("YOU CAN'T DEAFEN YOURSELF**!**");
   if(dUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T DEAFENED**!**");
-  if(dUser.highestRole.position >= message.member.higestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO IS IN A HIGHER OR THE SAME ROLE AS YOU**!**");
+  // if(dUser.highestRole.position >= message.member.higestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO IS IN A HIGHER OR THE SAME ROLE AS YOU**!**");
   
   let deafenrole = message.guild.roles.find(`name`, "DEAFENED // ❆");
   if(!deafenrole) {
