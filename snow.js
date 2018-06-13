@@ -1189,26 +1189,6 @@ if(cmd === `${prefix}rps`) {
         
     }
     
-    if(cmd === `${prefix}eval`) {
-        
-     if(!message.member != "297832577782382592") return;
-
-     const code = args.join(" ");
-     const evaled = eval(code);
-        
-     if(!code) return;
-     
-     if(typeof evaled !== "string")
-         evaled = require("util").inspect(evaled);
-        
-     message.channel.send(clean(evaled), {code:"xl"});
-        
-    } catch (err) {
-     
-         message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-        
-    }
-    
 });
 
 bot.login(process.env.token);
