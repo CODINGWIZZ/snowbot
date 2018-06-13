@@ -1185,17 +1185,7 @@ if(cmd === `${prefix}rps`) {
         
         let gayRandom = Math.floor((Math.random()) * 100);
         
-        if(gayRandom > 50) {
-         
-            result = ":gay_pride_flag:";
-            
-        } else {
-         
-            result = ":yum:";
-            
-        }
-        
-        message.channel.send("**" + message.author.username + "** ARE **" + gayRandom + "%** GAY**!** " + result);
+        message.channel.send("**" + message.author.username + "** ARE **" + gayRandom + "%** GAY**!**");
         
     }
     
