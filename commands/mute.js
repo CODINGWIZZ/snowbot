@@ -11,10 +11,10 @@ module.exports.run = async (bot, message, args) => {
   if(cmd === `${prefix}mute`) {
   
   let mUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  if(!message.member.hasPermission("MANAGE_MESSAGE")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+  if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
   if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
   if(mUser.id === message.author.username) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
-  if(mUser.hasPermission("MANAGE_PERMISSIONS")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
+  if(mUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
   
   let muterole = message.guild.roles.find(`name`, `MUTED // ❆`);
   if(!muterole) {
