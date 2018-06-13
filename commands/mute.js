@@ -2,8 +2,13 @@ const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 const ms = require("ms");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => 
 
+    let prefix = botconfig.prefix;
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0].toLocaleLowerCase();
+
+    if(cmd === `${prefix}mute`) {
     let mUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
     if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
@@ -80,6 +85,8 @@ module.exports.run = async (bot, message, args) => {
         mUser.removeRole(muterole.id);
         snowlog1.send(autounmuteEmbed);
     }, ms(mutetime));
+
+}
 
 }
 
