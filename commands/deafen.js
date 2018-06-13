@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   
   if(cmd === `${prefix}deafen`) {
   
-  let dUser = message.guild.member(message.mentions.users.fist() || message.guild.members.get(args[0]));
+  let dUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
   if(!dUser) return message.channel.send("CAN'T FIND USER**!**");
   if(dUser.id === message.author.id) return message.channel.send("YOU CAN'T DEAFEN YOURSELF**!**");
