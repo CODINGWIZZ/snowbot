@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
   .setColor(botconfig.blue)
   .setTitle("MUTE ❆")
   .setTimestamp()
-  .addField("USER", mUSer)
+  .addField("USER", mUser)
   .addField("MODERATOR", message.author)
   .addField("CHANNEL", message.channel)
   .addField("TIME", `${ms(ms(mutetime))}`)
