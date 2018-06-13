@@ -693,7 +693,8 @@ if(cmd === `${prefix}rps`) {
 
         });
 
-    }) catch (e) {
+    }).catch(e) {
+        
         return message.channel.send("CAN'T FIND USERNAME**!**").then(msggg => msggg.delete(10000));
         
     }
