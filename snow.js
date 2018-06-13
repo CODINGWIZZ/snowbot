@@ -1163,7 +1163,7 @@ if(cmd === `${prefix}rps`) {
         let heretext = ("HERE", "https://discordsnowbot.weebly.com/snow.html");
         
         let helpEmbed = new Discord.RichEmbed()
-        .setColor(botconig.blue)
+        .setColor(botconfig.blue)
         .setTitle("HELP ❆")
         .setDescription("YOU CAN SEE ALL MY COMMANDS " + heretext);
         
