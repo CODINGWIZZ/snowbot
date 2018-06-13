@@ -258,7 +258,7 @@ bot.on("message", async message => {
         .addField("BOT NAME", bot.user.username)
         .addField("OWNER / DEVELOPER", "**WIZZ**#7897 **[<:VILGOTNI:409785943676026890>]**")
         .addField("VERSION", "**SNOW** ❆ | **1.9.0**")
-        .addField("WEBSITE", "https://discordsnowbot.weebly.com/")
+        .addField("WEBSITE", "**https://discordsnowbot.weebly.com/**")
         .addField("STATS", `**${bot.guilds.size} SERVERS\n\n${bot.channels.size} CHANNELS\n\n${bot.users.size} USERS**`)
      // .addField("UPTIME", dateString)
         .setFooter("BOT INFORMATION | SNOW ❆", bot.user.displayAvatarURL);
@@ -1158,7 +1158,16 @@ if(cmd === `${prefix}rps`) {
         
         let helpLink = "https://discordsnowbot.weebly.com/snow.html";
      
-        return message.channel.send("**HELP ❆**\n" + `<${helpLink}>`)
+        // return message.channel.send("**HELP ❆**\n" + `<${helpLink}>`)
+        
+        let heretext = ("HERE", "https://discordsnowbot.weebly.com/snow.html");
+        
+        let helpEmbed = new Discord.RichEmebed()
+        .setColor(botconig.blue)
+        .setTitle("HELP ❆")
+        .setDescription("YOU CAN SEE ALL MY COMMANDS " + heretext);
+        
+        return message.channel.send(helpEmbed);
     
     }
     
