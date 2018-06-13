@@ -64,9 +64,9 @@ module.exports.run = async (bot, message, args) => {
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
     let snowlog = message.guild.channels.find(`name`, "snow-log");
-    if(!snowlog) await message.guild.createChannel(`name`, "snow-log");
+    if(!snowlog) return;
 
-    await snowlog.send(muteEmbed);
+    snowlog.send(muteEmbed);
 
     let autounmuteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
@@ -78,12 +78,12 @@ module.exports.run = async (bot, message, args) => {
     .setFooter("SNOW ❆", bot.user.displayAvatarURL)
 
     let snowlog1 = message.guild.channels.find(`name`, "snow-log");
-    if(!snowlog) await message.guild.createChannel(`name`, "snow-log");
+    if(!snowlog) return;
 
     setTimeout(function() {
         // if(!mUser.roles.has(muterole)) return;
         mUser.removeRole(muterole.id);
-        await snowlog1.send(autounmuteEmbed);
+        snowlog1.send(autounmuteEmbed);
     }, ms(mutetime));
 
 }
