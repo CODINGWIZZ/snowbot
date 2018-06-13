@@ -1164,7 +1164,7 @@ if(cmd === `${prefix}rps`) {
         let helpEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setTitle("HELP ❆")
-        .setDescription("YOU CAN SEE ALL MY COMMANDS HERE**:**\n**https://discordsnowbot.weebly.com/snow.html**")
+        .setDescription("YOU CAN SEE ALL OF MY COMMANDS HERE AND HOW TO USE THEM**:**\n**https://discordsnowbot.weebly.com/snow.html**")
         .addField("GENERAL", "`ping` `roll` `say` `snow` `invite` `changelog` `help`")
         .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `tempmute` `unmute` `tempdeafen` `undeafen` `annouce`")
         .addField("FUN", "`google` `calculate` `rps` `avatar` `8ball` `fortnite` `shorten` `vote` `slot` `randomcolor` `color` `lmgtfy` `youtube` `fancy` `randomimage` `weather` `urban` `forecast` `gif` `dog` `cat` `reminder`")
