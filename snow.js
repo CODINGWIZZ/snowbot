@@ -746,7 +746,7 @@ if(cmd === `${prefix}rps`) {
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
     let snowlog = message.guild.channels.find(`name`, "snow");
-    if(!snow) return;
+    if(!snowlog) return;
 
     kickchannel.send(kickembed);
 
