@@ -754,7 +754,7 @@ if(cmd === `${prefix}rps`) {
     let snowlog = message.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
-    kickchannel.send(kickembed);
+    snowlog.send(kickembed);
 
     }
     
@@ -881,7 +881,7 @@ if(cmd === `${prefix}rps`) {
     let snowlog = message.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
-    warnchannel.send(warnstaffembed);
+    snowlog.send(warnstaffembed);
 
     }
 
