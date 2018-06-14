@@ -64,7 +64,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("DURATION", ms(ms(mutetime)))
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-    let snowlog = message.guild.channels.find(`name`, "snow-log");
+    let snowlog = message.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
     snowlog.send(muteEmbed);
@@ -78,7 +78,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("DURATION", ms(ms(mutetime)))
     .setFooter("SNOW ❆", bot.user.displayAvatarURL)
 
-    let snowlog1 = message.guild.channels.find(`name`, "snow-log");
+    let snowlog1 = message.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
     setTimeout(function() {
