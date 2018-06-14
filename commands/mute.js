@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
     let mutetime = args[1];
     if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
         
-    let mutetimeimp = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let mutetimeimp = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "m", "s", "h", "days"];
         
     if(!mutetimeimp.includes(mutetime)) return message.channel.send("PLEASE ENTER A SPECIFIC TIME YOU WANT THE DESIRED USER TO BE MUTED FOR**!**");
 
