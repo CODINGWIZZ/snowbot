@@ -964,8 +964,8 @@ if(cmd === `${prefix}rps`) {
         if(!toMute) return message.channel.send("CAN'T FIND USER**!**");
 
         if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
-        if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO IS A HIGHER OR HAS THE SAE ROLE AS YOU**!**");
-    
+        if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
+
         let muterole = message.guild.roles.find(`name`, `MUTED // ❆`);    
         if(!muterole) {
             try {
@@ -1047,7 +1047,7 @@ if(cmd === `${prefix}rps`) {
         if(!toMute) return message.channel.send("CAN'T FIND USER**!**");
 
         if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T DEAFEN YOURSELF**!**");
-        if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CANNOT DEAFEN A MEMBER WHO IS HIGER OR HAS THE SAME ROLE AS YOU**!**");
+        if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CANNOT DEAFEN A MEMBER WHO HAS HIGER OR HAS SAME ROLE AS YOU**!**");
 
         let deafenrole = message.guild.roles.find(`name`, `DEAFENED / ❆`);
         if(!deafenrole) {
