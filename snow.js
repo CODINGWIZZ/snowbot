@@ -61,6 +61,24 @@ bot.on("ready", async () => {
   
 });
 
+bot.on("guildMemberAdd", member => {
+   
+       let snowlog = member.guild.channels.find(`name`, "snow");
+       if(!snowlog) return;
+    
+       snowlog.send("**" + member + "** HAS JOINED **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**");
+    
+});
+
+bot.on("guildMemberRemove", member => {
+   
+        let snowlog = member.guild.channels.find(`name`, "snow");
+        if(!snowlog) return;
+    
+        snowlog.send("**" + member.user.username + "** HAS LEFT **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**");    
+    
+});
+
 bot.on("message", async message => {
 
     if(message.author.bot) return;
