@@ -606,9 +606,7 @@ if(cmd === `${prefix}rps`) {
     // if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT GIVE A ROLE THAT'S HIGHER UP THAN YOURSELF**!**");
 
     if(aMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH THE SAME OR A HIGHER ROLE AS YOU**!**");    
-    if(aMember.roles.has(gRole.id)) return message.channel.send("THAT USER ALREADY HAVE THAT ROLE**!**");
-        
-    if(err) return message.channel.send(err);    
+    if(aMember.roles.has(gRole.id)) return message.channel.send("THAT USER ALREADY HAVE THAT ROLE**!**");  
         
     await(aMember.addRole(gRole.id)).then(() => {
         message.channel.send(`<@${aMember.id}> WAS ADDED TO THE **${gRole}** ROLE**!**`);
