@@ -49,6 +49,10 @@ module.exports.run = async (bot, message, args) => {
 
     let mutetime = args[1];
     if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
+      
+    let mutetimeimp = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "M", "S", "H", "DAYS"];
+        
+    if(!mutetimeimp.includes(mutetime)) return message.channel.send("PLEASE ENTER A SPECIFIC TIME YOU WANT THE DESIRED USER TO BE DEAFENED FOR**!**");
 
     await(dUser.addRole(muterole.id));
     message.channel.send(`<@${dUser.id}> HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
