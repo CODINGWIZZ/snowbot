@@ -62,20 +62,28 @@ bot.on("ready", async () => {
 });
 
 bot.on("guildMemberAdd", member => {
+    
+       let newmemberEmbed = new Discord.RichEmbed()
+       .setColor(botconfig.blue)
+       .setDescription("**" + member + "** HAS JOINED **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**");
    
        let snowlog = member.guild.channels.find(`name`, "snow");
        if(!snowlog) return;
     
-       snowlog.send("**" + member + "** HAS JOINED **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**");
+       snowlog.send(newmemberEmbed);
     
 });
 
 bot.on("guildMemberRemove", member => {
    
+        let memberleftEmbed = new Discord.RichEmbed()
+        .setColor(botconfig.blue)
+        .setDescription("**" + member.user.username + "** HAS LEFT **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS **!**");
+    
         let snowlog = member.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
-    
-        snowlog.send("**" + member.user.username + "** HAS LEFT **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**");    
+        
+        snowlog.send(memberleftEmbed);
     
 });
 
