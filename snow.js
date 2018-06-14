@@ -597,7 +597,7 @@ if(cmd === `${prefix}rps`) {
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-        let addrolechannel = message.guild.channels.find(`name`, "snow-log");
+        let addrolechannel = message.guild.channels.find(`name`, "snow");
         if(!addrolechannel) return; 
 
         return addrolechannel.send(addroleEmbed);
@@ -631,7 +631,7 @@ if(cmd === `${prefix}rps`) {
     .addField("REASON", bReason)
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-    let snowlog = message.guild.channels.find(`name`, "snow-log");
+    let snowlog = message.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
     
     snowlog.send(banstaffembed);
@@ -727,7 +727,7 @@ if(cmd === `${prefix}rps`) {
     .setTimestamp()
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-    let snowlog = message.guild.channels.find(`name`, "snow-log");
+    let snowlog = message.guild.channels.find(`name`, "snow");
     if(!snow) return;
 
     kickchannel.send(kickembed);
@@ -763,7 +763,7 @@ if(cmd === `${prefix}rps`) {
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-        let removerolechannel = message.guild.channels.find(`name`, "snow-log");
+        let removerolechannel = message.guild.channels.find(`name`, "snow");
         if(!removerolechannel) return;
 
         removerolechannel.send(removeroleEmbed);
@@ -854,7 +854,7 @@ if(cmd === `${prefix}rps`) {
     .addField("REASON", reason)
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-    let snowlog = message.guild.channels.find(`name`, "snow-log");
+    let snowlog = message.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
     warnchannel.send(warnstaffembed);
@@ -1001,7 +1001,7 @@ if(cmd === `${prefix}rps`) {
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-        let snowlog = message.guild.channels.find(`name`, "snow-log");
+        let snowlog = message.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
 
         snowlog.send(tempmuteembed);
@@ -1031,7 +1031,7 @@ if(cmd === `${prefix}rps`) {
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-        let snowlog = message.guild.channels.find(`name`, "snow-log");
+        let snowlog = message.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
 
         snowlog.send(unmuteembed);
@@ -1083,7 +1083,7 @@ if(cmd === `${prefix}rps`) {
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-        let snowlog = message.guild.channels.find(`name`, "snow-log");
+        let snowlog = message.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
 
         snowlog.send(tempdeafenembed);
@@ -1114,7 +1114,7 @@ if(cmd === `${prefix}rps`) {
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
-        let snowlog = message.guild.channels.find(`name`, "snow-log");
+        let snowlog = message.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
 
         snowlog.send(undeafenchannel);
