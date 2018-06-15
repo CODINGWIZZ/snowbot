@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send("CLEARED `" + args[0] + "` MESSAGES**!**").then(msg => msg.delete(5000));
     });
 
-    } catch (err) => {
+    } catch(err) => {
         
         console.log(err);
         
