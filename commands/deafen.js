@@ -17,12 +17,12 @@ module.exports.run = async (bot, message, args) => {
     if(dUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE DEAFENED**!**");
     if(dUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
-    let muterole = message.guild.roles.find(`name`, "DEAFENED // ❆");
-    if(!muterole) {
+    let deafenrole = message.guild.roles.find(`name`, "DEAFENED // ❆");
+    if(!deafenrole) {
 
         try {
 
-            muterole = await message.guild.createRole({
+            deafenrole = await message.guild.createRole({
                 name: "DEAFENED // ❆",
                 color: "#65798d",
                 permissions: []
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
             
             message.guild.channels.forEach(async (channel, id) => {
 
-                await channel.overwritePermissions(muterole, {
+                await channel.overwritePermissions(deafenrole, {
                     SPEAK: false
 
                 });
@@ -45,12 +45,12 @@ module.exports.run = async (bot, message, args) => {
 
     }
 
-    if(dUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
+    if(dUser.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
 
     let mutetime = args[1];
     if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
     
-    await(dUser.addRole(muterole.id));
+    await(dUser.addRole(deafenrole.id));
     message.channel.send(`<@${dUser.id}> HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
 
     let muteEmbed = new Discord.RichEmbed()
@@ -81,8 +81,8 @@ module.exports.run = async (bot, message, args) => {
     if(!snowlog) return;
 
     setTimeout(function() {
-        if(!dUser.roles.has(muterole)) return;
-        dUser.removeRole(muterole.id);
+        if(!dUser.roles.has(deafenrole.id)) return;
+        dUser.removeRole(deafenrole.id);
         snowlog1.send(autounmuteEmbed);
     }, ms(mutetime));
 
