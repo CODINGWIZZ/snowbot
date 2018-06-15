@@ -566,31 +566,6 @@ if(cmd === `${prefix}rps`) {
 
     }
 
-    // TWITCH LIVE [OWNER ONLY]
-    if(cmd === `${prefix}muylive`) {
-
-    if(message.member =! "297832577782382592") return;
-    
-    let muyavatar = "https://static-cdn.jtvnw.net/jtv_user_pictures/b95d8ac7-9782-4c9d-ad7a-a5e204f565b9-profile_image-300x300.png";
-
-    message.delete();
-
-    message.channel.send("**❆ // MUYWININDEED** IS **LIVE** ON **TWITCH!**")
-
-    let muyEmbed = new Discord.RichEmbed()
-    .setColor(botconfig.blue)
-    .setAuthor("MUYWININDEED", muyavatar)
-    .setThumbnail(muyavatar)
-    .setTitle("MINECRAFT 100%")
-    .addField("GAME", "FORTNITE", true)
-    .addField("HOST", "TWITCH.TV", true)
-    .setURL("https://twitch.tv/muywinindeed/")
-    .setImage("https://static-cdn.jtvnw.net/previews-ttv/live_user_muywinindeed-320x180.jpg?r=279571");
-
-    message.channel.send(muyEmbed);
-
-    }
-
     // COMMANDS | COMMAND HANDLER
     if(cmd === `${prefix}addrole`) {
 
@@ -903,7 +878,10 @@ if(cmd === `${prefix}rps`) {
     .setColor(`${color}`)
     // .setThumbnail(`https://www.colorhexa.com/${color.slice(1)}.png`)
     .setURL(`https://www.colorhexa.com/${color.slice(1)}`)
-    .setDescription(`**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
+   // .setDescription(`**RGB**\${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
+    .addField("RGB", `${convert.hex.rgb(color)}`, true)
+    .addField("HSL", `${convert.hex.hsl(color)}`, true)
+    .addField("CSS", `${convert.hex.keyword(color).toUpperCase()}`, true)
     .setFooter("RANDOM COLOR | SNOW ❆", bot.user.displayAvatarURL);
 
     return message.channel.send(randomColorEmbed);
