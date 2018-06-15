@@ -81,7 +81,7 @@ module.exports.run = async (bot, message, args) => {
     if(!snowlog) return;
 
     setTimeout(function() {
-        // if(!mUser.roles.has(muterole)) return;
+        if(!dUser.roles.has(muterole)) return;
         dUser.removeRole(muterole.id);
         snowlog1.send(autounmuteEmbed);
     }, ms(mutetime));
@@ -89,6 +89,7 @@ module.exports.run = async (bot, message, args) => {
 }
 
 }
+
 module.exports.help = {
     name: "deafen"
 }
