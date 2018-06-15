@@ -3,7 +3,7 @@ const botconfig = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
 
-  let uUser = message.guild.member(message.mentions.users.first() || message.guild.get(args[0]));
+  let uUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
   if(!message.member.hasPermissions("BAN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
   if(!uUser) return message.channel.send("CAN'T FIND USER**!**");
   let uReason = args.slice(1).join(" ");
