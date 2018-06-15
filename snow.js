@@ -661,26 +661,7 @@ if(cmd === `${prefix}rps`) {
     snowlog.send(banstaffembed);
 
     }
-   
-    // CLEAR - PURGE COMMAND
-    if(cmd === `${prefix}clear`) {
-
-    message.delete().catch(O_o=>{});
-
-    const amount = isNaN(args[0]) ? parseInt(args[1]) : parseInt(args[0]);
-
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-    // if(!permissions.has("MANAGE_MESSAGES")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
-    if (amount < 0) return message.channel.send("CANNOT DELETE A NEGATIVE NUMBER OF MESSAGES**!**")
-    if (amount > 100) return message.channel.send("CAN ONLY DELETE 99 MESSAGES MAX**!**")
-
-    if(!args[0]) return message.channel.send("PLEASE ENTER A CERTAIN NUMBER YOU WANT TO DELETE**!**");
-    message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(`CLEARED **${args[0]}** MESSAGES**!**`).then(msg => msg.delete(5000));
-    });
-
-    }
-
+ 
     // FORTNITE COMMAND
     if(cmd === `${prefix}fortnite`) {
 
@@ -700,7 +681,7 @@ if(cmd === `${prefix}rps`) {
         let kd = stats.find(s => s.stat == 'kd');
         let mPlayed = stats.find(s => s.stat == 'matchesPlayed');
 
-        let fUser = args.join(" ").slice(2);
+        let fUser = args.join(" ".slice(2);
         if(!fUser) return message.edit("CAN'T FIND FORTITE USERNAME**!**");
 
         let fortniteEmbed = new Discord.RichEmbed()
