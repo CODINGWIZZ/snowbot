@@ -1183,18 +1183,14 @@ if(cmd === `${prefix}rps`) {
     
     if(cmd === `${prefix}help`) {
         
-        let helpLink = "https://discordsnowbot.weebly.com/snow.html";
-     
-        // return message.channel.send("**HELP ❆**\n" + `<${helpLink}>`)
-       
-        
         let helpEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setTitle("HELP ❆")
-        .setDescription("YOU CAN SEE ALL OF MY COMMANDS HERE AND HOW TO USE THEM**:**\n**https://discordsnowbot.weebly.com/snow.html**")
+        .setDescription("YOU CAN SEE ALL OF MY COMMANDS HERE AND HOW TO USE THEM**:**\n**https://discordsnowbot.weebly.com/snow**")
         .addField("GENERAL", "`ping` `roll` `say` `snow` `invite` `changelog` `help`")
         .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `tempmute` `unmute` `tempdeafen` `undeafen` `annouce`")
-        .addField("FUN", "`google` `calculate` `rps` `avatar` `8ball` `fortnite` `shorten` `vote` `slot` `randomcolor` `color` `lmgtfy` `youtube` `fancy` `randomimage` `weather` `urban` `forecast` `gif` `dog` `cat` `reminder`")
+        .addField("FUN", "`rps` `avatar` `8ball` `vote` `slot` `randomcolor` `color` `fancy` `randomimage` `urban` `gif` `dog` `cat` `reminder`")
+        .addField("UTILITY", "`fortnite` `shorten` `weather` `forecast` `google` `youtube` `lmgtfy` `calculate`")
         .addField("INFO", "`serverinfo` `roleinfo` `userinfo`")
         .setFooter("HELP | SNOW ❆", bot.user.displayAvatarURL);
         
