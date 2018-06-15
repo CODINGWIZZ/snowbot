@@ -637,7 +637,7 @@ if(cmd === `${prefix}rps`) {
     // if(!permissions.has("BAN_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
     if(bUser == message.author.id) return message.channel.send("YOU CAN NOT BAN YOURSELF**!**");
     if(!bUser) return message.channel.send("CAN'T FIND USER**!**");
-    let bReason = args.join(" ").slice(22);
+    let bReason = args.slice(1).join(" ");
     if(bUser == bot.user.id) return;
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE BANNED**!**");
     if(!bReason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE BAN**!**");
@@ -715,7 +715,7 @@ if(cmd === `${prefix}rps`) {
     // if(!permissions.has("KICK_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
     if(kUser == message.author.id) return message.channel.send("YOU CAN NOT KICK YOURSELF**!**");
     if(!kUser) return message.channel.send("CAN'T FIND USER**!**");
-    let kReason = args.join(" ").slice(22);
+    let kReason = args.slice(1).join(" ");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE KICKED**!**");
     if(!kReason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE THE KICK**!**");
 
