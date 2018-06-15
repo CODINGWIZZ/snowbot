@@ -877,7 +877,7 @@ if(cmd === `${prefix}rps`) {
     .setTitle("[INFORMATION]")
     .setColor(`${color}`)
     .setURL(`https://www.colorhexa.com/${color}`)
-    .setDescription(`**RGB**\${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
+    .setDescription(`**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
     .setFooter("RANDOM COLOR | SNOW ❆", bot.user.displayAvatarURL);
 
     return message.channel.send(randomColorEmbed);
