@@ -14,7 +14,7 @@
     let remindertime = args[0];
     if(!remindertime) return message.channel.send("SPECIFY A TIME AND A NOTE**!**");
 
-    let notemessage = args.join(" ");
+    let notemessage = args.slice(1).join(" ");
     if(!args[1]) return message.channel.send("PLEASE ENTER A REMINDER NOTE AS WELL**!**");
 
     message.channel.send(`A REMINDER HAS BEEN SET FOR **${ms(ms(remindertime))}!**`);
