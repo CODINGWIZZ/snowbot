@@ -877,7 +877,7 @@ if(cmd === `${prefix}rps`) {
     .setTitle("[INFORMATION]")
     .setColor(`${color}`)
     // .setThumbnail(`https://www.colorhexa.com/${color.slice(1)}.png`)
-    .setURL(`https://www.colorhexa.com/${color.slice(1)}`)
+    .setURL(`https://www.colorhexa.com/${color}`)
    // .setDescription(`**RGB**\${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
     .addField("RGB", `${convert.hex.rgb(color)}`, true)
     .addField("HSL", `${convert.hex.hsl(color)}`, true)
