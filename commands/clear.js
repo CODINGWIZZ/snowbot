@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     
     if(cmd === `${prefix}clear`) {
 
-    message.delete().catch(O_o=>{});
+    message.delete();//.catch(O_o=>{});
 
     const amount = isNaN(args[0]) ? parseInt(args[1]) : parseInt(args[0]);
 
