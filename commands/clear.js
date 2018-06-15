@@ -22,8 +22,6 @@ module.exports.run = async (bot, message, args) => {
     await message.channel.bulkDelete(args[0]).then(() => {
         message.channel.send(`CLEARED **${args[0]}** MESSAGES**!**`).then(msg => msg.delete(5000));
     });
-        
-    if(console.log.startsWith("TypeError:")) return message.channel.send("PLEASE ENTER A NUMBER YOU WANT TO CLEAR**!**");
 
     }
     
