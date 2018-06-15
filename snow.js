@@ -876,12 +876,8 @@ if(cmd === `${prefix}rps`) {
     .setAuthor(`#${color.toUpperCase()}`, `https://dummyimage.com/250/${color}/&text=%20`)
     .setTitle("[INFORMATION]")
     .setColor(`${color}`)
-    // .setThumbnail(`https://www.colorhexa.com/${color.slice(1)}.png`)
     .setURL(`https://www.colorhexa.com/${color}`)
-   // .setDescription(`**RGB**\${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
-    .addField("RGB", `${convert.hex.rgb(color)}`, true)
-    .addField("HSL", `${convert.hex.hsl(color)}`, true)
-    .addField("CSS", `${convert.hex.keyword(color).toUpperCase()}`, true)
+    .setDescription(`**RGB**\${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
     .setFooter("RANDOM COLOR | SNOW ❆", bot.user.displayAvatarURL);
 
     return message.channel.send(randomColorEmbed);
