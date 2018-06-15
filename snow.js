@@ -729,7 +729,7 @@ if(cmd === `${prefix}rps`) {
     // if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT GIVE A ROLE THAT'S HIGHER UP THAN YOURSELF**!**");
 
     if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT REMOVE A ROLE FROM A MEMBER WITH THE SAME OR A HIGHER ROLE AS YOU**!**");        
-    if(!rMember.roles.has(gRole.id)) return message.channel.send("THEY ALREADY HAVE THAT ROLE**!**");
+    if(!rMember.roles.has(gRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
     await(rMember.removeRole(gRole.id)).then(() => {
         message.channel.send(`<@${rMember.id}> WAS REMOVED FROM THE **${gRole}** ROLE**!**`);
 
