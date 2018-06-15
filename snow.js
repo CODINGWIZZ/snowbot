@@ -681,7 +681,7 @@ if(cmd === `${prefix}rps`) {
         let kd = stats.find(s => s.stat == 'kd');
         let mPlayed = stats.find(s => s.stat == 'matchesPlayed');
 
-        let fUser = args.join(" ".slice(2);
+        let fUser = args.join(" ").slice(2);
         if(!fUser) return message.edit("CAN'T FIND FORTITE USERNAME**!**");
 
         let fortniteEmbed = new Discord.RichEmbed()
