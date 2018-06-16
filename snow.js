@@ -512,7 +512,7 @@ if(cmd === `${prefix}rps`) {
     let announcechannel = message.mentions.channels.first();
     if(!announcechannel) return message.channel.send("PLEASE MENTION A CHANNEL AND THEN THE ANNOUNCE MESSAGE**!**");
 
-    let announce = args.join(" ").slice(22);
+    let announce = args.slice(1).join(" ");
     if(!args[1]) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO ANNOUCE**!**");
 
         let announceEmbed = new Discord.RichEmbed()
