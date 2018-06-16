@@ -157,7 +157,6 @@ bot.on("message", async message => {
         .addField("VERIFICATION LEVEL", vertification[message.guild.verificationLevel])
         .addField("REGION", message.guild.region, true)
         .addField("CHANNELS", message.guild.channels.size, true)
-        .addField("ROLES", message.guild.roles.join(", ", true))
         .addField("MEMBERS", message.guild.memberCount, true)
         .addField("TOTAL ROLES", message.guild.roles.size, true)
         .setFooter("SERVER INFO | SNOW ❆", bot.user.displayAvatarURL);
@@ -176,7 +175,7 @@ bot.on("message", async message => {
         .setAuthor("USER INFO ❆")
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
-        .addField("JOINED THIS SERVER", user.guild.joinedAt)
+        //.addField("JOINED THIS SERVER", user.guild.joinedAt)
         .addField("CREATED", user.createdAt.toDateString())
         .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
 
