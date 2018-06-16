@@ -168,6 +168,15 @@ bot.on("message", async message => {
     if(cmd === `${prefix}userinfo`) {
 
         let user = message.mentions.users.first() || message.guild.members.get(args [0]) || message.author;
+        
+        let statusthings = {
+            
+            offline: "OFFLINE",
+            online: "ONLINE",
+            idle: "IDLE",
+            dnd: "DND"
+            
+        }
 
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
@@ -175,6 +184,7 @@ bot.on("message", async message => {
         .setAuthor("USER INFO ❆")
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
+        .addField("STATUS", statusthings[user.status])
         .addField("JOINED THIS SERVER", user.guild.joinedAt.toDateString())
         .addField("CREATED", user.createdAt.toDateString())
         .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
