@@ -522,6 +522,9 @@ if(cmd === `${prefix}rps`) {
         .setFooter("ANNOUNCE | SNOW ❆", bot.user.displayAvatarURL);
 
         announcechannel.send(announceEmbed);
+        
+        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENDED TO " + announcechannel + "**!**");
+            
     }
 
     // EMBED [OWNER ONLY]
