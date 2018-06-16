@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 const got = require("got");
 
-const API_KEY = "dc6zaTOxFJmzC";
+const API_KEY = "SJBFr7rJmHOiLhZfF2KGGnOGTOqJI0kO";
 
 module.exports.run = async (bot, message, args) => {
 
