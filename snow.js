@@ -184,7 +184,7 @@ bot.on("message", async message => {
         .setAuthor("USER INFO ❆")
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
-        .addField("STATUS", statusthings[user.presence])
+        .addField("STATUS", user.presence)
         .addField("NICKNAME", user.nickname)
        // .addField("JOINED THIS SERVER", user.joinedAt.toDateString())
         .addField("CREATED", user.createdAt.toDateString())
