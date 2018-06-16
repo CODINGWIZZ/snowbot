@@ -654,9 +654,14 @@ if(cmd === `${prefix}rps`) {
 
     //let username = args [0];
     let username = args[0];
-    let platform = args[1] || "pc";
+    let platform = args.slice(1).join(" ");
+        
+    let platforms = ["PC", "PSN", "XBL"];
 
     if(!args[0]) return message.channel.send("PLEASE ENTER A FORTNITE USERNAME AND A PLATFORM TO CHECK FORTNITE STATS**!**");
+    if(!platform) return message.channel.send("PLEASE ENTER A PLATFORM RIGHT AFTER THE PLATFORM**!**\n**(** `PC / PSN / XBL` **)**");
+        
+    if(!platforms.includes(platform)) return message.channel.send("PLEASE ENTER A VALID FORTNITE PLATFORM**!**\n**(** `PC / PSN / XBL` **)**");
 
     message.channel.send("YOUR FORTNITE STAT IS BEING REQUESTED **...**").then((msg) => {
 
