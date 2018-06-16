@@ -654,7 +654,7 @@ if(cmd === `${prefix}rps`) {
 
     //let username = args [0];
     let username = args[0];
-    let platform = args.slice(1).join(" ");
+    let platform = args.slice(1).join(" ").toUpperCase();
         
     let platforms = ["PC", "PSN", "XBL"];
 
