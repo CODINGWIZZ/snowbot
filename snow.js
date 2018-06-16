@@ -184,9 +184,7 @@ bot.on("message", async message => {
         .setAuthor("USER INFO ❆")
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
-        .addField("STATUS", user.presence)
-        .addField("NICKNAME", user.nickname)
-       // .addField("JOINED THIS SERVER", user.joinedAt.toDateString())
+        .addField("JOINED THIS SERVER", user.guild.joinedAt)
         .addField("CREATED", user.createdAt.toDateString())
         .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
 
