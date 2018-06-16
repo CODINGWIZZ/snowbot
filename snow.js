@@ -157,6 +157,7 @@ bot.on("message", async message => {
         .addField("VERIFICATION LEVEL", vertification[message.guild.verificationLevel])
         .addField("REGION", message.guild.region, true)
         .addField("CHANNELS", message.guild.channels.size, true)
+        .addField("ROLES", message.guild.roles.join(", ", true))
         .addField("MEMBERS", message.guild.memberCount, true)
         .addField("TOTAL ROLES", message.guild.roles.size, true)
         .setFooter("SERVER INFO | SNOW ❆", bot.user.displayAvatarURL);
@@ -168,16 +169,7 @@ bot.on("message", async message => {
     if(cmd === `${prefix}userinfo`) {
 
         let user = message.mentions.users.first() || message.guild.members.get(args [0]) || message.author;
-        
-        let statusthings = {
-            
-            offline: "OFFLINE",
-            online: "ONLINE",
-            idle: "IDLE",
-            dnd: "DND"
-            
-        }
-
+  
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setDescription("**" + user.username + "**")
