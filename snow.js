@@ -574,7 +574,7 @@ if(cmd === `${prefix}rps`) {
     let aMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [0]);
     // if (rMember == "417210018576990208") return;
     if(!aMember) return message.channel.send("CAN'T FIND USER**!**");
-    let role = args.join(" ").slice(22);
+    let role = args.slice(1).join(" ");
     if(!role) return message.channel.send("SPECIFY A ROLE**!**");
     let gRole = message.guild.roles.find(`name`, role);
     if(!gRole) return message.channel.send("CAN'T FIND ROLE**!**");
@@ -722,7 +722,7 @@ if(cmd === `${prefix}rps`) {
     let rMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [0]);
     // if (rMember === "417210018576990208") return;
     if(!rMember) return message.channel.send("CAN'T FIND USER**!**");
-    let role = args.join(" ").slice(22);
+    let role = args.slice(1).join(" ");
     if(!role) return message.channel.send("SPECIFY A ROLE**!**");
     let gRole = message.guild.roles.find(`name`, role);
     if(!gRole) message.channel.send("CAN'T FIND ROLE**!**");
