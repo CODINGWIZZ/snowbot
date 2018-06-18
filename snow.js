@@ -185,6 +185,13 @@ bot.on("message", async message => {
     // ROLE INFO
 
     if(cmd === `${prefix}roleinfo`) {
+        
+        let truefalse = {
+          
+            true: "TRUE",
+            false: "FALSE"
+            
+        };
        
         let role = args.join(" ");
         if(!role) return message.channel.send("SPECIFY A ROLE**!**");
@@ -198,9 +205,9 @@ bot.on("message", async message => {
         .addField("COLOR", "HEX**:**\n" + infoRole.hexColor + "\n\n")
         .setColor(botconfig.blue)
         .addField("CREATED", infoRole.createdAt.toDateString())
-        .addField("HOISTED", infoRole.hoist.toUpperCase())
-        .addField("MANAGED", infoRole.managed.toUpperCase())
-        .addField("MENTIONABLE", infoRole.mentionable.toUpperCase())
+        .addField("HOISTED", truefalse[infoRole.hoist])
+        .addField("MANAGED", truefalse[infoRole.managed])
+        .addField("MENTIONABLE", truefalse[infoRole.mentionable])
         .setFooter("ROLE INFO | SNOW ❆", bot.user.displayAvatarURL);
 
         return message.channel.send(inforoleEmbed);
