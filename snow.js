@@ -3,7 +3,6 @@ const countries = require("country-data").countries.all;
 const Discord = require("discord.js");
 const ms = require("ms");
 const fs = require("fs");
-const wiki = require("wikijs");
 const urban = require("relevant-urban");
 const got = require("got");
 const convert = require("color-convert");
@@ -1187,18 +1186,6 @@ if(cmd === `${prefix}rps`) {
         let changelog = "https://discordsnowbot.weebly.com/updateschangelog";
      
         message.channel.send("**UPDATES // CHANGELOG ❆**\n" + `<${changelog}>`);
-        
-    }
-    
-    if(cmd === `${prefix}wiki` || cmd === `${prefix}wikipedia`) {
-        
-        let search = args.join(" ");
-        if(!search) return message.channel.send("PLEASE ENTER A WIKIPEDIA SEARCH ARGUMENT**!**");
-        
-        wiki({ apiUrl: "https://es.wikipedia.org/w/api.php" })
-        .page(search)
-        .then(page => page.info())
-        .then(console.log);
         
     }
     
