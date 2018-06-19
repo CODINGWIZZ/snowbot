@@ -58,34 +58,32 @@ bot.on("ready", async () => {
     // bot.user.setActivity("SNOW ❆ | s!", { type: "STREAMING"});
     
     bot.user.setGame("SNOW ❆  |  s!", "https://twitch.tv/WIZZ_SNOW");
-    
-    bot.user.setUsername("SNOW");
   
 });
 
 bot.on("guildMemberAdd", member => {
    
-       let newmemberEmbed = new Discord.RichEmbed()
+       let guildmemberaddEmbed = new Discord.RichEmbed()
        .setColor(botconfig.blue)
        .setDescription("\n**" + member + "** HAS JOINED **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**\n");
    
        let snowlog = member.guild.channels.find(`name`, "snow");
        if(!snowlog) return;
     
-       snowlog.send(newmemberEmbed);
+       snowlog.send(guildmemberaddEmbed);
     
 });
 
 bot.on("guildMemberRemove", member => {
    
-        let memberleftEmbed = new Discord.RichEmbed()
+        let guildmemberremoveEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setDescription("\n**" + member.user.username + "** HAS LEFT **" + member.guild.name + "!** WE ARE NOW DOWN TO **" + member.guild.memberCount + "** MEMBERS**!**\n");
     
         let snowlog = member.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
         
-        snowlog.send(memberleftEmbed);
+        snowlog.send(guildmemberremoveEmbed);
     
 });
 
@@ -518,12 +516,12 @@ if(cmd === `${prefix}rps`) {
 
         announcechannel.send(announceEmbed);
         
-        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**");
+        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**").then((announcemessage => announcemessage.delete(5000));
            
     }
 
     // EMBED [OWNER ONLY]
-    if(cmd === `${prefix}ownerembed`) {
+    if(cmd === `${prefix}ownerembe
 
     if(message.member =! "297832577782382592") return;
     let embedMessage = args.join(" ");
