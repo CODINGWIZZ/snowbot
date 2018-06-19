@@ -62,7 +62,7 @@ bot.on("ready", async () => {
 });
 
 bot.on("guildMemberAdd", member => {
-    
+   
        let newmemberEmbed = new Discord.RichEmbed()
        .setColor(botconfig.blue)
        .setDescription("\n**" + member + "** HAS JOINED **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS**!**\n");
@@ -78,7 +78,7 @@ bot.on("guildMemberRemove", member => {
    
         let memberleftEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription("\n**" + member.user.username + "** HAS LEFT **" + member.guild.name + "!** WE ARE NOW **" + member.guild.memberCount + "** MEMBERS **!**\n");
+        .setDescription("\n**" + member.user.username + "** HAS LEFT **" + member.guild.name + "!** WE ARE NOW DOWN TO **" + member.guild.memberCount + "** MEMBERS**!**\n");
     
         let snowlog = member.guild.channels.find(`name`, "snow");
         if(!snowlog) return;
@@ -508,14 +508,14 @@ if(cmd === `${prefix}rps`) {
 
         let announceEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription(announce)
+        .setDescription(announce + "\n **(** MADE BY **" + message.author.username + " )**")
         .setTimestamp()
         .setFooter("ANNOUNCE | SNOW ❆", bot.user.displayAvatarURL);
 
         announcechannel.send(announceEmbed);
         
-        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENDED TO " + announcechannel + "**!**");
-            
+        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**");
+            *
     }
 
     // EMBED [OWNER ONLY]
