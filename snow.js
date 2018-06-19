@@ -99,7 +99,7 @@ bot.on("message", async message => {
     let cmd = messageArray[0].toLocaleLowerCase();
     let args = messageArray.slice(1);
 
-    if(!cmd.includes(`${prefix}`)) return;
+    if(!cmd.startsWith(prefix)) return;
     
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
