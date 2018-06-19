@@ -512,7 +512,7 @@ if(cmd === `${prefix}rps`) {
 
         let announceEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription(announce + "\n **(** MADE BY **" + message.author.username + " )**")
+        .setDescription(announce + "\n\n **(** MADE BY **" + message.author.username + " )**")
         .setTimestamp()
         .setFooter("ANNOUNCE | SNOW ❆", bot.user.displayAvatarURL);
 
