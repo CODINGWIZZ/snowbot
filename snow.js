@@ -62,6 +62,8 @@ bot.on("ready", async () => {
 });
 
 bot.on("guildMemberAdd", member => {
+    
+       member.guild.createChannel(`name`, "snow");
    
        let guildmemberaddEmbed = new Discord.RichEmbed()
        .setColor(botconfig.blue)
