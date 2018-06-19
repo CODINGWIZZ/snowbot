@@ -59,7 +59,7 @@ bot.on("ready", async () => {
     
     bot.user.setGame("SNOW ❆  |  s!", "https://twitch.tv/WIZZ_SNOW");
     
-    bot.user.setUsername("Vilgotni");
+    bot.user.setUsername("SNOW");
   
 });
 
