@@ -1127,7 +1127,7 @@ if(cmd === `${prefix}rps`) {
     }
     
     // RANDOM IMAGE
-    if(cmd === `${prefix}randomimage`) {
+    if(cmd === `${prefix}randomimage` || cmd === `${prefix}randompicture`) {
      
         // let images = ["1036", "1042", "0", "255", "873", "811", "523", "47", "76", "936", "791", "314", "80", "977", "560", "798", "594", "990", "455", "519", "439", "837", "836", "387", "779", "622", "233", "243", "459", "1041", "606", "66", "980", "884", "471", "155", "168", "354", "1072", "1071", "293", "291", "292", "300"];
                                           
@@ -1179,19 +1179,6 @@ if(cmd === `${prefix}rps`) {
         let changelog = "https://discordsnowbot.weebly.com/updateschangelog";
      
         message.channel.send("**UPDATES // CHANGELOG ❆**\n" + `<${changelog}>`);
-        
-    }
-    
-    if(cmd === `${prefix}randompicture`) {
-     
-        let { body } = await superagent
-        .get(`https://source.unsplash.com/random`);
-        
-        let randompic = new Discord.RichEmbed()
-        .setColor(botconfig.blue)
-        .setImage(body.url);
-        
-        return message.channel.send(randompic);
         
     }
     
