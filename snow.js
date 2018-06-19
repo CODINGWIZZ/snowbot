@@ -129,6 +129,7 @@ bot.on("message", async message => {
 
     // SAY A MESSAGE THROUGH THE BOT
     if(cmd === `${prefix}say`) {
+        
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
         // if(!permissions.has("MANAGE_MESSAGES")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
         const sayMessage = args.join(" ");
@@ -136,6 +137,7 @@ bot.on("message", async message => {
 
         message.delete();
         message.channel.send("**" + message.author.username + "** SAID THROUGH THE BOT**:**" + "\n\n" + sayMessage);
+        
     }
 
     // SERVER INFO
