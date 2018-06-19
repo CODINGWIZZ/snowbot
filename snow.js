@@ -819,8 +819,9 @@ if(cmd === `${prefix}rps`) {
     if(!args[0]) return message.channel.send("PLASE ENTER A MEMBER YOU WANT TO WARN**!**");
     let wUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!wUser) return message.channel.send("CAN'T FIND USER**!**");
+    if(wUser.id === message.author.id) return message.channel.send("YOU CAN NOT WARN YOURSELF**!**");
     if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE WARNED**!**");
-    let reason = args.join(" ").slice(22);
+    let reason = args.slice(1).join(" ");
     if(!reason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE WARN**!**");
 
     message.channel.send(wUser + " HAS BEEN **WARNED** BECAUSE: **" + reason + "!**");
@@ -830,7 +831,6 @@ if(cmd === `${prefix}rps`) {
     .setAuthor("WARN ❆")
     .setTimestamp()
     .setDescription("YOU HAVE BEEN WARNED IN " + "**" + message.guild.name + "!**")
-    .addField("WARNED BY", `${message.author}`)
     .addField("REASON", reason)
     .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
