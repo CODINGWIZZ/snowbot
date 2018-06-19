@@ -515,7 +515,7 @@ if(cmd === `${prefix}rps`) {
         announcechannel.send(announceEmbed);
         
         return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**");
-            *
+           
     }
 
     // EMBED [OWNER ONLY]
