@@ -521,7 +521,7 @@ if(cmd === `${prefix}rps`) {
     }
 
     // EMBED [OWNER ONLY]
-    if(cmd === `${prefix}ownerembed {
+    if(cmd === `${prefix}ownerembed`) {
 
     if(message.member =! "297832577782382592") return;
     let embedMessage = args.join(" ");
