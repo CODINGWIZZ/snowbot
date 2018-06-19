@@ -984,6 +984,10 @@ if(cmd === `${prefix}rps`) {
 
         await(toMute.addRole(muterole.id));        
         message.channel.send(`${toMute} HAS BEEN **MUTED!**`);
+        
+        let mutecase = 0;
+        
+        mutecase++;
 
         let tempmuteembed = new Discord.RichEmbed()
         .setTitle("TEMPMUTE ❆")
@@ -992,6 +996,7 @@ if(cmd === `${prefix}rps`) {
         .addField("USER", toMute)
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
+        .addField("MUTECASE", mutecase)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
         let snowlog = message.guild.channels.find(`name`, "snow");
