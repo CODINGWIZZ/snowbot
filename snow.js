@@ -58,8 +58,6 @@ bot.on("ready", async () => {
     // bot.user.setActivity("SNOW ❆ | s!", { type: "STREAMING"});
     
     bot.user.setGame("SNOW ❆  |  s!", "https://twitch.tv/WIZZ_SNOW");
-    
-    bot.user.setUsername("SNOW");
   
 });
 
