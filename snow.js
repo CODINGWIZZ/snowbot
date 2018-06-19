@@ -516,7 +516,7 @@ if(cmd === `${prefix}rps`) {
 
         announcechannel.send(announceEmbed);
         
-        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**").then((announcemessage => announcemessage.delete(5000));
+        return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**").then(announcemessage => announcemessage.delete(5000));
            
     }
 
@@ -1155,7 +1155,7 @@ if(cmd === `${prefix}rps`) {
         .setTitle("HELP ❆")
         .setDescription("YOU CAN SEE ALL OF MY COMMANDS HERE AND HOW TO USE THEM**:**\n**https://discordsnowbot.weebly.com/snow**")
         .addField("GENERAL", "`ping` `roll` `say` `snow` `invite` `changelog` `help`")
-        .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `mute` `deafen` `tempmute` `unmute` `tempdeafen` `undeafen` `announce`")
+        .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `mute` `deafen` `tempmute` `unmute` `tempdeafen` `undeafen` `c`")
         .addField("FUN", "`rps` `avatar` `8ball` `vote` `slot` `randomcolor` `color` `fancy` `randomimage` `urban` `gif` `dog` `cat` `reminder`")
         .addField("UTILITY", "`fortnite` `shorten` `weather` `forecast` `google` `youtube` `lmgtfy` `calculate`")
         .addField("INFO", "`serverinfo` `roleinfo` `userinfo`")
