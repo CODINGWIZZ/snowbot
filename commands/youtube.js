@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
+const encode = require("strict-encode-uri");
 
 module.exports.run = async (bot, message, args) => {
 
