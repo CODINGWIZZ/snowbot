@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
         youtubeLink = `https://youtube.com/results?search_query=${search}`;
 
-        return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
+        return youtubeMessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINISHED!**" + "\n" + `<${youtubeLink}>`);
             
         });
 
