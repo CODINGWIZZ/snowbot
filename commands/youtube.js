@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if(cmd === `${prefix}youtube`) {
 
         let search = encode(args.join(" "));
-        if(!search) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH MESSAGE**!**");
+        if(!args.join(" ")) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH QUERY**!**");
 
         message.channel.send("SEARCHING **...**").then((youtubeMessage) => {
 
