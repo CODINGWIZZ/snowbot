@@ -1,0 +1,30 @@
+const Discord = require("discord.js");
+const botconfig = requrie("../botconfig.json");
+
+module.exports.run = async (bot, message, args) => {
+
+  let prefix = botconfig.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0].toLocaleLowerCase();
+  
+  // GOOGLE | SEARCH COMMAND
+  if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
+        
+  let google = encode(args.join(" "));
+  if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
+        
+  message.channel.send("SEARCHING **...**").then((googleMessage) => {
+               
+  let googleLink = `https://google.com/search?q=${google}`;
+
+  return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`);
+            
+    }); 
+        
+  }
+
+}
+
+module.exports.help = {
+  name: "search"
+}
