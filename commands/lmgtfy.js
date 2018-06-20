@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
         let link = `https://lmgtfy.com/?q=${question}`;
             
-        return loadingMessage.edit("**FINISHED!**" + "\n" + `<${link}>`);
+        return loadingMessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINISHED!**" + "\n" + `<${link}>`);
      
         });
 
