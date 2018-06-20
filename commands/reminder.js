@@ -17,7 +17,7 @@
     let notemessage = args.slice(1).join(" ");
     if(!args[1]) return message.channel.send("PLEASE ENTER A REMINDER NOTE AS WELL**!**");
 
-    message.channel.send(`A REMINDER HAS BEEN SET FOR **${ms(ms(remindertime))}!**`);
+    message.channel.send(`<:SNOWCHECK:459111379899514887> **//** A REMINDER HAS BEEN SET FOR **${ms(ms(remindertime))}!**`);
 
     setTimeout(function() {
 
