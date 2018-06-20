@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
+const math = require("math-expression-evaluator");
 
 module.exports.run = async (bot, message, args) => {
   
@@ -14,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
     if(!question) return message.channel.send("YOU MUST PROVIDE A EQUATION IF YOU WANT TO CACULATE**!**");
 
     let answer = math.eval(question);
+      
     try {
     } catch (err) {
         return message.channel.send("INVILID MATH EQUATION**!**");
