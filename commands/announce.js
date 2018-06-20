@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
     announcechannel.send(announceEmbed);
         
-    return message.channel.send("**FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**").then(announcemessage => announcemessage.delete(5000));
+    return message.channel.send("<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\nTHE ANNOUNCEMESSAGE HAS BEEN SENT TO " + announcechannel + "**!**").then(announcemessage => announcemessage.delete(5000));
            
   }
   
