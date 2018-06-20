@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
     if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
     
     await(dUser.addRole(deafenrole.id));
-    message.channel.send(`<@${dUser.id}> HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
+    message.channel.send(`<:SNOWCHECK:459111379899514887> **//** <@${dUser.id}> HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
 
     let muteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
