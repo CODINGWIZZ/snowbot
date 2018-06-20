@@ -5,14 +5,14 @@ const encode = require("strict-uri-encode");
 module.exports.run = async (bot, message, args) => {
 
   let prefix = botconfig.prefix;
-  let messageArray = message.content.slice(" ");
+  let messageArray = message.content.split(" ");
   let cmd = messageArray[0].toLocaleLowerCase();
   
       // YOUTUBE SEARCH COMMAND
     if(cmd === `${prefix}youtube`) {
 
         let search = encode(args.join(" "));
-        if(!args.join(" ")) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH QUERY**!**");
+        if(!search) return message.channel.send("PLEASE ENTER A YOUTUBE SEARCH QUERY**!**");
 
         message.channel.send("SEARCHING **...**").then((youtubeMessage) => {
 
