@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!args[0]) return message.channel.send("PLEASE ENTER A CERTAIN NUMBER YOU WANT TO DELETE**!**");
     await message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send("CLEARED `" + args[0] + "` MESSAGES**!**").then(msg => msg.delete(5000));
+        message.channel.send("<:SNOWCHECK:459111379899514887> **//** CLEARED `" + args[0] + "` MESSAGES**!**").then(msg => msg.delete(5000));
     });
 
     } 
