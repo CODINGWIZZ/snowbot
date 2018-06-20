@@ -20,12 +20,12 @@ module.exports.run = async (bot, message, args) => {
         .addField("INFO", "`serverinfo` `roleinfo` `userinfo`")
         .setFooter("HELP | SNOW ❆", bot.user.displayAvatarURL);
         
-        return message.channel.send(helpEmbed);
+        message.channel.send(helpEmbed);
     
     }
   
 }
 
 module.exports.help = {
-  name: "tempmute"
+  name: "help"
 }   
