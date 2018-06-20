@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         if(!role || !toMute.roles.has(role.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
 
         await(udUser.removeRole(role.id));        
-        message.channel.send(`${udUser} HAS BEEN **UNDEAFENED!**`);
+        message.channel.send(`<:SNOWCHECK:459111379899514887> **//** ${udUser} HAS BEEN **UNDEAFENED!**`);
 
         let undeafenembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
