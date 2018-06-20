@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         shorten.shorten(args[0], function(snowdone) {
         if (snowdone.startsWith('Error:')) return message.edit("PLEASE ENTER A VALID URL**!**"); 
 
-        message.edit(`**FINISHED!**\n<${snowdone}>`);
+        message.edit(`<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n<${snowdone}>`);
 
     });
 
