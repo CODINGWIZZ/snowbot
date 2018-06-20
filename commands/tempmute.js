@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
         if(toMute.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
 
         await(toMute.addRole(muterole.id));        
-        message.channel.send(`${toMute} HAS BEEN **MUTED!**`);
+        message.channel.send(`<:SNOWCHECK:459111379899514887> **//** ${toMute} HAS BEEN **MUTED!**`);
 
         let tempmuteembed = new Discord.RichEmbed()
         .setTitle("TEMPMUTE ❆")
