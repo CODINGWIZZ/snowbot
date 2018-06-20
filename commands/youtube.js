@@ -5,7 +5,7 @@ const encode = require("strict-uri-encode");
 module.exports.run = async (bot, message, args) => {
 
   let prefix = botconfig.prefix;
-  let messageArray = message.conten.split(" ");
+  let messageArray = message.conten.slice(" ");
   let cmd = messageArray[0].toLocaleLowerCase();
   
       // YOUTUBE SEARCH COMMAND
