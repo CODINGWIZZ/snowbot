@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
                
   let googleLink = `https://google.com/search?q=${google}`;
 
-  return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`);
+  return googleMessage.edit(`<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n<${googleLink}>`);
             
     }); 
         
