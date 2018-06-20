@@ -9,7 +9,9 @@ module.exports.run = async (bot, message, args) => {
   let cmd = messageArray[0].toLocaleLowerCase();
   
   // GOOGLE | SEARCH COMMAND
-  if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
+  if(cmd === `${prefix}search`) {
+                                                              
+  if(cmd === `${prefix}google`) {                                          
         
   let google = encode(args.join(" "));
   if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
@@ -21,6 +23,8 @@ module.exports.run = async (bot, message, args) => {
   return googleMessage.edit(`<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n<${googleLink}>`);
             
     }); 
+    
+  }
         
   }
 
