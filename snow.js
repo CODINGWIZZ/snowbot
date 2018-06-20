@@ -104,27 +104,6 @@ bot.on("message", async message => {
 
     if (bot.user.id === message.author.id) return;
 
-    // ROLL THE DICE
-    if(cmd === `${prefix}roll`) {
-
-        let roll = Math.floor((Math.random() * 6 + 1))
-
-        return message.channel.send("**" + message.author.username + ",** YOU ROLLED **" + roll + "!**");
-    }
-
-    // PING COMMAND
-    if(cmd === `${prefix}ping`) {
-
-        const ping = bot.pings[0];
-        
-        message.channel.send('PINGING **...**').then((pingMessage) => {
-            
-            pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
-
-        });
-                                                     
-    }
-
     // SAY A MESSAGE THROUGH THE BOT
     if(cmd === `${prefix}say`) {
         
