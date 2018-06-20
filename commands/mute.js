@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
     if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
         
     await(mUser.addRole(muterole.id));
-    message.channel.send(`<@${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}!**`);
+    message.channel.send(`<:SNOWCHECK:459111379899514887> **//** <@${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}!**`);
 
     let muteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
