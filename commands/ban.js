@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   if(!bReason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE BAN**!**");
 
   message.guild.member(bUser).ban(bReason);
-  message.channel.send(`${bUser} HAS BEEN **BANNED** BY ${message.author} BECAUSE: **${bReason}**`);        
+  message.channel.send(`<:SNOWCHECK:459111379899514887> **//** ${bUser} HAS BEEN **BANNED** BY ${message.author} BECAUSE: **${bReason}**`);        
         
   let banEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
