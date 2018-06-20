@@ -26,6 +26,6 @@ module.exports.run = async (bot, message, args) => {
 
 }
 
-module.exports.run = {
+module.exports.help = {
   name: "randomcolor"
 } 
