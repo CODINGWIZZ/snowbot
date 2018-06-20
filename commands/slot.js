@@ -34,6 +34,6 @@ module.exports.run = async (bot, message, args) => {
    
 }
 
-module.export.help = {
+module.exports.help = {
   name: "slot"
 } 
