@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
     // if(!permissions.has("KICK_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
     if(kUser == message.author.id) return message.channel.send("YOU CAN NOT KICK YOURSELF**!**");
+    if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO KICK**!**");
     if(!kUser) return message.channel.send("CAN'T FIND USER**!**");
     let kReason = args.slice(1).join(" ");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE KICKED**!**");
