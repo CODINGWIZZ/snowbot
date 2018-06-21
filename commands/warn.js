@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
     // if(!permissions.has("MANAGE_MESSAGES")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
-    if(!args[0]) return message.channel.send("PLASE ENTER A MEMBER YOU WANT TO WARN**!**");
     let wUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO WARN**!**");
     if(!wUser) return message.channel.send("CAN'T FIND USER**!**");
