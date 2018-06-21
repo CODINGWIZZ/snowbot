@@ -298,7 +298,7 @@ bot.on("message", async message => {
     }
     
       // GOOGLE | SEARCH COMMAND
-  if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
+  if(cmd === `${prefix}google`) {
                                                               
   let google = encode(args.join(" "));
   if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
@@ -395,6 +395,20 @@ bot.on("message", async message => {
 
   }
 
+    if(cmd === `${prefix}bing`) {
+     
+        let bingsearch = encode(args.join(" "));
+        if(!bingsearch) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
+        
+        let binglink = `https://bing.com/search?q=${bingsearch}`;
+        
+        message.channel.send("SEARCHING **...**").then((bingmessage => {
+            
+            return bingmessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n" + `<${binglink}>`);
+            
+        });
+        
+    }
     
 });
 
