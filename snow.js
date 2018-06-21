@@ -266,10 +266,11 @@ bot.on("message", async message => {
 
     if(message.member =! "297832577782382592") return;
     bot.destroy();
+        
+        message.channel.send("RESTARTING **...**");
     
     setTimeout(function () {
         bot.login(process.env.token);
-        message.channel.send("RESTARTED **...**");
         console.log("RESTARTED ...")
     }, 3000)
 
@@ -295,6 +296,105 @@ bot.on("message", async message => {
         return message.channel.send(frankEmbed);
         
     }
+    
+      // GOOGLE | SEARCH COMMAND
+  if(cmd === `${prefix}google` || cmd === `${prefix}search`) {
+                                                              
+  let google = encode(args.join(" "));
+  if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
+        
+  message.channel.send("SEARCHING **...**").then((googleMessage) => {
+               
+  let googleLink = `https://google.com/search?q=${google}`;
+
+  return googleMessage.edit(`<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n<${googleLink}>`);
+            
+    }); 
+        
+  }
+    
+        // CALCULATE
+    if(cmd === `${prefix}calculate` || cmd === `${prefix}calculator`) {
+
+    const question = args.join(" ");
+    if(!question) return message.channel.send("YOU MUST PROVIDE A EQUATION IF YOU WANT TO CACULATE**!**");
+
+    let answer = math.eval(question);
+      
+    try {
+    } catch (err) {
+        return message.channel.send("INVILID MATH EQUATION**!**");
+    }
+
+    let mathEmbed = new Discord.RichEmbed()
+    .setColor(botconfig.blue)
+    .setDescription("**CALCULATOR ❆**")
+    .addField("EQUATION", `\`\`\`${question}\`\`\``)
+    .addField("ANSWER", `\`\`\`${answer}\`\`\``)
+    .setFooter("CALCULATOR | SNOW ❆", bot.user.displayAvatarURL);
+
+    message.channel.send(mathEmbed);
+        
+  }
+    
+    
+  // FLIP A COIN
+  if(cmd === `${prefix}flipcoin` || cmd === `${prefix}coin`) {
+
+  let coin = ["HEADS", "TAILS"];
+
+  let coinrandom = Math.floor((Math.random()) * coin.length);
+
+  message.channel.send("**" + message.author.username + ",** I FLIPPED **" + coin[coinrandom] + "!**");
+
+  }
+    
+    // RANDOM IMAGE
+    if(cmd === `${prefix}randomimage` || cmd === `${prefix}randompicture`) {
+     
+        // let images = ["1036", "1042", "0", "255", "873", "811", "523", "47", "76", "936", "791", "314", "80", "977", "560", "798", "594", "990", "455", "519", "439", "837", "836", "387", "779", "622", "233", "243", "459", "1041", "606", "66", "980", "884", "471", "155", "168", "354", "1072", "1071", "293", "291", "292", "300"];
+                                          
+        const randomimages = Math.floor((Math.random()) * 1050);
+        
+        let imageEmbed = new Discord.RichEmbed()
+        .setColor(botconfig.blue)
+        .setDescription("RANDOM IMAGE **❆**")
+        .setImage(`https://picsum.photos/1920/1080/?image=${randomimages}`);
+        
+        let randomimagelink = `https://picsum.photos/1920/1080/?image=${randomimages}`;
+        
+        return message.channel.send(imageEmbed);
+        
+        // message.channel.send(`**RANDOM IMAGE ❆**\n${randomimagelink}`);
+        
+    }
+    
+    
+      // SLOT COMMAND
+    if(cmd === `${prefix}slot` || cmd === `${prefix}spin`) {
+
+    let slotItems = ["🌳", "🌲", "🍀", "🍃", "🌿"];
+
+    let slotRandom1 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom3 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom4 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom5 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom6 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom7 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom8 = Math.floor((Math.random()) * slotItems.length);
+    let slotRandom9 = Math.floor((Math.random()) * slotItems.length);
+
+    message.channel.send("**" + message.author.username + "**")
+        
+    let slotEmbed = new Discord.RichEmbed()
+    .setColor(botconfig.blue)
+    .setDescription(slotItems[slotRandom1] + " **|** " + slotItems[slotRandom2] + " **|** " + slotItems[slotRandom3] + "\n" + slotItems[slotRandom4] + " **|** " + slotItems[slotRandom5] + " **|** " + slotItems[slotRandom6] + "\n" + slotItems[slotRandom7] + " **|** " + slotItems[slotRandom8] + " **|** " + slotItems[slotRandom9])
+    .setFooter("SLOT | SNOW ❆", bot.user.displayAvatarURL);
+
+    return message.channel.send(slotEmbed);
+
+  }
+
     
 });
 
