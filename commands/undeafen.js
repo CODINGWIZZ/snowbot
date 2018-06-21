@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**")
 
         let udUser = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
+           if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO UNDEAFEN*!**");
         if(!udUser) return message.channel.send("CAN'T FIND THAT USER**!**");
 
         let role = message.guild.roles.find(r => r.name === "DEAFENED // ❆");
