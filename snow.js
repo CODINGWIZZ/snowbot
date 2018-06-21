@@ -417,9 +417,9 @@ bot.on("message", async message => {
         
         let ddglink = `https://duckduckgo.com/?q=${ddgsearch}`;
         
-        message.channel.send("SEARCHING **...**").then((ddbmessage) => {
+        message.channel.send("SEARCHING **...**").then((ddgmessage) => {
            
-            return message.channel.send("<:SNOWCHECK:459111379899514887> **//** **FINSHED!**\n" + `<${ddglink}>`);
+            return ddgmessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINSHED!**\n" + `<${ddglink}>`);
             
         });
         
