@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
    // if(!permissions.has("MANAGE_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGH PERMISSIONS**!**");
    let aMember = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args [0]);
    // if (rMember == "417210018576990208") return;
+   if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO ADD A ROLE TO**!**");
    if(!aMember) return message.channel.send("CAN'T FIND USER**!**");
    let role = args.slice(1).join(" ");
    if(!role) return message.channel.send("SPECIFY A ROLE**!**");
