@@ -402,9 +402,24 @@ bot.on("message", async message => {
         
         let binglink = `https://bing.com/search?q=${bingsearch}`;
         
-        message.channel.send("SEARCHING **...**").then((bingmessage => {
+        message.channel.send("SEARCHING **...**").then((bingmessage) => {
             
             return bingmessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n" + `<${binglink}>`);
+            
+        });
+        
+    }
+                                                       
+    if(cmd === `${prefix}ddg` || cmd === `${prefix}duckduckgo`) {
+     
+        let ddgsearch = encode(args.join(" "));
+        if(!ddgsearch) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
+        
+        let ddglink = `https://duckduckgo.com/?q=${ddgsearch}`;
+        
+        message.channel.send("SEARCHING **...**").then((ddbmessage) => {
+           
+            return message.channel.send("<:SNOWCHECK:459111379899514887> **//** **FINSHED!**\n" + `<${ddglink}>`);
             
         });
         
