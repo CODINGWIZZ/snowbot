@@ -12,10 +12,11 @@ module.exports.run = async (bot, message, args) => {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
             
         let toMute = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
+        if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO TEMPMUTE**!**");
         if(!toMute) return message.channel.send("CAN'T FIND USER**!**");
 
         if(toMute.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
-        if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
+        if(toMute.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT TEMPMUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
         let muterole = message.guild.roles.find(`name`, `MUTED // ❆`);    
         if(!muterole) {
