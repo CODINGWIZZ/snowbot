@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!*");
 
         let dUser = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
+        if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO TEMPDEAFEN**!**");
         if(!dUser) return message.channel.send("CAN'T FIND USER**!**");
 
         if(dUser.id === message.author.id) return message.channel.send("YOU CAN'T DEAFEN YOURSELF**!**");
