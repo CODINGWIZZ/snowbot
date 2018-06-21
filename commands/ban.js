@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
   if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
   // if(!permissions.has("BAN_MEMBERS")) return message.channel.send("CANNOT DO THAT **-** MAKE SURE I HAVE THE RIGHT PERMISSIONS**!**");
   if(bUser == message.author.id) return message.channel.send("YOU CAN NOT BAN YOURSELF**!**");
+  if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO BAN**!**");
   if(!bUser) return message.channel.send("CAN'T FIND USER**!**");
   let bReason = args.slice(1).join(" ");
   if(bUser == bot.user.id) return;
