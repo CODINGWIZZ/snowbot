@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("GENERAL", "`ping` `roll` `say` `snow` `invite` `changelog` `help`")
         .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `mute` `deafen` `tempmute` `unmute` `tempdeafen` `undeafen`")
         .addField("FUN", "`rps` `avatar` `8ball` `vote` `slot` `randomcolor` `color` `fancy` `randomimage` `urban` `gif` `dog` `cat` `reminder`")
-        .addField("UTILITY", "`fortnite` `shorten` `weather` `forecast` `google` `youtube` `lmgtfy` `calculate`")
+        .addField("UTILITY", "`fortnite` `shorten` `weather` `forecast` `google` `bing` `duckduckgo` `youtube` `lmgtfy` `calculate`")
         .addField("INFO", "`serverinfo` `roleinfo` `userinfo`")
         .setFooter("HELP | SNOW ❆", bot.user.displayAvatarURL);
         
