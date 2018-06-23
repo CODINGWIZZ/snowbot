@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
   .setAuthor("USER INFO ❆")
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
-  // .addField("JOINED THIS SERVER", user.guild.joinedAt)
+  .addField("JOINED THIS SERVER", user.guild.joinedAt().toDateString())
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
 
