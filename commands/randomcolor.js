@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
-const convert = require("color-contert");
+const convert = require("color-convert");
 
 module.exports.run = async (bot, message, args) => {
 
