@@ -436,7 +436,7 @@ bot.on("message", async message => {
         
     if(color.length > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
         
-    if(color.length < 6) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**")
+    if(color.length < 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**")
 
     let colorEmbed = new Discord.RichEmbed()
     .setColor(`${color}`)
