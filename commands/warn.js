@@ -19,8 +19,8 @@ module.exports.run = async (bot, message, args) => {
     if(wUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE WARNED**!**");
     let reason = args.slice(1).join(" ");
     if(!reason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE WARN**!**");
-
-    message.channel.send(wUser + " HAS BEEN **WARNED** BECAUSE: **" + reason + "!**");
+      
+    message.channel.send(`${wUser} HAS BEEN **WARNED** BECAUSE: **${reason}!**`);
 
     let warnEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
