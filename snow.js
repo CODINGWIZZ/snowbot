@@ -440,7 +440,7 @@ bot.on("message", async message => {
 
     let colorEmbed = new Discord.RichEmbed()
     .setColor(`${color}`)
-    .setAuthor(`${color.toUpperCase()}`, `https://dummyimage.com/250/#${color}/&text=%20`)
+    .setAuthor(`${color.toUpperCase()}`, `https://dummyimage.com/250/${color.slice(1)}/&text=%20`)
     .setTitle("[INFORMATION]")
 .setURL(`https://colorhexa.com/${color.slice(1)}`)
     .setDescription(`**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
