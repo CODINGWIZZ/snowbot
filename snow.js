@@ -317,7 +317,9 @@ bot.on("message", async message => {
     if(cmd === `${prefix}calculate` || cmd === `${prefix}calculator`) {
 
     const question = args.join(" ");
-    if(!question) return message.channel.send("YOU MUST PROVIDE A EQUATION IF YOU WANT TO CACULATE**!**");
+    if(!question) return message.channel.send("PLEASE PROVIDE WITH A EQUATION IF YOU WANT TO CACULATE**!**");
+       
+    let "x" = "*";
 
     let answer = math.eval(question);
       
