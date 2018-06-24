@@ -51,13 +51,13 @@ bot.on("ready", async () => {
   
     bot.user.setStatus("ONLINE");
 
-    // bot.user.setActivity("SNOW ❆ // s!");
+    bot.user.setActivity("SNOW ❆ | s!");
 
     // bot.user.setActivity("HAVING PROLEMS ❆");
 
-    // bot.user.setActivity("SNOW ❆ | s!", { type: "STREAMING"});
+    //bot.user.setActivity("SNOW ❆ | s!", { type: "WATCHING"});
     
-    bot.user.setGame("SNOW ❆  |  s!", "https://twitch.tv/WIZZ_SNOW");
+    //bot.user.setGame("SNOW ❆  |  s!", "https://twitch.tv/WIZZ_SNOW");
   
 });
 
