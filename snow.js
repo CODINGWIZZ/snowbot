@@ -430,11 +430,13 @@ bot.on("message", async message => {
 
     let color = args[0];
         
-    if(color.startsWith("#")) {
+    let thatthing = "#";
+        
+    if(color.startsWith(thatthing)) {
      
         color.replace("#", "");
         
-    }
+    };
         
     if(color > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
         
