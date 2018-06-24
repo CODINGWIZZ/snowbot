@@ -307,7 +307,7 @@ bot.on("message", async message => {
                
   let googleLink = `https://google.com/search?q=${google}`;
 
-  return googleMessage.edit(`<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n<${googleLink}>`);
+  return googleMessage.edit(`**FINISHED!**\n<${googleLink}>`);
             
     }); 
         
@@ -407,7 +407,7 @@ bot.on("message", async message => {
         
         message.channel.send("SEARCHING **...**").then((bingmessage) => {
             
-            return bingmessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINISHED!**\n" + `<${binglink}>`);
+            return bingmessage.edit("**FINISHED!**\n" + `<${binglink}>`);
             
         });
         
@@ -422,7 +422,7 @@ bot.on("message", async message => {
         
         message.channel.send("SEARCHING **...**").then((ddgmessage) => {
            
-            return ddgmessage.edit("<:SNOWCHECK:459111379899514887> **//** **FINSHED!**\n" + `<${ddglink}>`);
+            return ddgmessage.edit("**FINSHED!**\n" + `<${ddglink}>`);
             
         });
         
