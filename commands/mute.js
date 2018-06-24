@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}mute`) {
     let mUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
     if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO MUTE**!**");
     if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
     if(mUser.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
     if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
         
     await(mUser.addRole(muterole.id));
-    message.channel.send(`<:SNOWCHECK:459111379899514887> **//** <@${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}!**`);
+    message.channel.send(`<@${mUser.id}> HAS BEEN **MUTED** FOR **${ms(ms(mutetime))}!**`);
 
     let muteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
