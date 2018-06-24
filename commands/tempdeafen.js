@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
 
                 
         await(dUser.addRole(deafenrole.id));
-        message.channel.send(`<:SNOWCHECK:459111379899514887> **//** ${dUser} HAS BEEN **DEAFENED!**`);
+        message.channel.send(`${dUser} HAS BEEN **DEAFENED!**`);
 
         let tempdeafenembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
