@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
       // SEARCH AFTER A HEX COLOR
     if(cmd === `${prefix}color`) {
 
-    let color = args[0];//.replace("#", "");
+    let color = args[0].replace("#", "");
 
     if(!color) return message.channel.send("COULDN'T FIND COLOR**!**");
 
