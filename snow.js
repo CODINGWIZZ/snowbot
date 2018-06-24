@@ -322,8 +322,11 @@ bot.on("message", async message => {
     let answer = math.eval(question);
       
     try {
+        
     } catch (err) {
+        
         return message.channel.send("INVILID MATH EQUATION**!**");
+        
     }
 
     let mathEmbed = new Discord.RichEmbed()
