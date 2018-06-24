@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     if(!role) return message.channel.send("SPECIFY A ROLE**!**");
     let gRole = message.guild.roles.find(`name`, role);
     if(!gRole) message.channel.send("CAN'T FIND ROLE**!**");
-    //if(bot.user.highestRole.position >= rMember.highestRole.position) return message.channel.send("CAN NOT GIVE A ROLE THAT'S HIGHER UP THAN YOURSELF**!**");
+    if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("CAN NOT GIVE A ROLE THAT'S HIGHER UP THAN YOURSELF**!**");
 
     if(rMember.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT REMOVE A ROLE FROM A MEMBER WITH THE SAME OR A HIGHER ROLE AS YOU**!**");        
     if(!rMember.roles.has(gRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
