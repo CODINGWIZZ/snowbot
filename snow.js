@@ -434,13 +434,13 @@ bot.on("message", async message => {
         
     if(!color.startsWith("#")) return message.channel.send("PLEASE ENTER A VALID HEX CODE WITH A `#` IN THE BEGINNING**!**");
         
-    if(color > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
+    if(color.length > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
         
-    if(color < 6) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**")
+    if(color.length < 6) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**")
 
     let colorEmbed = new Discord.RichEmbed()
     .setColor(`${color}`)
-    .setAuthor(`#${color.toUpperCase()}`, `https://dummyimage.com/250/${color}/&text=%20`)
+    .setAuthor(`${color.toUpperCase()}`, `https://dummyimage.com/250/${color}/&text=%20`)
     .setTitle("[INFORMATION]")
     .setURL(`https://colorhexa.com/${color}`)
     .setDescription(`**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
