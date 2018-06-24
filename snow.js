@@ -430,19 +430,13 @@ bot.on("message", async message => {
 
     let color = args[0];
         
-    let thatthing = "#";
+    if(!args[0]) return message.channel.send("PLEASE ENTER A HEX CODE THAT YOU WANT TO CHECK**!**");
         
-    if(color.startsWith(thatthing)) {
-     
-        color.replace("#", "");
-        
-    };
+    if(!color.startsWith("#")) return message.channel.send("PLEASE ENTER A VALID HEX CODE WITH A `#` IN THE BEGINNING**!**");
         
     if(color > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
         
-    if(color < 6) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
-
-    if(!args[0]) return message.channel.send("PLEASE ENTER A HEX CODE THAT YOU WANT TO CHECK**!**");
+    if(color < 6) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**")
 
     let colorEmbed = new Discord.RichEmbed()
     .setColor(`${color}`)
