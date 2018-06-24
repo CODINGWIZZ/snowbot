@@ -318,8 +318,6 @@ bot.on("message", async message => {
 
     const question = args.join(" ");
     if(!question) return message.channel.send("PLEASE PROVIDE WITH A EQUATION IF YOU WANT TO CACULATE**!**");
-       
-    let "x" = "*";
 
     let answer = math.eval(question);
       
