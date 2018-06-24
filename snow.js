@@ -429,8 +429,12 @@ bot.on("message", async message => {
     if(cmd === `${prefix}color`) {
 
     let color = args[0].replace("#", "");
+        
+    if(color > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
+        
+    if(color < 6) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
 
-    if(!color) return message.channel.send("COULDN'T FIND COLOR**!**");
+    if(!args[0]) return message.channel.send("PLEASE ENTER A HEX CODE THAT YOU WANT TO CHECK**!**");
 
     let colorEmbed = new Discord.RichEmbed()
     .setColor(`${color}`)
