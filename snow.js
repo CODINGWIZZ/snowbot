@@ -428,7 +428,13 @@ bot.on("message", async message => {
           // SEARCH AFTER A HEX COLOR
     if(cmd === `${prefix}color`) {
 
-    let color = args[0].replace("#", "");
+    let color = args[0];
+        
+    if(color.startsWith("#")) {
+     
+        color.replace("#", "");
+        
+    }
         
     if(color > 7) return message.channel.send("PLEASE ENTER A VALID HEX CODE**!**");
         
