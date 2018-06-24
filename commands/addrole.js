@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
    if(aMember.roles.has(gRole.id)) return message.channel.send("THAT USER ALREADY HAVE THAT ROLE**!**");  
         
    await(aMember.addRole(gRole.id)).then(() => {
-   message.channel.send(`<:SNOWCHECK:459111379899514887> **//** <@${aMember.id}> WAS ADDED TO THE **${gRole}** ROLE**!**`);
+   message.channel.send(`<@${aMember.id}> WAS ADDED TO THE **${gRole}** ROLE**!**`);
 
    let addroleEmbed = new Discord.RichEmbed()
    .setTitle("ADD ROLE ❆")
