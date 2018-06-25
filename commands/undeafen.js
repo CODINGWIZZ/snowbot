@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
   
       // UNDEAFEN COMMAND
     if(cmd === `${prefix}undeafen`) {
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**")
+        if(!message.member.hasPermission("DEAFEN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**")
 
         let udUser = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
            if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO UNDEAFEN*!**");
