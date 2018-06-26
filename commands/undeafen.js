@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
         let undeafenembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setDescription("UNDEAFEN ❆")
+        .setDescription("UNDEAFEN **❆**")
         .addField("USER", udUser)
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
