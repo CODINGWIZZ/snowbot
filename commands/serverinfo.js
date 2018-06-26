@@ -19,9 +19,9 @@ module.exports.run = async (bot, message, args) => {
   };
 
   let serverinfoEmbed = new Discord.RichEmbed()
-  .setAuthor("SERVER INFO ❆")
+  .setDescription("SERVER INFO ❆")
   .setColor(botconfig.blue)
-  .setDescription("**" + message.guild.name + "** **(** " + message.guild.id + " **)**")       
+  .addField("** **", `**${message.guild.name}** **(** ${message.guild.id} **)**`)
   .setThumbnail(message.guild.iconURL)
   .addField("OWNER", message.guild.owner + " **(** " + message.guild.owner.id + " **)**")
   .addField("CREATED", message.guild.createdAt.toDateString())
