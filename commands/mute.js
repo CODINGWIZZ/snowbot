@@ -72,7 +72,7 @@ module.exports.run = async (bot, message, args) => {
 
     let autounmuteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
-    .setTitle("UNMUTE ❆")
+    .setDescription("UNMUTE **❆**")
     .setTimestamp()
     .addField("USER", mUser)
     .addField("MODERATOR", "<@417210018576990208>")
