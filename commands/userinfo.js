@@ -22,6 +22,13 @@ module.exports.run = async (bot, message, args) => {
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("JOINED THIS SERVER", user.joinedAt)
   .addField("CREATED", user.createdAt.toDateString())
+  .addField("ROLE(S)", user.roles.size > 1 ? arrayClean(null, user.roles.map((r) => {
+    
+    if(r.name !== `@everyone`) {
+     return r.name 
+    }
+    
+  });
   .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
 
   message.channel.send(userinfoEmbed);
