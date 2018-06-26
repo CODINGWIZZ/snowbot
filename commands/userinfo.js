@@ -14,11 +14,11 @@ module.exports.run = async (bot, message, args) => {
   
   let userinfoEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
-  .setDescription("**" + user.username + "**")
-  .setAuthor("USER INFO ❆")
+  .addField("** **",  `${user.username}`)
+  .setDescription("USER INFO **❆**")
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
-  .addField("JOINED THIS SERVER", guild.joinedAt())
+  .addField("JOINED THIS SERVER", user.joinedAt())
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
 
