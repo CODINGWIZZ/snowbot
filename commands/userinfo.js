@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("JOINED THIS SERVER", user.joinedAt)
   .addField("CREATED", user.createdAt.toDateString())
   .addField("ROLE(S)", user.roles.map.join(" | ")
-  .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
+  .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
   message.channel.send(userinfoEmbed);
   
