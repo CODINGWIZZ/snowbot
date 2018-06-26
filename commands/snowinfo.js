@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
   .setDescription("**BOT INFORMATION ❆**")
   .setColor(botconfig.blue)
   .addField("BOT NAME", bot.user.username)
-  .addField("OWNER / DEVELOPER", "**WIZZ**#7897 **[<:VILGOTNI:409785943676026890>]**")
+  .addField("OWNER / DEVELOPER", "**WIZZ**#7897")
   .addField("VERSION", "**SNOW** ❆ | **1.9.0**")
   .addField("WEBSITE", "**https://discordsnowbot.weebly.com/**")
   .addField("STATS", `**${bot.guilds.size} SERVERS\n\n${bot.channels.size} CHANNELS\n\n${bot.users.size} USERS**`)
