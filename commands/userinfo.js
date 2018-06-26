@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("NICKNAME", `${user.nickname ? `${user.nickname}` : "NO NICKNAME**!**"}`)
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("CREATED", user.createdAt.toDateString())
-  .addField("ROLES", `${user.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).join(" **|** ") || "NO ROLES**!**"}`)
+  .addField("JOINED THIS SERVER", user.joinedAt)
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
   message.channel.send(userinfoEmbed);
