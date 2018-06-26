@@ -21,6 +21,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("NICKNAME", user.nickname ? user.nickname : "NO NICKNAME")
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("JOINED THIS SERVER", user.joinedAt)
+  .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL)
   .addField("CREATED", user.createdAt.toDateString())
   .addField("ROLE(S)", user.roles.size > 1 ? arrayClean(null, user.roles.map((r) => {
     
@@ -28,8 +29,8 @@ module.exports.run = async (bot, message, args) => {
      return r.name 
     }
     
-  });
-  .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
+  }
+                                                                            
 
   message.channel.send(userinfoEmbed);
   
