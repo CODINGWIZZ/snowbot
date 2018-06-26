@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         let unmuteembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setTimestamp()
-        .setDescription("UNMUTE ❆")
+        .setDescription("UNMUTE **❆**")
         .addField("USER", mUser)
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
