@@ -17,6 +17,16 @@ module.exports.run = async (bot, message, args) => {
             3: "(╯°□°）╯︵ ┻━┻",
             4: "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻"
   };
+    
+    let presences = server.presences.map(st => st.status);
+    
+    let onlineMembers = 0;
+    
+  for (const i in presences) {
+    if(presences[i] !== "offline") {
+      onlineMembers += 1;
+    }
+  }
 
   let serverinfoEmbed = new Discord.RichEmbed()
   .setDescription("SERVER INFO ❆")
@@ -29,6 +39,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("REGION", message.guild.region, true)
   .addField("CHANNELS", message.guild.channels.size, true)
   .addField("MEMBERS", message.guild.memberCount, true)
+  .addField("ONLINE MEMBERS", onlineMembers)
   .addField("TOTAL ROLES", message.guild.roles.size, true)
   .setFooter("SERVER INFO | SNOW ❆", bot.user.displayAvatarURL);
 
