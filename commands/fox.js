@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
   let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
-  let messageArray[0].toLocaleLowerCase();
+  let cmd = messageArray[0].toLocaleLowerCase();
   
   if(cmd === `${prefix}fox`) {
   
