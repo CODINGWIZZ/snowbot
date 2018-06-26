@@ -24,9 +24,9 @@ module.exports.run = async (bot, message, args) => {
 
    let inforoleEmbed = new Discord.RichEmbed()
    .setDescription("ROLE INFO **❆**")
-   .addField("** **", `**i${infoRole.name}**`)
+   .addField("** **", `**${infoRole.name}**`)
    .addField("ID", infoRole.id)
-   .addField("COLOR", "HEX**:**\n" + infoRole.hexColor + "\n\n")
+   .addField("COLOR", "HEX**:**\n" + "**#**" + infoRole.hexColor.slice(1) + "\n\n")
    .setColor(botconfig.blue)
    .addField("CREATED", infoRole.createdAt.toDateString())
    .addField("HOISTED", truefalse[infoRole.hoist])
