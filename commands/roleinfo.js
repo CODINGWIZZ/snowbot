@@ -23,16 +23,16 @@ module.exports.run = async (bot, message, args) => {
    if(!infoRole) return message.channel.send("CAN'T FIND ROLE**!**");
 
    let inforoleEmbed = new Discord.RichEmbed()
-   .setAuthor("ROLE INFO ❆")
-   .setDescription("**" + infoRole.name + "**")
+   .setDescription("ROLE INFO **❆**")
+   .addField("** **", `**i${infoRole.name}**`)
    .addField("ID", infoRole.id)
    .addField("COLOR", "HEX**:**\n" + infoRole.hexColor + "\n\n")
    .setColor(botconfig.blue)
    .addField("CREATED", infoRole.createdAt.toDateString())
    .addField("HOISTED", truefalse[infoRole.hoist])
-    .addField("MANAGED", truefalse[infoRole.managed])
-    .addField("MENTIONABLE", truefalse[infoRole.mentionable])
-    .setFooter("ROLE INFO | SNOW ❆", bot.user.displayAvatarURL);
+   .addField("MANAGED", truefalse[infoRole.managed])
+   .addField("MENTIONABLE", truefalse[infoRole.mentionable])
+   .setFooter("ROLE INFO | SNOW ❆", bot.user.displayAvatarURL);
 
     message.channel.send(inforoleEmbed);
 
