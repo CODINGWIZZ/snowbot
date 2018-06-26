@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("ID", user.id)
   .addField("NICKNAME", user.nickname ? user.nickname : "NO NICKNAME")
   .addField("STATUS", user.presence.status.toUpperCase())
-  .addField("JOINED THIS SERVER", user.joinedAt)
+  .addField("JOINED THIS SERVER", user.user.joinedAt)
   .addField("CREATED", user.createdAt.toDateString())
   .addField("ROLES", user.roles.map.join(" | "))
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
