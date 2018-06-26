@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
 
     let muteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
-    .setTitle("DEAFEN ❆")
+    .setDescription("DEAFEN **❆**")
     .setTimestamp()
     .addField("USER", dUser)
     .addField("MODERATOR", message.author)
@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args) => {
 
     let autounmuteEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
-    .setTitle("UNDEAFEN ❆")
+    .setDescription("UNDEAFEN **❆**")
     .setTimestamp()
     .addField("USER", dUser)
     .addField("MODERATOR", "<@417210018576990208>")
