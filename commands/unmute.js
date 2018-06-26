@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 
         if(!muterole || !mUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
 
-        await(mUser.removeRole(mUser.id));
+        await(mUser.removeRole(muterole.id));
         message.channel.send(`${mUser} HAS BEEN **UNMUTED!**`);
 
         let unmuteembed = new Discord.RichEmbed()
