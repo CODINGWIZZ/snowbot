@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
    message.channel.send(`<@${aMember.id}> HAS BEEN ADDED TO THE **${gRole}** ROLE**!**`);
 
    let addroleEmbed = new Discord.RichEmbed()
-   .setTitle("ADD ROLE ❆")
+   .setDescription("ADD ROLE **❆**")
    .setTimestamp()
    .setColor(botconfig.blue)
    .addField("USER", aMember)
