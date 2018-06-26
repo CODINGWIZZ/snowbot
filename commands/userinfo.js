@@ -29,7 +29,8 @@ module.exports.run = async (bot, message, args) => {
      return r.name 
     }
     
-  }
+    return null;
+  })).join(" | ") : "NONE", false)
                                                                             
 
   message.channel.send(userinfoEmbed);
