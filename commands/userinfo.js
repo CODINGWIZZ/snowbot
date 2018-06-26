@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("JOINED THIS SERVER", user.joinedAt)
   .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL)
   .addField("CREATED", user.createdAt.toDateString())
-  .addField("ROLE(S)", user.roles.size > 1 ? arrayClean(null, user.roles.map((r) => {
+  .addField("ROLE(S)", user.roles.map((r) => {
     
     if(r.name !== `@everyone`) {
      return r.name 
