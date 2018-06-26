@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
         let role = message.guild.roles.find(r => r.name === "DEAFENED // ❆");
 
-        if(!role || !toMute.roles.has(role.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
+        if(!role || !udUser.roles.has(role.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
 
         await(udUser.removeRole(role.id));        
         message.channel.send(`${udUser} HAS BEEN **UNDEAFENED!**`);
