@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO UNMUTE**!**");
         if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
 
-        let muterole = message.guild.roles.find(`name`, "MUTED // ❆");
+        let muterole = message.guild.roles.find(r => r.name === "MUTED // ❆");
 
         if(!muterole || !mUser.roles.has(muterole)) return message.channel.send("THIS USER IS NOT MUTED**!**");
 
