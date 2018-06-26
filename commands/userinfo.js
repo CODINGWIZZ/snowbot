@@ -21,18 +21,10 @@ module.exports.run = async (bot, message, args) => {
   .addField("NICKNAME", user.nickname ? user.nickname : "NO NICKNAME")
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("JOINED THIS SERVER", user.joinedAt)
-  .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL)
   .addField("CREATED", user.createdAt.toDateString())
-  .addField("ROLE(S)", user.roles.map((r) => {
-    
-    if(r.name !== `@everyone`) {
-     return r.name 
-    }
-    
-    return null;
-  })).join(" | ") : "NONE", false)
-                                                                            
-
+  .addField("ROLE(S)", user.roles.map.join(" | ")
+  .setFooter("USER INFO | SNOW ❆", user.displayAvatarURL);
+            
   message.channel.send(userinfoEmbed);
   
     }
