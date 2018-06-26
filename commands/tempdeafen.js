@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
         let tempdeafenembed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
         .setTimestamp()
-        .setTitle("TEMPDEAFEN ❆")
+        .setDescription("TEMPDEAFEN **❆**")
         .addField("USER", dUser)
         .addField("MODERATOR", message.channel)
         .addField("CHANNEL", message.channel)
