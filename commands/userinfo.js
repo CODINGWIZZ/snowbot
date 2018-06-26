@@ -18,10 +18,9 @@ module.exports.run = async (bot, message, args) => {
   .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
-  .addField("NICKNAME", user.nickname || "NONE")
+  .addField("NICKNAME", `${user.nickname}` || "NONE")
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("CREATED", user.createdAt.toDateString())
-  .addField("JOINED THIS SERVER", user.joinedTimestamp)
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
   message.channel.send(userinfoEmbed);
