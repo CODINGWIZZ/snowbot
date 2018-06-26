@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("** **",  `${user.username}`)
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
-  .addField("NICKNAME", user.nickname else "NO NICKNAME")
+  .addField("NICKNAME", user.nickname ? user.nickname : "NO NICKNAME")
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
