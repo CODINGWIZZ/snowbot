@@ -22,7 +22,6 @@ module.exports.run = async (bot, message, args) => {
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("JOINED THIS SERVER", user.user.joinedAt)
   .addField("CREATED", user.createdAt.toDateString())
-  .addField("ROLES", user.roles.map.join(" | "))
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
   message.channel.send(userinfoEmbed);
