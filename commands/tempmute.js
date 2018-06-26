@@ -51,7 +51,6 @@ module.exports.run = async (bot, message, args) => {
         .addField("USER", toMute)
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
-        .addField("MUTECASE", mutecase)
         .setFooter("SNOW ❆", bot.user.displayAvatarURL);
 
         let snowlog = message.guild.channels.find(`name`, "snow");
