@@ -14,15 +14,15 @@ module.exports.run = async (bot, message, args) => {
   
   let userinfoEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
-  .addField("** **",  `${user.username}`)
   .setDescription("USER INFO **❆**")
+  .addField("** **",  `${user.username}`)
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
   .addField("NICKNAME", user.nickname ? user.nickname : "NO NICKNAME")
   .addField("STATUS", user.presence.status.toUpperCase())
   .addField("JOINED THIS SERVER", user.joinedAt)
   .addField("CREATED", user.createdAt.toDateString())
-  .addField("ROLE(S)", user.roles.map.join(" | ")
+  .addField("ROLES", user.roles.map.join(" | "))
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
   message.channel.send(userinfoEmbed);
