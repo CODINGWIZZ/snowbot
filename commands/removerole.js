@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
         let removeroleEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setTitle("REMOVE ROLE ❆")
+        .setDescription("REMOVE ROLE **❆**")
         .setTimestamp()
         .addField("USER", rMember)
         .addField("ROLE", gRole)
