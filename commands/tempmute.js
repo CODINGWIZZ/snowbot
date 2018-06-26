@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(`${toMute} HAS BEEN **MUTED!**`);
 
         let tempmuteembed = new Discord.RichEmbed()
-        .setTitle("TEMPMUTE ❆")
+        .setDescription("TEMPMUTE ❆")
         .setTimestamp()
         .setColor(botconfig.blue)
         .addField("USER", toMute)
