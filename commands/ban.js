@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
   let banEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
   .setTimestamp()
-  .setTitle("BAN ❆")
+  .setDescription("BAN ❆")
   .addField("USER", bUser)
   .addField("MODERATOR", message.author)
   .addField("CHANNEL", message.channel)
