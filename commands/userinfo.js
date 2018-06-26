@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
   let userinfoEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
   .setDescription("USER INFO **❆** **// " + user.username + "**")
-  .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}\n`)
+  .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}` + "\n")
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
   .addField("NICKNAME", `${user.nickname ? `${user.nickname}` : "NO NICKNAME**!**"}`)
