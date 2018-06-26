@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
             4: "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻"
   };
     
-    let presences = server.presences.map(st => st.status);
+    let presences = message.guild.presences.map(st => st.status);
     
     let onlineMembers = 0;
     
