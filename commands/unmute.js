@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
         let muterole = message.guild.roles.find(r => r.name === "MUTED // ❆");
 
-        if(!muterole || !mUser.roles.has(muterole)) return message.channel.send("THIS USER IS NOT MUTED**!**");
+        if(!muterole || !mUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS NOT MUTED**!**");
 
         await(mUser.removeRole(mUser.id));
         message.channel.send(`${mUser} HAS BEEN **UNMUTED!**`);
