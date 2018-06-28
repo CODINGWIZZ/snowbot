@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
   }
 
   let serverinfoEmbed = new Discord.RichEmbed()
-  .setDescription("SERVER INFO ❆")
+  .setDescription("SERVER INFO **❆**")
   .setColor(botconfig.blue)
   .addField("** **", `**${message.guild.name}** **(** ${message.guild.id} **)**`)
   .setThumbnail(message.guild.iconURL)
