@@ -22,8 +22,8 @@ module.exports.run = async (bot, message, args) => {
     let translateEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
     .setDescription("TRANSLATE **❆**")
-    .addField("INPUT", transtext)
-    .addField("OUTPUT", res.text)
+    .addField("INPUT", ```transtext```)
+    .addField("OUTPUT", ```res.text```)
     .setFooter("TRANSLATE | SNOW ❆", bot.user.displayAvatarURL);
     
     translateMessage.edit(translateEmbed);
