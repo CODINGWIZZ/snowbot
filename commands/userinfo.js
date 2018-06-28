@@ -1,22 +1,23 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 
-let snowonline = require("./img/snowonline.png");
-let snowidle = require("./img/snowidle.png");
-let snowdnd = require("./img/snowdnd.png");
-let snowoffline = require("./img/snowoffline.png");
-
 module.exports.run = async (bot, message, args) => {
 
   let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0].toLocaleLowerCase();
   
+  
+  let useronline = require("../img/snowonline.png");  
+  let useridle = require("../img/snowidle.png");
+  let userdnd = require("../img/snowdnd.png");
+  let useroffline  = require("../img/snowoffline.png");
+
   let status = {
-  online: `ONLINE ${snowonline}`,
-  idle: `IDLE ${snowidle}`,
-  dnd: `DO NOT DISTURB ${snowdnd}`,
-  offline: `OFFLINE ${snowoffline}`
+  online: `ONLINE ${useronline}`,
+  idle: `IDLE ${useridle}`,
+  dnd: `DO NOT DISTURB ${userdnd}`,
+  offline: `OFFLINE ${useroffline}`
 }
   
   // USER INFO
