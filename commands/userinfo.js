@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
             
   message.channel.send(userinfoEmbed);
   
-    } else if(user.id === bot.user.id) {
+    } else if(user.id === "417210018576990208") {
      
    let snowuserEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
