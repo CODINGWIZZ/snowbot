@@ -26,25 +26,25 @@ module.exports.run = async (bot, message, args) => {
     let offlineMembers = 0;
     
   for (const i in presences) {
-    if(presences[i] !== "offline", "idle", "dnd") {
+    if(presences[i] !== "offline" || "idle" || "dnd") {
       onlineMembers += 1;
     }
   }
     
   for (const i in presences) {
-   if(presences[i] !== "online", "idle", "dnd") {
+   if(presences[i] !== "online" || "idle" || "dnd") {
        offlineMembers += 1;
    }
   }
     
   for (const i in presences) {
-    if(presences[i] !== "online", "dnd", "offline") {
+    if(presences[i] !== "online" || "dnd" || "offline") {
       idleMembers += 1; 
     }
   }
     
   for (const i in presences) {
-    if(presences[i] !== "online", "idle", "offline") {
+    if(presences[i] !== "online" || "idle" || "offline") {
       dndMembers += 1; 
     }
   }
@@ -60,7 +60,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("REGION", message.guild.region, true)
   .addField("CHANNELS", message.guild.channels.size, true)
   .addField("MEMBERS", message.guild.memberCount, true)
-  .addField("ALL MEMBER STATES", onlineMembers + "\n" + idleMembers + "\n" + "\n" + dndMembers + "\n" + offlineMembers)
+  .addField("ALL MEMBER STATES", onlineMembers + "\n" + idleMembers + "\n" + dndMembers + "\n" + offlineMembers)
   .addField("TOTAL ROLES", message.guild.roles.size, true)
   .setFooter("SERVER INFO | SNOW ❆", bot.user.displayAvatarURL);
 
