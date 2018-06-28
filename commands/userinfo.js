@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.mentions.users.first() || message.guild.members.get(args [0]) || message.author;
   
-  if(user.id === bot.user.id) {
+  if(user.id === "417210018576990208") {
   let snowuserEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
   .setDescription("USER INFO **❆** **// " + user.username + "**")
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
-  message.channel.send(snowuserEmbed);
+  return message.channel.send(snowuserEmbed);
     
   } else {
    
@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
     
-  message.channel.send(userinfoEmbed)
+  return message.channel.send(userinfoEmbed)
     
   }
   
