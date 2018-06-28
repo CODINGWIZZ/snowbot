@@ -62,7 +62,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("OWNER", message.guild.owner + " **(** " + message.guild.owner.id + " **)**")
   .addField("CREATED", message.guild.createdAt.toDateString())
   .addField("VERIFICATION LEVEL", vertification[message.guild.verificationLevel])
-  .addField("REGION", message.guild.region, true)
+  .addField("REGION", message.guild.region.toUpperCase(), true)
   .addField("CHANNELS", message.guild.channels.size, true)
   .addField("TOTAL MEMBERS", message.guild.memberCount, true)
   .addField("ALL MEMBER STATES", snowonline + " **//**  " + onlineMembers + "\n" + snowidle + " **//**  " + idleMembers + "\n" + snowdnd + " **//**  " + dndMembers + "\n" + snowoffline + " **//**  " + offlineMembers)
