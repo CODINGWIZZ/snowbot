@@ -430,8 +430,6 @@ bot.on("message", async message => {
     }
     
     if(cmd === `${prefix}changelog` || cmd === `${prefix}updates` || cmd === `${prefix}updateschangelog`) {
-     
-    message.channel.send("**UPDATES // CHANGELOG ❆**\n" + `<${changelog}>`);
         
     let updateschangelogEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
