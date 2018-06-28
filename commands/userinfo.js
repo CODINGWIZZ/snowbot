@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 
-let snowonline = require("../img/SNOW (ONLINE).png");
-let snowidle = require("../img/SNOW (IDLE).png");
-let snowdnd = require("../img/SNOW (DND).png");
-let snowoffline = require("../img/SNOW (OFFLINE).png");
+let snowonline = require("../img/snowonline.png");
+let snowidle = require("../img/snowidle.png");
+let snowdnd = require("../img/snowdnd.png");
+let snowoffline = require("../img/snowoffline.png");
 
 module.exports.run = async (bot, message, args) => {
 
