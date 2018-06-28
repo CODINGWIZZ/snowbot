@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     
   const catEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
-  .setDescription("**CAT ❆**")
+  .setDescription(":cat: **//** CAT **❆**")
   .setImage(body.file);
 
   catImage.edit(catEmbed);
