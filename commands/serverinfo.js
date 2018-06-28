@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
     }
   }
     
-  for (const i presences) {
+  for (const i in presences) {
     if(presences[i] !== "online", "idle", "offline") {
       dndMembers += 1; 
     }
