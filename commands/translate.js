@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(translateEmbed);
     
     }).catch(err => {
-      return message.channel.send("`" + transto.toUpperCase() +"` IS NOT VALID**!**");
+      return message.channel.send("`" + transto.toUpperCase() +"` IS NOT VALID COUNTRY CODE**!**");
     });
   
   }
