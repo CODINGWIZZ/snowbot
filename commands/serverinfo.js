@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
   }
     
   for (const i in presences) {
-    if(presences[i] === "idle!) {
+    if(presences[i] === "idle") {
       idleMembers += 1; 
     }
   }
