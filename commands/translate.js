@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
   
   if(cmd === `${prefix}translate`) {
   
-    let tansto = args[0];
+    let transto = args[0];
     let transtext = args.slice(1).join(" ");
     
     translate(transtext, {to: transto}).then(res => {
