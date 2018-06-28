@@ -7,7 +7,6 @@ module.exports.run = async (bot, message, args) => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0].toLocaleLowerCase();
   
-  
   let snowonline = "<:SNOWONLINE:461875150892171274>";
   let snowidle = "<:SNOWIDLE:461875150896496660>";
   let snowdnd = "<:SNOWDND:461875150716010497>";
