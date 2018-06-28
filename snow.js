@@ -251,10 +251,10 @@ bot.on("message", async message => {
     // OWNER ONLY // SAY COMMAND
     if(cmd === `${prefix}ownersay`) {
 
-    message.delete();
-
     if(message.author.id !== "297832577782382592") return;
     if(!args[0]) return;
+    
+    message.delete();
 
     let ownersayMessage = args.join(" ");
 
@@ -433,7 +433,7 @@ bot.on("message", async message => {
         
     let updateschangelogEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
-    .setDescription("**UPDATES // CHANGELOG ❆**\nDo you want to see more about SNOW. More, behind the scenes. Then, go to UPDATES & CHANGELOG. As you already can tell, you can see updates about SNOW but also new commands and problems. Everything will be logged there!\n[**UPDATES & CHANGELOG**](https://discordsnowbot.weebly.com/updates-changelog)")
+    .setDescription("**UPDATES // CHANGELOG ❆**\nDo you want to see more about **SNOW?** More, behind the scenes. Then, go to **UPDATES & CHANGELOG**. As you already can tell, you can see **updates** about **SNOW** but also new commands and problems. Everything will be logged there**!**\n[**UPDATES & CHANGELOG**](https://discordsnowbot.weebly.com/updates-changelog)")
     .setFooter("UPDATES & CHANGELOG | SNOW ❆", bot.user.displayAvatarURL);
         
     message.channel.send(updateschangelogEmbed);
@@ -457,7 +457,7 @@ bot.on("message", async message => {
     .setColor(`${color}`)
     .setAuthor(`${color.toUpperCase()}`, `https://dummyimage.com/250/${color.slice(1)}/&text=%20`)
     .setTitle("[INFORMATION]")
-.setURL(`https://colorhexa.com/${color.slice(1)}`)
+    .setURL(`https://colorhexa.com/${color.slice(1)}`)
     .setDescription(`**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
     .setFooter("COLOR | SNOW ❆", bot.user.displayAvatarURL);
 
