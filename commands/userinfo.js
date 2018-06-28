@@ -14,10 +14,10 @@ module.exports.run = async (bot, message, args) => {
   let snowoffline = "<:SNOWOFFLINE:461867189482422282>";
 
   let status = {
-  online: `ONLINE ${snowonline}`,
-  idle: `IDLE ${snowidle}`,
-  dnd: `DO NOT DISTURB ${snowdnd}`,
-  offline: `OFFLINE ${snowoffline}`
+  online: `ONLINE **//** ${snowonline}`,
+  idle: `IDLE **//** ${snowidle}`,
+  dnd: `DO NOT DISTURB **//** ${snowdnd}`,
+  offline: `OFFLINE **//** ${snowoffline}`
 }
   
   // USER INFO
