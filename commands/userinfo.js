@@ -1,11 +1,23 @@
 const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 
+let snowonline = require("../img/SNOW (ONLINE).png");
+let snowidle = require("../img/SNOW (IDLE).png");
+let snowdnd = require("../img/SNOW (DND).png");
+let snowoffline = require("../img/SNOW (OFFLINE).png");
+
 module.exports.run = async (bot, message, args) => {
 
   let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0].toLocaleLowerCase();
+  
+  let status = {
+  online: `ONLINE ${snowonline}`,
+  idle: `IDLE ${snowidle}`,
+  dnd: `DO NOT DISTURB ${snowdnd}`,
+  offline: `OFFLINE ${snowoffline}`
+}
   
   // USER INFO
   if(cmd === `${prefix}userinfo`) {
@@ -18,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
-  .addField("STATUS", user.presence.status.toUpperCase())
+  .addField("STATUS", `${status[user.presence.status]}`)
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
