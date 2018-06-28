@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
     if(mUser.id === message.author.id) return message.channel.send("YOU CAN'T MUTE YOURSELF**!**");
     if(mUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
-    if(mUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
+    if(mUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
     let muterole = message.guild.roles.find(`name`, "MUTED // ❆");
     if(!muterole) {
