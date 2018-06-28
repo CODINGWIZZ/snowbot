@@ -234,8 +234,9 @@ bot.on("message", async message => {
     // EMBED [OWNER ONLY]
     if(cmd === `${prefix}ownerembed`) {
 
-    if(message.member =! "297832577782382592") return;
+    if(message.author.id !== "297832577782382592") return;
     let embedMessage = args.join(" ");
+    if(!embedMessage) return;
 
     let embedEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
@@ -252,7 +253,7 @@ bot.on("message", async message => {
 
     message.delete();
 
-    if(message.member =! "297832577782382592") return;
+    if(message.author.id !== "297832577782382592") return;
     if(!args[0]) return;
 
     let ownersayMessage = args.join(" ");
@@ -264,7 +265,7 @@ bot.on("message", async message => {
     // BOT SETTINGS
     if(cmd === `${prefix}restart`) {
 
-    if(message.member =! "297832577782382592") return;
+    if(message.author.id !== "297832577782382592") return;
     bot.destroy();
         
         message.channel.send("RESTARTING **...**");
@@ -278,7 +279,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}shutdown`) {
 
-    if(message.member =! "297832577782382592") return;
+    if(message.author.id !== "297832577782382592") return;
     message.channel.send("SHUTTING DOWN **...**");
     bot.destroy();
     console.log("SHUTDOWN ...")
@@ -425,6 +426,19 @@ bot.on("message", async message => {
             return ddgmessage.edit("**FINSHED!**\n" + `<${ddglink}>`);
             
         });
+        
+    }
+    
+    if(cmd === `${prefix}changelog` || cmd === `${prefix}updates` || cmd === `${prefix}updateschangelog`) {
+     
+    message.channel.send("**UPDATES // CHANGELOG ❆**\n" + `<${changelog}>`);
+        
+    let updateschangelogEmbed = new Discord.RichEmbed()
+    .setColor(botconfig.blue)
+    .setDescription("**UPDATES // CHANGELOG ❆**\nDo you want to see more about SNOW. More, behind the scenes. Then, go to UPDATES & CHANGELOG. As you already can tell, you can see updates about SNOW but also new commands and problems. Everything will be logged there!\n[**UPDATES & CHANGELOG**](https://discordsnowbot.weebly.com/updates-changelog)")
+    .setFooter("UPDATES & CHANGELOG | SNOW ❆", bot.user.displayAvatarURL);
+        
+    message.channel.send(updateschangelogEmbed);
         
     }
     
