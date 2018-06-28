@@ -39,13 +39,13 @@ module.exports.run = async (bot, message, args) => {
     
   for (const i in presences) {
     if(presences[i] !== "online", "dnd", "offline") {
-      idleMembers +=; 
+      idleMembers += 1; 
     }
   }
     
   for (const i presences) {
     if(presences[i] !== "online", "idle", "offline") {
-      dndMembers +=; 
+      dndMembers += 1; 
     }
   }
 
