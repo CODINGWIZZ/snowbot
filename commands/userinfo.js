@@ -8,16 +8,16 @@ module.exports.run = async (bot, message, args) => {
   let cmd = messageArray[0].toLocaleLowerCase();
   
   
-  let useronline = require("../img/snowonline.png");  
-  let useridle = require("../img/snowidle.png");
-  let userdnd = require("../img/snowdnd.png");
-  let useroffline  = require("../img/snowoffline.png");
+  let snowonline = "<:SNOWONLINE:461867227965292545>";
+  let snowidle = "<:SNOWIDLE:461867151901458442>";
+  let snowdnd = "<:SNOWDND:461867102056349696>";
+  let snowoffline = "<:SNOWOFFLINE:461867189482422282>";
 
   let status = {
-  online: `ONLINE ${useronline}`,
-  idle: `IDLE ${useridle}`,
-  dnd: `DO NOT DISTURB ${userdnd}`,
-  offline: `OFFLINE ${useroffline}`
+  online: `ONLINE ${snowonline}`,
+  idle: `IDLE ${snowidle}`,
+  dnd: `DO NOT DISTURB ${snowdnd}`,
+  offline: `OFFLINE ${snowoffline}`
 }
   
   // USER INFO
