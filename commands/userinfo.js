@@ -12,13 +12,15 @@ module.exports.run = async (bot, message, args) => {
   let snowidle = "<:SNOWIDLE:461875150896496660>";
   let snowdnd = "<:SNOWDND:461875150716010497>";
   let snowoffline = "<:SNOWOFFLINE:461875151328378890>";
-
+  
   let status = {
-  online: `ONLINE  **//** ${snowonline}`,
-  idle: `IDLE  **//** ${snowidle}`,
-  dnd: `DND  **//** ${snowdnd}`,
-  offline: `OFFLINE  **//** ${snowoffline}`
-}
+   
+    online: `${snowonline} **//** ONLNE`,
+    idle: `${snowidle} **//** IDLE`,
+    dnd: `${snowdnd} **//** DND`,
+    offline: `${snowoffline} **//** OFFLINE`
+      
+  }
   
   // USER INFO
   if(cmd === `${prefix}userinfo`) {
