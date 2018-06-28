@@ -8,10 +8,10 @@ module.exports.run = async (bot, message, args) => {
   let cmd = messageArray[0].toLocaleLowerCase();
   
   
-  let snowonline = "<:SNOWONLINE:461867227965292545>";
-  let snowidle = "<:SNOWIDLE:461867151901458442>";
-  let snowdnd = "<:SNOWDND:461867102056349696>";
-  let snowoffline = "<:SNOWOFFLINE:461867189482422282>";
+  let snowonline = "<:SNOWONLINE:461872567611949057>";
+  let snowidle = "<:SNOWIDLE:461872625640013824>";
+  let snowdnd = "<:SNOWDND:461872714542612480>";
+  let snowoffline = "<:SNOWOFFLINE:461872664328405003>";
 
   let status = {
   online: `ONLINE **//** ${snowonline}`,
