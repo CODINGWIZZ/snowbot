@@ -11,7 +11,9 @@ module.exports.run = async (bot, message, args) => {
   if(cmd === `${prefix}translate`) {
   
     let transto = args[0];
+    if(!transto) return message.channel.send("PLEASE ENTER A LANGUAGE SHORTEN TO **2** CHARACTERS AND THEN THE TRANSLATE MESSAGE**!**")
     let transtext = args.slice(1).join(" ");
+    if(!transtext) return message.channel.send("PLEASE ENTER WHAT YOU WANT TO TRANSLATE**!**");
     
     translate(transtext, {to: transto}).then(res => {
     
@@ -25,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(translateEmbed);
     
     }).catch(err => {
-      console.log(err);
+      return message.channel.send(err.toUpperCase());
     });
   
   }
