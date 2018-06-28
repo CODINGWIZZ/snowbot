@@ -285,8 +285,7 @@ bot.on("message", async message => {
     console.log("SHUTDOWN ...")
 
     }
-   
-    
+  
     if(cmd === `${prefix}frank`) {
      
         let frankEmbed = new Discord.RichEmbed()
@@ -332,7 +331,7 @@ bot.on("message", async message => {
 
     let mathEmbed = new Discord.RichEmbed()
     .setColor(botconfig.blue)
-    .setDescription("**CALCULATOR ❆**")
+    .setDescription("CALCULATOR **❆**")
     .addField("EQUATION", `\`\`\`${question}\`\`\``)
     .addField("ANSWER", `\`\`\`${answer}\`\`\``)
     .setFooter("CALCULATOR | SNOW ❆", bot.user.displayAvatarURL);
