@@ -25,7 +25,8 @@ module.exports.run = async (bot, message, args) => {
 
   let user = message.mentions.users.first() || message.guild.members.get(args [0]) || message.author;
   
-  let userinfoEmbed = new Discord.RichEmbed()
+  if(user.id === bot.user.id) {
+  let snowuserEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
   .setDescription("USER INFO **❆** **// " + user.username + "**")
   .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
@@ -35,22 +36,25 @@ module.exports.run = async (bot, message, args) => {
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
             
-  message.channel.send(userinfoEmbed);
-  
-    } else if(user.id === "417210018576990208") {
-     
-   let snowuserEmbed = new Discord.RichEmbed()
+  message.channel.send(snowuserEmbed);
+    
+  } else {
+   
+   let userinfoEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
   .setDescription("USER INFO **❆** **// " + user.username + "**")
   .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
   .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
   .addField("ID", user.id)
+  .addField("STATUS", `${status[user.presence.status]}`)
   .addField("CREATED", user.createdAt.toDateString())
   .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
-            
-  message.channel.send(snowuserEmbed);
-      
-    }
+    
+  message.channel.send(userinfoEmbed)
+    
+  }
+  
+    } 
 
 }
 
