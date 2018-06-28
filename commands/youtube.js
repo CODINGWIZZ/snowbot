@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
         message.channel.send("SEARCHING **...**").then((youtubeMessage) => {
 
-        youtubeLink = `https://youtube.com/results?search_query=${search}`;
+        youtubeLink = `https://youtube.com/results?q=${search}`;
 
         return youtubeMessage.edit("**FINISHED!**" + "\n" + `<${youtubeLink}>`);
             
