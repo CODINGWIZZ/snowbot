@@ -11,8 +11,7 @@ module.exports.run = async (bot, message, args) => {
         
         let helpEmbed = new Discord.RichEmbed()
         .setColor(botconfig.blue)
-        .setTitle("HELP ❆")
-        .setDescription("YOU CAN SEE ALL OF MY COMMANDS [**HERE**](https://discordsnowbot.weebly.com/snow) AND HOW TO USE THEM**!**\n\nDOWN HERE, YOU'LL SEE ALL COMMANDS FOR SNOW __**RIGHT NOW**__**!**")
+        .setDescription("HELP **❆**\nYOU CAN SEE ALL OF MY COMMANDS [**HERE**](https://discordsnowbot.weebly.com/snow) AND HOW TO USE THEM**!**\n\nDOWN HERE, YOU'LL SEE ALL COMMANDS FOR SNOW __**RIGHT NOW**__**!**")
         .addField("GENERAL", "`ping` `roll` `say` `snow` `invite` `changelog` `help`")
         .addField("MODERATION", "`addrole` `removerole` `ban` `kick` `clear` `warn` `mute` `deafen` `tempmute` `unmute` `tempdeafen` `undeafen`")
         .addField("FUN", "`rps` `avatar` `8ball` `vote` `slot` `randomcolor` `color` `fancy` `randomimage` `urban` `gif` `dog` `cat` `fox` `reminder`")
