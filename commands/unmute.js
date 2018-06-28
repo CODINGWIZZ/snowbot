@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
         let mUser = message.guild.member(message.mentions.members.first()) || message.guild.members.get(args[0]);
         if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO UNMUTE**!**");
         if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
+        if(mUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT UNMUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
         let muterole = message.guild.roles.find(r => r.name === "MUTED // ❆");
 
