@@ -26,25 +26,25 @@ module.exports.run = async (bot, message, args) => {
     let offlineMembers = 0;
     
   for (const i in presences) {
-    if(presences[i] !== "offline" || "idle" || "dnd") {
+    if(presences[i] === "online") {
       onlineMembers += 1;
     }
   }
     
   for (const i in presences) {
-   if(presences[i] !== "online" || "idle" || "dnd") {
+   if(presences[i] === "offline") {
        offlineMembers += 1;
    }
   }
     
   for (const i in presences) {
-    if(presences[i] !== "online" || "dnd" || "offline") {
+    if(presences[i] === "idle!) {
       idleMembers += 1; 
     }
   }
     
   for (const i in presences) {
-    if(presences[i] !== "online" || "idle" || "offline") {
+    if(presences[i] === "dnd") {
       dndMembers += 1; 
     }
   }
