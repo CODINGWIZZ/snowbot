@@ -37,6 +37,19 @@ module.exports.run = async (bot, message, args) => {
             
   message.channel.send(userinfoEmbed);
   
+    } else if(user.id === bot.user.id) {
+     
+   let snowuserEmbed = new Discord.RichEmbed()
+  .setColor(botconfig.blue)
+  .setDescription("USER INFO **❆** **// " + user.username + "**")
+  .addField("** **", `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
+  .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
+  .addField("ID", user.id)
+  .addField("CREATED", user.createdAt.toDateString())
+  .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
+            
+  message.channel.send(snowuserEmbed);
+      
     }
 
 }
