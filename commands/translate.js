@@ -15,6 +15,8 @@ module.exports.run = async (bot, message, args) => {
     let transtext = args.slice(1).join(" ");
     if(!transtext) return message.channel.send("PLEASE ENTER WHAT YOU WANT TO TRANSLATE**!**");
     
+    let translateMessage = message.channel.send("TRANSLATING **...**");
+    
     translate(transtext, {to: transto}).then(res => {
     
     let translateEmbed = new Discord.RichEmbed()
@@ -24,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("OUTPUT", res.text)
     .setFooter("TRANSLATE | SNOW ❆", bot.user.displayAvatarURL);
     
-    message.channel.send(translateEmbed);
+    translateMessage.edit(translateEmbed);
     
     }).catch(err => {
       return message.channel.send("`" + transto.toUpperCase() +"` IS NOT VALID COUNTRY CODE**!**");
