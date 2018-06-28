@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
   let status = {
   online: `ONLINE **//** ${snowonline}`,
   idle: `IDLE **//** ${snowidle}`,
-  dnd: `DO NOT DISTURB **//** ${snowdnd}`,
+  dnd: `DND **//** ${snowdnd}`,
   offline: `OFFLINE **//** ${snowoffline}`
 }
   
