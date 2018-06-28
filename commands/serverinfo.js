@@ -18,11 +18,6 @@ module.exports.run = async (bot, message, args) => {
             4: "┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻"
   };
     
-  let snowonline = "<:SNOWONLINE:461875150892171274>";
-  let snowidle = "<:SNOWIDLE:461875150896496660>";
-  let snowdnd = "<:SNOWDND:461875150716010497>";
-  let snowoffline = "<:SNOWOFFLINE:461875151328378890>";
-    
     let presences = message.guild.presences.map(st => st.status);
     
     let onlineMembers = 0;
@@ -44,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("REGION", message.guild.region, true)
   .addField("CHANNELS", message.guild.channels.size, true)
   .addField("MEMBERS", message.guild.memberCount, true)
-  .addField(`ONLINE MEMBERS // ${snowonline} / ${snowidle} / ${snowdnd}`, onlineMembers)
+  .addField("ONLINE MEMBERS", onlineMembers)
   .addField("TOTAL ROLES", message.guild.roles.size, true)
   .setFooter("SERVER INFO | SNOW ❆", bot.user.displayAvatarURL);
 
