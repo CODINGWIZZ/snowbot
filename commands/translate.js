@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("TRANSLATE **❆**")
     .addField("INPUT", transtext)
     .addField("OUTPUT", res.text)
-    .addField("TRANSLATE | SNOW ❆", bot.user.displayAvatarURL);
+    .setFooter("TRANSLATE | SNOW ❆", bot.user.displayAvatarURL);
     
     message.channel.send(translateEmbed);
     
