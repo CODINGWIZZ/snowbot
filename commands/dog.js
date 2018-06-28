@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
  message.channel.send("GENERATING DOG IMAGAE **...**").then((dogImage) => {
 
  let dogEmbed = new Discord.RichEmbed()
- .setDescription("**:dog:  /  ** DOG **❆**")
+ .setDescription(":dog: **//** DOG **❆**")
  .setColor(botconfig.blue)
  .setImage(body.url);
 
