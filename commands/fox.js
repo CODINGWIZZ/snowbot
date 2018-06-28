@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
   
   let foxEmbed = new Discord.RichEmbed()
   .setColor(botconfig.blue)
-  .setDescription("FOX **❆**")
+  .setDescription(":fox: **//** FOX **❆**")
   .setImage(foxlink);
   
   message.channel.send(foxEmbed);
