@@ -28,18 +28,11 @@ module.exports.run = async (bot, message, args) => {
     let onlineMembers = 0;
     let idleMembers = 0;
     let dndMembers = 0;
-    let offlineMembers = 0;
     
   for (const i in presences) {
     if(presences[i] === "online") {
       onlineMembers += 1;
     }
-  }
-    
-  for (const i in presences) {
-   if(presences[i] === "offline") {
-       offlineMembers += 1;
-   }
   }
     
   for (const i in presences) {
@@ -53,6 +46,8 @@ module.exports.run = async (bot, message, args) => {
       dndMembers += 1; 
     }
   }
+    
+  let offlineMembers = message.guild.memberCount - dndMembers - onlineMembers - idleMembers;
 
   let serverinfoEmbed = new Discord.RichEmbed()
   .setDescription("SERVER INFO **❆**")
