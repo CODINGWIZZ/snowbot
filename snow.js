@@ -4,7 +4,7 @@ const snow = require("./snow.json");
 const fs = require("fs");
 const got = require("got");
 const math = require("math-expression-evaluator");
-const stripIndents = require("commmon-tags").stripIndents;
+const stripIndents = require("common-tags").stripIndents;
 const encode = require("strict-uri-encode");
 
 const bot = new Discord.Client();
