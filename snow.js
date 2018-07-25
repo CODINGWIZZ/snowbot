@@ -11,26 +11,26 @@ const bot = new Discord.Client();
 const token = process.env_token;
 bot.commands = new Discord.Collection();
 
-fs.readdir("./snowcommands/", (err, files) => {
+// fs.readdir("./snowcommands/", (err, files) => {
 
-    if(err) console.log(err);
+//     if(err) console.log(err);
 
-    let jsfile = files.filter(f => f.split(".").pop() === "js");
-    if(jsfile.length <= 0) {
+//     let jsfile = files.filter(f => f.split(".").pop() === "js");
+//     if(jsfile.length <= 0) {
 
-        console.log("[!] THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
+//         console.log("[!] THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
 
-    }
+//     }
 
-    jsfile.forEach((f, i) => {
+//     jsfile.forEach((f, i) => {
 
-        let props = require(`./snowcommands/${f}`);
-        console.log(`${f} loaded`);
-        bot.commands.set(props.help.name, props);
+//         let props = require(`./snowcommands/${f}`);
+//         console.log(`${f} loaded`);
+//         bot.commands.set(props.help.name, props);
 
-    });
+//     });
 
-}); 
+// }); 
 
 bot.on("ready", async () => {
 
