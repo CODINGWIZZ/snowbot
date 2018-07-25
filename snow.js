@@ -8,7 +8,7 @@ const stripIndents = require("common-tags").stripIndents;
 const encode = require("strict-uri-encode");
 
 const bot = new Discord.Client();
-const token = process.env_token;
+const token = "NDE3MjEwMDE4NTc2OTkwMjA4.DjpxOg.GEdtcCanZFpL2nKDHsJX-c-Vlqc";
 bot.commands = new Discord.Collection();
 
 // fs.readdir("./snowcommands/", (err, files) => {
