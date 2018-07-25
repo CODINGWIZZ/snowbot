@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}translate`) {
 
-        let translatelanguage = args[0].toLowerCase();
+        let translatelanguage = args[0];
         if(!translatelanguage) return message.channel.send("PLEASE ENTER A LANGUAGE YOU WANT THE TRANSLATION TO BE IN AND THEN THE MESSAGE THAT YOU WANT TO TRANSLATE**!**");
 
         let translatetext = args.slice(1).join(" ");
