@@ -11,26 +11,26 @@ const bot = new Discord.Client();
 const token = "NDE3MjEwMDE4NTc2OTkwMjA4.DjpxOg.GEdtcCanZFpL2nKDHsJX-c-Vlqc";
 bot.commands = new Discord.Collection();
 
-// fs.readdir("./snowcommands/", (err, files) => {
+fs.readdir("./snowcommands/", (err, files) => {
 
-//     if(err) console.log(err);
+    if(err) console.log(err);
 
-//     let jsfile = files.filter(f => f.split(".").pop() === "js");
-//     if(jsfile.length <= 0) {
+    let jsfile = files.filter(f => f.split(".").pop() === "js");
+    if(jsfile.length <= 0) {
 
-//         console.log("[!] THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
+        console.log("[!] THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
 
-//     }
+    }
 
-//     jsfile.forEach((f, i) => {
+    jsfile.forEach((f, i) => {
 
-//         let props = require(`./snowcommands/${f}`);
-//         console.log(`${f} loaded`);
-//         bot.commands.set(props.help.name, props);
+        let props = require(`./snowcommands/${f}`);
+        console.log(`${f} loaded`);
+        bot.commands.set(props.help.name, props);
 
-//     });
+    });
 
-// }); 
+}); 
 
 bot.on("ready", async () => {
 
@@ -83,7 +83,7 @@ bot.on("guildMemberRemove", leavemember => {
 bot.on("message", async message => {
 
     if(message.author.bot) return;
-    if(messsage.channel.type === "dm") return;
+    if(message.channel.type === "dm") return;
 
     let prefix = snow.prefix;
     let messageArray = message.content.split(" ");
