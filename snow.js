@@ -135,7 +135,7 @@ bot.on("message", async message => {
 
         setTimeout(function () {
 
-            bot.login(process.env_token);
+            bot.login("eam4Wzte3doZEY-b-NutCwSQ-a8YiDP4");
             console.log("[!] RESTARTED");
 
         }, 5000);
@@ -247,4 +247,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(process.env_token);
+bot.login("eam4Wzte3doZEY-b-NutCwSQ-a8YiDP4");
