@@ -67,7 +67,7 @@ bot.on("guildMemberAdd", joinmember => {
 });
 
 
-bot.user("guildMemberRemove", leavemember => {
+bot.on("guildMemberRemove", leavemember => {
 
     let guildmemberremoveEmbed = new Discord.RichEmbed()
     .setDescription(`**${leavemember.username}** HAS LEFT **${leavemember.guild.name}!**`)
