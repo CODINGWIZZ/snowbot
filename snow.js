@@ -135,7 +135,7 @@ bot.on("message", async message => {
 
         setTimeout(function () {
 
-            bot.login(token);
+            bot.login(process.env_token);
             console.log("[!] RESTARTED");
 
         }, 5000);
@@ -247,4 +247,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(token);
+bot.login(process.env_token);
