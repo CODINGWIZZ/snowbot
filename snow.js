@@ -53,7 +53,7 @@ bot.on("ready", async () => {
 
 });
 
-bot.user("guildMemberAdd", joinmember => {
+bot.on("guildMemberAdd", joinmember => {
 
     let guildmemberaddEmbed = new Discord.RichEmbed()
     .setDescription(`**${joinmember}** HAS JOINED **${joinmember.guild.name}!**`)
