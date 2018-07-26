@@ -48,8 +48,20 @@ bot.on("ready", async () => {
 
     console.log(`SNOW IS BACK ON ${bot.guilds.size} ${snowservers}`);
 
-    bot.user.setStatus("ONLINE");
-    bot.user.setActivity("SNOW | s!");
+    let statuses = ["SNOW | s!", "bit.do/snowbot", "MADE BY WIZZ"];
+
+    setInterval(function () {
+
+        let status = statuses[Math.floor(Math.random()*statuses.length)];
+
+        bot.user.setPresence({ activity: { name: status }, status: "online" });
+
+    }, 10000);
+
+    let status = statuses[Math.floor(Math.random()*statuses.length)];
+
+    // bot.user.setStatus("ONLINE");
+    // bot.user.setActivity("SNOW | s!");
 
 });
 
