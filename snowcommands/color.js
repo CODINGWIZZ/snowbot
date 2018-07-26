@@ -4,6 +4,10 @@ const snow = require("../snow.json");
 const convert = require("color-convert");
 
 module.exports.run = async (bot, message, args) => {
+    
+    let prefix = snow.prefix;
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0].toLocaleLowerCase();
 
     if(cmd === `${prefix}color`) {
 
