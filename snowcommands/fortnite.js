@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}fortnite`) {
 
-        let platform = args[0].toLowerCase() || "pc";
+        let platform = args[0] || "pc";
         let username = args.slice(1).join(" ");
 
         if(!username) return message.channel.send("PLEASE ENTER A USERNAME TO CHECK FORTNITE STATS**!**");
