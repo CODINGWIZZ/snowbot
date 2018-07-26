@@ -6,56 +6,21 @@ module.exports.run = async (bot, message, args) => {
     let prefix = snow.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLocaleLowerCase();
+    
+    if(cmd === `${prefix}say`) {
 
-    if(cmd === `${prefix}rps`) {
+        if(!messag.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
-        let rps = args.join(" ").toUpperCase();
-        if(!rps) return message.channel.send("CAN'T FIND AN ANSWER WITH `ROCK // PAPER // SCISSORS`**!**");
+        let sayMessage = args.join(" ");
+        if(!sayMessage) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO SAY THROUGH THE BOT**!**");
 
-        let chooserps = ["ROCK", "PAPER", "SCISSORS"];
+        message.delete();
+        message.channel.send(`**${message.author.username}** SAID THROUGH THE BOT**:**\n\n${sayMessage}`);
 
-        if(!chooserps.includes(rps)) return message.channel.send("PLEASE ENTER `ROCK // PAPER // SCISSORS` TO PLAY**!**");
-
-        let snowanswer = chooserps[Math.floor(Math.random() * chooserps.length)];
-
-        let result = "I WIN**!**";
-
-        if(rps === snowanswer) {
-
-            result = "IT'S A TIE**!**";
-
-        } else if(rps === "ROCK") {
-
-            if(snowanswer === "SCISSORS") {
-
-                result = "YOU WIN**!**";
-
-            }
-
-        } else if(rps === "PAPER") {
-
-            if(snowanswer === "ROCK") {
-
-                result = "YOU WIN**!**";
-
-            }
-
-        } else if(rps === "SCISSORS") {
-
-            if(snowanswer === "PAPER") {
-
-                result = "YOU WIN**!**";
-
-            }
-
-        }
-
-        message.channel.send(`**${message.author.username},** YOU CHOOSE **${rps}** AND I CHOOSE **${snowanswer}!** ${result}`);
-
-    }   
+    }
 
 }
 
 module.exports.help = {
-    name: "rps"
+    name: "say"
 }
