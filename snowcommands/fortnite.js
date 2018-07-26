@@ -12,15 +12,13 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}fortnite`) {
 
-        let platform = args.join(" ").toUpperCase();
-        let username = args[1];
+        let platform = args[0];
+        let username = args.slice(1).join(" ");
         
         let platforms = ["PC", "PSN", "XBL"];
         
         if(!platform) return message.channel.send("PLEASE ENTER A PLATFORM AND THEN THE USERNAME**!**");
         if(!username) return message.channel.send("PLEASE ENTER A USERNAME TO CHECK FORTNITE STATS**!**");
-        
-        if(!platforms.includes(platform)) return message.channel.send("PLEASE ENTER A VALID PLATFORM AND THEN THE USERNAME**!**\nVALID PLATFORMS ARE `PC // PSN // XBL`**!**");
 
         message.channel.send("YOUR FORTNITE STATS IS BEING REQUESTED **...**").then((fortniteMessage) => {
 
