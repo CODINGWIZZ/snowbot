@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
                 .addField("WINDS", `*${current.winddisplay}* **>>** ${weatherinfo.wind.direction}**°**`, true)
                 .addField("HUMIDITY", current.humidity + "**%**", true)
                 .addField("SUNRISE", weatherinfo.astronomy.sunrise, true)
-                .addField("SUNSET", weatherinfo.astromy.sunset, true)
+                .addField("SUNSET", weatherinfo.astronomy.sunset, true)
                 .setFooter(`${current.observationpoint} | SNOW ❆`, bot.user.displayAvatarURL);
     
                 weatherMessage.edit(weatherEmbed);
