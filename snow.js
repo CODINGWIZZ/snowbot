@@ -50,13 +50,13 @@ bot.on("ready", async () => {
 
     let statuses = ["SNOW | s!", "bit.do/snowbot", "MADE BY WIZZ"];
 
-    setInterval(function () {
+    setInterval(function() {
 
         let status = statuses[Math.floor(Math.random()*statuses.length)];
 
         bot.user.setPresence({ activity: { name: status }, status: "online" });
 
-    }, 10000);
+    }, 10000)
 
     // bot.user.setStatus("ONLINE");
     // bot.user.setActivity("SNOW | s!");
