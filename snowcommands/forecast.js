@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         const res = await got(makeURL(location), { json: true });
 
         const weatherinfo = res.body.query.results.channel;
-        const forecast = weatherinfo.item.forecast[0];
+        const forecastday = weatherinfo.item.forecast[0];
 
         weather.find({search: location, degreeType: "F"}, function(err, result) {
 
