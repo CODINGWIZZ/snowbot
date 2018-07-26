@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}fortnite`) {
 
-        let platform = args[0];
-        let username = args.slice(1).join(" ");
+        let username = args[0];
+        let pc = args[1];
         
         let platforms = ["PC", "PSN", "XBL"];
         
@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
 
             }).catch(e => {
 
-                return message.channel.send("COULDN'T FIND THAT FORTNITE USERNAME**!**");
+                return fortniteMessage.edit("COULDN'T FIND THAT FORTNITE USERNAME**!**");
             
             });
 
