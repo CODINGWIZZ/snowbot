@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
                 }
     
                 const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
-                let countryemoji = countryinfo ? countryemoji.emoji : "** **";
+                const countryemoji = countryinfo ? countryinfo.emoji : "** **";
     
                 let current = result[0].current;
                 let thelocation = result[0].location;
