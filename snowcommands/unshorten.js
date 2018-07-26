@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLocaleLowerCase();
 
-    if(cmd === `${prefix}lookup`) {
+    if(cmd === `${prefix}unshorten`) {
 
         let isgdlink = args[0];
         if(!isgdlink) return message.channel.send("PLEASE ENTER A IS.GD LINK THAT YOU WANT TO SEE THE LONGER VERISION OF**!**");
@@ -31,5 +31,5 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "lookup"
+    name: "unshorten"
 }
