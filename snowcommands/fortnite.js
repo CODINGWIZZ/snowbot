@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     if(cmd === `${prefix}fortnite`) {
 
         let username = args[0];
-        let pc = args[1];
+        let platform = args[1];
         
         let platforms = ["PC", "PSN", "XBL"];
         
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
 
         message.channel.send("YOUR FORTNITE STATS IS BEING REQUESTED **...**").then((fortniteMessage) => {
 
-            let data = ft.getPlatform(platform, username).then(data => {
+            let data = ft.getPlatform(username, platform).then(data => {
 
                 let stats = data.lifetimeStats;
                 let kills = stats.find(s => s.stat == "kills");
