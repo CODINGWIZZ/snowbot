@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         let isgdlink = args[0];
         if(!isgdlink) return message.channel.send("PLEASE ENTER A IS.GD LINK THAT YOU WANT TO SEE THE LONGER VERISION OF**!**");
 
-        isgd.lookup(isgdlink, function(res) {
+        shorten.lookup(isgdlink, function(res) {
 
             message.channel.send("LOOKING UP SHORTENED LINK **...**").then((lookupMessage) => {
 
