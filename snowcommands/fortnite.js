@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const snow = require("../snow.json");
 
 const Fortnite = require("fortnite");
-const ft = new fortnite("5e9103e1-e035-4fe5-b4e6-35ae1c386402");
+const ft = new Fortnite("5e9103e1-e035-4fe5-b4e6-35ae1c386402");
 
 module.exports.run = async (bot, message, args) => {
 
