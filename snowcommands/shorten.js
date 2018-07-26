@@ -11,7 +11,7 @@
 
         if(cmd === `${prefix}shorten`) {
 
-            let link = args.join(" ");
+            let link = args[0];
             if(!link) return message.channel.send("PLEASE ENTER A LINK THAT YOU WANT TO SHORTEN**!**");
 
             shorten.shorten(link, function(res) {
