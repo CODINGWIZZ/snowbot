@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
         await(arUser.removeRole(rrRole.id)).then(() => {
 
-            message.channel.send(`<@${rrUser.id}> HAS BEEN REMOVED FROM THE ${rrRole} ROLE**!**`);
+            message.channel.send(`<@${rrUser.id}> HAS BEEN REMOVED FROM THE **${rrRole}** ROLE**!**`);
 
             let removeroleEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
