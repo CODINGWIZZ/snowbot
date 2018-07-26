@@ -12,8 +12,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}fortnite`) {
 
-        let platform = args[0].toUpperCase();
-        let username = args.slice(1).join(" ");
+        let platform = args.join(" ").toUpperCase();
+        let username = args[1];
         
         let platforms = ["PC", "PSN", "XBL"];
         
