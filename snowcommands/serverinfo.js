@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         let snowonline = "<:SNOWONLINE:461875150892171274>";
         let snowidle = "<:SNOWIDLE:461875150896496660>";
         let snowdnd = "<:SNOWDND:461875150716010497>";
-        let snowoffline = "<:SNOWOFFLINE:>461875151328378890";
+        let snowoffline = "<:SNOWOFFLINE:461875151328378890>";
 
         let presences = message.guild.presences.map(st => st.status);
 
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail(message.guild.iconURL)
         .addField("OWNER", message.guild.owner + ` // **(** ${message.guild.owner.id} **)**`)
         .addField("CREATED", message.guild.createdAt.toDateString())
-        .addField("VERTIFICATION LEVEL", vertification[message.guild.vertificationLevel])
+        .addField("VERTIFICATION LEVEL", message.guild.vertificationLevel[vertification])
         .addField("REGION", message.guild.region.toUpperCase(), true)
         .addField("CHANNELS", message.guild.channels.size, true)
         .addField("TOTAL MEMBERS", message.guild.memberCount, true)
