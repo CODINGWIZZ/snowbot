@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("GENERATING FORECAST INFORMATION **...**").then((forecastMessage) => {
 
                 if(!res || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
-
+                    
                     return forecastMessage.edit("COULDN'T CHECK FORECAST**!**");
                     
                 }
