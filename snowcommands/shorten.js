@@ -18,9 +18,9 @@
 
                 message.channel.send("SHORTEN LINK **...**").then((shortenMessage) => {
 
-                    if(res.startsWith("Error:")) return message.channel.send("PLEASE ENTER A VALID LINK**!**");
+                    if(res.startsWith("Error:")) return shortenMessage.edit("PLEASE ENTER A VALID LINK**!**");
 
-                    message.channel.send("**FINISHED!**\n" + `<${res}>`);
+                    shortenMessage.edit("**FINISHED!**\n" + `<${res}>`);
 
                 });
 
