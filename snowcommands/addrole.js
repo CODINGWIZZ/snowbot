@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
         await(arUser.addRole(arRole.id)).then(() => {
 
-            message.channel.send(`<@${arUser.id}> HAS BEEN ADDED TO THE ${arRole} ROLE**!**`);
+            message.channel.send(`<@${arUser.id}> HAS BEEN ADDED TO THE **${arRole}** ROLE**!**`);
 
             let addroleEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
