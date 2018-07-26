@@ -58,8 +58,6 @@ bot.on("ready", async () => {
 
     }, 10000);
 
-    let status = statuses[Math.floor(Math.random()*statuses.length)];
-
     // bot.user.setStatus("ONLINE");
     // bot.user.setActivity("SNOW | s!");
 
