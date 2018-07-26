@@ -223,7 +223,7 @@ bot.on("message", async message => {
 
         let slotEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription(slotItems[slotrandom1] + " **|** " + slotItems[slotrandom2]  + " **|** " + slotItems[slotrandom3] + "\n" + slotItems[slotrandom4] + " **|** " + slotItems[slotrandom5]  + " **|** " + slotItems[slotrandom6] + "\n" + slotItems[slotrandom7] + " **|** " + slotItems[slotrandom8]  + " **|** " + slotItems[slotrandom9])
+        .setDescription(slotitems[slotrandom1] + " **|** " + slotitems[slotrandom2]  + " **|** " + slotitems[slotrandom3] + "\n" + slotitems[slotrandom4] + " **|** " + slotitems[slotrandom5]  + " **|** " + slotitems[slotrandom6] + "\n" + slotitems[slotrandom7] + " **|** " + slotitems[slotrandom8]  + " **|** " + slotitems[slotrandom9])
         .setFooter(`SLOT | SNOW ❆ // ${message.author.username}`, bot.user.displayAvatarURL);
 
         message.channel.send(slotEmbed);
