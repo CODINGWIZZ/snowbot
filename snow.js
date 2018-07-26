@@ -58,7 +58,7 @@ bot.on("guildMemberAdd", joinmember => {
     let guildmemberaddEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription(`${joinmember} HAS JOINED **${joinmember.guild.name}!**`)
-    .setFooter(`**[⇑]** ${joinmember.guild.memberCount} MEMBERS`);
+    .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
 
     let snowlog = joinmember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
@@ -72,8 +72,8 @@ bot.on("guildMemberRemove", leavemember => {
 
     let guildmemberremoveEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(`**${leavemember.name}** HAS LEFT **${leavemember.guild.name}!**`)
-    .setFooter(`**[⇓]** ${leavemember.guild.memberCount} MEMBERS!`);
+    .setDescription(`${leavemember} HAS LEFT **${leavemember.guild.name}!**`)
+    .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS!`);
 
     let snowlog = leavemember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
