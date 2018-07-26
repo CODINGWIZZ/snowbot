@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}serverinfo`) {
 
-        let vertification = {
+        let verification = {
 
             0: "NONE",
             1: "LOW",
@@ -68,7 +68,7 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail(message.guild.iconURL)
         .addField("OWNER", message.guild.owner + ` // **(** ${message.guild.owner.id} **)**`)
         .addField("CREATED", message.guild.createdAt.toDateString())
-        .addField("VERTIFICATION LEVEL", message.guild.vertificationLevel[vertification])
+        .addField("VERTIFICATION LEVEL", verification[message.guild.verificationLevel])
         .addField("REGION", message.guild.region.toUpperCase(), true)
         .addField("CHANNELS", message.guild.channels.size, true)
         .addField("TOTAL MEMBERS", message.guild.memberCount, true)
