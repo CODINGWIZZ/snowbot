@@ -209,17 +209,15 @@ bot.on("message", async message => {
 
         let slotitems = ["🌳", "🌲", "🍀", "🍃", "🌿"];
 
-        let slotrandom = Math.floor((Math.random()) * slotitems.length);
-
-        let slotrandom1 = slotrandom;
-        let slotrandom2 = slotrandom;
-        let slotrandom3 = slotrandom;
-        let slotrandom4 = slotrandom;
-        let slotrandom5 = slotrandom;
-        let slotrandom6 = slotrandom;
-        let slotrandom7 = slotrandom;
-        let slotrandom8 = slotrandom;
-        let slotrandom9 = slotrandom;
+        let slotrandom1 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom2 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom3 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom4 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom5 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom6 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom7 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom8 = Math.floor((Math.random()) * slotitems.length);
+        let slotrandom9 = Math.floor((Math.random()) * slotitems.length);
 
         let slotEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
