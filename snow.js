@@ -48,7 +48,7 @@ bot.on("ready", async () => {
 
     console.log(`SNOW IS BACK ON ${bot.guilds.size} ${snowservers}`);
 
-    // bot.user.setStatus("ONLINE");
+    bot.user.setStatus("ONLINE");
     bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZSNOW");
 
 });
@@ -57,8 +57,8 @@ bot.on("guildMemberAdd", joinmember => {
 
     let guildmemberaddEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(`**${joinmember}** HAS JOINED **${joinmember.guild.name}!**`)
-    .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
+    .setDescription(`${joinmember} HAS JOINED **${joinmember.guild.name}!**`)
+    .setFooter(`**[⇑]** ${joinmember.guild.memberCount} MEMBERS`);
 
     let snowlog = joinmember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
@@ -72,8 +72,8 @@ bot.on("guildMemberRemove", leavemember => {
 
     let guildmemberremoveEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(`**${leavemember.username}** HAS LEFT **${leavemember.guild.name}!**`)
-    .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS!`);
+    .setDescription(`**${leavemember.name}** HAS LEFT **${leavemember.guild.name}!**`)
+    .setFooter(`**[⇓]** ${leavemember.guild.memberCount} MEMBERS!`);
 
     let snowlog = leavemember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
