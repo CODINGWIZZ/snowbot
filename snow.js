@@ -56,6 +56,7 @@ bot.on("ready", async () => {
 bot.on("guildMemberAdd", joinmember => {
 
     let guildmemberaddEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
     .setDescription(`**${joinmember}** HAS JOINED **${joinmember.guild.name}!**`)
     .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
 
@@ -70,6 +71,7 @@ bot.on("guildMemberAdd", joinmember => {
 bot.on("guildMemberRemove", leavemember => {
 
     let guildmemberremoveEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
     .setDescription(`**${leavemember.username}** HAS LEFT **${leavemember.guild.name}!**`)
     .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS!`);
 
