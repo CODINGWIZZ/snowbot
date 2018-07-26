@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
             message.channel.send("LOOKING UP SHORTENED LINK **...**").then((lookupMessage) => {
 
-                if(res.startsWith("Error:")) return lookupMessage.edit("PLEASE ENTER A VALID ISGD LINK THAT YOU WANT ME TO LOOKUP**!**");
+                // if(res.startsWith("Error:")) return lookupMessage.edit("PLEASE ENTER A VALID ISGD LINK THAT YOU WANT ME TO LOOKUP**!**");
 
                 lookupMessage.edit("**FINISHED!**\n" + `<${res}>`);
 
