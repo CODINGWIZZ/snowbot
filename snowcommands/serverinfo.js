@@ -64,7 +64,7 @@ module.exports.run = async (bot, message, args) => {
 
         let serverinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .addField(`**${message.guild.name}** // **(** ${message.guild.id} **)**`, "** **"")
+        .addField(`**${message.guild.name}** // **(** ${message.guild.id} **)**`, "** **")
         .setThumbnail(message.guild.iconURL)
         .addField("OWNER", message.guild.owner + ` // **(** ${message.guild.owner.id} **)**`)
         .addField("CREATED", message.guild.createdAt.toDateString())
