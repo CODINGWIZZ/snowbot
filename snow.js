@@ -246,30 +246,6 @@ bot.on("message", async message => {
         });
 
     }
-    
-    // JOIN | LEAVE VOICE CHANNEL
-    
-    if(cmd === `${prefix}join`) {
-     
-        let channel = message.member.voiceChannel;
-        if(!channel) return message.channel.send("YOU ARE NOT IN A VOICE CHANNEL**!**");
-        
-        channel.join();
-        
-        message.channel.send("JOINED `" + channel.name + "`**!**");
-        
-    }
-    
-    if(cmd === `${prefix}leave` || cmd === `${prefix}dc` || cmd === `${prefix}disconnect`) {
-     
-        let channel = message.member.voiceChannel;
-        if(!channel) return message.channel.send("YOU ARE NOT IN A VOICE CHANNEL**!**");
-        
-        channel.leave();
-        
-        message.channel.send("LEFT `" + channel.name + "`**!**");
-        
-    }
 
 });
 
