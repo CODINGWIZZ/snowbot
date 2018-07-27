@@ -251,7 +251,7 @@ bot.on("message", async message => {
     
     if(cmd === `${prefix}join`) {
      
-        let channel = message.author.voiceChannel;
+        let channel = message.member.voiceChannel;
         if(!channel) return message.channel.send("YOU ARE NOT IN A VOICE CHANNEL**!**");
         
         channel.join();
@@ -262,7 +262,7 @@ bot.on("message", async message => {
     
     if(cmd === `${prefix}leave` || cmd === `${prefix}dc` || cmd === `${prefix}disconnect`) {
      
-        let channel = message.author.voiceChannel;
+        let channel = message.member.voiceChannel;
         if(!channel) return message.channel.send("YOU ARE NOT IN A VOICE CHANNEL**!**");
         
         channel.leave();
