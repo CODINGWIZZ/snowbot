@@ -5,12 +5,6 @@ const superagent = require("superagent");
 
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
-
-    if(cmd === `${prefix}dog`) {
-
         let { body } = await superagent
         .get("https://random.dog/woof.json");
 
@@ -24,8 +18,6 @@ module.exports.run = async (bot, message, args) => {
             dogMessage.edit(dogEmbed);
 
         });
-
-    }
 
 }
 
