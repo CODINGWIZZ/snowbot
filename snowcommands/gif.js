@@ -13,10 +13,10 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}gif`) {
 
-        let gif = encode(args.join(" "));
+        let gif = args.join(" ");
         if(!gif) return message.channel.send("PLEASE ENTER A GIF QUERY TO SEARCH FOR**!**");
 
-        const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}?tag=${encodeURIComponent(gif)}`, { json: true });
+        const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encodeURIComponent(gif)}`, { json: true });
 
         message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
 
