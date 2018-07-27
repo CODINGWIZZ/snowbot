@@ -1,4 +1,4 @@
-const Discord = require("discord-js");
+const Discord = require("discord.js");
 const snow = require("../snow.json");
 
 const superagent = require("superagent");
