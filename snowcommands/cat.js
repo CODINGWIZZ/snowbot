@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if(cmd === `${prefix}cat`) {
     
         const { body, header } = await superagent
-        .get("http://random.cat/meow");
+        .get("http://aws.random.cat/meow");
 
         message.channel.send("GENERATING CAT IMAGE **...**").then((catMessage) => {
 
