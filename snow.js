@@ -32,6 +32,8 @@ fs.readdir("./snowcommands/", (err, files) => {
 
 });
 
+let statuses = ["SNOW | s!", "bit.do/snowbot", "MADE BY WIZZ"];
+
 bot.on("ready", async () => {
 
     let snowservers = "SERVERS!";
@@ -48,8 +50,16 @@ bot.on("ready", async () => {
 
     console.log(`SNOW IS BACK ON ${bot.guilds.size} ${snowservers}`);
 
-    bot.user.setStatus("ONLINE");
-    bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZSNOW");
+    setInterval(function () {
+
+        let status = statuses[Math.floor(Math.random()*statuses.length)];
+
+        bot.user.setPresence({ activity: { name: status }, status: "online" });
+
+    }, 10000)
+
+    // bot.user.setStatus("ONLINE");
+    // bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZSNOW");
 
 });
 
