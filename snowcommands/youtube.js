@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         let youtube = encode(args.join(" "));
         if(!youtube) return message.channel.send("PLEASE ENTER A SEARCH QUERY TO SEARCH ON YOUTUBE WITH**!**");
 
-        let youtubelink = `https://youtube.com/results?q${youtube}`;
+        let youtubelink = `https://youtube.com/results?q=${youtube}`;
 
         message.channel.send("SEARCHING ON YOUTUBE **...**").then((youtubeMessage) => {
 
