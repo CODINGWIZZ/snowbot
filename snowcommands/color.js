@@ -11,10 +11,10 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}color`) {
 
-        let color = args[0];
+        let color = args[0].replace("#", "");
         if(!color) return message.channel.send("PLEASE ENTER A HEX COLOR YOU WANT TO CHECK**!**");
         
-        if(color.startsWith("#")) color.replace("#", "");
+      //  if(color.startsWith("#")) color.replace("#", "");
     
 //         if(!color.startsWith("#")) return message.channel.send("PLEASE ENTER A VALID HEX COLOR WITH A `#` IN THE BEGINNING**!**");
     
