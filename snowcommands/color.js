@@ -14,7 +14,11 @@ module.exports.run = async (bot, message, args) => {
         let color = args[0];
         if(!color) return message.channel.send("PLEASE ENTER A HEX COLOR YOU WANT TO CHECK**!**");
         
-        if(color.startsWith("#")) color.slice(1);
+        if(color.startsWith("#")) {
+            
+            color.slice(1);
+            
+        }
     
 //         if(!color.startsWith("#")) return message.channel.send("PLEASE ENTER A VALID HEX COLOR WITH A `#` IN THE BEGINNING**!**");
     
