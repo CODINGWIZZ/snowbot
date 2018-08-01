@@ -22,8 +22,8 @@ module.exports.run = async (bot, message, args) => {
     
 //         if(!color.startsWith("#")) return message.channel.send("PLEASE ENTER A VALID HEX COLOR WITH A `#` IN THE BEGINNING**!**");
     
-        if(color.length > 6) return message.channel.send("PLEASE ENTER A VALID HEX COLOR**!**");
-        if(color.length < 6) return message.channel.send("PLEASE ENTER A VALID HEX COLOR**!**");
+       // if(color.length > 6) return message.channel.send("PLEASE ENTER A VALID HEX COLOR**!**");
+       // if(color.length < 6) return message.channel.send("PLEASE ENTER A VALID HEX COLOR**!**");
     
         let colorEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
