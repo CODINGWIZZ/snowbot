@@ -14,9 +14,13 @@ module.exports.run = async (bot, message, args) => {
         let color = args[0];
         if(!color) return message.channel.send("PLEASE ENTER A HEX COLOR YOU WANT TO CHECK**!**");
         
-        if(color.startsWith("#")) {
-            
-            color.slice(1);
+        function colorcheck() {
+         
+            if(color.startsWith("#")) {
+                
+                color.slice(1);
+                
+            } 
             
         }
     
@@ -27,8 +31,8 @@ module.exports.run = async (bot, message, args) => {
     
         let colorEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setAuthor(`${color.toUpperCase()}`, `https://dummyimage.com/250/${color}/&text=%20`)
-        .setDescription(`[[**INFORMATION**]](https://colorhexa.com/${color})` + "\n\n" + `**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
+        .setAuthor(`${color.toUpperCase()}`, `https://dummyimage.com/250/${colorcheck}/&text=%20`)
+        .setDescription(`[[**INFORMATION**]](https://colorhexa.com/${colorcheck})` + "\n\n" + `**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
         .setFooter("COLOR | SNOW ❆", bot.user.displayAvatarURL);
     
         message.channel.send(colorEmbed);
