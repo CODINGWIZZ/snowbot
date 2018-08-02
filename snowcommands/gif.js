@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         let gif = args.join(" ");
         if(!gif) return message.channel.send("PLEASE ENTER A GIF QUERY TO SEARCH FOR**!**");
 
-        const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encodeURIComponent(gif)}`, { json: true });
+        const res = await got(`http://api.giphy.com/v1/gifs/api_key=${API_KEY}&tag=${encodeURIComponent(gif)}`, { json: true });
 
         message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
 
