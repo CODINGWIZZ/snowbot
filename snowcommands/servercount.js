@@ -9,6 +9,10 @@ module.exports.run = async (bot, message, args) => {
     
     let presences = message.guild.presences.map(st => st.status);
     
+    let onlinemembers = 0;
+    let idlemembers = 0;
+    let dndmembers = 0;
+    
     for(const i in presences) {
 
         if(presences[i] === "online") {
