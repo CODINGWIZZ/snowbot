@@ -7,6 +7,8 @@ module.exports.run = async (bot, message, args) => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLocaleLowerCase();
     
+    let presences = message.guild.presences.map(st => st.status);
+    
     for(const i in presences) {
 
         if(presences[i] === "online") {
