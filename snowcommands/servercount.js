@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
     
     if(cmd === `${prefix}servercount`) {
     
-        let membercountEmbed = new Disord.RichEmbed()
+        let membercountEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("MEMBERCOUNT **❆ //**" + message.guild.name)
         .addField("TOTAL MEMBERS", message.guild.memberCount)
