@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
 
         if(mUser.roles.has(muterole.id)) return message.channel.send("THIS USER IS ALREADY MUTED**!**");
 
-        let mutetime = args[0];
+        let mutetime = args[1];
         if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
 
         await(mUser.addRole(muterole.id));
