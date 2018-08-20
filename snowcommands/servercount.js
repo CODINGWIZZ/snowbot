@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
 
     }
     
-    if(cmd === `${prefix}membercount`) {
+    if(cmd === `${prefix}servercount`) {
     
         let membercountEmbed = new Disord.RichEmbed()
         .setColor(snow.blue)
@@ -58,5 +58,5 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-    name: "membercount"
+    name: "servercount"
 }
