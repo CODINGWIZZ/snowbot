@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
 
         if(dUser.roles.has(deafenrole.id)) return message.channel.send("THIS USER IS ALREADY DEAFENED**!**");
 
-        let mutetime = args[0];
+        let mutetime = args[1];
         if(!mutetime) return message.channel.send("SPECIFY A TIME**!**");
 
         await(dUser.addRole(deafenrole.id));
