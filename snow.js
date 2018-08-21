@@ -269,8 +269,6 @@ bot.on("message", async message => {
     await voteMessage.react(perhaps);
 
     }
-    
- });
 
 });
 
