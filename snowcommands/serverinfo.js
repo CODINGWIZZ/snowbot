@@ -71,9 +71,9 @@ module.exports.run = async (bot, message, args) => {
         .addField("VERTIFICATION LEVEL", verification[message.guild.verificationLevel])
         .addField("REGION", message.guild.region.toUpperCase(), true)
         .addField("CHANNELS", message.guild.channels.size, true)
+        .addField("TOTAL ROLES", message.guild.roles.size, true)
         .addField("TOTAL MEMBERS", message.guild.memberCount, true)
         .addField("CURRENT MEMBER PRESENCES", snowonline + " **//** " + onlinemembers + "\n" + snowidle + " **//** " + idlemembers + "\n" + snowdnd + " **//** " + dndmembers + "\n" + snowoffline + " **//** " + offlinemembers)
-        .addField("TOTAL ROLES", message.guild.roles.size, true)
         .setFooter("SERVER INFO | SNOW ❆", bot.user.displayAvatarURL);
 
         message.channel.send(serverinfoEmbed);
