@@ -64,9 +64,9 @@ module.exports.run = async (bot, message, args) => {
 
         let serverinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .addField(`**${message.guild.name}** // **(** ${message.guild.id} **)**`, "** **")
+        .setDescription(`**${message.guild.name}** **//** **(** ${message.guild.id} **)**`, "** **")
         .setThumbnail(message.guild.iconURL)
-        .addField("OWNER", message.guild.owner + ` // **(** ${message.guild.owner.id} **)**`)
+        .addField("OWNER", message.guild.owner + ` **//** **(** ${message.guild.owner.id} **)**`)
         .addField("VERTIFICATION LEVEL", verification[message.guild.verificationLevel])
         .addField("CREATED", message.guild.createdAt.toDateString(), true)
         .addField("REGION", message.guild.region.toUpperCase(), true)
