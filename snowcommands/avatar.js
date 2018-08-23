@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
         let avatarEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("AVATAR **❆** // " + avatar.username + `\n[[**DOWNLOAD**]](${avatar.avatarURL})`)
+        .setDescription("AVATAR **❆ // " + avatar.username + `**\n[[**DOWNLOAD**]](${avatar.avatarURL})`)
         .setImage(avatar.avatarURL);
         
         message.channel.send(avatarEmbed);
