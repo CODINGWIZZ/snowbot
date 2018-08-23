@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
                 if(finished.length > 2000) return asciiMessage.edit("THE ASCII MESSAGE YOU WANT TO DO IS TO LONG**!**");
 
                 asciiMessage.edit(finished, {
-                    //code: "md"
+                    code: "md"
                 });
 
             });
