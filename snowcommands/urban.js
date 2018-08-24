@@ -14,14 +14,14 @@ module.exports.run = async (bot, message, args) => {
         let urbansearch = args.join(" ");
         if(!urbansearch) return message.channel.send("PLEASE ENTER AN ARGUMENT TO SEARCH FOR IN THE URBAN DICTIONARY DATABASE**!**");
 
-        message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
-            
-            let res = await urban(urbansearch).catch(e => {
+        let res = await urban(urbansearch).catch(e => {
 
             return urbanMessage.edit("COULDN'T FIND THAT WORD IN THE URBAN DICTIONARY DATABASE**!**");
             return;
 
-            });
+        });
+        
+        message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
 
             let urbanEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
