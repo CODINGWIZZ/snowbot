@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
         let res = await urban(urbansearch).catch(e => {
 
-            return urbanMessage.edit("COULDN'T FIND THAT WORD IN THE URBAN DICTIONARY DATABASE**!**");
+            return message.channel.send("COULDN'T FIND THAT WORD IN THE URBAN DICTIONARY DATABASE**!**");
             return;
 
         });
