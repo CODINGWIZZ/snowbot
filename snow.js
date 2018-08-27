@@ -269,6 +269,22 @@ bot.on("message", async message => {
     await voteMessage.react(perhaps);
 
     }
+    
+    if(cmd === `${prefix}snow` || cmd === prefix) {
+
+    let snowEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
+    .setDescription("SNOW **❆**")
+    .addField("BOT NAME", "**" + snow.name + "**#" + bot.user.discriminator + " **(** " + bot.user.id + " **)**")
+    .addField("DEVELOPER", "**" + snow.dev + "**#7897")
+    .addField("PREFIX // VERSION", "`s!` // " + snow.version)
+    .addField("WEBSITE", "https://discordsnowbot.weebly.com/") 
+    .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
+    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
+        
+    message.channel.send(snowEmbed);
+
+    } 
 
 });
 
