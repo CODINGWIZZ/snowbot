@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
     
         let membercountEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("MEMBERCOUNT **❆ //**" + message.guild.name)
+        .setDescription("MEMBERCOUNT **❆ //** " + message.guild.name)
         .addField("TOTAL MEMBERS", message.guild.memberCount)
         .addField("ONLINE", onlinemembers + idlemembers + dndmembers);
         
