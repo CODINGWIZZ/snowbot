@@ -46,7 +46,7 @@ bot.on("ready", async () => {
 
     }
 
-    console.log(`SNOW IS BACK ON ${bot.guilds.size} ${snowservers}`);
+    console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
 
     bot.user.setStatus("ONLINE");
     bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZSNOW");
