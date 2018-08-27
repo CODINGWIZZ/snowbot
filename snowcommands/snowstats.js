@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("DEVELOPER", "**" + snow.dev + "**#7897")
         .addField("VERSION", snow.version)
         .addField("WEBSITE", "discordsnowbot.weebly.com")
-        .addField("STATS", `**${bot.guild.size} SERVERS\n\n${bot.channels.size} CHANNELS\n\n${bot.users.size} USERS**`)
+        .addField("STATS", `**${bot.guild.size} SERVERS\n\n${bot.channels.size} CHANNELS\n\n${bot.user.size} USERS**`)
         .setFooter("BOT STATS | SNOW ❆", bot.user.displayAvatarURL);
         
         message.channel.send(snowEmbed);
