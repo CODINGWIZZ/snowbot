@@ -1,7 +1,7 @@
 {
   "name": "snow",
   "version": "1.9.0",
-  "description": "SNOW BOT",
+  "description": "SNOW",
   "main": "snow.js",
   "scripts": {
     "test": "node snow.js"
