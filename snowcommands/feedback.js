@@ -15,12 +15,12 @@ module.exports.run = async (bot, message, args) => {
         let feedbackEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("FEEDBACK **❆**")
-        .addField("FEEDBACK BY", message.author + " **// " + message.author.username + "**#" + message.author.discriminator)
+        .addField("WRITTEN BY", message.author + " **// " + message.author.username + "**#" + message.author.discriminator)
         .addField("FEEDBACK", feedback)
         .setFooter("FEEDBACK | SNOW ❆", bot.user.displayAvatarURL);
         
         bot.channels.get("483909335513301002").send(feedbackEmbed);
-        message.channel.send("THANKS **" + message.author.username + "** FOR THE FEEDBACK**!**");
+        message.channel.send("THANKS **" + message.author.username + "** FOR THE FEEDBACK**!** WE'LL TRY TO MAKE YOUR WISH COME TRUE**!**");
     
     }
 
