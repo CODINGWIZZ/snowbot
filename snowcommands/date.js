@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const snow = reqire("../snow.json");
+const snow = reqiure("../snow.json");
 
 module.exports.run = async (bot, message, args) => {
 
