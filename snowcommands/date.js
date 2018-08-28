@@ -8,8 +8,10 @@ module.exports.run = async (bot, message, args) => {
     let cmd = messageArray[0].toLocaleLowerCase();
     
     if(cmd === `${prefix}date`) {
+        
+        let date = new Date();
     
-        message.channel.send(new Date());
+        message.channel.send(date);
     
     }
 
