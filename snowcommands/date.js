@@ -10,8 +10,14 @@ module.exports.run = async (bot, message, args) => {
     if(cmd === `${prefix}date`) {
         
         let date = new Date();
+        
+        let dateEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription(date.toUTCString().toUpperCase());
+        
+        message.channel.send(dateEmbed);
     
-        message.channel.send(date.toUTCString().toUpperCase());
+//         message.channel.send(date.toUTCString().toUpperCase());
     
     }
 
