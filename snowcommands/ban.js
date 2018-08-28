@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}ban`) {
 
-        if(!message.member.hasPermisson("BAN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
         if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO BAN**!**");
 
