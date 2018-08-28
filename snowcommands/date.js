@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
         
         let date = new Date();
     
-        message.channel.send(date);
+        message.channel.send(date.toUTCString());
     
     }
 
