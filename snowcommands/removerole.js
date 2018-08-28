@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         if(rrUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
         if(!rrUser.roles.has(rrRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
 
-        await(arUser.removeRole(rrRole.id)).then(() => {
+        await(rrUser.removeRole(rrRole.id)).then(() => {
 
             message.channel.send(`<@${rrUser.id}> HAS BEEN REMOVED FROM THE **${rrRole}** ROLE**!**`);
 
