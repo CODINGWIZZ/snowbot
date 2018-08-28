@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         let feedbackEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("FEEDBACK **❆**")
-        .addField("FEEDBACK BY", message.author)
+        .addField("FEEDBACK BY", message.author + " **// " + message.author.username + "**#" + message.author.discriminator)
         .addField("FEEDBACK", feedback)
         .setFooter("FEEDBACK | SNOW ❆", bot.user.displayAvatarURL);
         
