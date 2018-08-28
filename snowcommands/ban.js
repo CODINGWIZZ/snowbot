@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!bUser) return message.channel.send("CAN'T FIND USER**!**");
         if(bUser.id === message.author.id) return message.channel.send("YOU CAN NOT BAN YOURSELF**!**");
-        if(bUser.hasPermisson("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE BANNED**!**");
+        if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE BANNED**!**");
 
         let banreason = args.slice(1).join(" ");
         if(!banreason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE BAN**!**");
