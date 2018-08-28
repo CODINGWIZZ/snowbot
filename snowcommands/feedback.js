@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("FEEDBACK | SNOW ❆", bot.user.displayAvatarURL);
         
         bot.channels.get("483909335513301002").send(feedbackEmbed);
+        message.channel.send("THANKS **" + message.author.username + "** FOR THE FEEDBACK**!**");
     
     }
 
