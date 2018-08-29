@@ -213,8 +213,6 @@ bot.on("message", async message => {
 
         let slotitems = ["🌳", "🌲", "🍀", "🍃", "🌿"];
         
-        message.channel.send("__**" + message.author.username + "**__");
-
         let slotrandom1 = Math.floor((Math.random()) * slotitems.length);
         let slotrandom2 = Math.floor((Math.random()) * slotitems.length);
         let slotrandom3 = Math.floor((Math.random()) * slotitems.length);
