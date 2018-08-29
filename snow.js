@@ -212,6 +212,8 @@ bot.on("message", async message => {
     if(cmd === `${prefix}slot` || cmd === `${prefix}spin`) {
 
         let slotitems = ["🌳", "🌲", "🍀", "🍃", "🌿"];
+        
+        message.channel.send("__**" + message.author.username + "**__");
 
         let slotrandom1 = Math.floor((Math.random()) * slotitems.length);
         let slotrandom2 = Math.floor((Math.random()) * slotitems.length);
@@ -226,7 +228,7 @@ bot.on("message", async message => {
         let slotEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription(slotitems[slotrandom1] + " **|** " + slotitems[slotrandom2]  + " **|** " + slotitems[slotrandom3] + "\n" + slotitems[slotrandom4] + " **|** " + slotitems[slotrandom5]  + " **|** " + slotitems[slotrandom6] + "\n" + slotitems[slotrandom7] + " **|** " + slotitems[slotrandom8]  + " **|** " + slotitems[slotrandom9])
-        .setFooter(`SLOT | SNOW ❆\n//\n${message.author.username}`, bot.user.displayAvatarURL);
+        .setFooter(`SLOT | SNOW ❆`, bot.user.displayAvatarURL);
 
         message.channel.send(slotEmbed);
 
