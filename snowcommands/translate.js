@@ -3,42 +3,36 @@ const snow = require("../snow.json");
 
 const translate = require("google-translate-api");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let translatelanguage = args[0];
+    if(!translatelanguage) return message.channel.send("PLEASE ENTER A LANGUAGE YOU WANT THE TRANSLATION TO BE IN AND THEN THE MESSAGE THAT YOU WANT TO TRANSLATE**!**");
 
-    if(cmd === `${prefix}translate`) {
+    let translatetext = args.slice(1).join(" ");
+    if(!translatetext) return message.channel.send("PLESAE ENTER THE MESSAGE YOU WANT TO TRANSLATE**!**");
 
-        let translatelanguage = args[0];
-        if(!translatelanguage) return message.channel.send("PLEASE ENTER A LANGUAGE YOU WANT THE TRANSLATION TO BE IN AND THEN THE MESSAGE THAT YOU WANT TO TRANSLATE**!**");
+    message.channel.send("TRANSLATING **...**").then((translateMessage) => {
 
-        let translatetext = args.slice(1).join(" ");
-        if(!translatetext) return message.channel.send("PLEASE ENTER THE MESSAGE THAT YOU WANT TO TRANSLATE**!**");
-        
-        message.channel.send("TRANSLATING **...**").then((translateMessage) => {
+        translate(translatetext, {to: translatelanguage}).then((res) => {
 
-            translate(translatetext, {to: translatelanguage}).then((res) => {
+            let translateEmbed = new Discord.RichEmbed()
+            .setColor(snow.blue)
+            .setDescription("TRANSLATE **" + snow.snowflake + "**")
+            .addField("INPUT", "```" + translatetext + "```")
+            .addField("OUTPUT", "```" + res.text + "```")
+            .setFooter("TRANSLATE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
-                let translateEmbed = new Discord.RichEmbed()
-                .setColor(snow.blue)
-                .setDescription("TRANSLATE **❆**")
-                .addField("INPUT", "```" + translatetext + "```")
-                .addField("OUTPUT", "```" + res.text + "```")
-                .setFooter("TRANSLATE | SNOW ❆", bot.user.displayAvatarURL);
+            translateMessage.edit(translateEmbed);
 
-                translateMessage.edit(translateEmbed);
+        }).catch(err => {
 
-            }).catch(err => {
-                
-                return translateMessage.edit("`" + translatelanguage.toUpperCase() + "` IS NOT A VALID LANGUAGE TO TRANSLATE**!**");
+            return translateMessage.edit("`" + translatelanguage.toUpperCase() + "` IS NOT A VALID LANGUAGE TO TRANSLATE TO **!**");
 
         });
 
-      });
-
-    }
+    });
 
 }
 
