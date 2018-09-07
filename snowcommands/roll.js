@@ -1,23 +1,17 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let roll = Math.floor(((Math.random()) * 6) + 1);
 
-    if(cmd === `${prefix}roll`) {
+    message.channel.send("ROLLING **...**").then((rollMessage) => {
 
-        let roll = Math.floor(((Math.random()) * 6) + 1);
+        rollMessage.edit(`**${message.author.username},** YOU ROLLED **${roll}!**`);
 
-        message.channel.send("ROLLING **...**").then((rollMessage) => {
-
-            rollMessage.edit(`**${message.author.username},** YOU ROLLED **${roll}!**`);
-
-        });
-
-    }
+    });
 
 }
 
