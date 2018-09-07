@@ -3,35 +3,29 @@ const snow = require("../snow.json");
 
 const encode = require("strict-uri-encode");
 const got = require("got");
-const API_KEY = "SJBFr7rJmHOiLhZfF2KGGnOGTOqJI0kO";
+const API_KEY = "SJBFr7rJmHOiLhZfF2KGGnOGTOqJI0kO7";
+
+let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let gif = args.join(" ");
+    if(!gif) return message.channel.send("PLEASE ENTER A GIF QUERY TO SEARCH FOR**!**");
 
-    if(cmd === `${prefix}gif`) {
+    const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encode(gif)}`, { json: true });
 
-        let gif = args.join(" ");
-        if(!gif) return message.channel.send("PLEASE ENTER A GIF QUERY TO SEARCH FOR**!**");
+    message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
 
-        const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encodeURIComponent(gif)}`, { json: true });
+        if(!res || !res.body.data) return gifMessage.edit("FAILED TO LOAD GIF**!**");
 
-        message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
+        let gifEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("GIF **" + snow.snowflake + "**")
+        .setImage(res.body.data.image_url);
 
-            if(!res || !res.body || !res.body.data) return message.channel.send("FAILED TO LOAD GIF**!**");
+        gifMessage.edit(gifEmbed);
 
-            let gifEmbed = new Discord.RichEmbed()
-            .setColor(snow.blue)
-            .setDescription("GIF **❆**")
-            .setImage(res.body.data.image_url);
-
-            gifMessage.edit(gifEmbed);
-
-        });
-
-    }
+    });
 
 }
 
