@@ -1,36 +1,30 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-const ascii = require("ascii-art");
+const ascii = require("ascii-art")
+
+let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let asciimessage = args.join(" ");
+    if(!asciimessage) return message.channel.send("PLEASE ENTER A MESSAGE THAT YOU WANT TO CONVERT TO ASCII**!**");
 
-    if(cmd === `${prefix}ascii`) {
+    message.channel.send("GENERATING ASCII MESSAGE **...**").then((asciiMessage) => {
 
-        let ascifont = args.join(" ");
-        if(!ascifont) return message.channel.send("PLEASE ENTER A MESSAGE THAT YOU WANT TO CONVERT TO ASCII**!**");
+        ascii.font(asciimessage, "Doom", function(finished) {
 
-        message.channel.send("GENERATING ASCII MESSAGE **...**").then((asciiMessage) => {
+            finished = finished.trimRight();
 
-            ascii.font(ascifont, "Doom", function(finished) {
+            if(finished.length > 2000) return message.channel.send("THE ASCII MESSAGE YOU WANT TO DO IS TO LONG**!**");
 
-                finished = finished.trimRight();
-
-                if(finished.length > 2000) return asciiMessage.edit("THE ASCII MESSAGE YOU WANT TO DO IS TO LONG**!**");
-
-                asciiMessage.edit(finished, {
-                    code: "md"
-                });
-
+            asciiMessage.edit(finished, {
+                code: "md"
             });
 
         });
 
-    }
+    });
 
 }
 
