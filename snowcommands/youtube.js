@@ -3,26 +3,20 @@ const snow = require("../snow.json");
 
 const encode = require("strict-uri-encode");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let youtube = args.join(" ");
+    if(!youtube) return message.channel.send("PLEASE ENTER A SEARCH QUERY TO SEARCH ON YOUTUBE WITH**!**");
 
-    if(cmd === `${prefix}youtube`) {
+    let youtubelink = `https://youtube.com/results?q=${youtube}`;
 
-        let youtube = encode(args.join(" "));
-        if(!youtube) return message.channel.send("PLEASE ENTER A SEARCH QUERY TO SEARCH ON YOUTUBE WITH**!**");
+    message.channel.send("SEARCHING ON YOUTUBE **...**").then((youtubeMessage) => {
 
-        let youtubelink = `https://youtube.com/results?q=${youtube}`;
+        youtubeMessage.edit("**FINISHED!**\n" + `<${youtubelink}>`);
 
-        message.channel.send("SEARCHING ON YOUTUBE **...**").then((youtubeMessage) => {
-
-            youtubeMessage.edit("**FINISHED!**\n" + `<${youtubelink}>`);
-
-        });
-
-    }
+    });
 
 }
 
