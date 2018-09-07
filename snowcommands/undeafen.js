@@ -1,44 +1,38 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    if(!message.member.hasPermission("DEAFEN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
-    if(cmd === `${prefix}undeafen`) {
+    if(!args[0]) return message.channel.send("PLEASE MENTION A USER YOU WANT TO UNDEAFEN**!**");
 
-        if(!message.member.hasPermission("DEAFEN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+    let udUser = message.guild.member(message.mentions.members.first() || message.guild.members.get(args[0]));
+    if(!udUser) return message.channel.send("CAN'T FIND USER**!**");
+    if(udUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT UNMUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
-        if(!args[0]) return message.channel.send("PLEAES MENTION A USER THAT YOU WANT TO UNDEAFEN**!**");
+    let undeafenrole = message.guild.roles.find(r => r.name === "DEAFENED // " + snow.snowflake);
 
-        let udUser = message.guild.member(message.mentions.members.first() || message.guild.members.get(args[0]));
-        if(!udUser) return message.channel.send("CAN'T FIND USER**!**");
-        if(udUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT UNDEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
+    if(!undeafenrole || !udUser.roles.has(undeafenrole.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
 
-        let undeafenrole = message.guild.roles.find(r => r.name === "DEAFENED // ❆");
+    await(udUser.removeRole(undeafenrole.id));
+    message.channel.send(`${udUser} HAS BEEN **UNDEAFENED!**`);
 
-        if(!undeafenrole || !udUser.roles.has(undeafenrole.id)) return message.channel.send("THIS USER IS NOT DEAFENED**!**");
+    let undeafenEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
+    .setTimestamp()
+    .setDescription("UNDEAFAEN **" + snow.snowflake + "**")
+    .addField("USER", udUser)
+    .addField("MODERATOR", message.author)
+    .addField("CHANNEL", message.channel)
+    .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
-        await(udUser.removeRole(undeafenrole.id));
-        message.channel.send(`${udUser} HAS BEEN **UNDEAFENED!**`);
+    let snowlog = message.guild.channels.find(`name`, "snow");
+    if(!snowlog) return;
 
-        let undeafenEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setTimestamp()
-        .setDescription("UNDEAFEN **❆**")
-        .addField("USER", udUser)
-        .addField("MODERATOR", message.author)
-        .addField("CHANNEL", message.channel)
-        .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-
-        let snowlog = message.guild.channels.find(`name`, "snow");
-        if(!snowlog) return;
-
-        snowlog.send(undeafenEmbed);
- 
-    }
+    snowlog.send(undeafenEmbed);
 
 }
 
