@@ -1,25 +1,19 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let randomfox = Math.floor(((Math.random()) * 120) + 1);
+    let foxlink = `https://randomfox.ca/images/${randomfox}.jpg`;
 
-    if(cmd === `${prefix}fox`) {
+    let foxEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
+    .setDescription("FOX **" + snow.snowflake + "**")
+    .setImage(foxlink);
 
-        let randomfox = Math.floor(((Math.random()) * 120) + 1);
-        let foxlink = `https://randomfox.ca/images/${randomfox}.jpg`;
-
-        let foxEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription(":fox: **//** FOX **❆**")
-        .setImage(foxlink)
-
-        message.channel.send(foxEmbed);
-
-    }
+    message.channel.send(foxEmbed);
 
 }
 
