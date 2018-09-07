@@ -3,26 +3,20 @@ const snow = require("../snow.json");
 
 const encode = require("strict-uri-encode");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let google = encode(args.join(" "));
+    if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
 
-    if(cmd === `${prefix}google`) {
+    let googlelink = `https://google.com/search?q=${google}`;
 
-        let google = encode(args.join(" "));
-        if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
+    message.channel.send("SEARCHING **...**").then((googleMessage) => {
 
-        let googlelink = `https://google.com/search?q=${google}`;
+        googleMessage.edit("**FINISHED!**\n" + `<${googlelink}>`);
 
-        message.channel.send("SEARCHING **...**").then((googleMessage) => {
-
-            googleMessage.edit("**FINISHED!**\n" + `<${googlelink}>`);
-
-        });
-
-    }
+    });
 
 }
 
