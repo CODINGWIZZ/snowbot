@@ -1,32 +1,26 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-const shorten = require("isgd");
+const unshorten = require("isgd");
+
+let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let isgdlink = args[0];
+    if(!isgdlink) return message.channel.send("PLEASE ENTER A ISGD LINK THAT YOU WANT TO UNSHORTEN**!**");
 
-    if(cmd === `${prefix}unshorten`) {
+    unshorten.lookup(isgdlink, function(res) {
 
-        let isgdlink = args[0];
-        if(!isgdlink) return message.channel.send("PLEASE ENTER A IS.GD LINK THAT YOU WANT TO SEE THE LONGER VERISION OF**!**");
+        message.channel.send("UNSHORTENING LINK **...**").then((unshortenMessage) => {
 
-        shorten.lookup(isgdlink, function(res) {
+            if(res.startsWith("Error:")) return unshortenMessage.edit("PLEASE ENTER A VALID ISGD LINK YOU WANT TO UNSHORTEN**!**");
 
-            message.channel.send("LOOKING UP SHORTENED LINK **...**").then((lookupMessage) => {
-
-                if(res.startsWith("Error:")) return lookupMessage.edit("PLEASE ENTER A VALID ISGD LINK THAT YOU WANT ME TO LOOKUP**!**");
-
-                lookupMessage.edit("**FINISHED!**\n" + `<${res}>`);
-
-            });
+            unshortenMessage.edit("**FINISHED!**\n" + `<${res}>`);
 
         });
 
-    }
+    });
 
 }
 
