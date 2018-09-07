@@ -3,26 +3,20 @@ const snow = require("../snow.json");
 
 const encode = require("strict-uri-encode");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
-    
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
-    
-    if(cmd === `${prefix}bing`) {
-        
-         let bing = encode(args.join(" "));
-         if(!bing) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
 
-         let binglink = `https://bing.com/search?q${bing}`;
+    let bing = encode(args.join(" "));
+    if(!bing) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
 
-         message.channel.send("SEARCHING **...**").then((bingMessage) => {
+    let binglink = `https://bing.com/search?q=${bing}`;
 
-         bingMessage.edit("**FINISHED!**\n" + `<${binglink}>`);
+    message.channel.send("SEARCHING **...**").then((bingMessage) => {
+
+        bingMessage.edit("**FINISHED!**\n" + `<${binglink}>`);
 
     });
-        
-    }
 
 }
 
