@@ -4,11 +4,11 @@ const snow = require("./snow.json");
 const fs = require("fs");
 const got = require("got");
 const math = require("math-expression-evaluator");
-const stripIndents = require("common-tags").stripIndents;
+const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
 const bot = new Discord.Client();
-const token = process.env.token;
+const token = snow.token;
 bot.commands = new Discord.Collection();
 
 fs.readdir("./snowcommands/", (err, files) => {
@@ -18,7 +18,7 @@ fs.readdir("./snowcommands/", (err, files) => {
     let jsfile = files.filter(f => f.split(".").pop() === "js");
     if(jsfile.length <= 0) {
 
-        console.log("[!] THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
+        console.log("THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
 
     }
 
@@ -40,7 +40,7 @@ bot.on("ready", async () => {
 
         snowservers = "SERVER!";
 
-    } else if(bot.guilds.size === "0") {
+    } else {
 
         snowservers = "SERVERS!";
 
@@ -61,39 +61,36 @@ bot.on("guildMemberAdd", joinmember => {
     .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
 
     let snowlog = joinmember.guild.channels.find(`name`, "snow");
-    if(!snowlog) return;
-
-    snowlog.send(guildmemberaddEmbed);
+    if(!snowlog) return message.channel.send(guildmemberaddEmbed);
 
 });
-
 
 bot.on("guildMemberRemove", leavemember => {
 
     let guildmemberremoveEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(`**${leavemember.user.username}** HAS LEFT **${leavemember.guild.name}!**`)
-    .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS!`);
+    .setDescription(`${leavemember.user.username} HAS LEFT **${leavemember.guild.name}!**`)
+    .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS`);
 
     let snowlog = leavemember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
     snowlog.send(guildmemberremoveEmbed);
 
-}); 
+});
 
 bot.on("message", async message => {
 
-    if(message.author.bot) return;
+    if(message.member.bot) return;
     if(message.channel.type === "dm") return;
 
     let prefix = snow.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLocaleLowerCase();
     let args = messageArray.slice(1);
-    
+
     if(!cmd.includes(prefix)) return;
-    
+
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
 
@@ -101,7 +98,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snowembed`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== snow.devid) return;
 
         message.delete();
 
@@ -110,16 +107,14 @@ bot.on("message", async message => {
         let snowEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription(embedMessage);
-
+        
         message.channel.send(snowEmbed);
 
-    } 
+    }
 
     if(cmd === `${prefix}snowsay`) {
 
-        if(message.author.id !== "297832577782382592") return;
-
-        message.delete();
+        if(message.author.id !== snow.devid) return;
 
         let snowsayMessage = args.join(" ");
         if(!snowsayMessage) return;
@@ -130,7 +125,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}restart`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== snow.devid) return;
 
         message.channel.send("RESTARTING **...**");
         console.log("[//] RESTARTING ...");
@@ -148,7 +143,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}shutdown`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== snow.devid) return;
 
         message.channel.send("SHUTTING DOWN **...**");
         console.log("[//] SHUTTING DOWN ...");
@@ -177,10 +172,10 @@ bot.on("message", async message => {
 
         let calculateEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("CALCULATOR **❆**")
+        .setDescription("CALCULATOR **" + snow.snowflake + "**")
         .addField("EQUATION", "```" + equation + "```")
         .addField("ANSWER", "```" + answer + "```")
-        .setFooter("CALCULATOR | SNOW ❆", bot.user.displayAvatarURL);
+        .setFooter("CALCULATOR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
         message.channel.send(calculateEmbed);
 
@@ -202,33 +197,10 @@ bot.on("message", async message => {
 
         let randomimageEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("RANDOM IMAGE **❆**")
+        .setDescription("RANDOM IMAGE **" + snow.snowflake + "**")
         .setImage(randomimagelink);
 
-        message.channel.send(randomimageEmbed);
-
-    }
-
-    if(cmd === `${prefix}slot` || cmd === `${prefix}spin`) {
-
-        let slotitems = ["🌳", "🌲", "🍀", "🍃", "🌿"];
-        
-        let slotrandom1 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom2 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom3 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom4 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom5 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom6 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom7 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom8 = Math.floor((Math.random()) * slotitems.length);
-        let slotrandom9 = Math.floor((Math.random()) * slotitems.length);
-
-        let slotEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription(slotitems[slotrandom1] + " **|** " + slotitems[slotrandom2]  + " **|** " + slotitems[slotrandom3] + "\n" + slotitems[slotrandom4] + " **|** " + slotitems[slotrandom5]  + " **|** " + slotitems[slotrandom6] + "\n" + slotitems[slotrandom7] + " **|** " + slotitems[slotrandom8]  + " **|** " + slotitems[slotrandom9])
-        .setFooter(`SLOT | SNOW ❆`, bot.user.displayAvatarURL);
-
-        message.channel.send(slotEmbed);
+        message.channel.send(randomimagelink);
 
     }
 
@@ -242,49 +214,49 @@ bot.on("message", async message => {
         message.channel.send("SEARCHING **...**").then((ddgMessage) => {
 
             ddgMessage.edit("**FINISHED!**\n" + `<${ddgLink}>`);
-            
+
         });
 
     }
-    
+
     if(cmd === `${prefix}vote`) {
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
-    const thumbsup = "👍";
-    const perhaps = "🤷";
-    const thumbsdown = "👎";
+        const thumbsup = "";
+        const perhaps = "";
+        const thumbsdown = "";
 
-    let vote = args.join(" ");
-    if(!vote) return message.channel.send("PLEASE ENTER A VOTE MESSAGE**!**");
+        let vote = args.join(" ");
+        if(!vote) return message.channel.send("PLEASE ENTER A VOTE MESSAGE**!**");
 
-    let voteEmbed = new Discord.RichEmbed()
-    .setColor(snow.blue)
-    .setDescription("VOTE **❆**\n" + "**//**\n" + vote)
-    .setFooter("VOTE | SNOW ❆", bot.user.displayAvatarURL);
+        let voteEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("VOTE **" + snow.snowflake + "\n//**\n" + vote)
+        .setFooter("VOTE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
-    let voteMessage = await message.channel.send(voteEmbed);
-    await voteMessage.react(thumbsup);
-    await voteMessage.react(thumbsdown);
-    await voteMessage.react(perhaps);
+        let voteMessage = await message.channel.send(voteEmbed);
+        await voteMessage.react(thumbsup);
+        await voteMessage.react(thumbsdown);
+        await voteMessage.react(perhaps);
 
     }
-    
-    if(cmd === `${prefix}snow` || cmd === prefix) {
 
-    let snowEmbed = new Discord.RichEmbed()
-    .setColor(snow.blue)
-    .setDescription("SNOW **❆**")
-    .addField("BOT NAME", "**" + snow.name + "**#" + bot.user.discriminator + " **(** " + bot.user.id + " **)**")
-    .addField("DEVELOPER", "**" + snow.dev + "**#7897")
-    .addField("PREFIX // VERSION", "`s!` // " + snow.version)
-    .addField("WEBSITE", "https://discordsnowbot.weebly.com/") 
-    .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
-    .setFooter("SNOW ❆", bot.user.displayAvatarURL);
-        
-    message.channel.send(snowEmbed);
+    if(cmd === `${prefix}snow` || cmd === `${prefix}`) {
 
-    } 
+        let snowEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("SNOW **" + snow.snowflake + "**")
+        .addField("BOT NAME", "**" + snow.name + "**#" + bot.user.discriminator + " **(** " + bot.user.id + " **)**")
+        .addField("DEVELOPER", "**" + snow.dev + "**#7897")
+        .addField("PREFIX // VERSION", "`s!` // " + snow.version)
+        .addField("WEBSITE", "https://discordsnowbot.weebly.com/")
+        .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
+        .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+
+        message.channel.send(snowEmbed);
+
+    }
 
 });
 
