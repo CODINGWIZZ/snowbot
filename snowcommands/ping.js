@@ -1,23 +1,17 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let ping = bot.pings[0];
 
-    if(cmd === `${prefix}ping`) {
+    message.channel.send("PINGING **...**").then((pingMessage) => {
 
-        let ping = bot.pings[0];
+        pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
 
-        message.channel.send("PINGING **...**").then((pingMessage) => {
-
-            pingMessage.edit("THE PING IS `" + ping + "ms`**!**");
-
-        });
-
-    }
+    });
 
 }
 
