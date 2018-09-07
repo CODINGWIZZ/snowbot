@@ -1,58 +1,51 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    let rps = args.join(" ").toUpperCase();
+    if(!rps) return message.channel.send("CAN'T FIND AN ANSWER WITH `ROCK // PAPER // SCISSORS`**!**");
 
-    if(cmd === `${prefix}rps`) {
+    let chooserps = ["ROCK", "PAPER", "SCISSORS"];
+    if(!chooserps.includes(rps)) return message.channel.send("PLEASE ENTER `ROCK // PAPER // SCISSORS` TO PLAY**!**"); 
 
-        let rps = args.join(" ").toUpperCase();
-        if(!rps) return message.channel.send("CAN'T FIND AN ANSWER WITH `ROCK // PAPER // SCISSORS`**!**");
+    let snowanswer = chooserps[Math.floor(Math.random() * chooserps.length)];
 
-        let chooserps = ["ROCK", "PAPER", "SCISSORS"];
+    let result = "I WIN**!**";
 
-        if(!chooserps.includes(rps)) return message.channel.send("PLEASE ENTER `ROCK // PAPER // SCISSORS` TO PLAY**!**");
+    if(rps === snowanswer) {
 
-        let snowanswer = chooserps[Math.floor(Math.random() * chooserps.length)];
+        result = "IT'S A TIE**!**";
 
-        let result = "I WIN**!**";
+    } else if(rps === "ROCK") {
 
-        if(rps === snowanswer) {
+        if(snowanswer === "SCISSORS") {
 
-            result = "IT'S A TIE**!**";
-
-        } else if(rps === "ROCK") {
-
-            if(snowanswer === "SCISSORS") {
-
-                result = "YOU WIN**!**";
-
-            }
-
-        } else if(rps === "PAPER") {
-
-            if(snowanswer === "ROCK") {
-
-                result = "YOU WIN**!**";
-
-            }
-
-        } else if(rps === "SCISSORS") {
-
-            if(snowanswer === "PAPER") {
-
-                result = "YOU WIN**!**";
-
-            }
+            result = "YOU WIN**!**";
 
         }
 
-        message.channel.send(`**${message.author.username},** YOU CHOOSE **${rps}** AND I CHOOSE **${snowanswer}!** ${result}`);
+    } else if(rps === "PAPER") {
 
-    }   
+        if(snowanswer === "ROCK") {
+
+            result = "YOU WIN**!**";
+
+        }
+
+    } else if(rps === "SCISSORS") {
+
+        if(snowanswer === "PAPER") {
+
+            result = "YOU WIN**!**";
+
+        }
+
+    }
+
+    message.channel.send(`**${message.author.username},** YOU CHOOSE **${rps}** AND I CHOOSE **${snowanswer}!** ${result}`);
 
 }
 
