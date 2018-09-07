@@ -1,52 +1,46 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
-    if(cmd === `${prefix}removerole`) {
+    if(!args[0]) return message.channel.send("PLEASE MENTIOON A USER THAT YOU WANT TO REMOVE A ROLE FROM**!**");
 
-        if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
+    let rrUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
+    if(!rrUser) return message.channel.send("CAN'T FIND USER**!**");
 
-        if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO REMOVE A ROLE FROM**!**");
+    let role = args.slice(1).join(" ");
+    if(!role) return message.channel.send("PLEASE SPECIFY A ROLE**!**");
 
-        let rrUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
-        if(!rrUser) return message.channel.send("CAN'T FIND USER**!**");
+    let rrRole = message.guild.roles.find(`name`, role);
+    if(!rrRole) return message.channel.send("CAN'T FIND ROLE**!**");
 
-        let role = args.slice(1).join(" ");
-        if(!role) return message.channel.send("PLEASE SPECIFY A ROLE**!**");
+    if(rrUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT REMOVE A ROLE FROM A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
+    if(rrUser.roles.has(rrRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
 
-        let rrRole = message.guild.roles.find(`name`, role);
-        if(!rrRole) return message.channel.send("CAN'T FIND ROLE**!**");
+    await(rrUser.removeRole(rrRole.id)).then(() => {
 
-        if(rrUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
-        if(!rrUser.roles.has(rrRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
+        message.channel.send(`<@${rrUser.id}> HAS BEEN REMOVED FROM THE **${rrRole}** ROLE**!**`);
 
-        await(rrUser.removeRole(rrRole.id)).then(() => {
+        let removeroleEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("REMOVE ROLE **" + snow.snowflake + "**")
+        .setTimestamp()
+        .addField("USER", rrUser)
+        .addField("ROLE", rrRole)
+        .addField("MODERATOR", message.author)
+        .addField("CHANNEL", message.channel)
+        .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
-            message.channel.send(`<@${rrUser.id}> HAS BEEN REMOVED FROM THE **${rrRole}** ROLE**!**`);
+        let snowlog = message.guild.channels.find(`name`, "snow");
+        if(!snowlog) return;
 
-            let removeroleEmbed = new Discord.RichEmbed()
-            .setColor(snow.blue)
-            .setDescription("REMOVE ROLE **❆**")
-            .setTimestamp()
-            .addField("USER", rrUser)
-            .addField("ROLE", rrRole)
-            .addField("MODERATOR", message.author)
-            .addField("CHANNEL", message.channel)
-            .setFooter("SNOW ❆", bot.user.displayAvatarURL);
+        snowlog.send(removeroleEmbed);
 
-            let snowlog = message.guild.channels.find(`name`, "snow");
-            if(!snowlog) return;
-
-            snowlog.send(removeroleEmbed);
-
-        });
-
-    }
+    });
 
 }
 
