@@ -3,29 +3,24 @@ const snow = require("../snow.json");
 
 const superagent = require("superagent");
 
+let prefix = snow.prefix;
+
 module.exports.run = async (bot, message, args) => {
 
-    let prefix = snow.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLocaleLowerCase();
-    
-    if(cmd === `${prefix}cat`) {
-    
-        const { body, header } = await superagent
-        .get("http://aws.random.cat/meow");
+    const { body, header } = await superagent
+    .get("https://aws.random.cat/meow");
 
-        message.channel.send("GENERATING CAT IMAGE **...**").then((catMessage) => {
+    message.channel.send("GENERATING CAT IMAGE **...**").then((catMessage) => {
 
-            let catEmbed = new Discord.RichEmbed()
-            .setColor(snow.blue)
-            .setDescription(":cat: **//** CAT **❆**")
-            .setImage(body.file);
+        let catEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("CAT **" + snow.snowflake + "**")
+        .setImage(body.file);
 
-            catMessage.edit(catEmbed);
 
-        });
-    
-    }
+        catMessage.edit(catEmbed);
+
+    });
 
 }
 
