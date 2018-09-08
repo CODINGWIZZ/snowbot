@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
             let weatherEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
             .setTimestamp()
-            .setDescription(`WEATHER ☁\n${countryemoji} **//** \`${current.skytext  }\`)
+            .setDescription(`WEATHER ☁\n${countryemoji} **//** \`${current.skytext}\``)
             .addField("TEMPERATURE", `${celsius(current.temperature)}**` + "°C //** " + current.temperature + "**°F**", true)
             .addField("FEELS LIKE", `${celsius(current.feelslike)}**` + "°C //** " + current.feelslike + "**°F**", true)
             .addField("WINDS", `*${current.winddisplay}* **>>** ${weatherinfo.wind.direction}**°**`, true)
