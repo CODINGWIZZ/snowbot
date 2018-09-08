@@ -1,7 +1,6 @@
 {
 
     "prefix": "s!",
-    "token": process.env.token;
 
     "blue": "#6f82b4",
     "red": "#cf5058",
