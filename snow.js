@@ -98,7 +98,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snowembed`) {
 
-        if(message.author.id !== snow.devid) return;
+        if(message.author.id !== "297832577782382592") return;
 
         message.delete();
 
@@ -114,7 +114,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snowsay`) {
 
-        if(message.author.id !== snow.devid) return;
+        if(message.author.id !== "297832577782382592") return;
 
         let snowsayMessage = args.join(" ");
         if(!snowsayMessage) return;
@@ -125,7 +125,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}restart`) {
 
-        if(message.author.id !== snow.devid) return;
+        if(message.author.id !== "297832577782382592") return;
 
         message.channel.send("RESTARTING **...**");
         console.log("[//] RESTARTING ...");
@@ -143,7 +143,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}shutdown`) {
 
-        if(message.author.id !== snow.devid) return;
+        if(message.author.id !== "297832577782382592") return;
 
         message.channel.send("SHUTTING DOWN **...**");
         console.log("[//] SHUTTING DOWN ...");
