@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("WRITTEN BY", res.author)
         .setFooter("URBAN DICTIONARY | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
-        urbanMessage.edit(urbanMessage);
+        urbanMessage.edit(urbanEmbed);
 
     });
 
