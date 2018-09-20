@@ -225,9 +225,9 @@ bot.on("message", async message => {
 
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
-        const thumbsup = "";
-        const perhaps = "";
-        const thumbsdown = "";
+        const thumbsup = "👍";
+        const perhaps = "🤷";
+        const thumbsdown = "👎";
 
         let vote = args.join(" ");
         if(!vote) return message.channel.send("PLEASE ENTER A VOTE MESSAGE**!**");
