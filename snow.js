@@ -115,6 +115,8 @@ bot.on("message", async message => {
     if(cmd === `${prefix}snowsay`) {
 
         if(message.author.id !== "297832577782382592") return;
+        
+        message.delete();
 
         let snowsayMessage = args.join(" ");
         if(!snowsayMessage) return;
