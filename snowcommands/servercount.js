@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("TOTAL MEMBERS", message.guild.memberCount)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers);
 
-    message.channels.send(servercountEmbed);
+    message.channel.send(servercountEmbed);
 
 }
 
