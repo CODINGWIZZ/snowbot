@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("TRANSLATING **...**").then((translateMessage) => {
 
-        translate(translatetext, {to: translatelanguage}).then((res) => {
+        translate(translatetext, {to: translatelanguage}).then(res => {
 
             let translateEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
