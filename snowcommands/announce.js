@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     let announceEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setTimestamp()
-    .setDescription(annouce + "\n\n **(** ANNOUNCEMENT BY **" + message.author.username + " )**")
+    .setDescription(announce + "\n\n **(** ANNOUNCEMENT BY **" + message.author.username + " )**")
     .setFooter("ANNOUNCE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
     annoucechannel.send(announceEmbed);
