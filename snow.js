@@ -69,7 +69,7 @@ bot.on("guildMemberRemove", leavemember => {
 
     let guildmemberremoveEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(`${leavemember.user.username} HAS LEFT **${leavemember.guild.name}!**`)
+    .setDescription(`**${leavemember.user.username}** HAS LEFT **${leavemember.guild.name}!**`)
     .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS`);
 
     let snowlog = leavemember.guild.channels.find(`name`, "snow");
