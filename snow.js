@@ -129,6 +129,8 @@ bot.on("message", async message => {
      
         if(message.author.id !== "297832577782382592") return;
         
+        message.delete();
+        
         let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!sUser) return;
         
