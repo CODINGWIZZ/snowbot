@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     let dateEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(date.toUTCString().toUpperCase().split(16) + "**" + date.toUTCString().slice(16) + "**");
+    .setDescription(date.toUTCString().toUpperCase().split(16).slice(12) + "**" + date.toUTCString().slice(16) + "**");
 
     message.channel.send(dateEmbed);
 
