@@ -124,6 +124,24 @@ bot.on("message", async message => {
         message.channel.send(snowsayMessage);
 
     }
+    
+    if(cmd === `${prefix}snowsend`) {
+     
+        if(message.author.id !== "297832577782382592") return;
+        
+        let sendmessage = args.join(" ");
+        if(!sendmessage) return;
+        
+        let sUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if(!sUser) return;
+        
+        let snowsendEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription(sendmessage);
+        
+        sUser.send(snowsendEmbed);
+            
+    }   
 
     if(cmd === `${prefix}restart`) {
 
