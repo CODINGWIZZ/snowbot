@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
 
         }).catch(err => {
             
-            if(err) console.log(err);
+            if(err) message.channel.send(err);
 
             return translateMessage.edit("`" + translatelanguage.toUpperCase() + "` IS NOT A VALID LANGUAGE TO TRANSLATE TO **!**");
 
