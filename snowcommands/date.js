@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
     let dateEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(dayOfWeek + " " + dayOfMonth.toUpperCase() + " " + curMonth + ", " + curYear + " **" + date.toUTCString().slice(16) + "**");
+    .setDescription(dayOfWeek + ", " + dayOfMonth.toUpperCase() + " " + curMonth.toUpperCase() + ", " + curYear + " **" + date.toUTCString().slice(16) + "**");
 
     message.channel.send(dateEmbed);
 
