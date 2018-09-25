@@ -5,13 +5,15 @@ let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let date = new Date();
+    let date = new Date(),
+        weekdays = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+        weekday = weekdays[date.getDay()];
 
     let d = (new Date()).toString().split(' ').splice(1,3).join(' ');
 
     let dateEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(d.toUpperCase() + " **" + date.toUTCString().slice(16) + "**");
+    .setDescription(weekday.toUpperCase() + " " + d.toUpperCase() + " **" + date.toUTCString().slice(16) + "**");
 
     message.channel.send(dateEmbed);
 
