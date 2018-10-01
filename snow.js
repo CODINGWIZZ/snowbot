@@ -215,8 +215,7 @@ bot.on("message", async message => {
     if(cmd === `${prefix}randomimage` || cmd === `${prefix}randompicture`) {
 
         let randomimage = Math.floor(((Math.random()) * 1050) + 1);
-        let randomimagelink = "https://source.unsplash.com/featured/1920x1080/?+";
-        //let randomimagelink = `https://picsum.photos/1920/1080/?image=${randomimage}`;
+        let randomimagelink = `https://picsum.photos/1920/1080/?image=${randomimage}`;
 
         let randomimageEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
