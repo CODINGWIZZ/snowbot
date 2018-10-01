@@ -223,7 +223,7 @@ bot.on("message", async message => {
         .setDescription("RANDOM IMAGE **" + snow.snowflake + "**")
         .setImage(randomimagelink);
 
-        message.channel.send(randomimagelink);
+        message.channel.send(randomimageEmbed);
 
     }
 
