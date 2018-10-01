@@ -8,7 +8,6 @@ const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
 const bot = new Discord.Client();
-const token = process.env.token;
 bot.commands = new Discord.Collection();
 
 fs.readdir("./snowcommands/", (err, files) => {
@@ -34,17 +33,9 @@ fs.readdir("./snowcommands/", (err, files) => {
 
 bot.on("ready", async () => {
 
-    let snowservers = "SERVERS!";
+    let snowservers;
 
-    if(bot.guilds.size === "1") {
-
-        snowservers = "SERVER!";
-
-    } else {
-
-        snowservers = "SERVERS!";
-
-    }
+    bot.guilds.size === "1" ? snowservers = "SERVER!" : snowservers = "SERVERS!";
 
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
 
@@ -156,7 +147,7 @@ bot.on("message", async message => {
 
         setTimeout(function () {
 
-            bot.login(token);
+            bot.login(process.env.token);
             console.log("[!] RESTARTED");
 
         }, 5000);
@@ -282,4 +273,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(token);
+bot.login(process.env.token);
