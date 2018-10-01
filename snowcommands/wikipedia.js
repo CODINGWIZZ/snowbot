@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-import wiki from "wikipediajs";
-
 const wiki = require("wikipediajs");
 
 module.exports.run = async (bot, message, args) => {
