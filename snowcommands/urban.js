@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
         
-        if res.definition + res.example > 2000 return urbanMessage.edit("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
+        if(res.definition + res.example > 2000) return urbanMessage.edit("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
