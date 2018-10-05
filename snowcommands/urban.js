@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
         
-        if(console.log.startsWith("RangeError:")) return message.channel.send("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
+        if res.length > 2000 return ("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
