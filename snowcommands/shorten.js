@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
         message.channel.send("SHORTENING LINK **...**").then((shortenMessage) => {
 
-            if(res.startsWith("Error:")) return message.channel.send("PLEASE ENTER A VALID LINK**!**");
+            if(res.startsWith("Error:")) return shortenMessage.edit("PLEASE ENTER A VALID LINK**!**");
 
             shortenMessage.edit("**FINISHED!**\n" + `<${res}>`);
 
