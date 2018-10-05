@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("UPVOTES [⇑]", res.thumbsUp)
         .addField("DOWNVOTES [⇓]", res.thumbsDown)
         .addField("WRITTEN BY", res.author)
-        .addField("WORD + URL", [res.word](res.urbanURL))
+        .addField("WORD + URL", [[res.word]](res.urbanURL))
         .setFooter("URBAN DICTIONARY | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         urbanMessage.edit(urbanEmbed);
