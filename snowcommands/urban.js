@@ -23,11 +23,11 @@ module.exports.run = async (bot, message, args) => {
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](res.urbanURL)` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}`)
+        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](http://${word}.urbanup.com/${res.id})` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}`)
         .addField("UPVOTES [⇑]", res.thumbsUp)
         .addField("DOWNVOTES [⇓]", res.thumbsDown)
         .addField("WRITTEN BY", res.author)
-        .addField("WORD + URL", res.urbanURL)
+        .addField("WORD + URL", [res.word](res.urbanURL))
         .setFooter("URBAN DICTIONARY | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         urbanMessage.edit(urbanEmbed);
