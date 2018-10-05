@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
     });
 
     message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
+        
+        if(res.definition + res.word.length + res.example.length + res.thumbsUp.length + res.thumbsDown.length > 2030) return message.channel.send("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
@@ -25,11 +27,9 @@ module.exports.run = async (bot, message, args) => {
         .addField("UPVOTES [⇑]", res.thumbsUp)
         .addField("DOWNVOTES [⇓]", res.thumbsDown)
         .addField("WRITTEN BY", res.author)
-        .addField("NAME", `[${res.word}](res.urbanURL)`)
+        .addField("URL", res.urbanURL)
         .setFooter("URBAN DICTIONARY | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
-        if(res.definition + res.word.length + res.example.length + res.thumbsUp.length + res.thumbsDown.length > 2030) return message.channel.send("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
-
         urbanMessage.edit(urbanEmbed);
 
     });
