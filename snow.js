@@ -61,7 +61,9 @@ bot.on("guildMemberAdd", joinmember => {
     .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
 
     let snowlog = joinmember.guild.channels.find(`name`, "snow");
-    if(!snowlog) return message.channel.send(guildmemberaddEmbed);
+    if(!snowlog) return;
+    
+    snowlog.send(guildmemberaddEmbed);
 
 });
 
@@ -81,7 +83,7 @@ bot.on("guildMemberRemove", leavemember => {
 
 bot.on("message", async message => {
 
-    if(message.author.id === bot.user.id) return;
+    if(message.member.bot) return;
     if(message.channel.type === "dm") return;
 
     let prefix = snow.prefix;
