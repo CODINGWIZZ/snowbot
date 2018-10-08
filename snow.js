@@ -81,7 +81,7 @@ bot.on("guildMemberRemove", leavemember => {
 
 bot.on("message", async message => {
 
-    if(message.member.bot) return;
+    if(message.author.id === bot.user.id) return;
     if(message.channel.type === "dm") return;
 
     let prefix = snow.prefix;
