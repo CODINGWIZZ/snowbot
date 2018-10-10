@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if(amount > 99) return message.channel.send("CAN ONLY DELETE 99 MESSAGES MAX**!**");
     if(amount === 0) {
     
-        message.channel.bulkDelete(args[0]).then(() => {
+        message.channel.bulkDelete("99").then(() => {
             message.channel.send(`CLEARED **${args[0]}** MESSAGES**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));   
         });
         
