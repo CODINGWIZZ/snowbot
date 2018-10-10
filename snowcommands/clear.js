@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     const amount = isNaN(args[0]) ? parseInt(args[1]) : parseInt(args[0]);
     
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
-    if(amount < 1) return message.channel.send("CANNOT DELETE A NEGATIVE NUMBER OF MESSAGES**!**");
+    if(amount < 0) return message.channel.send("CANNOT DELETE A NEGATIVE NUMBER OF MESSAGES**!**");
     if(amount > 99) return message.channel.send("CAN ONLY DELETE 99 MESSAGES MAX**!**");
     if(amount === 0) {
     
