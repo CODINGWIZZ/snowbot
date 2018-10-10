@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
         .addField("STATUS", `${status[user.presence.status]}`)
-        .addField("CREATED", user.createdAt.toDateString())
+        .addField("ACCOUNT CREATED", user.createdAt.toDateString())
         .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
 
         message.channel.send(userinfoEmbed);
