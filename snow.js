@@ -7,6 +7,9 @@ const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
+const Parser = require("res-parser");
+const parser = new Parser();
+
 const bot = new Discord.Client();
 const token = process.env.token;
 bot.commands = new Discord.Collection();
@@ -284,37 +287,13 @@ bot.on("message", async message => {
     
     if(cmd === `${prefix}skolmat`) {
      
-    $(document).ready(function() {
-	//feed to parse
-	var feed = "https://skolmaten.se/stavsborgsskolan/rss/weeks/";
+	let feed = await parser.parseURL("https://skolmaten.se/stavsborgsskolan/rss/weeks/");
 	
-	$.ajax(feed, {
-		accepts:{
-			xml:"application/rss+xml"
-		},
-		dataType:"xml",
-		success:function(data) {
-			//Credit: http://stackoverflow.com/questions/10943544/how-to-parse-an-rss-feed-using-javascript
-
-			$(data).find("item").each(function () { // or "item" or whatever suits your feed
-				var el = $(this);
-				console.log("------------------------");
-				console.log("title      : " + el.find("title").text());
-				console.log("link       : " + el.find("link").text());
-				console.log("description: " + el.find("description").text());
-			});
-	
-
-		}	
-	});
-	
-});
+        let skolmatEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription(feed.title);
         
-//         let skolmatEmbed = new Discord.RichEmbed()
-//         .setColor(snow.blue)
-//         .setDescription(res.title);
-        
-//         message.channel.send(skolmatEmbed);
+        message.channel.send(skolmatEmbed);
         
     }
 
