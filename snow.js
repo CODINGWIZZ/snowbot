@@ -291,6 +291,7 @@ bot.on("message", async message => {
 	
         let skolmatEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
+	.setThumbnail("https://lh3.googleusercontent.com/NcWf1TY1g9Nen1YlIlXxuCRua8OJGpybwAXko0qL0eiyFh50vpj9KzRgmR_jk7bVK-28qsekN7YJhXo5Aw")
         .setDescription("**SKOLMAT STAVSBORGSSKOLAN**\n\n" + feed.description);
         
         message.channel.send(skolmatEmbed);
