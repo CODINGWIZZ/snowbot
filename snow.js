@@ -281,6 +281,18 @@ bot.on("message", async message => {
         message.channel.send(snowEmbed);
 
     }
+    
+    if(cmd === `${prefix}skolmat`) {
+     
+        let res = await got(`https://skolmaten.se/stavsborgsskolan/rss/weeks/`);
+        
+        let skolmatEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription(res.title);
+        
+        message.channel.send(skolmatEmbed);
+        
+    }
 
 });
 
