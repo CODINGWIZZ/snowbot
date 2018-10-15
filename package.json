@@ -26,7 +26,6 @@
     "strict-uri-encode": "^2.0.0",
     "superagent": "^3.8.3",
     "weather-js": "^2.0.0",
-    "ascii-art": "^1.4.3",
-    "rss-parser": "^3.5.2"
+    "ascii-art": "^1.4.3"
   }
 }
