@@ -7,9 +7,6 @@ const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
-const Parser = require("rss-parser");
-const parser = new Parser();
-
 const bot = new Discord.Client();
 const token = process.env.token;
 bot.commands = new Discord.Collection();
