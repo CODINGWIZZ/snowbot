@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const { version: discordVersion } = require("discord.js"); 
 const snow = require("./snow.json");
 
 const fs = require("fs");
@@ -7,8 +8,11 @@ const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
+const moment = require("moment");
+require("moment-duration-format");
+
 const bot = new Discord.Client();
-const token = process.env.token;
+const token = snow.token;
 bot.commands = new Discord.Collection();
 
 fs.readdir("./snowcommands/", (err, files) => {
@@ -83,7 +87,7 @@ bot.on("guildMemberRemove", leavemember => {
 
 bot.on("message", async message => {
 
-    if(message.member.bot) return;
+    if(message.author.id === bot.user.id) return;
     if(message.channel.type === "dm") return;
 
     let prefix = snow.prefix;
@@ -151,7 +155,7 @@ bot.on("message", async message => {
 
         if(message.author.id !== "297832577782382592") return;
 
-        message.channel.send("RESTARTING **...**");
+        message.channel.send("RESTARTING **...**").then(restartMessage => restartMessage.delete(5000));
         console.log("[//] RESTARTING ...");
 
         bot.destroy();
@@ -169,11 +173,10 @@ bot.on("message", async message => {
 
         if(message.author.id !== "297832577782382592") return;
 
-        message.channel.send("SHUTTING DOWN **...**");
-        console.log("[//] SHUTTING DOWN ...");
+        await message.channel.send("SHUTTING DOWN **...** SEE YA**!**");
+        await console.log("[!] SHUTTED DOWN");
 
-        bot.destroy();
-        console.log("[!] SHUTTED DOWN");
+        await process.exit();
 
     }
 
@@ -268,12 +271,19 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snow` || cmd === `${prefix}`) {
 
+        let uptime = moment.duration(bot.uptime).format(" D [DAY**S**], H [HOUR**S**], m [MINUTE**S**], s [SECOND**S**]");
+        let memoryusage = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} \`MB\``;
+
         let snowEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("SNOW **" + snow.snowflake + "**")
         .addField("BOT NAME", "**" + snow.name + "**#" + bot.user.discriminator + " **(** " + bot.user.id + " **)**")
         .addField("DEVELOPER", "**" + snow.dev + "**#7897")
-        .addField("PREFIX // VERSION", "`s!` // " + snow.version)
+        .addField("PREFIX // VERSION", "`s!` **// " + snow.version + "**", true)
+        .addField("DISCORD VERSION", "`v" + discordVersion + "`", true)
+        .addField("NODE.JS VERSION", "`" + process.version + "`", true)
+        .addField("MEMORY", memoryusage)
+        .addField("UPTIME", uptime)
         .addField("WEBSITE", "https://discordsnowbot.weebly.com/")
         .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
         .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
