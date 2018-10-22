@@ -9,6 +9,7 @@
   "author": "WIZZ",
   "license": "ISC",
   "dependencies": {
+    "ascii-art": "^1.4.3",
     "color-convert": "^1.9.2",
     "common-tags": "^1.8.0",
     "country-data": "0.0.31",
@@ -19,13 +20,14 @@
     "got": "^8.3.2",
     "isgd": "^1.1.3",
     "math-expression-evaluator": "^1.2.17",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
     "ms": "^2.1.1",
     "node-fetch": "^2.2.0",
     "relevant-urban": "^2.0.0",
     "snekfetch": "^4.0.4",
     "strict-uri-encode": "^2.0.0",
     "superagent": "^3.8.3",
-    "weather-js": "^2.0.0",
-    "ascii-art": "^1.4.3"
+    "weather-js": "^2.0.0"
   }
 }
