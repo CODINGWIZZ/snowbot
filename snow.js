@@ -12,7 +12,7 @@ const moment = require("moment");
 require("moment-duration-format");
 
 const bot = new Discord.Client();
-const token = snow.token;
+const token = process.env.token;
 bot.commands = new Discord.Collection();
 
 fs.readdir("./snowcommands/", (err, files) => {
