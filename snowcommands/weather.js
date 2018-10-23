@@ -32,20 +32,20 @@ module.exports.run = async (bot, message, args) => {
             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
 
-            let current = result[0].current;
+            let thecurrent = result[0].current;
             let thelocation = result[0].location;
 
             let weatherEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
             .setTimestamp()
-            .setDescription(`WEATHER ☁\n${countryemoji} **//** \`${current.skytext.toUpperCase()}\``)
-            .addField("TEMPERATURE", `${celsius(current.temperature)}**` + "°C //** " + current.temperature + "**°F**", true)
-            .addField("FEELS LIKE", `${celsius(current.feelslike)}**` + "°C //** " + current.feelslike + "**°F**", true)
-            .addField("WINDS", `*${current.winddisplay}* **>>** ${weatherinfo.wind.direction}**°**`, true)
-            .addField("HUMIDITY", current.humidity + "**%**", true)
+            .setDescription(`WEATHER ☁\n${countryemoji} **//** \`${thecurrent.skytext.toUpperCase()}\``)
+            .addField("TEMPERATURE", `${celsius(thecurrent.temperature)}**` + "°C //** " + thecurrent.temperature + "**°F**", true)
+            .addField("FEELS LIKE", `${celsius(current.feelslike)}**` + "°C //** " + thecurrent.feelslike + "**°F**", true)
+            .addField("WINDS", `*${thecurrent.winddisplay}* **>>** ${weatherinfo.wind.direction}**°**`, true)
+            .addField("HUMIDITY", thecurrent.humidity + "**%**", true)
             .addField("SUNRISE", weatherinfo.astronomy.sunrise, true)
             .addField("SUNSET", weatherinfo.astronomy.sunset, true)
-            .setFooter(`${current.observationpoint} | SNOW ❆`, bot.user.displayAvatarURL);
+            .setFooter(`${thecurrent.observationpoint} | SNOW ❆`, bot.user.displayAvatarURL);
 
             weatherMessage.edit(weatherEmbed);
 
