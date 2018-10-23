@@ -70,7 +70,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("TOTAL ROLES", message.guild.roles.size, true)
     .addField("TOTAL MEMBERS", message.guild.memberCount, true)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
-    .addField("CURRENT MEMBER PRESENCES", snowonline + " **//** " + onlinemembers + "\n" + snowidle + " **//** " + idlemembers + "\n" + snowdnd + " **//** " + dndmembers + "\n" + snowoffline + " **//**" + offlinemembers)
+    .addField("CURRENT MEMBER PRESENCES", snowonline + " **//** " + onlinemembers + "\n" + snowidle + " **//** " + idlemembers + "\n" + snowdnd + " **//** " + dndmembers + "\n" + snowoffline + " **//** " + offlinemembers)
     .setFooter("SERVER INFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
     message.channel.send(serverinfoEmbed);
