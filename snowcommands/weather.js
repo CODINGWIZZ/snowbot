@@ -18,7 +18,6 @@ module.exports.run = async (bot, message, args) => {
     let celsius = (fahrenheit) => Math.round(((fahrenheit - 32) * 5) / 9);
 
     let weatherinfo = res.body.query.results.channel;
-    let forecast = weatherinfo.item.forecast[0];
 
     weather.find({search: location, degreeType: "F"}, function(err, result) {
 
