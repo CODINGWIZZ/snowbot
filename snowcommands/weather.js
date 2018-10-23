@@ -35,9 +35,6 @@ module.exports.run = async (bot, message, args) => {
             let thecurrent = result[0].current;
             let thelocation = result[0].location;
             
-            if(!thecurrent) return message.channel.send("NOPE**!**");
-            if(!thelocation) return message.channel.send("NOOOPE**!**");
-
             let weatherEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
             .setTimestamp()
