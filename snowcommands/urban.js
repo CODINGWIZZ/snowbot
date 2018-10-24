@@ -10,6 +10,8 @@ module.exports.run = async (bot, message, args) => {
 
     let urbansearch = args.join(" ");
     if(!urbansearch) return message.channel.send("PLEASE ENTER AN ARGUMENT TO SEARCH FOR IN THE URBAN DICTIONARY DATABASE**!**");
+    
+    let urbanlink = `https://www.urbandictionary.com/define.php?term=`;
 
     let res = await urban(urbansearch).catch(e => {
 
@@ -24,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](encode(urbansearch))` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}` + `[More about the word](https://google.com/)`)
+        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](${urbanlink}${encode(urbansearch))}` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}` + `[More about the word](https://google.com/)`)
         .addField("UPVOTES [⇑]", res.thumbsUp)
         .addField("DOWNVOTES [⇓]", res.thumbsDown)
         .addField("WRITTEN BY", res.author)
