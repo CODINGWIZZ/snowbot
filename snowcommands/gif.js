@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         let gifEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("GIF **" + snow.snowflake + "**")
-        .setImage(res.body.data.image_url);
+        .setImage(res.body.data.images_url);
 
         gifMessage.edit(gifEmbed);
 
