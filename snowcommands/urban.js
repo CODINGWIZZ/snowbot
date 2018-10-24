@@ -2,13 +2,12 @@ const Discord = require("discord.js");
 const snow = require("../snow.json");
 
 const urban = require("relevant-urban");
-const encode = require("strict-uri-encode");
 
 let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let urbansearch = encode(args.join(" "));
+    let urbansearch = args.join(" ");
     if(!urbansearch) return message.channel.send("PLEASE ENTER AN ARGUMENT TO SEARCH FOR IN THE URBAN DICTIONARY DATABASE**!**");
     
     let urbanlink = `https://www.urbandictionary.com/define.php?term=${urbansearch}`;
