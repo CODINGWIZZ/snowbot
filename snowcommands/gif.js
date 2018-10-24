@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     let gif = args.join(" ");
     if(!gif) return message.channel.send("PLEASE ENTER A GIF QUERY TO SEARCH FOR**!**");
 
-    const res = await got(`http://api.giphy.com/v1/gifs/search?q=${encode(gif)}&api_key=${API_KEY}`, { json: true });
+    const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encode(gif)}`, { json: true });
 
     message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
 
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         let gifEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("GIF **" + snow.snowflake + "**")
-        .setImage(res.body.data.images_url);
+        .setImage(res.body.data.image_url);
 
         gifMessage.edit(gifEmbed);
 
