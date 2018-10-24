@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         .setDescription("FOX **" + snow.snowflake + "**")
         .setImage(foxlink);
 
-        foxMessage.edit(foxMessage);
+        foxMessage.edit(foxEmbed);
         
     });
 
