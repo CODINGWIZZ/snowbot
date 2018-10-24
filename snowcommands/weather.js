@@ -32,6 +32,12 @@ module.exports.run = async (bot, message, args) => {
 
             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
+            
+            let sunrise = weatherinfo.astronomy.sunrise.replace("am", "**AM**");
+            let sunrise = weatherinfo.astronomy.sunrise.replace("pm", "**PM**");
+            
+            let sunset = weatherinfo.astronomy.sunset.replace("am", "**AM**");
+            let sunset = weatherinfo.astronomy.sunset.replace("pm", "**PM**")
 
             let thecurrent = result[0].current;
             let thelocation = result[0].location;
@@ -44,8 +50,8 @@ module.exports.run = async (bot, message, args) => {
             .addField("FEELS LIKE", `${celsius(thecurrent.feelslike)}**` + "°C //** " + thecurrent.feelslike + "**°F**", true)
             .addField("WINDS", `*${thecurrent.winddisplay}* **>>** ${weatherinfo.wind.direction}**°**`, true)
             .addField("HUMIDITY", thecurrent.humidity + "**%**", true)
-            .addField("SUNRISE", weatherinfo.astronomy.sunrise, true)
-            .addField("SUNSET", weatherinfo.astronomy.sunset, true)
+            .addField("SUNRISE", sunrise, true)
+            .addField("SUNSET", sunset, true)
             .setFooter(`${thecurrent.observationpoint} | SNOW ❆`, bot.user.displayAvatarURL);
 
             weatherMessage.edit(weatherEmbed);
