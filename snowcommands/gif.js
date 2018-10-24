@@ -3,7 +3,7 @@ const snow = require("../snow.json");
 
 const encode = require("strict-uri-encode");
 const got = require("got");
-const API_KEY = "SJBFr7rJmHOiLhZfF2KGGnOGTOqJI0kO7";
+const API_KEY = "dc6zaTOxFJmzC";
 
 let prefix = snow.prefix;
 
