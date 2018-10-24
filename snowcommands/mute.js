@@ -12,7 +12,9 @@ module.exports.run = async (bot, message, args) => {
     if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO MUTE AND THEN HOW LONG**!**");
 
     let mUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!mUser) return message.channel.send("CAN'T FIND USER**!**");
     if(mUser.id === message.author.id) return message.channel.send("YOU CAN NOT MUTE YOURSELF**!**");
+    if(mUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
     if(mUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
     let muterole = message.guild.roles.find(`name`, "MUTED // " + snow.snowflake);
