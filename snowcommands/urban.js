@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const snow = require("../snow.json");
 
 const urban = require("relevant-urban");
+const encode = require("strict-uri-encode");
 
 let prefix = snow.prefix;
 
@@ -23,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](res.urbanURL)` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}` + `[More about the word](https://google.com/)`)
+        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](encode(urbansearch))` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}` + `[More about the word](https://google.com/)`)
         .addField("UPVOTES [⇑]", res.thumbsUp)
         .addField("DOWNVOTES [⇓]", res.thumbsDown)
         .addField("WRITTEN BY", res.author)
