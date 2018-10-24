@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     
         mapsMessage.edit("**FINISHED!**\n" + `<${mapslink}>`);
     
-    }
+    });
 
 }
 
