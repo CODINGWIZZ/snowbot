@@ -12,6 +12,7 @@ module.exports.run = async (bot, message, args) => {
     let tdUser = message.guild.member(message.mentions.users.fist() || message.guild.members.get(args[0]));
     if(!tdUser) return message.channel.send("CAN'T FIND USER**!**");
     if(tdUser === message.guild.id) return message.channel.send("YOU CAN NOT TEMPDEAFEN YOURSELF**!**");
+    if(tdUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE TEMPDEAFENED**!**");
     if(tdUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT TEMPDEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
     let tempdeafenrole = message.guild.roles.find(`name`, "DEAFENED // " + snow.snowflake);
