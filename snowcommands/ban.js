@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     if(dUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
     message.guild.member(bUser).ban(banreason);
-    message.channel.send(`${bUser} HAS BEEN **BANNED** BY ${message.author} BECAUSE**: ${banreason}!**`);
+    message.channel.send(`${bUser} HAS BEEN **BANNED** BY ${message.author} BECAUSE**: ${banreason}**`);
 
     let banEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
