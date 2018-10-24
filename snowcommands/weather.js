@@ -33,11 +33,8 @@ module.exports.run = async (bot, message, args) => {
             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
             
-            let sunrise = weatherinfo.astronomy.sunrise.replace("am", "**AM**");
-            let sunrise = weatherinfo.astronomy.sunrise.replace("pm", "**PM**");
-            
-            let sunset = weatherinfo.astronomy.sunset.replace("am", "**AM**");
-            let sunset = weatherinfo.astronomy.sunset.replace("pm", "**PM**")
+            let sunrise = weatherinfo.astronomy.sunrise.replace;
+            let sunset = weatherinfo.astronomy.sunset.replace;
 
             let thecurrent = result[0].current;
             let thelocation = result[0].location;
