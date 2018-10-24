@@ -22,11 +22,11 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
         
-        if(res.definition + res.example > 2000) return urbanMessage.edit("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
+        if(res.definition.length + res.example.length > 2000) return urbanMessage.edit("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](${urbanlink}${encode(urbansearch))}` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}` + `[More about the word](https://google.com/)`)
+        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + `[${res.word}](${urbanlink} encode(urbansearch)}` + "**\n\n**DEFINITION:**\n" + `${res.definition}\n\n**EXAMPLE:**\n${res.example}` + `[More about the word](https://google.com/)`)
         .addField("UPVOTES [⇑]", res.thumbsUp)
         .addField("DOWNVOTES [⇓]", res.thumbsDown)
         .addField("WRITTEN BY", res.author)
