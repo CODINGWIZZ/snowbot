@@ -51,8 +51,7 @@ bot.on("ready", async () => {
     
     const statuses = [
         "SNOW | s!",
-        "bit.do/snowbot",
-        "discordsnowbot.weebly.com"
+        `${bot.guilds.size} SERVERS`
     ];
 
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
@@ -63,8 +62,8 @@ bot.on("ready", async () => {
     setInterval(() => {
         const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
         bot.user.setGame(statuses[index], "https://twitch.tv/WIZZ_SNOW");
-        
-    }, 5000);
+            
+    }, 10000);
 
 });
 
