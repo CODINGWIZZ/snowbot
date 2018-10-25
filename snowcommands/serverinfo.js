@@ -64,7 +64,7 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail(message.guild.iconURL)
     .addField("OWNER", message.guild.owner + ` **//** **(** ${message.guild.owner.id} **)**`)
     .addField("VERTIFICATION LEVEL", vertification[message.guild.verificationLevel])
-    .addField("CREATED", message.guild.createdAt.toDateString(), true)
+    .addField("CREATED", message.guild.createdAt.toDateString().toUpperCase(), true)
     .addField("REGION", message.guild.region.toUpperCase(), true)
     .addField("CHANNELS", message.guild.channels.size, true)
     .addField("TOTAL ROLES", message.guild.roles.size, true)
