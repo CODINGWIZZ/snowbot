@@ -58,13 +58,13 @@ bot.on("ready", async () => {
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
 
     bot.user.setStatus("ONLINE");
-    bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZ_SNOW");
+    // bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZ_SNOW");
     
     setInterval(() => {
         const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
-        bot.user.setActivity(statuses[index]);
+        bot.user.setGame(statuses[index], "https://twitch.tv/WIZZ_SNOW");
         
-    }, 10000);
+    }, 5000);
 
 });
 
