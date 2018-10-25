@@ -64,7 +64,7 @@ bot.on("ready", async () => {
         const index = Math.floor(Math.random() * (statuses.length - 1) + 1);
         bot.user.setActivity(statuses[index]);
         
-    ), 10000};
+    }, 10000);
 
 });
 
