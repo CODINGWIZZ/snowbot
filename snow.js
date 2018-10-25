@@ -51,7 +51,8 @@ bot.on("ready", async () => {
     
     const statuses = [
         "SNOW | s!",
-        `${bot.guilds.size} SERVERS`
+        "SNOW | s!help",
+        "SNOW | WIZZ"
     ];
 
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
