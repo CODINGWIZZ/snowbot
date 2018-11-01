@@ -5,7 +5,7 @@ const superagent = require("superagent");
 
 module.exports.run = async (bot, message, args) => {
 
-    let { body } = await superagent
+    let { body, header } = await superagent
     .get(`http://shibe.online/api/birds`);
     
     message.channel.send("GENERATING DOG IMAGE **...**").then((birdMessage) => {
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         let birdEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("BIRD **" + snow.snowflake + "**")
-        .setImage(body.url);
+        .setImage(body.file);
         
         birdMessage.edit(birdEmbed);
     
