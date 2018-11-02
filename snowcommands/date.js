@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     let dateEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(weekday.toUpperCase() + " " + d.toUpperCase() + " **" + date.toUTCString().slice(16) + "**");
+    .setDescription(weekday.toUpperCase() + " " + d.toUpperCase() + " **" + date.toUTCString().slice(16).replace("GMT", "ZULU") + "**");
 
     message.channel.send(dateEmbed);
 
