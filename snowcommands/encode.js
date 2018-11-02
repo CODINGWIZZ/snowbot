@@ -12,8 +12,7 @@ module.exports.run = async (bot, message, args) => {
     
         let encodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription(encodemessage)
-        .setFooter("ENCODE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+        .setDescription(encodemessage);
         
         encodeMessage.edit(encodeEmbed);
     
