@@ -207,15 +207,6 @@ bot.on("message", async message => {
 
     }
 
-    if(cmd === `${prefix}flipcoin` || cmd === `${prefix}coin`) {
-
-        let coin = ["HEADS", "TAILS"];
-        let coinrandom = Math.floor((Math.random()) * coin.length);
-
-        message.channel.send(`**${message.author.username},** I FLIPPED **${coin[coinrandom]}!**`);
-
-    }
-
     if(cmd === `${prefix}randomimage` || cmd === `${prefix}randompicture`) {
 
         let randomimage = Math.floor(((Math.random()) * 1050) + 1);
