@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     let colorEmbed = new Discord.RichEmbed()
     .setColor(color)
     .setAuthor(`#${color.toUpperCase()}`, `https://dummyimage.com/250/${color}/&text=%20`)
-    .setDescription(`[[**INFORMATION**]](https://colorhexa.com/${color})` + "\n\n" + `**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
+    .setDescription(`[**[INFORMATION]**](https://colorhexa.com/${color})` + "\n\n" + `**RGB**\n${convert.hex.rgb(color)}\n\n**HSL**\n${convert.hex.hsl(color)}\n\n**CSS**\n${convert.hex.keyword(color).toUpperCase()}`)
     .setFooter("COLOR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
     message.channel.send(colorEmbed);
