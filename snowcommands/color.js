@@ -7,12 +7,7 @@ let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let color = args[0];
-    if(color.starsWith("#")) {
-    
-       color.replace("#", "");
-       
-    };
+    let color = args[0].replace("#", "");
         
     if(!color) return message.channel.send("PLEASE ENTER A HEX COLOR THAT YOU WANT TO CHECK**!**");
 
