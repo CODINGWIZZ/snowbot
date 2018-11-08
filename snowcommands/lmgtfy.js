@@ -7,7 +7,7 @@ let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let lmgtfy = args.join(" ", "+");
+    let lmgtfy = encode(args.join(" "));
     if(!lmgtfy) return message.channel.send("PLEASE ENTER A QUERY THAT YOU WANT TO MAKE WITH LMGTFY**!**");
     
     let lmgtfylink = `https://lmgtfy.com/?q=${lmgtfy}`;
