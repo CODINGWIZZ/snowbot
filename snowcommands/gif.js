@@ -16,17 +16,23 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
 
-        if(!res || !res.body.data) return gifMessage.edit("FAILED TO LOAD GIF**!**");
+        if(!res || !res.body.data) {
+            
+            return gifMessage.edit("FAILED TO LOAD GIF**!**");
+            
+        } else {
+            
+            let gifEmbed = new Discord.RichEmbed()
+            .setColor(snow.blue)
+            .setDescription("GIF **" + snow.snowflake + "**")
+            .setImage(res.body.data.image_url);
 
-        let gifEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription("GIF **" + snow.snowflake + "**")
-        .setImage(res.body.data.image_url);
-
-        gifMessage.edit(gifEmbed);
+            gifMessage.edit(gifEmbed);
+            
+        }
 
     });
-
+    
 }
 
 module.exports.help = {
