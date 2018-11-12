@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     let countryURL = country => `https://restcountries.eu/rest/v2/name/${country}`
     let res = await got(countryURL(country), { json: true });
     
-    message.channel.send("GENRERATING COUNTRY INFO **...**").then((countryMessage => {
+    message.channel.send("GENRERATING COUNTRY INFO **...**").then((countryMessage) => {
     
         if(!res) return countryMessage.edit("COULDN'T FIND THAT COUNTRY IN THE DATABASE**!**");
         
