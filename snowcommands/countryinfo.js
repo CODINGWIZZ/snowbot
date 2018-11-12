@@ -17,15 +17,15 @@ module.exports.run = async (bot, message, args) => {
         
         let countryEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setTitle(res.name.toUpperCase(), res.flag)
+        .setTitle(res.name, res.flag)
         .addField("CAPITAL", res.capital)
         .addField("POPULATION", res.population)
         .addField("AREA", res.area)
         .addField("TIMEZONE**S**", res.timezones)
-        .addField("NATIVE NAME", res.nativeName.toUpperCase())
-        .addField("DENONYM", res.denonym.toUpperCase())
-        .addField("REGION", res.region.toUpperCase())
-        .addField("SUBREGION", res.subregion.toUpperCase())
+        .addField("NATIVE NAME", res.nativeName)
+        .addField("DENONYM", res.denonym)
+        .addField("REGION", res.region)
+        .addField("SUBREGION", res.subregion)
         .setFooter("COUNTRYINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(countryEmbed);
