@@ -2,10 +2,11 @@ const Discord = require("discord.js");
 const snow = require("../snow.json");
 
 const got = require("got");
+const encode = require("strict-uri-encode");
 
 module.exports.run = async (bot, message, args) => {
 
-    let country = args.join(" ");
+    let country = encode(args.join(" "));
     if(!country) return message.channel.send("PLEASE ENTER A COUNTRY YOU WANT TO SEE INFO ABOUT**!**");
     
     let countryURL = country => `https://restcountries.eu/rest/v2/name/${country}`
