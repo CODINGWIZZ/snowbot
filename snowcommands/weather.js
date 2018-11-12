@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("HUMIDITY", thecurrent.humidity + "**%**", true)
             .addField("SUNRISE", sunrise, true)
             .addField("SUNSET", sunset, true)
-            .setFooter(`${thecurrent.observationpoint} | SNOW ❆`, bot.user.displayAvatarURL);
+            .setFooter(`${thecurrent.observationpoint.toUpperCase()} | SNOW ❆`, bot.user.displayAvatarURL);
 
             weatherMessage.edit(weatherEmbed);
 
