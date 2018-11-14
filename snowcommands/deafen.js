@@ -51,8 +51,6 @@ module.exports.run = async (bot, message, args) => {
 
     await(dUser.addRole(deafenrole.id));
     message.channel.send(`${dUser} HAS BEEN **DEAFENED** FOR **${ms(ms(deafentime))}!**`);
-    message.dUser.setDeaf(true);
-
     let deafenEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setTimestamp()
@@ -84,7 +82,6 @@ module.exports.run = async (bot, message, args) => {
 
         if(!dUser.roles.has(deafenrole.id)) return;
         dUser.removeRole(deafenrole.id);
-        message.dUser.setDeaf(false);
         snowlog1.send(autoundeafenEmbed);
  
     }, ms(deafentime));
