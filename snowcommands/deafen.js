@@ -50,7 +50,7 @@ module.exports.run = async (bot, message, args) => {
     if(!deafentime) return message.channel.send("PLEASE SPECIFY HOW LONG THIS USER SHOULD BE DEAFENED**!**");
 
     await(dUser.addRole(deafenrole.id));
-    message.channel.send(`${dUser} HAS BEEN **DEAFENED** FOR **${ms(ms(mutetime))}!**`);
+    message.channel.send(`${dUser} HAS BEEN **DEAFENED** FOR **${ms(ms(deafentime))}!**`);
     message.dUser.setDeaf(true);
 
     let deafenEmbed = new Discord.RichEmbed()
@@ -60,7 +60,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("USER", dUser)
     .addField("MODERATOR", message.author)
     .addField("CHANNEL", message.channel)
-    .addField("DURATION", ms(ms(mutetime)))
+    .addField("DURATION", ms(ms(deafentime)))
     .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
     let snowlog = message.guild.channels.find(`name`, "snow");
@@ -74,7 +74,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("UNDEAFEN **" + snow.snowflake + "**")
     .addField("USER", dUser)
     .addField("MODERATOR", `<@${bot.user.id}>`)
-    .addField("DURATION", ms(ms(mutetime)))
+    .addField("DURATION", ms(ms(deafentime)))
     .setFooter("SNOW " + snow.snowflake, bot.uer.displayAvatarURL);
 
     let snowlog1 = message.guild.channels.find(`name`, "snow");
@@ -87,7 +87,7 @@ module.exports.run = async (bot, message, args) => {
         message.dUser.setDeaf(false);
         snowlog1.send(autoundeafenEmbed);
  
-    }, ms(mutetime));
+    }, ms(deafentime));
 
 }
 
