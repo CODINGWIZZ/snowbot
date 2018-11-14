@@ -54,7 +54,7 @@ module.exports.run = async (bot, message, args) => {
     let deafenEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setTimestamp()
-    .setDescription("DEAFEN **" + snow.snowflake)
+    .setDescription("DEAFEN **" + snow.snowflake + "**")
     .addField("USER", dUser)
     .addField("MODERATOR", message.author)
     .addField("CHANNEL", message.channel)
