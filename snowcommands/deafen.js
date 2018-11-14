@@ -73,7 +73,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("USER", dUser)
     .addField("MODERATOR", `<@${bot.user.id}>`)
     .addField("DURATION", ms(ms(deafentime)))
-    .setFooter("SNOW " + snow.snowflake, bot.uer.displayAvatarURL);
+    .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
     let snowlog1 = message.guild.channels.find(`name`, "snow");
     if(!snowlog1) return;
