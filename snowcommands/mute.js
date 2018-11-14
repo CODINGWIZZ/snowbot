@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
 
     let muteEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setTimestam()
+    .setTimestamp()
     .setDescription("MUTE **" + snow.snowflake + "**")
     .addField("USER", mUser)
     .addField("MODERATOR", message.author)
