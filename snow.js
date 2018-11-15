@@ -252,7 +252,7 @@ bot.on("message", async message => {
         .setDescription("VOTE **" + snow.snowflake + "\n//**\n" + vote)
         .setFooter("VOTE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
-        let voteMessage = await message.channel.send(voteEmbed);
+        let voteMessage = await message.channel.send(voteEmbed + "\n\n**(** VOTE STARTED BY **" + message.member.username + " )**");
         await voteMessage.react(thumbsup);
         await voteMessage.react(thumbsdown);
         await voteMessage.react(perhaps);
