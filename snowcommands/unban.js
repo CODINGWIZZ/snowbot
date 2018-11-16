@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     if(!unbanreason) return message.channel.send("PLEASE ENTER A REASON FOR THE UNBAN**!**");
     
     guild.unban(userid)
-        .then(user => message.channel.send("**" + user.username + "** HAS BEEN **UNBANNED** FROM **" + guild + "!**"));
+        .then(user => message.channel.send("**" + user.username + "** HAS BEEN **UNBANNED** FROM **" + guild + "!**");
 
 module.exports.help = {
     name: "unban"
