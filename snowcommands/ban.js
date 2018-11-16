@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THAT USER CAN'T BE BANNED**!**");
     let banreason = args.slice(1).join(" ");
     if(!banreason) return message.channek.send("PLEASE INCLUDE A REASON FOR THE BAN**!**");
-    if(dUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
+    if(bUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
     message.guild.member(bUser).ban(banreason);
     message.channel.send(`${bUser} HAS BEEN **BANNED** BY ${message.author} BECAUSE**: ${banreason}**`);
