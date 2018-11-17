@@ -18,7 +18,7 @@ const fs = require('fs');
   let Image = Canvas.Image,
     canvas = new Canvas(520, 283),
     ctx = canvas.getContext('2d');
-  fs.readFile('./images/deathnote.png', (err, image) => {
+  fs.readFile('./images/DEATHNOTE.png', (err, image) => {
     if (err) return console.log(err);
       let img = new Image
       img.src = image;
