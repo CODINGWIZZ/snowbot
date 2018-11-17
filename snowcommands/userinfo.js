@@ -35,11 +35,15 @@ module.exports.run = async (bot, message, args) => {
                  
                     theroles.push(r.name);
                     
-                } else {
-                 
-                    theroles = "NO ROLES";
-                    
                 }
+                    
+                })
+            
+        } else {
+         
+            theroles = "no";
+            
+        }
                 
             });
             
