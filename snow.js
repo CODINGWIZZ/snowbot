@@ -8,7 +8,7 @@ const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
-const snowjson = require("./packages.json");
+const snowjson = require("./package.json");
 
 const moment = require("moment");
 require("moment-duration-format");
