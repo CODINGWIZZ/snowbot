@@ -68,8 +68,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("REGION", message.guild.region.toUpperCase(), true)
     .addField("TOTAL ROLES", message.guild.roles.size, true)
     .addField("TOTAL MEMBERS", message.guild.memberCount, true)
-    .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
     .addField("CHANNELS", message.guild.channels.size + "\n\n **TEXT CHANNELS:** " + message.guild.channels.filter(tc => tc.type === "text").size + "\n **VOICE CHANNELS:** " + message.guild.channels.filter(vc => vc.type === "voice").size, true)
+    .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
     .addField("CURRENT MEMBER PRESENCES", snowonline + " **//** " + onlinemembers + "\n" + snowidle + " **//** " + idlemembers + "\n" + snowdnd + " **//** " + dndmembers + "\n" + snowoffline + " **//** " + offlinemembers)
     .setFooter("SERVER INFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
