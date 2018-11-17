@@ -8,6 +8,8 @@ const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
+const snowjson = require("./packages.json");
+
 const moment = require("moment");
 require("moment-duration-format");
 
@@ -269,7 +271,7 @@ bot.on("message", async message => {
         .setDescription("SNOW **" + snow.snowflake + "**")
         .addField("BOT NAME", "**" + snow.name + "**#" + bot.user.discriminator + " **(** " + bot.user.id + " **)**")
         .addField("DEVELOPER", "**" + snow.dev + "**#7897")
-        .addField("PREFIX // VERSION", "`s!` **// " + snow.version + "**", true)
+        .addField("PREFIX // VERSION", "`s!` **//** " + snowjson.version, true)
         .addField("DISCORD VERSION", "`" + discordVersion + "`", true)
         .addField("NODE.JS VERSION", "`" + process.version.replace("v", "") + "`", true)
         .addField("MEMORY", memoryusage)
