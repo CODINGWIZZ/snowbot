@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         let unbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("UNBAN **" + snow.snowflake + "**")
-        .addField("USER", unbanuser + " **// " + unbanuser.username + "**#" + unbanuser.discriminator)
+        .addField("USER", unbanuser)
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
         .addField("REASON", unbanreason)
