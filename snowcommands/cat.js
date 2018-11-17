@@ -8,14 +8,14 @@ let prefix = snow.prefix;
 module.exports.run = async (bot, message, args) => {
 
     const { body, header } = await superagent
-    .get("http://thecatapi.com/api/images/get?format=xml");
+    .get("https://aws.random.cat/meow");
 
     message.channel.send("GENERATING CAT IMAGE **...**").then((catMessage) => {
 
         let catEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("CAT **" + snow.snowflake + "**")
-        .setImage(body.url);
+        .setImage(body.file);
 
 
         catMessage.edit(catEmbed);
