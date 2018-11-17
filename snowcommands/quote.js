@@ -15,7 +15,7 @@ module.exports.run = async(bot, message, args) => {
         
         let quoteEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription(thequote.body.quoteText + "\n\n" + "**── " + thequote.body.quoteAuthor.toUpperCase() + "**")
+        .setDescription(thequote.body.quoteText + "\n\n" + "**─ " + thequote.body.quoteAuthor.toUpperCase() + "**")
         .setFooter("QUOTE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(quoteEmbed);
