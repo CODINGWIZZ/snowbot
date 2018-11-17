@@ -5,7 +5,7 @@ const fetch = require("snekfetch");
 
 module.exports.run = async(bot, message, args) => {
 
-    fetch.get("http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en").then((thequote => {
+    fetch.get("http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en").then((thequote) => {
     
         if(thequote.body.quoteText === undefined) {
         
