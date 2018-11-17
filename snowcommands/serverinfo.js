@@ -66,7 +66,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("VERTIFICATION LEVEL", vertification[message.guild.verificationLevel])
     .addField("CREATED", message.guild.createdAt.toDateString().toUpperCase(), true)
     .addField("REGION", message.guild.region.toUpperCase(), true)
-    .addField("CHANNELS", message.guild.channels.size + "\n **TEXT CHANNELS:**" + message.guild.channels.filter(tc => tc.type === "text").size + "\n **VOICE CHANNELS:**" + message.guild.channels.filter(vc => vc.type === "voice").size, true)
+    .addField("CHANNELS", message.guild.channels.size + "\n\n **TEXT CHANNELS:** " + message.guild.channels.filter(tc => tc.type === "text").size + "\n **VOICE CHANNELS:** " + message.guild.channels.filter(vc => vc.type === "voice").size, true)
     .addField("TOTAL ROLES", message.guild.roles.size, true)
     .addField("TOTAL MEMBERS", message.guild.memberCount, true)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
