@@ -25,6 +25,9 @@ module.exports.run = async (bot, message, args) => {
         
         let user = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
         let member = message.guild.member(user);
+        
+        let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role.name);  
+        if(roles.length < 1) roles = ["NONE"];
          
         let thenickname = member.nickname !== null ? member.nickname : "NONE";
  
@@ -34,6 +37,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
         .addField("NICKNAME", thenickname)
+        .addField("ROLES", roles.join(", "))
         .addField("STATUS", `${status[user.presence.status]}`)
         .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
         .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
