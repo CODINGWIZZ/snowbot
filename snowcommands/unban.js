@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let user = args[0];
     if(!user) return message.channel.send("PLEASE ENTER A USER RESOLVABLE, LIKE A ID OF THE USER YOU WANT TO UNBAN AND THEN A REASON**!**");
     
-    if(userid === message.author.id) return message.channel.send("YOU CAN'T UNBAN YOURSELF FROM A SERVER THAT YOU ALREADY ARE IN**!**");
+    if(user === message.author.id) return message.channel.send("YOU CAN'T UNBAN YOURSELF FROM A SERVER THAT YOU ALREADY ARE IN**!**");
     
     let unbanreason = args.slice(1).join(" ");
     if(!unbanreason) return message.channel.send("PLEASE ENTER A REASON FOR THE UNBAN**!**");
