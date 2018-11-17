@@ -9,11 +9,10 @@ module.exports.run = async(bot, message, args) => {
     
         let issEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("ISS **" + snow.snowflake + "**")
+        .setDescription("ISS **" + snow.snowflake + "**\n" + `[**ISS ON THE MAP**](https://maps.google.com/maps?q=${iss.body.latitude},${iss.body.longitude})`)
         .addField("LOCATION", iss.body.latitude + ", " + iss.body.longitude)
         .addField("ALTITUDE", iss.body.altitude)
         .addField("VISIBILITY", iss.body.visibility.toUpperCase())
-        .addField("ISS ON MAP", `https://maps.google.com/maps?q=${iss.body.latitude},${iss.body.longitude}`)
         .setFooter("ISS | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(issEmbed);
