@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) => {
      
     let Image = Canvas.Image,
       canvas = new Canvas(520, 283),
-      ctx: canvas.getContext("2d");
+      ctx = canvas.getContext("2d");
     fs.readFile("../images/deathnote.png", (err, image) => {
     
         if(err) return console.log(err);
