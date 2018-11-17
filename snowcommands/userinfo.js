@@ -25,14 +25,14 @@ module.exports.run = async (bot, message, args) => {
         
         let user = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
          
-        let nickname = user.nickname !== null ? user.nickname : user.username;
+        let thenickname = user.nickname !== null ? user.nickname : user.username;
  
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("USER INFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
-        .addField("NICKNAME", nickname)
+        .addField("NICKNAME", thenickname)
         .addField("STATUS", `${status[user.presence.status]}`)
         .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
         .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
