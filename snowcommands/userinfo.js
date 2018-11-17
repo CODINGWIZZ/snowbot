@@ -22,14 +22,41 @@ module.exports.run = async (bot, message, args) => {
             offline: `${snowoffline} **//** OFFLINE`
 
         };
-
+        
         let user = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
-
+        let member = message.guild.member(user);
+        
+        let theroles = [];
+        if(member.roles.size > 0) {
+         
+            member.roles.forEach(r => {
+                
+                if(!r.name.includes("everyone")) {
+                 
+                    theroles.push(r.name);
+                    
+                } else {
+                 
+                    theroles = "NO ROLES";
+                    
+                }
+                
+            });
+            
+        }
+        
+        let roles = member.roles.size > 0 ? roles.length : "0";
+        let currentroles = roles.length > 0 ? roles.join(", ") : "NO ROLES";
+        
+        let nickname = user.nickname !== null ? user.nickname : "NONE";
+ 
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("USER INFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
+        .addField("ROLES [" + roles + "]", currentroles)
+        .addField("NICKNAME", nickname)
         .addField("STATUS", `${status[user.presence.status]}`)
         .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
         .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
