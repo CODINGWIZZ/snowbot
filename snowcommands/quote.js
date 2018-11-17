@@ -9,7 +9,7 @@ module.exports.run = async(bot, message, args) => {
     
         if(thequote.body.quoteText === undefined) {
         
-            return message.channel.send("COULDN'T LOAD THE QUOTE**!**");
+            return message.channel.send("COULDN'T LOAD THE QUOTE**!** PLEASE TRY AGAIN**!**");
         
         }
         
