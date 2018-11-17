@@ -45,8 +45,8 @@ module.exports.run = async (bot, message, args) => {
             
         }
         
-        let roles = member.roles.size > 0 ? roles.length : "0";
-        let currentroles = roles.length > 0 ? roles.join(", ") : "NO ROLES";
+        let roles = member.theroles.size > 0 ? theroles.length : "0";
+        let currentroles = theroles.length > 0 ? theroles.join(", ") : "NO ROLES";
         
         let nickname = user.nickname !== null ? user.nickname : "NONE";
  
