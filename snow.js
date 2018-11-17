@@ -274,7 +274,7 @@ bot.on("message", async message => {
         .addField("PREFIX // VERSION", "`s!` **//** " + snowpackage.version, true)
         .addField("DISCORD VERSION", "`" + discordVersion + "`", true)
         .addField("NODE.JS VERSION", "`" + process.version.replace("v", "") + "`", true)
-        .addField("MEMORY", memoryusage)
+        .addField("MEMORY // COMMANDS", memoryusage + " **//** " + snow.commands)
         .addField("UPTIME", uptime)
         .addField("WEBSITE", "https://discordsnowbot.weebly.com/")
         .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
