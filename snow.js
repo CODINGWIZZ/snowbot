@@ -263,7 +263,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snow` || cmd === `${prefix}`) {
 
-        let uptime = moment.duration(bot.uptime).format(" D [DAY**S**], H [HOUR**S**], m [MINUTE**S**], s [SECOND**S**]");
+        let uptime = moment.duration(bot.uptime).format(" D[**D**], H[**H**], m[**M**], s[**S**]");
         let memoryusage = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} \`MB\``;
 
         let snowEmbed = new Discord.RichEmbed()
