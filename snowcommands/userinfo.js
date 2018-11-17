@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
         let user = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
         let member = message.guild.member(user);
          
-        let thenickname = member.nickname !== null ? member.nicknane : "NONE";
+        let thenickname = member.nickname !== null ? member.nickname : "NONE";
  
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
