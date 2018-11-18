@@ -251,7 +251,7 @@ bot.on("message", async message => {
 
         let voteEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("VOTE **" + snow.snowflake + "\n//**\n" + vote + "\n\n **(** VOTE STARTED BY **" + message.author.username + " )**")
+        .setDescription("VOTE **" + snow.snowflake + "\n//**\n" + vote)
         .setFooter("VOTE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
         let voteMessage = await message.channel.send(voteEmbed);
