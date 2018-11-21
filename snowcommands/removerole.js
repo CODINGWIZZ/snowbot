@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     if(!rrRole) return message.channel.send("CAN'T FIND ROLE**!**");
 
     if(rrUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT REMOVE A ROLE FROM A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
-    if(rrUser.roles.has(rrRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
+    if(!rrUser.roles.has(rrRole.id)) return message.channel.send("THAT USER DOESN'T HAVE THAT ROLE**!**");
 
     await(rrUser.removeRole(rrRole.id)).then(() => {
 
