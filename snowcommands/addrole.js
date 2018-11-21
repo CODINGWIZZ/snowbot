@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
         .setDescription("ADD ROLE **" + snow.snowflake + "**")
         .setTimestamp()
         .addField("USER", arUser)
-        .addField("ROLE", arRole)
+        .addField("ROLE", "**" + arRole + "**")
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
