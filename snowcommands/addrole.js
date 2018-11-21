@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     let arRole = message.guild.roles.find(`name`, role);
     if(!arRole) return message.channel.send("CAN'T FIND ROLE**!**");
 
-    if(arUser.highestRole.position >= message.member.higestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
+    if(arUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
     if(arUser.roles.has(arRole.id)) return message.channel.send("THAT USER ALREADY HAS THAT ROLE**!**");
 
     await(arUser.addRole(arRole.id)).then(() => {
