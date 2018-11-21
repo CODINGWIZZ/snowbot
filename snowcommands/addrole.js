@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
         let addroleEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("ADD ROLE " + snow.snowflake + "**")
+        .setDescription("ADD ROLE **" + snow.snowflake + "**")
         .setTimestamp()
         .addField("USER", arUser)
         .addField("ROLE", arRole)
