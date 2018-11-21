@@ -67,7 +67,7 @@ bot.on("guildMemberAdd", joinmember => {
     
     let guildmemberaddextraEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription(`**${joinmember.username}**#${joinmember.discriminator} HAS JOINED **${joinmember.guild.name}!**`)
+    .setDescription(`**${joinmember.user.username}**#${joinmember.user.discriminator} HAS JOINED **${joinmember.guild.name}!**`)
     .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
     
     bot.channels.get("412307890830049280").send(guildmemberaddextraEmbed);
