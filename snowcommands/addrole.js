@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO ADD A ROLE TO**!**");
 
-    let arUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]);
+    let arUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!arUser) return message.channel.send("CAN'T FIND USER**!**");
 
     let role = args.slice(1).join(" ");
