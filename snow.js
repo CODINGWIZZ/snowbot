@@ -65,10 +65,11 @@ bot.on("guildMemberAdd", joinmember => {
     .setDescription(`${joinmember} HAS JOINED **${joinmember.guild.name}!**`)
     .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
 
-    let snowlog = joinmember.guild.channels.find(`name`, "snow" || "bot-spam");
+    let snowlog = joinmember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
     
     snowlog.send(guildmemberaddEmbed);
+    bot.guild.channels.get("412307890830049280").send(guildmemberaddEmbed);
 
 });
 
@@ -79,10 +80,11 @@ bot.on("guildMemberRemove", leavemember => {
     .setDescription(`**${leavemember.user.username}**#${leavemember.user.discriminator} HAS LEFT **${leavemember.guild.name}!**`)
     .setFooter(`[⇓] ${leavemember.guild.memberCount} MEMBERS`);
 
-    let snowlog = leavemember.guild.channels.find(`name`, "snow" || "bot-spam");
+    let snowlog = leavemember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
 
     snowlog.send(guildmemberremoveEmbed);
+    bot.guild.channels.get("412307890830049280").send(guildmemberremoveEmbed);
 
 });
 
