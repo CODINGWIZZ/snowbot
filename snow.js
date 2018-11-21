@@ -69,7 +69,7 @@ bot.on("guildMemberAdd", joinmember => {
     if(!snowlog) return;
     
     snowlog.send(guildmemberaddEmbed);
-    bot.guild.channels.get("412307890830049280").send(guildmemberaddEmbed);
+    bot.channels.get("412307890830049280").send(guildmemberaddEmbed);
 
 });
 
@@ -84,7 +84,7 @@ bot.on("guildMemberRemove", leavemember => {
     if(!snowlog) return;
 
     snowlog.send(guildmemberremoveEmbed);
-    bot.guild.channels.get("412307890830049280").send(guildmemberremoveEmbed);
+    bot.channels.get("412307890830049280").send(guildmemberremoveEmbed);
 
 });
 
