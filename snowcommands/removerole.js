@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
 
-    if(!args[0]) return message.channel.send("PLEASE MENTIOON A USER THAT YOU WANT TO REMOVE A ROLE FROM**!**");
+    if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO REMOVE A ROLE FROM**!**");
 
     let rrUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!rrUser) return message.channel.send("CAN'T FIND USER**!**");
