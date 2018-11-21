@@ -65,7 +65,12 @@ bot.on("guildMemberAdd", joinmember => {
     .setDescription(`${joinmember} HAS JOINED **${joinmember.guild.name}!**`)
     .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
     
-    bot.channels.get("412307890830049280").send(guildmemberaddEmbed);
+    let guildmemberaddextraEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
+    .setDescription(`**${joinmember.username}**#${joinmember.discriminator} HAS JOINED **${joinmember.guild.name}!**`)
+    .setFooter(`[⇑] ${joinmember.guild.memberCount} MEMBERS`);
+    
+    bot.channels.get("412307890830049280").send(guildmemberaddextraEmbed);
 
     let snowlog = joinmember.guild.channels.find(`name`, "snow");
     if(!snowlog) return;
