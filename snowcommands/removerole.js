@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
         let removeroleEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("REMOVE ROLE **" + snow.snowflake + "**")
-        .setTimestamp()
+        .setTimestamp().toUpperCase()
         .addField("USER", rrUser)
         .addField("ROLE", "**" + rrRole + "**")
         .addField("MODERATOR", message.author)
