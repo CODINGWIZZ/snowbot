@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
     let snowlog1 = message.guild.channels.find(`name`, "snow");
     if(!snowlog1) return;
     
-    snowlog.send(clearEmbed);
+    snowlog1.send(clearEmbed);
 
 }
 
