@@ -13,19 +13,22 @@ module.exports.run = async (bot, message, args) => {
     if(amount === 0) {
     
         message.channel.bulkDelete("99").then(() => {
-            message.channel.send(`CLEARED **99** MESSAGES**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));   
+            message.channel.send(`CLEARED **99** MESSAGES**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));
+            
+            let clearallEmbed = new Discord.RichEmbed()
+            .setColor(snow.blue)
+            .setDescription("CLEAR **" + snow.snowflake + "**")
+            .addField("AMOUNT", "`99`")
+            .addField("MODERTOR", message.author)
+            .addField("CHANNEL", message.channel)
+            .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+        
+            let snowlog = message.guild.channels.find(`name`, "snow");
+            if(!snowlog) return;
+            
+            snowlog.send(clearallEmbed);
+            
         });
-        
-        let clearallEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription("CLEAR **" + snow.snowflake + "**")
-        .addField("AMOUNT", "`99`")
-        .addField("MODERTOR", message.author)
-        .addField("CHANNEL", message.channel)
-        .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
-        
-        let snowlog = message.guild.channels.find(`name`, "snow");
-        if(!snowlog) return;
        
     }
     
