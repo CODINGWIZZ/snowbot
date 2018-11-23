@@ -11,9 +11,21 @@ module.exports.run = async (bot, message, args) => {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
         if(amount < 0) return message.channel.send("CANNOT DELETE A NEGATIVE NUMBER OF MESSAGES**!**");
         if(amount > 99) return message.channel.send("CAN ONLY DELETE **99** MESSAGES MAX**!**");
+        
+        let messages = "MESSAGES";
+        
+        if(amount === "1") {
+         
+            messages = "MESSAGE";
+            
+        } else {
+         
+            messages = "MESSAGES";
+            
+        }
     
         message.channel.bulkDelete(args[0]).then(() => {
-            message.channel.send(`CLEARED **${args[0]}** MESSAGES**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));
+            message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));
         });
     
         let clearEmbed = new Discord.RichEmbed()
