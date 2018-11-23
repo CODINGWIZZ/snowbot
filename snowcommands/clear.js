@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         
         let messages = "MESSAGES";
         
-        if(amount === "1") {
+        if(amount === 1) {
          
             messages = "MESSAGE";
             
