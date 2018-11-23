@@ -13,11 +13,20 @@ module.exports.run = async (bot, message, args) => {
     if(amount === 0) {
     
         message.channel.bulkDelete("99").then(() => {
-            message.channel.send(`CLEARED **${args[0]}** MESSAGES**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));   
+            message.channel.send(`CLEARED **99** MESSAGES**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));   
         });
         
-        return;
+        let clearallEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("CLEAR **" + snow.snowflake + "**")
+        .addField("AMOUNT", "`99`")
+        .addField("MODERTOR", message.author)
+        .addField("CHANNEL", message.channel)
+        .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
+        let snowlog = message.guild.channels.find(`name`, "snow");
+        if(!snowlog) return;
+       
     }
     
     if(!args[0]) return message.channel.send("PLEASE ENTER A CERTAN NUMBER YOU WANT TO DELETE**!**");
@@ -34,8 +43,8 @@ module.exports.run = async (bot, message, args) => {
     .addField("CHANNEL", message.channel)
     .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
-    let snowlog = message.guild.channels.find(`name`, "snow");
-    if(!snowlog) return;
+    let snowlog1 = message.guild.channels.find(`name`, "snow");
+    if(!snowlog1) return;
     
     snowlog.send(clearEmbed);
 
