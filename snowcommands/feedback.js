@@ -6,7 +6,7 @@ let prefix = snow.prefix;
 module.exports.run = async (bot, message, args) => {
 
     let feedback = args.join(" ");
-    if(!feedback) return message.channel.send("PLEASE ENTER A MESSAGE THAT YOU WANT TO SEND LIKE A FEEDBACK FORM**!**");
+    if(!feedback) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO SEND LIKE A FEEDBACK FORM**!**");
 
     let feedbackEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
