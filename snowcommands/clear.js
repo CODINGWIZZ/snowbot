@@ -3,7 +3,7 @@ const snow = require("../snow.json");
 
 module.exports.run = async (bot, message, args) => {
 
-    message.delete().catch(O_o=>{});
+    message.delete();
     
     const amount = isNaN(args[0]) ? parseInt(args[1]) : parseInt(args[0]);
     if(!amount) return message.channel.send("PLEASE ENTER A CERTAN NUMBER YOU WANT TO DELETE**!**");
