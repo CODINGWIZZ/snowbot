@@ -30,6 +30,7 @@ module.exports.run = async (bot, message, args) => {
     
         let clearEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
+        .setTimestamp()
         .setDescription("CLEAR **" + snow.snowflake + "**")
         .addField("AMOUNT", "`" + args[0] + "`")
         .addField("MODERATOR", message.author)
