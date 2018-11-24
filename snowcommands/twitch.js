@@ -14,7 +14,7 @@ module.exports.run = async(bot, message, args) => {
         headers: {
           "Client-ID": your_client_id
         }
-        sucess: function(channel)
+        success: function(channel)
         {
           if (channel["stream"] == null)
           {
