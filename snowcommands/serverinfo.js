@@ -59,7 +59,7 @@ module.exports.run = async (bot, message, args) => {
     let textchannels = message.guild.channels.filter(tc => tc.type === "text").size;
     let voicechannels = message.guild.channels.filter(vc => vc.type === "voice").size;
     
-    let channels = textchannels.size + voicechannels.size;
+    let channels = textchannels + voicechannels;
 
     let offlinemembers = message.guild.memberCount - onlinemembers - idlemembers - dndmembers;
 
