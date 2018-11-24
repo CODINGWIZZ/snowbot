@@ -28,9 +28,6 @@ module.exports.run = async (bot, message, args) => {
         
         let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role);  
         if(roles.length < 1) roles = ["NONE"];
-        
-        let permissions = member.permissions.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(permission => permission);
-        if(permissions.length < 1) permissions = ["NONE"];
          
         let thenickname = member.nickname !== null ? member.nickname : "NONE";
  
@@ -41,7 +38,6 @@ module.exports.run = async (bot, message, args) => {
         .addField("ID", user.id)
         .addField("NICKNAME", thenickname)
         .addField("ROLES ( " + `${member.roles.size - 1}` + " )", roles.join(" "))
-        .addField("PERMISSIONS", permissions.join(" "))
         .addField("STATUS", `${status[user.presence.status]}`)
         .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
         .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
