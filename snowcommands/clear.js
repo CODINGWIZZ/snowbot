@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor(snow.blue)
         .setTimestamp()
         .setDescription("CLEAR **" + snow.snowflake + "**")
-        .addField("AMOUNT", "`" + args[0] + "`")
+        .addField("AMOUNT", "**" + amount + "**")
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
         .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
