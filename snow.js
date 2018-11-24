@@ -286,7 +286,8 @@ bot.on("message", async message => {
         .addField("MEMORY // COMMANDS", memoryusage + " **//** " + snow.commands)
         .addField("UPTIME", uptime)
         .addField("WEBSITE", "https://discordsnowbot.weebly.com/")
-        .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS\n**${bot.managers.stats.get("messages-sent") || 0}** MESSAGES SENT`)
+        .addField("STATS", `**${bot.guilds.size}** SERVERS\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
+`)
         .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
         message.channel.send(snowEmbed);
