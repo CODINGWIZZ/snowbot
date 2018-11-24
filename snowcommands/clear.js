@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         }
     
         message.channel.bulkDelete(args[0]).then(() => {
-            message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(5000));
+            message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(3000));
         });
     
         let clearEmbed = new Discord.RichEmbed()
