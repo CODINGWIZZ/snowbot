@@ -33,14 +33,14 @@ module.exports.run = async (bot, message, args) => {
  
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("USER INFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
+        .setDescription("USERINFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
         .addField("NICKNAME", thenickname)
         .addField("ROLES **(** " + `${member.roles.size - 1}` + " **)**", roles.join(" "))
         .addField("STATUS", `${status[user.presence.status]}`)
         .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
-        .setFooter("USER INFO | SNOW ❆", bot.user.displayAvatarURL);
+        .setFooter("USERINFO | SNOW ❆", bot.user.displayAvatarURL);
 
         message.channel.send(userinfoEmbed);
 
