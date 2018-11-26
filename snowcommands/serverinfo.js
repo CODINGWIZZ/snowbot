@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("VERTIFICATION LEVEL", vertification[message.guild.verificationLevel])
     .addField("CREATED", message.guild.createdAt.toDateString().toUpperCase(), true)
     .addField("REGION", message.guild.region.toUpperCase(), true)
-    .addField("ROLES **( " + message.guild.roles.size + " )**", "TYPE `s!serverroles` TO SEE ALL ROLES ON THIS SERVER**!**", true)
+    .addField("ROLES **(** " + message.guild.roles.size + " **)**", "TYPE `s!serverroles` TO SEE ALL ROLES ON THIS SERVER**!**", true)
     .addField("TOTAL MEMBERS", message.guild.memberCount, true)
     .addField("CHANNELS", channels + "\n\n **TEXT CHANNELS:** " + textchannels + "\n **VOICE CHANNELS:** " + voicechannels, true)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
