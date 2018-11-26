@@ -8,7 +8,7 @@ module.exports.run = async(bot, message, args) => {
     let serverrolesEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("SERVERROLES **" + snow.snowflake + "**")
-    .addField("ROLES **( " + message.guild.roles.size + " )**", roles.join(" ") + " @everyone")
+    .addField("ROLES **(** " + message.guild.roles.size + " **)**", roles.join(" ") + " @everyone")
     .setFooter("SERVERROLES | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(serverrolesEmbed);
