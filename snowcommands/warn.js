@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     let warnuserEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setTimestamp()
-    .setDescription("WARN **" + snow.snowflake + "**YOU'VE BEEN WARNED IN **" + message.guild.name + "!**")
+    .setDescription("WARN **" + snow.snowflake + "**\n YOU'VE BEEN WARNED IN **" + message.guild.name + "!**")
     .addField("REASON", warnreason)
     .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
