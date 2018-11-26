@@ -62,6 +62,8 @@ module.exports.run = async (bot, message, args) => {
     let channels = textchannels + voicechannels;
 
     let offlinemembers = message.guild.memberCount - onlinemembers - idlemembers - dndmembers;
+    
+    let roles = message.guild.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role);
 
     let serverinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
@@ -71,7 +73,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("VERTIFICATION LEVEL", vertification[message.guild.verificationLevel])
     .addField("CREATED", message.guild.createdAt.toDateString().toUpperCase(), true)
     .addField("REGION", message.guild.region.toUpperCase(), true)
-    .addField("TOTAL ROLES", message.guild.roles.size, true)
+    .addField("ROLES **( " + message.guild.roles.size + " )**", roles.join(" ") + " @everyone", true)
     .addField("TOTAL MEMBERS", message.guild.memberCount, true)
     .addField("CHANNELS", channels + "\n\n **TEXT CHANNELS:** " + textchannels + "\n **VOICE CHANNELS:** " + voicechannels, true)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
