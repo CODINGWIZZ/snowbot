@@ -276,7 +276,7 @@ bot.on("message", async message => {
         let memoryusage = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} \`MB\``;
         
         let averageusers = bot.users.size / bot.guilds.size;
-        let average = Math.Ceil(averageusers);
+        let average = Math.ceil(averageusers);
 
         let snowEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
