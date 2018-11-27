@@ -7,11 +7,11 @@ module.exports.run = async(bot, message, args) => {
     
     let channeltype = "";
     
-    if(channel.filter.type === "text") {
+    if(channel.filter(tc => tc.type === "text")) {
     
         channeltype = "TEXT";
     
-    } else if(channel.filter.type === "voice") {
+    } else if(channel.filter(vc => vc.type === "voice")) {
     
         channeltype = "VOICE";
     
