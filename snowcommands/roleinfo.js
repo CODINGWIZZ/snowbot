@@ -11,12 +11,14 @@ module.exports.run = async(bot, message, args) => {
     let role = message.guild.roles.find(`name`, therole);
     if(!role) return message.channel.send("CAN'T FIND ROLE**!**");
     
+    let rolecolor = role.hexColor.replace("#", "");
+    
     let roleinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
     .addField("ID", role.id)
     .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size)
-    .addField("COLOR", role.hexColor)
+    .addField("COLOR", "**#**" + rolecolor + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**")
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
