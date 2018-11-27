@@ -26,8 +26,7 @@ module.exports.run = async(bot, message, args) => {
     
     let roleinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
-    .addField("ID", role.id, true)
+    .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + " (** " + role.id + " **)**")
     .addField("POSITION", message.guild.roles.size - role.calculatedPosition + " **/** " + message.guild.roles.size, true)
     .addField("ROLE MEMBERS", role.members.size, true)
     .addField("COLOR", "**#**" + rolecolor.toUpperCase() + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**", true)
