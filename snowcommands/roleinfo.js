@@ -16,7 +16,7 @@ module.exports.run = async(bot, message, args) => {
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
     .addField("ID", role.id)
     .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size)
-    .addField("COLOR", role.hexColor + "\n" + convert.hex.rgb(rgb(role.hexColor)))
+    .addField("COLOR", role.hexColor)
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
