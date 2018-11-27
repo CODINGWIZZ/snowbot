@@ -12,7 +12,8 @@ module.exports.run = async(bot, message, args) => {
     let roleinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
-    .addField("POSITION", role.calculatedPosition)
+    .addField("ID", role.id)
+    .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/ " + message.guild.roles.size + "**")
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
