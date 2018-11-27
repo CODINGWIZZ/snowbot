@@ -34,7 +34,7 @@ module.exports.run = async(bot, message, args) => {
     .addField("MENTIONABLE", truefalse[mentionable], true)
     .addField("MANAGED", truefalse[managed], true)
     .addField("HOIST", truefalse[hoist], true)
-    .addField("MEMBERS", role.members)
+    .addField("MEMBERS", role.members.size)
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
