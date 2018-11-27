@@ -27,13 +27,14 @@ module.exports.run = async(bot, message, args) => {
     let roleinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
-    .addField("ID", role.id)
-    .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size)
-    .addField("COLOR", "**#**" + rolecolor.toUpperCase() + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**")
-    .addField("CREATED AT", role.createdAt.toDateString().toUpperCase())
+    .addField("ID", role.id, true)
+    .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size, true)
+    .addField("COLOR", "**#**" + rolecolor.toUpperCase() + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**", true)
+    .addField("CREATED AT", role.createdAt.toDateString().toUpperCase(), true)
     .addField("MENTIONABLE", truefalse[mentionable], true)
     .addField("MANAGED", truefalse[managed], true)
     .addField("HOIST", truefalse[hoist], true)
+    .addField("MEMBERS", role.members)
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
