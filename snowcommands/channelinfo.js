@@ -20,8 +20,8 @@ module.exports.run = async(bot, message, args) => {
     let channelEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("CHANNELINFO **" + snow.snowflake + "**\n" + channel)
-    .addField("CHANNELTYPE", channeltype)
-    .addField("ID", channel.id)
+    .addField("CHANNELTYPE", channeltype, true)
+    .addField("ID", channel.id, true)
     .addField("CREATED", channel.createdAt.toDateString().toUpperCase())
     .setFooter("CHANNELINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
