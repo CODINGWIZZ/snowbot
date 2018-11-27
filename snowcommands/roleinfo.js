@@ -20,9 +20,9 @@ module.exports.run = async(bot, message, args) => {
     .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size)
     .addField("COLOR", "**#**" + rolecolor.toUpperCase() + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**")
     .addField("CREATED AT", role.createdAt.toDateString().toUpperCase())
-    .addField("MENTIONABLE", role.mention)
-    .addField("MANAGED", role.managed)
-    .addField("HOIST", role.hoist)
+    .addField("MENTIONABLE", role.mentionable.toUpperCase(), true)
+    .addField("MANAGED", role.managed.toUpperCase(), true)
+    .addField("HOIST", role.hoist.toUpperCase(), true)
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
