@@ -13,6 +13,10 @@ module.exports.run = async(bot, message, args) => {
     
     let rolecolor = role.hexColor.replace("#", "");
     
+    let mentionable = role.mentionable;
+    let managed = role.managed;
+    let hoist = role.hoist;
+    
     let roleinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
@@ -20,9 +24,9 @@ module.exports.run = async(bot, message, args) => {
     .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size)
     .addField("COLOR", "**#**" + rolecolor.toUpperCase() + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**")
     .addField("CREATED AT", role.createdAt.toDateString().toUpperCase())
-    .addField("MENTIONABLE", role.mentionable.toUpperCase(), true)
-    .addField("MANAGED", role.managed.toUpperCase(), true)
-    .addField("HOIST", role.hoist.toUpperCase(), true)
+    .addField("MENTIONABLE", mentionable.toUpperCase(), true)
+    .addField("MANAGED", managed.toUpperCase(), true)
+    .addField("HOIST", hoist.toUpperCase(), true)
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
