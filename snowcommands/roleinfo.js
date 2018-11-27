@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
+const convert = require("color-convert");
+
 module.exports.run = async(bot, message, args) => {
 
     let therole = args.join(" ");
@@ -13,7 +15,8 @@ module.exports.run = async(bot, message, args) => {
     .setColor(snow.blue)
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
     .addField("ID", role.id)
-    .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/ " + message.guild.roles.size + "**")
+    .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size)
+    .addField("COLOR", color.hexColor + "\n" + convert.hex.rgb(rgb(color.hexColor))
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(roleinfoEmbed);
