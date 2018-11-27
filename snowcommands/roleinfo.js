@@ -28,9 +28,9 @@ module.exports.run = async(bot, message, args) => {
     .setColor(snow.blue)
     .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
     .addField("ID", role.id, true)
-    .addField("ROLE MEMBERS", role.members.size, true)
     .addField("POSITION", message.guild.roles.size - role.calculatedPosition - 1 + " **/** " + message.guild.roles.size, true)
     .addField("COLOR", "**#**" + rolecolor.toUpperCase() + "\n**RGB(**" + convert.hex.rgb(rolecolor) + "**)**", true)
+    .addField("ROLE MEMBERS", role.members.size, true)
     .addField("CREATED AT", role.createdAt.toDateString().toUpperCase(), true)
     .addField("MENTIONABLE // MANAGED // HOIST", truefalse[mentionable] + " **//** " + truefalse[managed] + " **//** " + truefalse[hoist], true)
     .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
