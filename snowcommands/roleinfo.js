@@ -1,0 +1,24 @@
+const Discord = require("discord.js");
+const snow = require("../snow.json");
+
+module.exports.run = async(bot, message, args) => {
+
+    let therole = args.join(" ");
+    if(!therole) return message.channel.send("PLEASE SPECIFY A ROLE YOU WANT TO CHECK INFORMATION ABOUT**!**");
+    
+    let role = message.guild.roles.find(`name`, therole);
+    if(!role) return message.channel.send("CAN'T FIND ROLE**!**");
+    
+    let roleinfoEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
+    .setDescription("ROLEINFO **" + snow.snowflake + "**\n**" + role + "**")
+    .addField("POSITION", role.calculatedPosition)
+    .setFooter("ROLEINFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+    
+    message.channel.send(roleinfoEmbed);
+
+}
+
+module.exports.help = {
+    name: "roleinfo"
+}
