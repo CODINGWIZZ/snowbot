@@ -17,8 +17,8 @@ module.exports.run = async(bot, message, args) => {
     
     }
     
-    let textchannel = channel.filter(tc => tc.type === "text");
-    let voicechannel = channel.filter(vc => vc.type === "")
+    let textchannel = channel.channels.filter(tc => tc.type === "text");
+    let voicechannel = channel.channels.filter(vc => vc.type === "")
     
     let channelEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
