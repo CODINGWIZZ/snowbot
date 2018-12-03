@@ -1,3 +1,3 @@
 > WIZZ | SNOW BOT
 
-Made by WIZZ and coded with **<3**
+Made by [WIZZ](https://discordsnowbot.weebly.com/) and coded with **<3**
