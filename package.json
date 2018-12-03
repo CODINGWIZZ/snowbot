@@ -28,6 +28,7 @@
     "snekfetch": "^4.0.4",
     "strict-uri-encode": "^2.0.0",
     "superagent": "^3.8.3",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "ffmpeg-binaries": "^4.0.0"
   }
 }
