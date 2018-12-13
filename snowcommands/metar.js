@@ -8,17 +8,11 @@ module.exports.run = async (bot, message, args) => {
     let airport = args[0];
     if(!airport) return message.channel.send("PLEASE ENTER A ICAO**!**");
 
-    fetch.get(`https://avwx.rest/api/metar/${airport}`).then((decode) => {
+    fetch.get(`https://avwx.rest/api/metar/${airport}`).then((metar) => {
     
         let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake)
-        .addField("ALTIMETER", decode.Altimeter)
-        .addField("CLOUDS", decode.CloudList)
-        .addField("FLIGHT RULES", decode.Flight-Rules)
-        .addFiled("TEMPERATURE // DEW POINT", decode.Temperature + " **//**" + decode.Dewpoint)
-        .addField("VISIBILITY", decode.Visibility)
-        .addField("WINDS", decode.Wind-Direction + " **/** " + decode.Wind-Speed + "**KTS**")
+        .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake + "\n" + metar.Sanitized)
         .addFooter("METAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(decodeEmbed);
