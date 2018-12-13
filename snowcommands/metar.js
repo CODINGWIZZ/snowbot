@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     
         let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake + "\n" + metar.Sanitized)
+        .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake + "\n" + metar.body.Sanitized)
         .addFooter("METAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(decodeEmbed);
