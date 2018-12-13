@@ -15,10 +15,10 @@ module.exports.run = async (bot, message, args) => {
         .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake)
         .addField("ALTIMETER", decode.Altimeter)
         .addField("CLOUDS", decode.CloudList)
-        .addField("FLIGHT RULES", decode.Flight_Rules)
+        .addField("FLIGHT RULES", decode.Flight-Rules)
         .addFiled("TEMPERATURE // DEW POINT", decode.Temperature + " **//**" + decode.Dewpoint)
         .addField("VISIBILITY", decode.Visibility)
-        .addField("WINDS", decode.WindDirection + " **/** " + decode.WindSpeed + "**KTS**")
+        .addField("WINDS", decode.Wind-Direction + " **/** " + decode.Wind-Speed + "**KTS**")
         .addFooter("METAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(decodeEmbed);
