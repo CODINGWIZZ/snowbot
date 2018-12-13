@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     fetch.get(`https://avwx.rest/api/metar/${airport}`).then((metar) => {
         
-        if(metar.startsWith("error:")) return message.channel.send("PLEASE ENTER A VALID ICAO CODE**!**");
+        if(metar.startsWith("Error:")) return message.channel.send("PLEASE ENTER A VALID ICAO CODE**!**");
     
         let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
