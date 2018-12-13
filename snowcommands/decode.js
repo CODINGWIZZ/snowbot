@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     fetch.get(`https://avwx.rest/api/metar/${airport}`).then((decode) => {
     
-        let decodeEmbed = new Discord.RichEmbed();
+        let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake)
         .addField("ALTIMETER", decode.Altimeter)
