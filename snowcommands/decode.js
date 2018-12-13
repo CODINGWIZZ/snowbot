@@ -14,11 +14,11 @@ module.exports.run = async (bot, message, args) => {
         .setColor(snow.blue)
         .setDescription("METAR **" + airport.toUpperCase() + " " + snow.snowflake)
         .addField("ALTIMETER", decode.Altimeter)
-        .addField("CLOUDS", decode.Cloud_List)
+        .addField("CLOUDS", decode.CloudList)
         .addField("FLIGHT RULES", decode.Flight_Rules)
         .addFiled("TEMPERATURE // DEW POINT", decode.Temperature + " **//**" + decode.Dewpoint)
         .addField("VISIBILITY", decode.Visibility)
-        .addField("WINDS", decode.Wind_Direction + " **/** " + decode.Wind_Speed + "**KTS**")
+        .addField("WINDS", decode.WindDirection + " **/** " + decode.WindSpeed + "**KTS**")
         .addFooter("METAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(decodeEmbed);
