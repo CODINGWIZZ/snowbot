@@ -25,22 +25,22 @@ module.exports.run = async (bot, message, args) => {
         }
     
         message.channel.bulkDelete(args[0]).then(() => {
-            message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(3000));
+            message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(2000));
         });
     
-        let clearEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setTimestamp()
-        .setDescription("CLEAR **" + snow.snowflake + "**")
-        .addField("AMOUNT", "**" + amount + "**")
-        .addField("MODERATOR", message.author)
-        .addField("CHANNEL", message.channel)
-        .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+//         let clearEmbed = new Discord.RichEmbed()
+//         .setColor(snow.blue)
+//         .setTimestamp()
+//         .setDescription("CLEAR **" + snow.snowflake + "**")
+//         .addField("AMOUNT", "**" + amount + "**")
+//         .addField("MODERATOR", message.author)
+//         .addField("CHANNEL", message.channel)
+//         .setFooter("CLEAR | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
-        let snowlog = message.guild.channels.find(`name`, "snow");
-        if(!snowlog) return;
+//         let snowlog = message.guild.channels.find(`name`, "snow");
+//         if(!snowlog) return;
     
-        snowlog.send(clearEmbed);
+//         snowlog.send(clearEmbed);
         
     });
 
