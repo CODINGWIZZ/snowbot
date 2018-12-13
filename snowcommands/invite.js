@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     let inviteEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription("INVITE SNOW [**HERE**](https://discordapp.com/oauth2/authorize?client_id=417210018576990208&scope=bot&permissions=8)**!**")
+    .setDescription("INVITE SNOW [**HERE**](https://discorsnowbot.weebly.com/invite)**!**")
     .setFooter("INVITE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(inviteEmbed);
