@@ -6,7 +6,7 @@ const fetch = require("snekfetch");
 module.exports.run = async (bot, message, args) => {
 
     let airport = args[0];
-    if(!airport) return message.channnel.send("PLEASE ENTER A ICAO**!**");
+    if(!airport) return message.channel.send("PLEASE ENTER A ICAO**!**");
 
     fetch.get(`https://avwx.rest/api/metar/${airport}`).then((decode) => {
     
