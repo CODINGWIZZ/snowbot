@@ -10,16 +10,12 @@ module.exports.run = async (bot, message, args) => {
 
     fetch.get(`https://avwx.rest/api/metar/${airport}`).then((metar) => {
         
-        message.channel.send("SEARCHING FOR WEATHER BY THAT SPECIFIED ICAO**!**").then((metarMessage) => {
-            
-            let decodeEmbed = new Discord.RichEmbed()
-            .setColor(snow.blue)
-            .setDescription("METAR **" + snow.snowflake + "**\n" + metar.body.Sanitized.replace(airport.toUpperCase(), "**" + airport.toUpperCase() + "**"))
-            .setFooter(`METAR ${airport.toUpperCase()} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
+        let decodeEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("METAR **" + snow.snowflake + "**\n" + metar.body.Sanitized.replace(airport.toUpperCase(), "**" + airport.toUpperCase() + "**"))
+        .setFooter(`METAR ${airport.toUpperCase()} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
         
-            metarMessage.edit(decodeEmbed);
-            
-        });
+        message.channel.send(decodeEmbed);
     
     });
     
