@@ -9,13 +9,17 @@ module.exports.run = async (bot, message, args) => {
     if(!airport) return message.channel.send("PLEASE ENTER A ICAO**!**");
 
     fetch.get(`https://avwx.rest/api/metar/${airport}`).then((metar) => {
-
-        let decodeEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription("METAR **" + snow.snowflake + "**\n" + metar.body.Sanitized.replace(airport.toUpperCase(), "**" + airport.toUpperCase() + "**"))
-        .setFooter(`METAR ${airport.toUpperCase()} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
         
-        message.channel.send(decodeEmbed);
+        await message.channel.send("SEARCHING FOR WEATHER BY THAT SPECIFIED ICAO**!**").then((meterMessage) => {
+            
+            let decodeEmbed = new Discord.RichEmbed()
+            .setColor(snow.blue)
+            .setDescription("METAR **" + snow.snowflake + "**\n" + metar.body.Sanitized.replace(airport.toUpperCase(), "**" + airport.toUpperCase() + "**"))
+            .setFooter(`METAR ${airport.toUpperCase()} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
+        
+            await message.channel.send(decodeEmbed);
+            
+        });
     
     });
     
