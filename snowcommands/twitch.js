@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#6441a5")
         .setAuthor(twitchstreamer.display_name, twitchstreamer.logo)
         .setThumbnail(twitchstreamer.logo)
-        .setDescription([`${twitchstreamer.status}`](`${twitchstreamer.url}`))
+//         .setDescription([`${twitchstreamer.status}`](`${twitchstreamer.url}`))
         .setFooter("TWITCH | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
