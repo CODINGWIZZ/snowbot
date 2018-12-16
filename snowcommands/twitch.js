@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
         .setAuthor(twitchstreamer.body.display_name, twitchstreamer.body.logo)
-//         .setThumbnail(twitchstreamer.body.logo)
+        .setThumbnail(twitchstreamer.body.logo)
         .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.game}`)
         .setImage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`)
         .setFooter(`VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
