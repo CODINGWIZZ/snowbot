@@ -12,11 +12,11 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("GENERATING THE COWSAY MESSAGE **...**").then((cowsayMessage) => {
     
-        cowsay.say({
+        cowsayMessage.edit(cowsay.say({
         
             text: messagecowsay
         
-        });
+        }));
     
     });
 
