@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
         .setAuthor(twitchstreamer.body.display_name, twitchstreamer.body.logo)
-        .setThumbnail(twitchstreamer.body.logo)
+        .setThumbnail(`[${twitchstreamer.body.logo}](${twitchstreamer.body.url})`)
         .setDescription(`[${twitchstatus}](${twitchurl})`)
         .addField("GAME", twitchstreamer.body.game)
         .addField("VIEWS // FOLLOWERS", twitchstreamer.body.views + " **//** " + twitchstreamer.body.followers, true)
