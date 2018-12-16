@@ -8,13 +8,13 @@ module.exports.run = async (bot, message, args) => {
     let streamer = args[0];
     if(!streamer) return message.channel.send("PLEASE ENTER A TWITCH STREAMER**!**");
     
-    fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=${process.env.twitchclient}`).then((twitch) => {
+    fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
     
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
-        .setAuthor(twitch.display_name, twitch.logo)
-        .setThumbnail(twitch.logo)
-        .setDescription(`[${twitch.status}](${twitch.url}`))
+        .setAuthor(twitchstreamer.display_name, twitchstreamer.logo)
+        .setThumbnail(twitchstreamer.logo)
+        .setDescription([`${twitchstreamer.status}`](`${twitchstreamer.url}`))
         .setFooter("TWITCH | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
