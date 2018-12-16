@@ -68,8 +68,8 @@ module.exports.run = async (bot, message, args) => {
     let inviteEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("SERVERCOUNT **" + snow.snowflake + "**")
-    .addField("MEMBERS", message.guild.memberCount)
-    .addField("ONLINE", onlinemembers + idlemembers + dndmembers)
+    .addField("MEMBERS", message.guild.memberCount, true)
+    .addField("ONLINE", onlinemembers + idlemembers + dndmembers, true)
     .addField("HUMANS // BOTS", checkMembers(message.guild) + " **//** " + checkBots(message.guild))
     .setFooter("SERVERCOUNT | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
