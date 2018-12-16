@@ -18,8 +18,8 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(twitchstreamer.body.display_name, twitchstreamer.body.logo)
         .setThumbnail(twitchstreamer.body.logo)
         .setDescription(`[${twitchstatus}](${twitchurl})`)
-        .addField("VIEWS", twitchstreamer.body.views, true)
-        .addField("FOLLOWERS", twitchstreamer.body.followers, true)
+        .addField("GAME", twitchstreamer.body.game)
+        .addField("VIEWS // FOLLOWERS", twitchstreamer.body.views + " **//** " + twitchstreamer.body.followers, true)
         .setImage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`)
         .setFooter("TWITCH | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
