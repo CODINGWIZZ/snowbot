@@ -18,8 +18,8 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(twitchstreamer.body.display_name, twitchstreamer.body.logo)
         .setThumbnail(twitchstreamer.body.logo)
         .setDescription(`[${twitchstatus}](${twitchurl})`)
-        .addField("VIEWS", twitchstreamer.views)
-        .addField("FOLLOWERS", twitchstreamer.followers)
+        .addField("VIEWS", twitchstreamer.body.views)
+        .addField("FOLLOWERS", twitchstreamer.body.followers)
         .setFooter("TWITCH | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
