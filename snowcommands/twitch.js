@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .setDescription(`[${twitchstatus}](${twitchurl})`)
         .addField("VIEWS", twitchstreamer.body.views)
         .addField("FOLLOWERS", twitchstreamer.body.followers)
+        .setImage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`)
         .setFooter("TWITCH | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
