@@ -2,6 +2,32 @@ const Discord = require("discord.js");
 const snow = require("../snow.json");
 
 module.exports.run = async (bot, message, args) => {
+    
+    function checkBots(guild) {
+        
+        let botCount = 0;
+        guild.members.forEach(member => {
+            
+            if(member.user.bot) botCount ++;
+            
+        });
+        
+        return botCount;
+        
+    }
+    
+    function checkMembers(guild) {
+     
+        let memberCount = 0;
+        guild.members.forEach(member => {
+            
+            if(!member.user.bot) memberCount ++;
+            
+        });
+        
+        return memberCount;
+        
+    }
 
     let presences = message.guild.presences.map(st => st.status);
 
