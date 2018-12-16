@@ -14,7 +14,8 @@ module.exports.run = async (bot, message, args) => {
     
         cowsayMessage.edit(cowsay.say({
         
-            text: messagecowsay
+            text: messagecowsay,
+            code: "md"
         
         }));
     
