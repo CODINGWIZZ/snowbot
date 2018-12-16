@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-const ascii = require("ascii-art")
+const figlet = require("figlet")
 
 let prefix = snow.prefix;
 
@@ -12,17 +12,20 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("GENERATING ASCII MESSAGE **...**").then((asciiMessage) => {
 
-        ascii.font(asciimessage, "Doom", function(finished) {
-
-            finished = finished.trimRight();
-
-            if(finished.length > 2000) return message.channel.send("THE ASCII MESSAGE YOU WANT TO DO IS TO LONG**!**");
-
-            asciiMessage.edit(finished, {
-                code: "md"
+        figlet(asciimessage, function(err, data) {
+        
+            if(err) {
+             
+                console.log(err);
+                return; 
+                
+            }
+            
+            asciiMessage.edit(data, {
+               code: "md" 
             });
-
-        });
+            
+        }
 
     });
 
