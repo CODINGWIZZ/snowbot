@@ -28,6 +28,8 @@ module.exports.run = async (bot, message, args) => {
       .addField("OUTPUT", "```" + evaled + "```")
       .setFooter("EVAL | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
       
+      message.channel.send(evalEmbed);
+      
     } catch (err) {
       message.channel.send("ERROR**!**");
     }
