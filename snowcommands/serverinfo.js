@@ -99,7 +99,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("REGION", message.guild.region.toUpperCase(), true)
     .addField("ROLES **(** " + message.guild.roles.size + " **)**", "TYPE `s!serverroles` TO SEE ALL ROLES ON THIS SERVER**!**", true)
     .addField("CHANNELS", channels + "\n\n TEXT CHANNELS: **" + textchannels + "**\n VOICE CHANNELS: **" + voicechannels + "**", true)
-    .addField("TOTAL MEMBERS", "**" + message.guild.memberCount + "**\n\n**" + checkMembers(message.guild) + "** HUMANS \n **" + checkBots(message.guild) + "** BOTS", true)
+    .addField("TOTAL MEMBERS", message.guild.memberCount + "\n\n**" + checkMembers(message.guild) + "** HUMANS \n **" + checkBots(message.guild) + "** BOTS", true)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
     .addField("CURRENT MEMBER PRESENCES", snowonline + " **//** " + onlinemembers + "\n" + snowidle + " **//** " + idlemembers + "\n" + snowdnd + " **//** " + dndmembers + "\n" + snowoffline + " **//** " + offlinemembers)
     .setFooter("SERVER INFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
