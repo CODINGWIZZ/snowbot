@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     function checkBots(guild) {
      
         let botCount = 0;
-        guild.member.forEach(member => {
+        guild.members.forEach(member => {
          
             if(member.user.bot) botCount++;
             
