@@ -4,6 +4,32 @@ const snow = require("../snow.json");
 let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
+    
+    function checkBots(guild) {
+     
+        let botCount = 0;
+        guild.member.forEach(member => {
+         
+            if(member.user.bot) botCount++;
+            
+        });
+        
+        return botCount;
+        
+    }
+    
+    function checkMembers(guild) {
+     
+        let memberCount = 0;
+        guild.members.forEach(member => {
+            
+            if(!member.guild.bot) memberCount++;
+            
+        });
+        
+        return memberCount;
+        
+    }
 
     let vertification = {
 
@@ -73,7 +99,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("REGION", message.guild.region.toUpperCase(), true)
     .addField("ROLES **(** " + message.guild.roles.size + " **)**", "TYPE `s!serverroles` TO SEE ALL ROLES ON THIS SERVER**!**", true)
     .addField("CHANNELS", channels + "\n\n TEXT CHANNELS: **" + textchannels + "**\n VOICE CHANNELS: **" + voicechannels + "**", true)
-    .addField("TOTAL MEMBERS", message.guild.memberCount, true)
+    .addField("TOTAL MEMBERS", message.guild.memberCount + "**| " + checkMembers + "** HUMANS **// " + checkBots + "** BOTS", true)
     .addField("ONLINE MEMBERS", onlinemembers + idlemembers + dndmembers, true)
     .addField("CURRENT MEMBER PRESENCES", snowonline + " **//** " + onlinemembers + "\n" + snowidle + " **//** " + idlemembers + "\n" + snowdnd + " **//** " + dndmembers + "\n" + snowoffline + " **//** " + offlinemembers)
     .setFooter("SERVER INFO | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
