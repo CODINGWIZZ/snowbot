@@ -20,8 +20,14 @@ module.exports.run = async (bot, message, args) => {
       
       if(typeof evaled !== "string")
         evaled = require("util").inspect(evaled);
-        
-      message.channel.sendCode("x1", clean(evaled));
+      
+      let evalEmbed = new Discord.RichEmbed()
+      .setColor(snow.blue)
+      .setDescription("EVAL **" + snow.snowflake + "**")
+      .addField("INPUT", "```" + code + "```")
+      .addField("OUTPUT", "```" + evaled + "```")
+      .setFooter("EVAL | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+      
     } catch (err) {
       message.channel.send("ERROR**!**");
     }
