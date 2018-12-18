@@ -5,10 +5,10 @@ const fetch = require("snekfetch");
 
 module.exports.run = async (bot, message, args) => {
 
-    let airport = args[0].toUpperCase();
+    let airport = args[0];
     if(!airport) return message.channel.send("PLEASE ENTER A ICAO**!**");
 
-    fetch.get(`https://avwx.rest/api/metar/${airport}`).then((metar) => {
+    fetch.get(`https://avwx.rest/api/metar/${airport.toUpperCase()}`).then((metar) => {
         
         let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
