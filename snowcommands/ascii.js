@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
             finished = finished.trimRight();
 
-            if(finished.length > 270) return message.channel.send("THE ASCII MESSAGE YOU WANT TO DO IS TO LONG**!**");
+            if(finished.length > 270) return asciiMessage.edit("THE ASCII MESSAGE YOU WANT TO DO IS TO LONG**!**");
 
             asciiMessage.edit(finished, {
                 code: "md"
