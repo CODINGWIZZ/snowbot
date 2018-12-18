@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send("GENERATING ASCII MESSAGE **...**").then((asciiMessage) => {
 
-        ascii.font(asciimessage, "Rusted", function(finished) {
+        ascii.font(asciimessage, "Doom", function(finished) {
 
             finished = finished.trimRight();
 
