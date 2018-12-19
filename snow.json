@@ -3,10 +3,14 @@
     "prefix": "s!",
 
     "blue": "#6f82b4",
+    "darkblue": "#5e7296",
+    "regularblue": "#5a6788",
     "red": "#cf5058",
     "green": "#95c990",
     "purple": "#918eb9",
+    "orange": "#fcd66a",
     "lightpurple": "#8a6f84",
+    "darkpurple": "#6b6481"
     
     "snowflake": "❆",
 
