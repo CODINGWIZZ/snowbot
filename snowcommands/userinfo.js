@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
             let botyesno = "NO";
             guild.members.forEach(member => {
                
-                if(member.user.bot) botyesno = "YES";
+                if(member.user.bot === true) botyesno = "YES";
                 
             });
             
