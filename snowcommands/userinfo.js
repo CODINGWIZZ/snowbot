@@ -9,16 +9,27 @@ module.exports.run = async (bot, message, args) => {
 
     if(cmd === `${prefix}userinfo`) {
         
-        function checkifBot(guild) {
-         
-            let botyesno = "NO";
+        const botyesno = "";
+        
+        function checknotBot(guild) {
+    
             guild.members.forEach(member => {
                
-                if(member.user.bot === true) botyesno = "YES";
+                if(!member.user.bot) botyesno = "NO";
                 
             });
             
             return botyesno;
+            
+        }
+        
+        function checkyesBot(guild) {
+         
+            guild.members.forEach(member => {
+                
+                if(member.user.bot) botyesno = "YES";
+                
+            });
             
         }
 
