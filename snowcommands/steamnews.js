@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     
     let steamnewsEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription("STEAM NEWS **" + snow.snowflake + "\n" + feed.title + "**\n" + feed.content)
+    .setDescription("STEAM NEWS **" + snow.snowflake + "\n" + feed.item.title + "**\n" + feed.item.content)
     .setFooter("STEAM NEWS | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
     
     message.channel.send(steamnewsEmbed);
