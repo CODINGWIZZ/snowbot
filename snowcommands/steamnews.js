@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-const rss = require("rss-parser");
+const Parser = require("rss-parser");
 const parser = new Parser();
 
 module.exports.run = async (bot, message, args) => {
