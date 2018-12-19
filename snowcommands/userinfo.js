@@ -8,30 +8,6 @@ module.exports.run = async (bot, message, args) => {
     let cmd = messageArray[0].toLocaleLowerCase();
 
     if(cmd === `${prefix}userinfo`) {
-        
-        const botyesno = "";
-        
-        function checknotBot(guild) {
-    
-            guild.members.forEach(member => {
-               
-                if(!member.user.bot) botyesno = "NO";
-                
-            });
-            
-            return botyesno;
-            
-        }
-        
-        function checkyesBot(guild) {
-         
-            guild.members.forEach(member => {
-                
-                if(member.user.bot) botyesno = "YES";
-                
-            });
-            
-        }
 
         let snowonline = "<:SNOWONLINE:461875150892171274>";
         let snowidle = "<:SNOWIDLE:461875150896496660>";
@@ -60,7 +36,6 @@ module.exports.run = async (bot, message, args) => {
         .setDescription("USERINFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
-        .addField("BOT", checkifBot(message.guild))
         .addField("NICKNAME", thenickname)
         .addField("ROLES **(** " + `${member.roles.size - 1}` + " **)**", roles.join(" "))
         .addField("STATUS", `${status[user.presence.status]}`)
