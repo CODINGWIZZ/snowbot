@@ -30,6 +30,7 @@
     "superagent": "^3.8.3",
     "weather-js": "^2.0.0",
     "ffmpeg-binaries": "^4.0.0",
-    "rss-parser": "^3.6.0"
+    "rss-parser": "^3.6.0",
+    "better-sqlite3": "^5.2.1"
   }
 }
