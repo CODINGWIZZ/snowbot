@@ -46,7 +46,7 @@ bot.on("ready", async () => {
     if(!table['count(*)']) {
      
         sql.prepare("CREATE TABLE scores (id TEXT PRIMARY KEY, user TEXT, guild TEXT, points INTEGER, level INTEGER);").run();
-        sql.prepare("CREATE UNIQUE INDEX idx_scores_id ON scores (id)";).run();
+        sql.prepare("CREATE UNIQUE INDEX idx_scores_id ON scores (id);").run();
         sql.pragma("synchronous = 1");
         sql.pragma("journal_mode = wal");
         
