@@ -129,7 +129,7 @@ bot.on("message", async message => {
     let score; 
     if(message.guild) {
         
-        score = bot.getScore.get(message.author.id, message.guild.id);
+        score = bot.getScore.run(message.author.id, message.guild.id);
         if(!score) {
             score = { id: `${message.guild.id}-${message.author.id}`, user: message.author.id, guild: message.guild.id, points: 0, level: 1}   
         }
