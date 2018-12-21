@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     fetch.get(`https://avwx.rest/api/metar/${airport.toUpperCase()}`).then((metar) => {
         
-        let createdmessage = metar.body.Timestamp - metar.createdTimestamp();
+        let createdmessage = metar.body.Timestamp - metar.createdTimestamp;
         
         let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
