@@ -5,11 +5,26 @@ module.exports.run = async (bot, message, args) => {
 
     let emojilist = message.guild.emojis.map(e => e.toString()).join(" ");
     let totalemojis = message.guild.emojis.size;
+    
+    let emojiemojis = "EMOJIS";
+    
+    if(totalemojis === 1) {
+     
+        emojiemojis = "EMOJI"
+        
+    } else {
+     
+        emojiemojis = "EMOJIS";
+        
+    };
+    
+    if(totalemojis === 0 || !totalemojis) return message.channel.send("IT LOOKS LIKE THIS SERVER DOESN'T HAVE ANY EMOJI**!**");
+    
 
     let emojiEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
     .setDescription("EMOJIS **" + snow.snowflake + "**\n" + emojilist)
-    .setFooter(`${totalemojis} EMOJIS | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
+    .setFooter(`${totalemojis} ${emojiemojis} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
 
     message.channel.send(emojiEmbed);
 
