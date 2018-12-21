@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(evalEmbed);
       
     } catch (err) {
-      message.channel.send("ERROR**!**\n`" + [${clean(err)}]("https://discordapp.com") + "`**!**");
+      message.channel.send("ERROR**!**\n`" + [${clean(err)}](https://discordapp.com) + "`**!**");
     }
   
 }
