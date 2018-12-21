@@ -8,6 +8,9 @@ const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
 
+const SQLite = require("better-sqlite3");
+const sql = new SQLite("./scores.sqlite");
+
 const snowpackage = require("./package.json");
 
 const moment = require("moment");
@@ -38,6 +41,19 @@ fs.readdir("./snowcommands/", (err, files) => {
 });
 
 bot.on("ready", async () => {
+    
+    const table = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'scores';").get();
+    if(!table['count(*)']) {
+     
+        sql.prepare("CREATE TABLE scores (id TEXT PRIMARY KEY, user TEXT, guild TEXT, points INTEGER, level INTEGER);").run();
+        sql.prepare("CREATE UNIQUE INDEX idx_scores_id ON scores (id)";).run();
+        sql.pragma("synchronous = 1");
+        sql.pragma("journal_mode = wal");
+        
+    }
+    
+    bot.getScore = sql.prepare("SELECT * FROM scores WHERE user = ? AND guild = ?");
+    bot.getScore = sql.prepare("INSERT OR REPLACE INTO scores (id, user, guild, points, level) VALUES (@id, @user, @guild, @points, @level);");
 
     let snowservers = "SERVERS!";
 
@@ -109,6 +125,27 @@ bot.on("message", async message => {
 
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
+    
+    let score = bot.getScore.get(message.author.id, message.guild.id);
+    if(!score) {
+        score = {
+            id: `${message.guild.id}-${message.author.id}`,
+            user: message.author.id,
+            guild: message.guild.id,
+            points: 0,
+            level: 1
+        }
+    }
+    
+    score.points++;
+    const curLevel = Math.floor(0.1 * Math.sqrt(score.points));
+    
+    if(score.level < curLevel) {
+        score.level++;
+        message.channel.send("**" + message.author.username + ",** YOU HAVE LEVELED UP TO LEVEL `" + curLevel + "`**!**");
+    }
+    
+    bot.setScore.run(score);
     
     // OWNER COMMANDS
 
@@ -294,6 +331,15 @@ bot.on("message", async message => {
 
         message.channel.send(snowEmbed);
 
+    }
+    
+    if(cmd === `${prefix}rank`) {
+     
+        let rankEmbed = new Discord.RichEmbed()
+        .setColor(snow.blue)
+        .setDescription("RANK **" + snow.snowflake + "**\n \n" + score.points + "\n" + score.level)
+        .setFooter("RANK | " + message.author.username, message.author)
+        
     }
 
 });
