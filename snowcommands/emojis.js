@@ -23,8 +23,8 @@ module.exports.run = async (bot, message, args) => {
 
     let emojiEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription("EMOJIS **" + snow.snowflake + "**\n" + emojilist)
-    .setFooter(`${totalemojis} ${emojiemojis} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
+    .setDescription("EMOJIS **" + snow.snowflake + "**\n**" + totalemojis + "** " + emojiemojis + "\n" + emojilist)
+    .setFooter(`EMOJIS | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
 
     message.channel.send(emojiEmbed);
 
