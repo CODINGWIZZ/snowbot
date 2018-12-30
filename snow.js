@@ -288,7 +288,7 @@ bot.on("message", async message => {
         .addField("NODE.JS VERSION", "`" + process.version.replace("v", "") + "`", true)
         .addField("MEMORY // COMMANDS", memoryusage + " **//** " + snow.commands)
         .addField("UPTIME", uptime)
-        .addField("WEBSITE", "https://snowbot.gq")
+        .addField("WEBSITE", "http://snowbot.gq")
         .addField("STATS", `**${bot.guilds.size}** SERVERS **( ${average}** AVERAGE USERS **/** GUILD **)**\n**${bot.channels.size}** CHANNELS\n**${bot.users.size}** USERS`)
         .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
