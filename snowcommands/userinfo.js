@@ -39,7 +39,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("NICKNAME", thenickname)
         .addField("ROLES **(** " + `${member.roles.size - 1}` + " **)**", roles.join(" "))
         .addField("STATUS", `${status[user.presence.status]}`)
-        .addField("ACCOUNT CREATED // JOINED SERVER", user.createdAt.toDateString().toUpperCase() + user.joinedAt.toDateString())
+        .addField("ACCOUNT CREATED // JOINED SERVER", user.createdAt.toDateString().toUpperCase() + user.joinedAt)
         .setFooter("USERINFO | SNOW ❆", bot.user.displayAvatarURL);
 
         message.channel.send(userinfoEmbed);
