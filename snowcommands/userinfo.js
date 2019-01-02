@@ -28,8 +28,6 @@ module.exports.run = async (bot, message, args) => {
         
         let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role);  
         if(roles.length < 1) roles = ["NONE"];
-        
-        let userjoinedserver = new Date(message.guild.detailsOfUser(user).joinedAt).toUTCString();
          
         let thenickname = member.nickname !== null ? member.nickname : "NONE";
  
