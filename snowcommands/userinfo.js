@@ -38,6 +38,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("ID", user.id)
         .addField("NICKNAME", thenickname)
         .addField("ROLES **(** " + `${member.roles.size - 1}` + " **)**", roles.join(" "))
+        .addField("HIGHEST ROLE", member.highestRole)
         .addField("STATUS", `${status[user.presence.status]}`)
         .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
         .setFooter("USERINFO | SNOW ❆", bot.user.displayAvatarURL);
