@@ -10,16 +10,6 @@ module.exports.run = async (bot, message, args) => {
     
     fetch.get(`https://api.twitch.tv/kraken/channels/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
         
-        $.getJSON('https://api.twitch.tv/kraken/streams/' + streamer, function(channel) {
-           
-            if(channel["stream"] == null) {
-             
-                return message.channel.send("THE STREAMER YOU ARE LOOKING UP ARE NOT STREAMING RIGHT NOW**!**");
-                
-            }
-            
-        });
-        
         let twitchstatus = twitchstreamer.body.status;
         let twitchurl = twitchstreamer.body.url;
     
