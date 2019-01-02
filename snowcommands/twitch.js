@@ -17,10 +17,10 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#6441a5")
         .setAuthor(twitchstreamer.body.display_name, twitchstreamer.body.logo)
         .setThumbnail(twitchstreamer.body.logo)
-        .setURL(`https://twitch.tv/${streamer}`)
+        .setURL(twitchstreamer.body.url)
         .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.game}`)
         .setImage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`)
-        .setFooter(`VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
+        .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
     
