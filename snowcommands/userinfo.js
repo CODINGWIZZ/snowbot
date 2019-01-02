@@ -28,6 +28,8 @@ module.exports.run = async (bot, message, args) => {
         
         let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role);  
         if(roles.length < 1) roles = ["NONE"];
+        
+        let userjoinedserver = new Date(message.guild.detailsOfUser(user).joinedAt).toUTCString();
          
         let thenickname = member.nickname !== null ? member.nickname : "NONE";
  
@@ -39,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("NICKNAME", thenickname)
         .addField("ROLES **(** " + `${member.roles.size - 1}` + " **)**", roles.join(" "))
         .addField("STATUS", `${status[user.presence.status]}`)
-        .addField("ACCOUNT CREATED // JOINED SERVER", user.createdAt.toDateString().toUpperCase() + user.joinedAt)
+        .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
         .setFooter("USERINFO | SNOW ❆", bot.user.displayAvatarURL);
 
         message.channel.send(userinfoEmbed);
