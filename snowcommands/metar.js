@@ -10,12 +10,12 @@ module.exports.run = async (bot, message, args) => {
 
     fetch.get(`https://avwx.rest/api/metar/${airport.toUpperCase()}`).then((metar) => {
  
-        let decodeEmbed = new Discord.RichEmbed()
+        let metarEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("METAR **" + snow.snowflake + "**\n" + metar.body.Sanitized.replace(airport.toUpperCase(), "**" + airport.toUpperCase() + "**"))
         .setFooter(`METAR ${airport.toUpperCase()} | SNOW ` + snow.snowflake, bot.user.displayAvatarURL);
         
-        message.channel.send(decodeEmbed);
+        message.channel.send(metarEmbed);
     
     });
     
