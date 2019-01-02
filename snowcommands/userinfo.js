@@ -30,10 +30,30 @@ module.exports.run = async (bot, message, args) => {
         if(roles.length < 1) roles = ["NONE"];
          
         let thenickname = member.nickname !== null ? member.nickname : "NONE";
+        
+        let status = "";
+        
+        if(user.presence.game.type === 2) {
+         
+            status = "LISTENING TO";
+            
+        } else if(user.presence.game.type === 3) {
+            
+            status = "WATCHING";
+        
+        } else if(user.presence.game.type === 4) {
+         
+            status = "STREAMING";
+            
+        } else {
+         
+            status = "PLAYING";
+            
+        }
  
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("USERINFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : "NOT PLAYING ANYTHING**!**"}`)
+        .setDescription("USERINFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `${status} **${user.presence.game.name}**` : `NOT HAVING A STATUS CURRENTLY**!**`}`)
         .addField("FULL NAME", `**${user.username}**#${user.discriminator}`)
         .addField("ID", user.id)
         .addField("NICKNAME", thenickname)
