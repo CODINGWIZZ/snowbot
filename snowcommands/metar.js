@@ -17,6 +17,10 @@ module.exports.run = async (bot, message, args) => {
         
         message.channel.send(decodeEmbed);
     
+    } catch (e) {
+        
+        return message.channel.send("COULDN'T LOAD THE METAR FOR `" + airport.toUpperCase() + "`**!**");
+        
     });
     
 }
