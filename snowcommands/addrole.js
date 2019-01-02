@@ -12,25 +12,24 @@ module.exports.run = async (bot, message, args) => {
     let arUser = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!arUser) return message.channel.send("CAN'T FIND USER**!**");
 
-    let role = args.slice(1).join(" ");
-    if(!role) return message.channel.send("PLEASE SPECIFY A ROLE**!**");
+    if(!args[1]) return message.channel.send("PLEASE ENTER A ROLE YOU WANT TO ADD TO THAT SPECIFIC USER**!**");
 
-    let arRole = message.guild.roles.find(`name`, role);
-    if(!arRole) return message.channel.send("CAN'T FIND ROLE**!**");
+    let role = message.mentions.roles.first() || message.guild.roles.get(args.slice(1).join(" ")) || message.guild.roles.find(role => role.name === args.slice(1).join(" "));
+    if(!role) return message.channel.send("CAN'T FIND ROLE**!**");
 
     if(arUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT ADD A ROLE TO A MEMBER WITH A HIGHER OR THE SAME ROLE AS YOU**!**");
-    if(arUser.roles.has(arRole.id)) return message.channel.send("THAT USER ALREADY HAS THAT ROLE**!**");
+    if(arUser.roles.has(role.id)) return message.channel.send("THAT USER ALREADY HAS THAT ROLE**!**");
 
-    await(arUser.addRole(arRole.id)).then(() => {
+    await(arUser.addRole(role.id)).then(() => {
 
-        message.channel.send(`<@${arUser.id}> HAS BEEN ADDED TO THE **${arRole}** ROLE**!**`);
+        message.channel.send(`<@${arUser.id}> HAS BEEN ADDED TO THE **${role}** ROLE**!**`);
 
         let addroleEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("ADD ROLE **" + snow.snowflake + "**")
         .setTimestamp()
         .addField("USER", arUser)
-        .addField("ROLE", "**" + arRole + "**")
+        .addField("ROLE", "**" + role + "**")
         .addField("MODERATOR", message.author)
         .addField("CHANNEL", message.channel)
         .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
