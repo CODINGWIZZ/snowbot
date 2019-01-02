@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         let reminderEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setTimestamp()
-        .setDescription(`THE **${ms(ms(remindertime))}** YOU MADE IN **${message.guild.name}** HAS BEEN FINISHED**!**`)
+        .setDescription(`THE **${ms(ms(remindertime))}** REMINDER YOU MADE IN **${message.guild.name}** HAS BEEN FINISHED**!**`)
         .addField("REMINDER NOTE", remindernote)
         .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);
 
