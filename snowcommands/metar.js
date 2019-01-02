@@ -9,9 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if(!airport) return message.channel.send("PLEASE ENTER A ICAO**!**");
 
     fetch.get(`https://avwx.rest/api/metar/${airport.toUpperCase()}`).then((metar, err) => {
-        
-        if(err) return message.channel.send("COULDN'T LOAD THE METAR FOR `" + airport.toUpperCase() + "`");
-        
+ 
         let decodeEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("METAR **" + snow.snowflake + "**\n" + metar.body.Sanitized.replace(airport.toUpperCase(), "**" + airport.toUpperCase() + "**"))
@@ -19,7 +17,11 @@ module.exports.run = async (bot, message, args) => {
         
         message.channel.send(decodeEmbed);
     
-    });
+    }) catch (err) {
+        
+        return message.channel.send("COULDN'T LOAD THE METAR FOR `" + airport.toUpperCase() + "`");
+        
+    }
     
 }
 
