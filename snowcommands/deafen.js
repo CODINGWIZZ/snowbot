@@ -17,14 +17,14 @@ module.exports.run = async (bot, message, args) => {
     if(dUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE DEAFENED**!**");
     if(dUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT DEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
-    let deafenrole = message.guild.roles.find(`name`, "DEAFENED // " + snow.snowflake);
+    let deafenrole = message.guild.roles.find(`name`, "DEAFENED " + snow.snowflake);
     if(!deafenrole) {
 
         try {
 
             deafenrole = await message.guild.createRole({
-                name: "DEAFENED // " + snow.snowflake,
-                color: "#65798d",
+                name: "DEAFENED " + snow.snowflake,
+                color: "#5a6788",
                 permissions: []
             })
 
