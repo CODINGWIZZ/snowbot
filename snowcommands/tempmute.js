@@ -15,14 +15,14 @@ module.exports.run = async (bot, message, args) => {
     if(tmUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE TEMPMUTED**!**");
     if(tmUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT TEMPMUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
-    let tempmuterole = message.guild.roles.find(`name`, "MUTED // " + snow.snowflake);
+    let tempmuterole = message.guild.roles.find(`name`, "MUTED " + snow.snowflake);
     if(!tempmuterole) {
 
         try {
 
             tempmuterole = await message.guild.createRole({
-                name: "MUTED // " + snow.snowflake,
-                color: "#65798d",
+                name: "MUTED " + snow.snowflake,
+                color: "#5a6788",
                 permissions: []
             })
 
