@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     if(mUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE MUTED**!**");
     if(mUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT MUTE A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
-    let muterole = message.guild.roles.find(`name`, "MUTED // " + snow.snowflake);
+    let muterole = message.guild.roles.find(`name`, "MUTED " + snow.snowflake);
     if(!muterole) {
 
         try {
