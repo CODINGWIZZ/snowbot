@@ -23,10 +23,12 @@ module.exports.run = async (bot, message, args) => {
             messages = "MESSAGES";
             
         }
+        
+        message.channel.bulkDelete(amount);
     
-        message.channel.bulkDelete(args[0]).then(() => {
-            message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(2000));
-        });
+//         message.channel.bulkDelete(args[0]).then(() => {
+//             message.channel.send(`CLEARED **${args[0]}** ${messages}**!**`).then(deleteMessage2 => deleteMessage2.delete(2000));
+//         });
     
 //         let clearEmbed = new Discord.RichEmbed()
 //         .setColor(snow.blue)
