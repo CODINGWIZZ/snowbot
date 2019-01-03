@@ -15,14 +15,14 @@ module.exports.run = async (bot, message, args) => {
     if(tdUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("THIS USER CAN'T BE TEMPDEAFENED**!**");
     if(tdUser.highestRole.position >= message.member.highestRole.position) return message.channel.send("YOU CAN NOT TEMPDEAFEN A MEMBER WHO HAS A HIGHER OR THE SAME ROLE AS YOU**!**");
 
-    let tempdeafenrole = message.guild.roles.find(`name`, "DEAFENED // " + snow.snowflake);
+    let tempdeafenrole = message.guild.roles.find(`name`, "DEAFENED " + snow.snowflake);
     if(!tempdeafenrole) {
 
         try {
 
             tempdeafenrole = await message.guild.createRole({
-                name: "DEAFENED // " + snow.snowflake,
-                color: "#65798d",
+                name: "DEAFENED " + snow.snowflake,
+                color: "#5a6788",
                 permissions: []
             })
 
