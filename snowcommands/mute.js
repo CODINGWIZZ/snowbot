@@ -23,8 +23,8 @@ module.exports.run = async (bot, message, args) => {
         try {
 
             muterole = await message.guild.createRole({
-                name: "MUTED // " + snow.snowflake,
-                color: "#65798d",
+                name: "MUTED " + snow.snowflake,
+                color: "#5a6788",
                 permissions: []
             })
 
