@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
         let issEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setTimestamp()
-        .setDescription("ISS **" + snow.snowflake + "**\n" + `[**ISS' CURRENT LOCATION**](https://google.com/maps?q=${iss.body.latitude},${iss.body.longitude})`)
+        .setDescription("ISS **" + snow.snowflake + "**\n" + `[**CURRENT LOCATION**](https://google.com/maps?q=${iss.body.latitude},${iss.body.longitude})`)
         .addField("LOCATION", iss.body.latitude + ", " + iss.body.longitude)
         .addField("ALTITUDE", iss.body.altitude)
         .addField("VISIBILITY", iss.body.visibility.toUpperCase())
