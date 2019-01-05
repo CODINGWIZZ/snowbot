@@ -6,10 +6,13 @@ const encode = require("strict-uri-encode");
 
 module.exports.run = async (bot, message, args) => {
 
-    let movie = encode(args.join(" "));
+    let year = args[0];
+    if(!year) return message.channel.send("PLEASE ENTER THE YEAR AND THEN THE MOVIE SEARCH TERM**!**");
+
+    let movie = encode(args.slice(1).join(" "));
     if(!movie) return message.channel.send("PLEASE ENTER A MOVIE SEARCH TERM**!**");
     
-    fetch.get(`http://omdbapi.com/?t=${movie}&apikey=65540ce6`).then((imdbmovie) => {
+    fetch.get(`http://omdbapi.com/?t=${movie}&y=${year}&apikey=65540ce6`).then((imdbmovie) => {
         
         let movieurl = `https://imdb.com/title/${imdbmovie.body.imdbID}`;
     
