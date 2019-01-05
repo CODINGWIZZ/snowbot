@@ -54,7 +54,7 @@ module.exports.run = async (bot, message, args) => {
         let userinfoEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
         .setDescription("USERINFO **❆** **// " + user.username + "**\n" + `${user.presence.game ? `Playing **${user.presence.game.name}**` : `NOT PLAYING ANYTHING RIGHT NOW**!**`}`)
-        .addField("FULL USER", `**${user.username}**#${user.discriminator} **(** ${user.id} **)**`)
+        .addField("FULL USER", `**${user.username}**#${user.discriminator} **// (** ${user.id} **)**`)
         .addField("NICKNAME", thenickname)
         .addField("ROLES **(** " + `${member.roles.size - 1}` + " **)**", roles.join(" "))
         .addField("HIGHEST ROLE", member.highestRole)
