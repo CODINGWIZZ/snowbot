@@ -234,7 +234,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}duckduckgo` || cmd === `${prefix}ddg`) {
 
-        let ddg = args.slice(1).join("+");
+        let ddg = encode(args.join(" "));
         if(!ddg) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
 
         let ddgLink = `https://duckduckgo.com/?q=${ddg}`;
