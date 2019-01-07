@@ -7,7 +7,7 @@ let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let google = args.slice(1).join(" ");
+    let google = args.slice(1).join("+");
     if(!google) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
 
     let googlelink = `https://google.com/search?q=${google}`;
