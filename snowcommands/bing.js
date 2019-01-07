@@ -7,7 +7,7 @@ let prefix = snow.prefix;
 
 module.exports.run = async (bot, message, args) => {
 
-    let bing = encode(args.join(" "));
+    let bing = args.slice(1).join("+");
     if(!bing) return message.channel.send("PLEASE ENTER A SEARCH QUERY**!**");
 
     let binglink = `https://bing.com/search?q=${bing}`;
