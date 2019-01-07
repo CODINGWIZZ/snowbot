@@ -5,7 +5,7 @@ const encode = require("strict-uri-encode");
 
 module.exports.run = async (bot, message, args) => {
 
-    let maps = encode(args.join(" "));
+    let maps = args.slice(1).join("+");
     if(!maps) return message.channel.send("PLEASE ENTER A SEARCH QUERY YOU WANT TO SEARCH FOR IN GOOGLE MAPS**!**");
     
     let mapslink = `https://google.com/maps?q=${maps}`;
