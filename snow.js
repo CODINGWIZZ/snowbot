@@ -218,19 +218,6 @@ bot.on("message", async message => {
 
     }
 
-    if(cmd === `${prefix}randomimage` || cmd === `${prefix}randompicture`) {
-
-        let randomimage = Math.floor(((Math.random()) * 1050) + 1);
-        let randomimagelink = `https://picsum.photos/1920/1080/?image=${randomimage}`;
-
-        let randomimageEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription("RANDOM IMAGE **" + snow.snowflake + "**")
-        .setImage(randomimagelink);
-
-        message.channel.send(randomimageEmbed);
-
-    }
 
     if(cmd === `${prefix}duckduckgo` || cmd === `${prefix}ddg`) {
 
