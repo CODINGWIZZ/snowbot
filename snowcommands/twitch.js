@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
-        .setAuthor(twitchstreamer.stream.display_name, twitchstreamer.body.stream.logo)
+        .setAuthor(twitchstreamer.body.stream.display_name, twitchstreamer.body.stream.logo)
         .setThumbnail(twitchstreamer.body.stream.logo)
         .setURL(twitchstreamer.body.stream.url)
         .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.steam.game}`)
