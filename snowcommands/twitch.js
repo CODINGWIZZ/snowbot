@@ -10,19 +10,19 @@ module.exports.run = async (bot, message, args) => {
     
     fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
         
-        let twitchstatus = twitchstreamer.stream.status;
-        let twitchurl = twitchstreamer.stream.url;
+        let twitchstatus = twitchstreamer.body.stream.status;
+        let twitchurl = twitchstreamer.body.stream.url;
         
         let imageURL = `https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-640x360.jpg`;
     
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
-        .setAuthor(twitchstreamer.stream.display_name, twitchstreamer.stream.logo)
-        .setThumbnail(twitchstreamer.stream.logo)
-        .setURL(twitchstreamer.stream.url)
-        .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.stream.game}`)
+        .setAuthor(twitchstreamer.stream.display_name, twitchstreamer.body.stream.logo)
+        .setThumbnail(twitchstreamer.body.stream.logo)
+        .setURL(twitchstreamer.body.stream.url)
+        .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.steam.game}`)
         .setImage(imageURL)
-        .setFooter(`TOTAL VIEWS: ${twitchstreamer.stream.views} // FOLLOWERS: ${twitchstreamer.stream.followers}`, bot.user.displayAvatarURL);
+        .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.steam.views} // FOLLOWERS: ${twitchstreamer.body.stream.followers}`, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
         
