@@ -15,8 +15,8 @@ module.exports.run = async (bot, message, args) => {
 //     let locationURL = location => `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22$%7B${encodeURIComponent(location)}%7D%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
 //     let res = await got(locationURL(location), { json: true });
 
-    let weatherinfo = res.body.query.results.channel;
-    let forecast = weatherinfo.item.forecast[0];
+//     let weatherinfo = res.body.query.results.channel;
+//     let forecast = weatherinfo.item.forecast[0];
 
     weather.find({search: location, degreeType: "F"}, function(err, result) {
 
