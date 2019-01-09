@@ -15,8 +15,8 @@ module.exports.run = async (bot, message, args) => {
 
     let celsius = (fahrenheit) => Math.round(((fahrenheit - 32) * 5) / 9);
 
-    let weatherinfo = res.body.query.results.channel;
-    let forecast = weatherinfo.item.forecast[0];
+//     let weatherinfo = res.body.query.results.channel;
+//     let forecast = weatherinfo.item.forecast[0];
 
     weather.find({search: location, degreeType: "F"}, function(err, result) {
 
@@ -31,6 +31,10 @@ module.exports.run = async (bot, message, args) => {
             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
             
+            let wind = thecurrent.winddisplay.replace("mph", "");
+            let windkmh = Math.round((wind*1,609344));
+            
+            
 //             let sunrise = weatherinfo.astronomy.sunrise;
 //             let sunset = weatherinfo.astronomy.sunset;
 
@@ -43,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
             .setDescription(`WEATHER ☁\n${countryemoji} **//** \`${thecurrent.skytext.toUpperCase()}\``)
             .addField("TEMPERATURE", `${celsius(thecurrent.temperature)}**` + "°C //** " + thecurrent.temperature + "**°F**", true)
             .addField("FEELS LIKE", `${celsius(thecurrent.feelslike)}**` + "°C //** " + thecurrent.feelslike + "**°F**", true)
-            .addField("WINDS", `*${thecurrent.winddisplay}* **>>** ${weatherinfo.wind.direction}**°**`, true)
+            .addField("WINDS", `*${wind}mph* **//** *${windkmh(wind)}kmh*`, true)
             .addField("HUMIDITY", thecurrent.humidity + "**%**", true)
 //             .addField("SUNRISE", sunrise, true)
 //             .addField("SUNSET", sunset, true)
