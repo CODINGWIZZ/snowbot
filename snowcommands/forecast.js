@@ -28,8 +28,8 @@ module.exports.run = async (bot, message, args) => {
 
 //             }
 
-            const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
-            const countryemoji = countryinfo ? countryinfo.emoji : "** **";
+//             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
+//             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
 
             let celsius = (fahrenheit) => Math.round(((fahrenheit - 32) * 5) / 9);
 
