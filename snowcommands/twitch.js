@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let streamer = args[0];
     if(!streamer) return message.channel.send("PLEASE ENTER A TWITCH STREAMER**!**");
     
-    fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
+    fetch.get(`https://api.twitch.tv/kraken/channels/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
         
         let twitchstatus = twitchstreamer.body.status;
         let twitchurl = twitchstreamer.body.url;
@@ -25,17 +25,7 @@ module.exports.run = async (bot, message, args) => {
         .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
-        
-//         if(twitchstreamer.body.stream_type !== "live") {
-  
-//             message.channel.send("THAT STREAMER IS NOT LIVE**!**");
-            
-//         } else {
-      
-//             message.channel.send(twitchEmbed);
-            
-//         };
-    
+       
     });
 
 }
