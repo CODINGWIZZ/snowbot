@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
             let thelocation = result[0].location;
             
             let wind = thecurrent.winddisplay.replace("mph", "");
-            let windkmh = Math.round((wind*1,609344));
+            let windkmh = (defaultwind)  => Math.round((defaultwind*1,609344));
             
             
 //             let sunrise = weatherinfo.astronomy.sunrise;
