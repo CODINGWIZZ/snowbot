@@ -24,6 +24,8 @@ module.exports.run = async (bot, message, args) => {
         .setImage(imageURL)
         .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
         
+        message.channel.send(twitchEmbed);
+        
 //         if(twitchstreamer.body.stream_type !== "live") {
   
 //             message.channel.send("THAT STREAMER IS NOT LIVE**!**");
