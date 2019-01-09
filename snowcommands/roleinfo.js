@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
     const roleinfoEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription("ROLEINFO **" + snow.snowflake + "\n" + role + " (**" + role.id + " **)**")
+    .setDescription("ROLEINFO **" + snow.snowflake + "\n" + role + " (** " + role.id + " **)**")
     .addField("POSITION", roleposition, true)
     .addField("ROLE MEMBERS", role.members.size, true)
     .addField("CREATED AT", role.createdAt.toDateString().toUpperCase(), true)
