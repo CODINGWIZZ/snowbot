@@ -42,7 +42,7 @@ module.exports.run = async (bot, message, args) => {
             .setTimestamp()
             .setDescription(`WEATHER ☁\n \`${thecurrent.skytext.toUpperCase()}\``)
             .addField("TEMPERATURE", `${celsius(thecurrent.temperature)}**` + "°C //** " + thecurrent.temperature + "**°F**", true)
-            .addField("FEELS LIKE", `${celsius(thecurrent.feelslike)}**` + "°C //** " + thecurrent.feelslike + "**°F**")
+            .addField("FEELS LIKE", `${celsius(thecurrent.feelslike)}**` + "°C //** " + thecurrent.feelslike + "**°F**", true)
             .addField("WINDS", `*${thecurrent.winddisplay}*`, true)
             .addField("HUMIDITY", thecurrent.humidity + "**%**", true)
 //             .addField("SUNRISE", sunrise, true)
