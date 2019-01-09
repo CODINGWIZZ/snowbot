@@ -12,6 +12,9 @@ module.exports.run = async (bot, message, args) => {
         
         let twitchstatus = twitchstreamer.body.status;
         let twitchurl = twitchstreamer.body.url;
+        
+        let imageURL = `https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`;
+        if(imageURL === "https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg") return message.channel.send("THIS STREAMER IS NOT LIVE**!**");
     
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
@@ -19,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .setThumbnail(twitchstreamer.body.logo)
         .setURL(twitchstreamer.body.url)
         .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.game}`)
-        .setImage(`https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`)
+        .setImage(imageURL)
         .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
