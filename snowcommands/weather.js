@@ -5,8 +5,6 @@ const weather = require("weather-js");
 const countries = require("country-data").countries.all;
 const got = require("got");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let location = args.join(" ");
