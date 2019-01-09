@@ -31,15 +31,15 @@ module.exports.run = async (bot, message, args) => {
 //             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
 //             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
             
+            let thecurrent = result[0].current;
+            let thelocation = result[0].location;
+            
             let wind = thecurrent.winddisplay.replace("mph", "");
             let windkmh = Math.round((wind*1,609344));
             
             
 //             let sunrise = weatherinfo.astronomy.sunrise;
 //             let sunset = weatherinfo.astronomy.sunset;
-
-            let thecurrent = result[0].current;
-            let thelocation = result[0].location;
             
             let weatherEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
