@@ -24,11 +24,11 @@ module.exports.run = async (bot, message, args) => {
 
         message.channel.send("GENERATING WEATHER INFO **...**").then((weatherMessage) => {
 
-            if(!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
+//             if(!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
 
-                return weatherMessage.edit("COULDN'T CHECK WEATHER FOR THAT LOCATION**!**");
+//                 return weatherMessage.edit("COULDN'T CHECK WEATHER FOR THAT LOCATION**!**");
 
-            }
+//             }
 
             const countryinfo = countries.find(country => country.name === weatherinfo.location.country);
             const countryemoji = countryinfo ? countryinfo.emoji : "** **";
