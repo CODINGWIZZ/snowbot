@@ -20,9 +20,9 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(twitchstreamer.body.stream.display_name, twitchstreamer.body.stream.logo)
         .setThumbnail(twitchstreamer.body.stream.logo)
         .setURL(twitchstreamer.body.stream.url)
-        .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.steam.game}`)
+        .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.stream.game}`)
         .setImage(imageURL)
-        .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.steam.views} // FOLLOWERS: ${twitchstreamer.body.stream.followers}`, bot.user.displayAvatarURL);
+        .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.stream.views} // FOLLOWERS: ${twitchstreamer.body.stream.followers}`, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
         
