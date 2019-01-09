@@ -24,13 +24,13 @@ module.exports.run = async (bot, message, args) => {
         .setImage(imageURL)
         .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
         
-        if(twitchstreamer.body.stream_type === "live") {
-            
-            message.channel.send(twitchEmbed);
+        if(twitchstreamer.body.stream_type !== "live") {
+  
+            return message.channel.send("THAT STREAMER IS NOT LIVE**!**");
             
         } else {
-         
-            return message.channel.send("THAT STREAMER IS NOT LIVE**!**");
+      
+            message.channel.send(twitchEmbed);
             
         }
     
