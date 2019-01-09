@@ -34,20 +34,16 @@ module.exports.run = async (bot, message, args) => {
             let thecurrent = result[0].current;
             let thelocation = result[0].location;
             
-            let wind = thecurrent.winddisplay.replace("mph", "");
-            let windkmh = (defaultwind)  => Math.round((defaultwind*1,609344));
-            
-            
 //             let sunrise = weatherinfo.astronomy.sunrise;
 //             let sunset = weatherinfo.astronomy.sunset;
             
             let weatherEmbed = new Discord.RichEmbed()
             .setColor(snow.blue)
             .setTimestamp()
-            .setDescription(`WEATHER ☁\n **//** \`${thecurrent.skytext.toUpperCase()}\``)
+            .setDescription(`WEATHER ☁\n \`${thecurrent.skytext.toUpperCase()}\``)
             .addField("TEMPERATURE", `${celsius(thecurrent.temperature)}**` + "°C //** " + thecurrent.temperature + "**°F**", true)
             .addField("FEELS LIKE", `${celsius(thecurrent.feelslike)}**` + "°C //** " + thecurrent.feelslike + "**°F**", true)
-            .addField("WINDS", `*${wind}mph* **//** *${windkmh(wind)}kmh*`, true)
+            .addField("WINDS", `*${thecurrent.winddisplay}*`, false)
             .addField("HUMIDITY", thecurrent.humidity + "**%**", true)
 //             .addField("SUNRISE", sunrise, true)
 //             .addField("SUNSET", sunset, true)
