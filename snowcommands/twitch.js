@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
         
         if(twitchstreamer.body.stream_type !== "live") {
   
-            return message.channel.send("THAT STREAMER IS NOT LIVE**!**");
+            message.channel.send("THAT STREAMER IS NOT LIVE**!**");
             
         } else {
       
