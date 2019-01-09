@@ -14,7 +14,6 @@ module.exports.run = async (bot, message, args) => {
         let twitchurl = twitchstreamer.body.url;
         
         let imageURL = `https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`;
-        if(imageURL === "https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg") return message.channel.send("THIS STREAMER IS NOT LIVE**!**");
     
         let twitchEmbed = new Discord.RichEmbed()
         .setColor("#6441a5")
