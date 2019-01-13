@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
 
         };
         
-        let user = message.mentions.users.first() || message.guild.members.get(args[0]) || message.guild.members.find(member => member.name === args[0]) || message.author;
+        let user = message.mentions.users.first() || message.guild.members.get(args[0]) || message.guild.members.get(member => member.name === args[0]) || message.author;
         let member = message.guild.member(user);
         
         let roles = member.roles.array().slice(1).sort((a, b) => a.comparePositionTo(b)).reverse().map(role => role);  
