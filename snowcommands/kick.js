@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
