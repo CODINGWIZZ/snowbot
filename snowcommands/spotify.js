@@ -1,4 +1,4 @@
-// Credit for this command goes to Plexi Development > https://www.youtube.com/channel/UCQ5Qd-AwrsubVfUAMjhvhNA!
+// COMMAND REDIT > PLEXI DEVELOPMENT > https://www.youtube.com/channel/UCQ5Qd-AwrsubVfUAMjhvhNA!
 
 const Discord = require("discord.js");
 const snow = require("../snow.json");
