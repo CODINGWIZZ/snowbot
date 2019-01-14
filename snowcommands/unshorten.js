@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const unshorten = require("isgd");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let isgdlink = args[0];
