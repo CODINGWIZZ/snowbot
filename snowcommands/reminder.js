@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const ms = require("ms");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let remindertime = args[0];
