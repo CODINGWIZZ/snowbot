@@ -3,7 +3,6 @@ const { version: discordVersion } = require("discord.js");
 const snow = require("./snow.json");
 
 const fs = require("fs");
-const got = require("got");
 const math = require("math-expression-evaluator");
 const stripIndents = require("common-tags").stripIndent;
 const encode = require("strict-uri-encode");
@@ -54,7 +53,7 @@ bot.on("ready", async () => {
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
 
     bot.user.setStatus("ONLINE");
-//     bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZ_SNOW");
+    // bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZ_SNOW");
 
 });
 
@@ -110,7 +109,7 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
    
-    // OWNER COMMANDS
+    // STAFF COMMANDS
 
     if(cmd === `${prefix}snowembed`) {
 
