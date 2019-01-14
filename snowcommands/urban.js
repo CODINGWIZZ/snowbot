@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const urban = require("relevant-urban");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let urbansearch = args.join(" ");
