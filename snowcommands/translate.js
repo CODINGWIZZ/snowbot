@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const translate = require("google-translate-api");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let translatelanguage = args[0];
