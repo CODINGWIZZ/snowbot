@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const ms = require("ms");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("DEAFEN_MEMBERS")) return message.channel.send("YOU DO NOT HAVE PERMISSIONS TO DO THAT**!**");
