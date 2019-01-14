@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let roll = Math.floor(((Math.random()) * 6) + 1);
