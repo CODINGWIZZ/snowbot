@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const encode = require("strict-uri-encode");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let youtube = encode(args.join(" "));
