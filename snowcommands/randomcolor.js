@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const convert = require("color-convert");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let color = "000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);}).toLocaleLowerCase();
