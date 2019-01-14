@@ -5,8 +5,6 @@ const encode = require("strict-uri-encode");
 const got = require("got");
 const API_KEY = "dc6zaTOxFJmzC";
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let gif = args.join(" ");
