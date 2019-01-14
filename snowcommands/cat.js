@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const superagent = require("superagent");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     const { body, header } = await superagent
