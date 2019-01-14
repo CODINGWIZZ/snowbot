@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const convert = require("color-convert");
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     if(!args[0]) return message.channel.send("PLEASE ENTER A HEX COLOR YOU WANT TO CHECK**!**");
