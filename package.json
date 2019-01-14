@@ -14,7 +14,7 @@
     "common-tags": "^1.8.0",
     "country-data": "0.0.31",
     "discord.js": "^11.3.2",
-    "fortnite": "^4.1.1",
+    "ffmpeg-binaries": "^4.0.0",
     "fs": "0.0.1-security",
     "google-translate-api": "^2.3.0",
     "got": "^8.3.2",
@@ -25,12 +25,10 @@
     "ms": "^2.1.1",
     "node-fetch": "^2.2.0",
     "relevant-urban": "^2.0.0",
+    "rss-parser": "^3.6.0",
     "snekfetch": "^4.0.4",
     "strict-uri-encode": "^2.0.0",
     "superagent": "^3.8.3",
-    "weather-js": "^2.0.0",
-    "ffmpeg-binaries": "^4.0.0",
-    "rss-parser": "^3.6.0",
-    "better-sqlite3": "^5.2.1"
+    "weather-js": "^2.0.0"
   }
 }
