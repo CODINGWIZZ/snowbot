@@ -3,8 +3,6 @@ const snow = require("../snow.json");
 
 const ascii = require("ascii-art")
 
-let prefix = snow.prefix;
-
 module.exports.run = async (bot, message, args) => {
 
     let asciimessage = args.join(" ");
