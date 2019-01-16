@@ -9,12 +9,12 @@
   "author": "WIZZ",
   "license": "ISC",
   "dependencies": {
-    "ascii-art": "^1.4.3",
     "color-convert": "^1.9.2",
     "common-tags": "^1.8.0",
     "country-data": "0.0.31",
     "discord.js": "^11.3.2",
     "ffmpeg-binaries": "^4.0.0",
+    "figlet": "^1.2.1",
     "fs": "0.0.1-security",
     "google-translate-api": "^2.3.0",
     "got": "^8.3.2",
