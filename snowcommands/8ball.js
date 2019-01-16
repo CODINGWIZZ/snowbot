@@ -4,7 +4,7 @@ const snow = require("../snow.json");
 module.exports.run = async (bot, message, args) => {
 
     let question = args.join(" ");
-    if(!question) return message.channel.send("PLEASE ENTER A QUESTION TO THE MAGIC **SNOW!**");
+    if(!question) return message.channel.send("PLEASE ENTER A QUESTION TO THE MAGIC SNOW**!**");
 
     if(!args[2]) return message.channel.send("PLEASE ASK A FULL QUESTION WITH AT LEAST **2** WORDS**!**");
 
