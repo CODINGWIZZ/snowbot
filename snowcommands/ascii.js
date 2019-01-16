@@ -1,34 +1,30 @@
 const Discord = require("discord.js");
 const snow = require("../snow.json");
 
-const figlet = require("figlet");
+const ascii = require("ascii-art")
 
 module.exports.run = async (bot, message, args) => {
 
-    let ascii = args.join(" ");
-    if(!ascii) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO CONVERT TO ASCII**!**");
+    let asciimessage = args.join(" ");
+    if(asciimessage.length > 17) return message.channel.send("THE MESSAGE YOU'VE ENTERED IS TOO LONG**!**");
+    if(!asciimessage) return message.channel.send("PLEASE ENTER A MESSAGE THAT YOU WANT TO CONVERT TO ASCII**!**");
 
-    if(ascii.length > 17) return message.channel.send("THE MESSAGE YOU ENTERED IS TOO LONG**!**");
+    message.channel.send("GENERATING ASCII MESSAGE **...**").then((asciiMessage) => {
 
-    message.channel.send("GENERATING ASCII **...**").then((asciiMessage) => {
-        
-        figlet(ascii, function(err, data) {
-            if(err) {
-                
-                return message.channel.send("THERE WAS A ERROR CREATING THE ASCII MESSAGE**!** PLEASE TRY AGAIN**!**");
+        ascii.font(asciimessage, "Doom", function(finished) {
 
-            }
-        
-            asciiMessage.edit(data, {
+            finished = finished.trimRight();
+
+            asciiMessage.edit(finished, {
                 code: "md"
             });
-        
+
         });
 
     });
 
 }
 
-module.exports.help = {
+module.exports.help =  {
     name: "ascii"
 }
