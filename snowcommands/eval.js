@@ -4,6 +4,8 @@ const snow = require("../snow.json");
 module.exports.run = async (bot, message, args) => {
   
     if(message.author.id !== "297832577782382592") return;
+  
+    if(args[0]) return message.channel.send("PLEASE ENTER A CODE**!**");
     
     function clean(text) {
       
@@ -16,7 +18,6 @@ module.exports.run = async (bot, message, args) => {
     
     try {
       let code = args.join(" ");
-      if(!code) return message.channel.send("PLEASE ENTER A CODE**!**");
       
       var evaled = eval(code);
       
