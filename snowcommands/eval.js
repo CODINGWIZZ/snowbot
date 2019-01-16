@@ -16,6 +16,8 @@ module.exports.run = async (bot, message, args) => {
     
     try {
       let code = args.join(" ");
+      if(!code) return message.channel.send("PLEASE ENTER A CODE**!**");
+      
       var evaled = eval(code);
       
       if(typeof evaled !== "string")
