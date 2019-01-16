@@ -269,7 +269,7 @@ bot.on("message", async message => {
         .setDescription("SNOW **" + snow.snowflake + "**")
         .addField("BOT NAME", "**" + snow.name + "**#" + bot.user.discriminator + " **(** " + bot.user.id + " **)**")
         .addField("DEVELOPER", "**" + snow.dev + "**#7897")
-        .addField("PREFIX // VERSION", "`s!` **//** " + snowpackage.version, true)
+        .addField("PREFIX // VERSION", "`s!` **//** " + snow.version, true)
         .addField("DISCORD VERSION", "`" + discordVersion + "`", true)
         .addField("NODE.JS VERSION", "`" + process.version.replace("v", "") + "`", true)
         .addField("MEMORY // COMMANDS", memoryusage + " **//** " + snow.commands)
