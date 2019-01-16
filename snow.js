@@ -23,7 +23,6 @@ fs.readdir("./snowcommands/", (err, files) => {
     if(jsfile.length <= 0) {
 
         console.log("THERE ARE NO JS FILES IN THE SNOWCOMMANDS FOLDER!");
-        console.log(jsfile.length + 4 + " COMMANDS LOADED**!**");
 
     }
 
@@ -285,4 +284,4 @@ bot.on("message", async message => {
  
 });
 
-// bot.login(process.env.token);
+bot.login(process.env.token);
