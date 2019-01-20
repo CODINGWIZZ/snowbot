@@ -6,26 +6,28 @@ const fetch = require("snekfetch");
 module.exports.run = async (bot, message, args) => {
 
     let streamer = args[0];
-    if(!streamer) return message.channel.send("PLEASE ENTER A TWITCH STREAMER**!**");
-    
-    fetch.get(`https://api.twitch.tv/kraken/channels/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
-        
-        let twitchstatus = twitchstreamer.body.status;
-        let twitchurl = twitchstreamer.body.url;
+    if(!streamer) return message.channel.send("PLEASE ENTER A TWITCH STREAMER");
+
+    fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=01inpynid3uh12j55ds4otirzedvm1`).then((twitchstreamer) => {
+
+        let twitchstatus = twitchstreamer.body.stream.channel.status;
+        let twitchurl = twitchstreamer.body.stream.channel.url;
         
         let imageURL = `https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`;
-    
+
         let twitchEmbed = new Discord.RichEmbed()
-        .setColor("#6441a5")
-        .setAuthor(twitchstreamer.body.display_name, twitchstreamer.body.logo)
-        .setThumbnail(twitchstreamer.body.logo)
-        .setURL(twitchstreamer.body.url)
-        .setDescription(`[${twitchstatus}](${twitchurl})\n\n**GAME:** ${twitchstreamer.body.game}`)
+        .setColor(snow.blue)
+        .setAuthor(twitchstreamer.body.stream.channel.display_name, twitchstreamer.body.stream.channel.logo)
+        .setThumbnail(twitchstreamer.body.stream.channel.logo)
+        .setURL(twitchurl)
+        .setDescription(`[${twitchstatus}](${twitchurl})`)
+        .addField("GAME", twitchstreamer.body.stream.game, true)
+        .addField("VIEWERS", twitchstreamer.body.stream.viewers, true)
         .setImage(imageURL)
-        .setFooter(`TOTAL VIEWS: ${twitchstreamer.body.views} // FOLLOWERS: ${twitchstreamer.body.followers}`, bot.user.displayAvatarURL);
+        .setFooter(`FOLLOWERS: ${twitchstreamer.body.stream.channel.followers} // TOTAL VIEWS: ${twitchstreamer.body.stream.channel.views}`, bot.user.displayAvatarURL);
         
         message.channel.send(twitchEmbed);
-       
+
     });
 
 }
