@@ -52,8 +52,8 @@ bot.on("ready", async () => {
     
     console.log(`SNOW IS BACK ONLINE ON ${bot.guilds.size} ${snowservers}`);
 
-    bot.user.setStatus("ONLINE");
-    // bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZ_SNOW");
+//     bot.user.setStatus("ONLINE");
+    bot.user.setGame("SNOW | s!", "https://twitch.tv/WIZZ_SNOW");
 
 });
 
@@ -113,7 +113,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snowembed`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== "297832577782382592") return message.channel.send("YOU HAVE TO BE A SNOW DEVELOPER TO USE THIS COMMAND**!**");
 
         message.delete();
 
@@ -129,7 +129,7 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}snowsay`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== "297832577782382592") return message.channel.send("YOU HAVE TO BE A SNOW DEVELOPER TO USE THIS COMMAND**!**");
         
         message.delete();
 
@@ -142,7 +142,7 @@ bot.on("message", async message => {
     
     if(cmd === `${prefix}snowsend`) {
      
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== "297832577782382592") return message.channel.send("YOU HAVE TO BE A SNOW DEVELOPER TO USE THIS COMMAND**!**");
         
         message.delete();
         
@@ -162,17 +162,17 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}restart`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== "297832577782382592") return message.channel.send("YOU HAVE TO BE A SNOW DEVELOPER TO USE THIS COMMAND**!**");
 
         message.channel.send("RESTARTING **...**").then(restartMessage => restartMessage.delete(5000));
-        console.log("[//] RESTARTING ...");
+        console.log("[//] RESTARTING...");
 
         bot.destroy();
 
         setTimeout(function () {
 
             bot.login(token);
-            console.log("[!] RESTARTED");
+            console.log("[!] RESTARTED BY " + message.author.username + "!");
 
         }, 5000);
 
@@ -180,10 +180,11 @@ bot.on("message", async message => {
 
     if(cmd === `${prefix}shutdown`) {
 
-        if(message.author.id !== "297832577782382592") return;
+        if(message.author.id !== "297832577782382592") return message.channel.send("YOU HAVE TO BE A SNOW DEVELOPER TO USE THIS COMMAND**!**");
 
-        await message.channel.send("SHUTTING DOWN **...** SEE YA**!**");
-        await console.log("[!] SHUTTED DOWN");
+        await message.channel.send("SHUTTING DOWN**...** SEE YA**!**");
+        
+        await console.log("[!] SHUTTED DOWN BY " + message.author.username + "!");
 
         await process.exit();
 
