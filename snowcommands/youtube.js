@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     let youtubelink = `https://youtube.com/results?q=${youtube}`;
 
-    message.channel.send("SEARCHING ON YOUTUBE **...**").then((youtubeMessage) => {
+    message.channel.send("SEARCHING ON YOUTUBE**...**").then((youtubeMessage) => {
 
         youtubeMessage.edit("**FINISHED!**\n" + `<${youtubelink}>`);
 
