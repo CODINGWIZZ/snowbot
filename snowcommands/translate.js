@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
     let translatetext = args.slice(1).join(" ");
     if(!translatetext) return message.channel.send("PLESAE ENTER THE MESSAGE YOU WANT TO TRANSLATE**!**");
 
-    message.channel.send("TRANSLATING **...**").then((translateMessage) => {
+    message.channel.send("TRANSLATING**...**").then((translateMessage) => {
 
         translate(translatetext, {to: translatelanguage}).then(res => {
 
