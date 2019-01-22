@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     
     let mapslink = `https://google.com/maps?q=${maps}`;
     
-    message.channel.send("SEARCHING FOR RESULTS IN GOOGLE MAPS **...**").then((mapsMessage) => {
+    message.channel.send("SEARCHING ON GOOGLE MAPS**...**").then((mapsMessage) => {
     
         mapsMessage.edit("**FINISHED!**\n" + `<${mapslink}>`);
     
