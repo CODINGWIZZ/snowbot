@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor(twitchstreamer.body.stream.channel.display_name, twitchstreamer.body.stream.channel.logo)
         .setThumbnail(twitchstreamer.body.stream.channel.logo)
         .setURL(twitchurl)
-        .setDescription(`[${twitchstatus}](${twitchurl})`)
+        .setDescription(`[**${twitchstatus}**](${twitchurl})`)
         .addField("GAME", twitchstreamer.body.stream.game, true)
         .addField("VIEWERS", twitchstreamer.body.stream.viewers, true)
         .setImage(imageURL)
