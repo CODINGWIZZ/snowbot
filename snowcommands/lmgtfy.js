@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     
     let lmgtfylink = `https://lmgtfy.com/?q=${lmgtfy}`;
 
-    message.channel.send("GENERATING LMGTFY LINK **...**").then((lmgtfyMessage) => {
+    message.channel.send("GENERATING LMGTFY LINK**...**").then((lmgtfyMessage) => {
 
         lmgtfyMessage.edit("**FINISHED!**\n" + `<${lmgtfylink}>`);
 
