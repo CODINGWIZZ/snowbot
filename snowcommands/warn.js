@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     let warnreason = args.slice(1).join(" ");
     if(!warnreason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE WARN**!**");
     
-    message.channel.send(`${wUser} HAS BEEN **WARNED** BECAUSE**: ${warnreason}!**`);
+    message.channel.send(`${wUser} HAS BEEN **WARNED** BECAUSE: **${warnreason}!**`);
 
     let warnuserEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
