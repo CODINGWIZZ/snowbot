@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     if(!kickreason) return message.channel.send("PLEASE INCLUDE A REASON FOR THE KICK**!**");
 
     message.guild.member(kUser).kick(kickreason);
-    message.channel.send(`${kUser} HAS BEEN **KICKED** BY ${message.author} BECAUSE**: ${kickreason}**`);
+    message.channel.send(`${kUser} HAS BEEN **KICKED** BY ${message.author} BECAUSE: **${kickreason}**`);
 
     let kickEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
