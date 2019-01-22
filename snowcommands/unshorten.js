@@ -6,11 +6,11 @@ const unshorten = require("isgd");
 module.exports.run = async (bot, message, args) => {
 
     let isgdlink = args[0];
-    if(!isgdlink) return message.channel.send("PLEASE ENTER A ISGD LINK THAT YOU WANT TO UNSHORTEN**!**");
+    if(!isgdlink) return message.channel.send("PLEASE ENTER A VALID ISGD LINK THAT YOU WANT TO UNSHORTEN**!**");
 
     unshorten.lookup(isgdlink, function(res) {
 
-        message.channel.send("UNSHORTENING LINK **...**").then((unshortenMessage) => {
+        message.channel.send("UNSHORTENING ISGD LINK**...**").then((unshortenMessage) => {
 
             if(res.startsWith("Error:")) return unshortenMessage.edit("PLEASE ENTER A VALID ISGD LINK YOU WANT TO UNSHORTEN**!**");
 
