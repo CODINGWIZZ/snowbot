@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if(asciimessage.length > 17) return message.channel.send("THE MESSAGE YOU'VE ENTERED IS TOO LONG**!**");
     if(!asciimessage) return message.channel.send("PLEASE ENTER A MESSAGE THAT YOU WANT TO CONVERT TO ASCII**!**");
 
-    message.channel.send("GENERATING ASCII MESSAGE **...**").then((asciiMessage) => {
+    message.channel.send("GENERATING ASCII MESSAGE**...**").then((asciiMessage) => {
 
         ascii.font(asciimessage, "Doom", function(finished) {
 
