@@ -8,18 +8,14 @@ module.exports.run = async (bot, message, args) => {
     let encodemessage = encode(args.join(" "));
     if(!encodemessage) return message.channel.send("PLEASE ENTER A MESSAGE YOU WANT TO ENCODE**!**");
     
-    message.channel.send("ENCODING MESSAGE **...**").then((encodeMessage) => {
-    
-        let encodeEmbed = new Discord.RichEmbed()
-        .setColor(snow.blue)
-        .setDescription("ENCODE **" + snow.snowflake + "**")
-        .addField("INPUT", "```" + args.join(" ") + "```")
-        .addField("OUTPUT", "```" + encodemessage + "```")
-        .setFooter("ENCODE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
+    let encodeEmbed = new Discord.RichEmbed()
+    .setColor(snow.blue)
+    .setDescription("ENCODE **" + snow.snowflake + "**")
+    .addField("INPUT", "```" + args.join(" ") + "```")
+    .addField("OUTPUT", "```" + encodemessage + "```")
+    .setFooter("ENCODE | SNOW " + snow.snowflake, bot.user.displayAvatarURL);
         
-        encodeMessage.edit(encodeEmbed);
-    
-    });
+    message.channel.send(encodeEmbed);
     
 }
 
