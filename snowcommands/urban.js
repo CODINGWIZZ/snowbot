@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
     });
 
-    message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE **...**").then((urbanMessage) => {
+    message.channel.send("SEARCHING IN THE URBAN DICTIONARY DATABASE**...**").then((urbanMessage) => {
         
         if(res.definition.length + res.example.length > 2000) return urbanMessage.edit("THE WORD YOU WANT TO SEARCH IN THE URBAN DICTIONARY LIBRARY IS TO LONG FOR THE EMBED TO HANDLE**!**");
 
