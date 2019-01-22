@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let streamer = args[0];
     if(!streamer) return message.channel.send("PLEASE ENTER A TWITCH STREAMER**!**");
 
-    fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=01inpynid3uh12j55ds4otirzedvm1`).then((twitchstreamer) => {
+    fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
 
         let twitchstatus = twitchstreamer.body.stream.channel.status;
         let twitchurl = twitchstreamer.body.stream.channel.url;
