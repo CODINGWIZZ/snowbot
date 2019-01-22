@@ -9,11 +9,18 @@ module.exports.run = async (bot, message, args) => {
     if(!streamer) return message.channel.send("PLEASE ENTER A TWITCH STREAMER**!**");
 
     fetch.get(`https://api.twitch.tv/kraken/streams/${streamer}?client_id=${process.env.twitchclient}`).then((twitchstreamer) => {
+        
+        if(twitchstreamer.body.stream === null) {
+        
+            return message.channel.send("THIS STREAMER IS NOT STREAMING RIGHT NOW**!**");   
+         
+        }
 
         let twitchstatus = twitchstreamer.body.stream.channel.status;
         let twitchurl = twitchstreamer.body.stream.channel.url;
         
         let imageURL = `https://static-cdn.jtvnw.net/previews-ttv/live_user_${streamer.toLowerCase()}-320x180.jpg`;
+        
 
         let twitchEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
