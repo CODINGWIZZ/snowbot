@@ -3,7 +3,7 @@ const snow = require("../snow.json");
 
 module.exports.run = async (bot, message, args) => {
 
-    message.channel.send("PINGING **...**").then((pingMessage) => {
+    message.channel.send("PINGING**...**").then((pingMessage) => {
         
         let ping = pingMessage.createdTimestamp - message.createdTimestamp;
 
