@@ -3,7 +3,7 @@ const snow = require("../snow.json");
 
 module.exports.run = async (bot, message, args) => {
   
-    if(message.author.id !== "297832577782382592") return;
+    if(message.author.id !== "297832577782382592") return message.channel.send("YOU HAVE TO BE A SNOW DEVELOPER TO USE THIS COMMAND**!**");
     
     function clean(text) {
       
