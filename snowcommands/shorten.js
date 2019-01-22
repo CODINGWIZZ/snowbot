@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     shorten.shorten(link, function(res) {
 
-        message.channel.send("SHORTENING LINK **...**").then((shortenMessage) => {
+        message.channel.send("SHORTENING LINK**...**").then((shortenMessage) => {
 
             if(res.startsWith("Error:")) return shortenMessage.edit("PLEASE ENTER A VALID LINK**!**");
 
