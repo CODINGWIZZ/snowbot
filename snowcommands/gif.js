@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
     const res = await got(`http://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${encode(gif)}`, { json: true });
 
-    message.channel.send("SEARCHING GIFS **...**").then((gifMessage) => {
+    message.channel.send("SEARCHING GIFS**...**").then((gifMessage) => {
 
         if(!res || !res.body.data) {
             
