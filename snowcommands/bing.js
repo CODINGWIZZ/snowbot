@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     let binglink = `https://bing.com/search?q=${bing}`;
 
-    message.channel.send("SEARCHING **...**").then((bingMessage) => {
+    message.channel.send("SEARCHING ON BING**...**").then((bingMessage) => {
 
         bingMessage.edit("**FINISHED!**\n" + `<${binglink}>`);
 
