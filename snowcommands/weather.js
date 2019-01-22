@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
     weather.find({search: location, degreeType: "F"}, function(err, result) {
 
-        message.channel.send("GENERATING WEATHER INFO **...**").then((weatherMessage) => {
+        message.channel.send("GENERATING WEATHER INFO**...**").then((weatherMessage) => {
 
 //             if(!res || !res.body || !res.body.query || !res.body.query.results || !res.body.query.results.channel) {
 
