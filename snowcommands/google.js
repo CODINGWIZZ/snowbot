@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     let googlelink = `https://google.com/search?q=${google}`;
 
-    message.channel.send("SEARCHING **...**").then((googleMessage) => {
+    message.channel.send("SEARCHING ON GOOGLE**...**").then((googleMessage) => {
 
         googleMessage.edit("**FINISHED!**\n" + `<${googlelink}>`);
 
