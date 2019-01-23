@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
 
         let urbanEmbed = new Discord.RichEmbed()
         .setColor(snow.blue)
-        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + res.word)
+        .setDescription("URBAN DICTIONARY **" + snow.snowflake + "\n" + res.word + "**")
         .addField("DEFINITION", res.definition)
         .addField("EXAMPLE", res.example)
         .addField("UPVOTES [⇑]", res.thumbsUp, true)
