@@ -14,6 +14,12 @@ module.exports.run = async (bot, message, args) => {
     
     fetch.get(`http://omdbapi.com/?t=${movie}&y=${year}&apikey=65540ce6`).then((imdbmovie) => {
         
+        if(imdbmovie.body.respone === "false") {
+         
+            return message.channel.send("CAN'T FIND MOVIE**!**");
+            
+        }
+        
         let movieurl = `https://imdb.com/title/${imdbmovie.body.imdbID}`;
     
         let imdbEmbed = new Discord.RichEmbed()
