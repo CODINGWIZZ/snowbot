@@ -34,6 +34,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("HIGHEST ROLE", member.highestRole)
     .addField("STATUS", `${status[user.presence.status]}`)
     .addField("ACCOUNT CREATED", user.createdAt.toDateString().toUpperCase())
+    .addThumbnail(user.displayAvatarURL)
     .setFooter("USERINFO | SNOW ❆", bot.user.displayAvatarURL);
 
      message.channel.send(userinfoEmbed);
