@@ -17,9 +17,6 @@
     <img src="https://img.shields.io/github/stars/CODINGWIZZ/SNOW?colorA=DD858A&colorB=CF5058&style=for-the-badge">
   </a>
   <br>
-  <a href="https://travis-ci.com/CODINGWIZZ/SNOW">
-    <img src="https://img.shields.io/travis/com/CODINGWIZZ/SNOW?colorA=8ECAAD&color=5DB38A&style=for-the-badge">
-  </a>
 </p>
 
 <!-- README -->
