@@ -8,6 +8,9 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 
+const dotenv = require("dotenv");
+const env = dotenv.config();
+
 const moment = require("moment");
 const os = require("os");
 

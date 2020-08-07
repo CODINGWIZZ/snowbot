@@ -7,7 +7,7 @@ const Error = require("../../config/functions/server/error.js");
 
 module.exports.run = async(bot, message, args) => {
   let song = args.join(" ");
-  if(!song) return message.channel.send(new Error("No song entered."));
+  if(!song) return new Error("No song entered.");
 
   let searchEmbed = new Discord.RichEmbed()
   .setColor(snow.blue)

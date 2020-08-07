@@ -25,7 +25,7 @@ module.exports.run = async(bot, message, args) => {
   channel.send(feedbackEmbed).then(() => {
     let feedbackresultEmbed = new Discord.RichEmbed()
     .setColor(snow.blue)
-    .setDescription("Thanks for submitting the feedback.\nID: `" + id + "`");
+    .setDescription("Thanks for submitting the feedback. " + snow.dot + " ID: `" + id + "`");
 
     message.channel.send(feedbackresultEmbed);
   });

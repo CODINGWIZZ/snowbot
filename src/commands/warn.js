@@ -11,10 +11,13 @@ module.exports.run = async(bot, message, args) => {
   let user = message.guild.member(bot.users.find(user => user.id === args[0]) || message.mentions.users.first() || message.guild.member.get(args[0]) || bot.users.find(user => user.username.toLowerCase() === args[0].toLowerCase()));
   if(!user) return message.channel.send(new Error("User not found."));
 
-  if(user.id === message.author.id) return message.channel.send(new Error("You can't warn yourself."));
-  if(user.hasPermission("MANAGE_MESSAGES")) return message.channel.send(new Error("This user can't be warned."));
+  if(user.id === message.author.id) return message.channel.send(new Error("You can't use this command on yourself."));
 
-  let reason = args.slice(1).join(" ").replace(/\*/g, "");
+  let SNOW = message.guild.member(bot.users.find(user => user.id === bot.user.id));
+
+  if(user.highestRole.position >= SNOW.highestRole.position) return message.channel.send(new Error("SNOW must have the same or a  higher role than the user you want to warn."));
+
+  let reason = args.slice(1).join(" ");
   if(!reason) reason = "None";
 
   let warnUserEmbed = new Discord.RichEmbed()

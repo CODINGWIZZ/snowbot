@@ -1,49 +1,47 @@
 const Discord = require("discord.js");	
+const snow = require("../../config/snow.json");	
 
-module.exports.run = async (bot, message, args) => {
+const Error = require("../../config/functions/server/error.js");
 
-    const snow = require("../../config/snow.json");	
-    
-    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("YOU DON'T HAVE PERMISSIONS TO DO THAT**!**");
-    if(!args[0]) return message.channel.send("PLEASE MENTION A USER THAT YOU WANT TO BAN AND THEN A REASON**!**");	
+module.exports.run = async(bot, message, args) => {  
+  if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(new Error("You don't have permission to use this command."));
+  if(!args[0]) return message.channel.send(new Error("User not entered."));
 
-    let bUser = message.guild.member(bot.users.find(user => user.id === args[0]) || message.mentions.users.first() || message.guild.members.get(args[0]) || bot.users.find(user => user.username.toLowerCase() === args[0].toLowerCase()));	
-    if(!bUser) return message.channel.send("CAN'T FIND USER**!**");	
+  let user = message.guild.member(bot.users.find(user => user.id === args[0]) || message.mentions.users.first() || message.guild.members.get(args[0]) || bot.users.find(user => user.username.toLowerCase() === args[0].toLowerCase()));	
+  if(!user) return message.channel.send(new Error("User not found."));
 
-    if(bUser.id === message.author.id) return message.channel.send("YOU CAN'T BAN YOURSELF**!**");
+  if(user.id === message.author.id) return message.channel.send(new Error("You can't use this command on yourself."));
 
-    let snowbot = message.guild.member(bot.users.find(user => user.id === "417210018576990208"));
+  let SNOW = message.guild.member(bot.users.find(user => user.id === bot.user.id));
 
-    if(bUser.highestRole.position >= snowbot.highestRole.position) return message.channel.send("SNOW MUST HAVE A HIGHER OR THE SAME ROLE AS THE MEMBER YOU WANT TO BAN**!**");
+  if(user.highestRole.position >= SNOW.highestRole.position) return message.channel.send(new Error("SNOW must have the same or a higher role than the user you want to ban."));
+  if(user.bannable === false) return message.channel.send(new Error(user.tag + " can't be banned."));
 
-    if(bUser.bannable === false) return message.channel.send("THIS USER CAN'T BE BANNED**!**");
-	
-    let banreason = args.slice(1).join(" ").replace(/\*/g, "");	
-    if(!banreason) return message.channek.send("PLEASE INCLUDE A REASON FOR THE BAN**!**");
+  let reason = args.slice(1).join(" ");	
+  if(!reason) reason = "None";
 
-    message.guild.member(bUser).ban(banreason);	
-    message.channel.send(`${bUser} HAS BEEN BANNED BECAUSE: ` + "**\"" + banreason + "\"!**");	
+  message.guild.member(bUser).ban(banreason).then(() => {
+    message.channel.send(
+      new Discord.RichEmbed()
+      .setColor(snow.blue)
+      .setDescription("<@" + user.id + "> has been banned.")
+    );
+  });
 
-    let banEmbed = new Discord.RichEmbed()	
-    .setColor(snow.blue)	
-    .setTimestamp()	
-    .setDescription("BAN **" + snow.snowflake + "**")	
-    .addField("USER", bUser)	
-    .addField("MODERATOR", message.author)	
-    .addField("CHANNEL", message.channel)	
-    .addField("REASON", banreason)	
-    .setFooter("SNOW " + snow.snowflake, bot.user.displayAvatarURL);	
+  let banEmbed = new Discord.RichEmbed()	
+  .setColor(snow.blue)	
+  .setTitle("Ban")
+  .addField("User", "<@" + user.id + ">")	
+  .addField("Moderator", message.author)	
+  .addField("Rason", reason)	
+  .setFooter("SNOW", bot.user.displayAvatarURL);
 
-    let snowlog = message.guild.channels.find(channel => channel.name === "snow");
-    if(!snowlog) return;	
+  let channel = message.guild.channels.find(channel => channel.name === "snow");
+  if(!channel) return;	
 
-    snowlog.send(banEmbed);
-    
+  channel.send(banEmbed);
 }
 
 module.exports.config = {	
-    name: "ban",
-    usage: "s!ban < USER > < REASON >",
-    permission: "BAN_MEMBERS",
-    aliases: "NONE"
+  name: "ban"
 }

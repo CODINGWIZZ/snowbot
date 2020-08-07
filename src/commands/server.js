@@ -61,7 +61,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Owner", message.guild.owner)
   .addField("Vertification", vertification[message.guild.verificationLevel], true)
   .addField("Region", region, true)
-  .addField("Created", moment.utc(message.guild.createdAt).format("ddd DD MMM YYYY HH:mm:ss [UTC]").toUpperCase())
+  .addField("Created", moment.utc(message.guild.createdAt).format("ddd DD MMM YYYY HH:mm [UTC]").toUpperCase())
   .addField("Roles", message.guild.roles.size)
   .addField("Channels", channels.total + " " + snow.dot + " " + channels.categories + (channels.categories == 1 ? " category" : " categories") + "\n" + channels.textChannels + (channels.textChannels == 1 ? " textchannel" : " textchannels") + "\n" + channels.voiceChannels + (channels.voiceChannels == 1 ? " voicechannel" : " voicechannels"), true)
   .addField("Members", number(message.guild.memberCount) + " " + snow.dot + " " + number(online + idle + dnd) + " online\n" + message.guild.members.filter(user => !user.user.bot).size + (message.guild.members.filter(user => !user.user.bot).size == 1 ? " human" : " humans") + "\n" + message.guild.members.filter(user => user.user.bot).size + (message.guild.members.filter(user => user.user.bot).size == 1 ? " bot" : " bots"), true)
