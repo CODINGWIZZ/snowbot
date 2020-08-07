@@ -22,7 +22,7 @@ module.exports.run = async(bot, message, args) => {
   let user = bot.users.find(user => user.id === args[0]) || message.mentions.users.first() || message.guild.members.get(args[0]) || bot.users.find(user => user.username.toLowerCase() === args.join(" ").replace(/ .*/, "").toLowerCase());
   
   if(!args[0]) user = message.author;
-  if(!user) return message.channel.send(new Error("User not found."));
+  if(!user) return message.channel.send(new Error("User not found"));
 
   let member = message.guild.member(user);
 
@@ -42,7 +42,7 @@ module.exports.run = async(bot, message, args) => {
   .addField("User", user.tag)
   .addField("ID", user.id)
   .addField("Nickname", nickname)
-  .addField("Roles (" + `${member.roles.size - 1}` + ")", roles.join(" "))
+  .addField("Roles (" + member.roles.size - 1 + ")", roles.join(" "))
   .addField("Highest role", highestRole)
   .addField("Presence", `${status[user.presence.status]}`)
   .addField("Voicechannel", voiceChannel)

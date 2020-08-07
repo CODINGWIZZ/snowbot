@@ -4,7 +4,7 @@ const snow = require("../../config/snow.json");
 const Error = require("../../config/functions/server/error.js");
 
 module.exports.run = async(bot, message, args) => {
-  if(message.author.id !== "297832577782382592") return message.channel.send(new Error("You have to be a SNOW developer to use this command."));
+  if(message.author.id !== snow.wizz) return message.channel.send(new Error("You have to be a SNOW developer to use this command."));
   
   function clean(text) {
     if(typeof(text) === "string") {

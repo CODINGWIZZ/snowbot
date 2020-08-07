@@ -15,7 +15,6 @@ module.exports.run = async(bot, message, args) => {
       code: "AsciiArt"
     });
   });
-
 }
 
 module.exports.config = {
