@@ -6,7 +6,6 @@ const moment = require("moment");
 const Error = require("../../config/functions/server/error.js");
 
 module.exports.run = async(bot, message, args) => {
-  
   let online = bot.emojis.get("616306084566663188");
   let idle = bot.emojis.get("616307564484886550");
   let dnd = bot.emojis.get("616307564426035229");

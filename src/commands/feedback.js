@@ -21,14 +21,15 @@ module.exports.run = async(bot, message, args) => {
   .setFooter("SNOW", bot.user.displayAvatarURL);
 
   let channel = bot.channels.find(channel => channel.id === "483909335513301002");
+  if(channel) {
+    channel.send(feedbackEmbed).then(() => {
+      let feedbackresultEmbed = new Discord.RichEmbed()
+      .setColor(snow.blue)
+      .setDescription("Thanks for submitting the feedback. " + snow.dot + " ID: `" + id + "`");
   
-  channel.send(feedbackEmbed).then(() => {
-    let feedbackresultEmbed = new Discord.RichEmbed()
-    .setColor(snow.blue)
-    .setDescription("Thanks for submitting the feedback. " + snow.dot + " ID: `" + id + "`");
-
-    message.channel.send(feedbackresultEmbed);
-  });
+      return message.channel.send(feedbackresultEmbed);
+    });
+  }
 }
 
 module.exports.config = {
