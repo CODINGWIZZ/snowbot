@@ -1,7 +1,7 @@
 <!-- LOGO -->
 <p align="center">
-  <a href="https://dev.codingwizz.repl.co/snow">
-    <img src="https://wizz.glitch.me/images/snow.png" width="16%">
+  <a href="https://nightscript.ml/snow">
+    <img src="https://nightscript.ml/images/snow.png" width="16%">
   </a>
 </p>
 
@@ -30,13 +30,11 @@
   <br>
   Always up to date and 24/7 hosted
   <br>
-  <b>+170,000 USERS ♥</b>
-  <br>
   <br>
   <br>
   <b>INVITE</b>
   <br>
-  <a href="https://dev.codingwizz.repl.co/snow">Invite SNOW</a>
+  <a href="https://nightscript.ml/snow">Invite SNOW</a>
   <br>
   <b>❆</b>
   <br>
@@ -69,7 +67,7 @@
   <br>
   In association with
   <a href="https://github.com/nightscript">
-    <img src="https://dev.codingwizz.repl.co/images/nightscript.png" width="20px" align="center" title="nightscript">
+    <img src="https://nightscript.ml/images/nightscript.png" width="20px" align="center" title="nightscript">
   </a>
   <br>
   <br>
